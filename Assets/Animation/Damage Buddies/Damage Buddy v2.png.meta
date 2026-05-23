@@ -1,7 +1,58 @@
 fileFormatVersion: 2
-guid: a3508dc4cc8f9bb489e7c9cd5f9c747f
+guid: 59c7e8256be94974d9f186b61afa4d41
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4280330687280488263
+    second: Damage Buddy v2_0
+  - first:
+      213: -8572843181942578342
+    second: Damage Buddy v2_1
+  - first:
+      213: 7187263562948304314
+    second: Damage Buddy v2_2
+  - first:
+      213: 3784731961332339642
+    second: Damage Buddy v2_3
+  - first:
+      213: -2496786269569714818
+    second: Damage Buddy v2_4
+  - first:
+      213: 1149066572236643071
+    second: Damage Buddy v2_5
+  - first:
+      213: 4660121935124979474
+    second: Damage Buddy v2_6
+  - first:
+      213: 7985864243462650575
+    second: Damage Buddy v2_7
+  - first:
+      213: -1158477423633586083
+    second: Damage Buddy v2_8
+  - first:
+      213: 6360222924303643159
+    second: Damage Buddy v2_9
+  - first:
+      213: 3198420513871764812
+    second: Damage Buddy v2_10
+  - first:
+      213: 6592959346297642868
+    second: Damage Buddy v2_11
+  - first:
+      213: -3617100801143494614
+    second: Damage Buddy v2_12
+  - first:
+      213: -9008932991472584622
+    second: Damage Buddy v2_13
+  - first:
+      213: -1906728531127138251
+    second: Damage Buddy v2_14
+  - first:
+      213: -6143367054676797981
+    second: Damage Buddy v2_15
+  - first:
+      213: -4195476624711632453
+    second: Damage Buddy v2_16
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -39,7 +90,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -110,133 +161,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerIdleUp_0
+      name: Damage Buddy v2_0
       rect:
         serializedVersion: 2
-        x: 121
-        y: 730
-        width: 224
-        height: 495
+        x: 151
+        y: 926
+        width: 361
+        height: 557
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 94d742ca2f86cf4499b08c20b08d0c3b
-      internalID: -2122908655
+      spriteID: 74f9e88f41ac66b30800000000000000
+      internalID: 4280330687280488263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerIdleUp_1
+      name: Damage Buddy v2_1
       rect:
         serializedVersion: 2
-        x: 526
-        y: 722
-        width: 225
-        height: 503
+        x: 669
+        y: 924
+        width: 422
+        height: 552
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ac5668c1db96dcc448ed11b041fe595b
-      internalID: 2040112159
+      spriteID: a53ee210c84270980800000000000000
+      internalID: -8572843181942578342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerIdleUp_2
+      name: Damage Buddy v2_2
       rect:
         serializedVersion: 2
-        x: 928
-        y: 722
-        width: 222
-        height: 502
+        x: 1284
+        y: 924
+        width: 334
+        height: 523
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ea2e6f469e71af74694ff4368081b690
-      internalID: -1600707991
+      spriteID: abd54a8712a4eb360800000000000000
+      internalID: 7187263562948304314
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerIdleUp_3
+      name: Damage Buddy v2_4
       rect:
         serializedVersion: 2
-        x: 1326
-        y: 730
-        width: 222
-        height: 494
+        x: 1844
+        y: 924
+        width: 346
+        height: 520
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e7399d7f4f7ba6d43b13059630c95e8e
-      internalID: 1051909766
+      spriteID: e75793acd12a95dd0800000000000000
+      internalID: -2496786269569714818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerIdleUp_4
+      name: Damage Buddy v2_9
       rect:
         serializedVersion: 2
-        x: 1725
-        y: 730
-        width: 227
-        height: 486
+        x: 174
+        y: 217
+        width: 323
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d537d85b29c9bac44b09167aaefc9477
-      internalID: -1527339083
+      spriteID: 7123a6f3d0d044850800000000000000
+      internalID: 6360222924303643159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerIdleUp_5
+      name: Damage Buddy v2_10
       rect:
         serializedVersion: 2
-        x: 2122
-        y: 730
-        width: 225
-        height: 486
+        x: 721
+        y: 217
+        width: 352
+        height: 530
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9cf3db1b63f6fa14c8f155135c5046bc
-      internalID: 1799914986
+      spriteID: c4d16abe282136c20800000000000000
+      internalID: 3198420513871764812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Damage Buddy v2_11
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 217
+        width: 348
+        height: 531
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47f99ae2895ee7b50800000000000000
+      internalID: 6592959346297642868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Damage Buddy v2_12
+      rect:
+        serializedVersion: 2
+        x: 1850
+        y: 217
+        width: 353
+        height: 531
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a28af0f4cf97dcdc0800000000000000
+      internalID: -3617100801143494614
       vertices: []
       indices: 
       edges: []
@@ -245,7 +340,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a675ab1a0c2f6914195e8994d2ed07d8
+    spriteID: c77343efd99920f4a8932d1ff0710102
     internalID: 0
     vertices: []
     indices: 
@@ -257,12 +352,23 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      PlayerIdleUp_0: -2122908655
-      PlayerIdleUp_1: 2040112159
-      PlayerIdleUp_2: -1600707991
-      PlayerIdleUp_3: 1051909766
-      PlayerIdleUp_4: -1527339083
-      PlayerIdleUp_5: 1799914986
+      Damage Buddy v2_0: 4280330687280488263
+      Damage Buddy v2_1: -8572843181942578342
+      Damage Buddy v2_10: 3198420513871764812
+      Damage Buddy v2_11: 6592959346297642868
+      Damage Buddy v2_12: -3617100801143494614
+      Damage Buddy v2_13: -9008932991472584622
+      Damage Buddy v2_14: -1906728531127138251
+      Damage Buddy v2_15: -6143367054676797981
+      Damage Buddy v2_16: -4195476624711632453
+      Damage Buddy v2_2: 7187263562948304314
+      Damage Buddy v2_3: 3784731961332339642
+      Damage Buddy v2_4: -2496786269569714818
+      Damage Buddy v2_5: 1149066572236643071
+      Damage Buddy v2_6: 4660121935124979474
+      Damage Buddy v2_7: 7985864243462650575
+      Damage Buddy v2_8: -1158477423633586083
+      Damage Buddy v2_9: 6360222924303643159
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
