@@ -23142,7 +23142,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  arrowPrefab: {fileID: 1941144216055906376, guid: 953296221897c064fb4fba0cb3b1daa3, type: 3}
+  arrowPrefab: {fileID: 1242044121791210275, guid: 953296221897c064fb4fba0cb3b1daa3, type: 3}
   spawnUp: {fileID: 793448042}
   spawnDown: {fileID: 1191829695}
   spawnLeft: {fileID: 956213316}

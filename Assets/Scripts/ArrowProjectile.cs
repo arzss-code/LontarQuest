@@ -31,23 +31,36 @@ public class ArrowProjectile : MonoBehaviour
     {
         if(target == null)
         {
-            Destroy(
-                gameObject
-            );
-
+            Destroy(gameObject);
             return;
         }
 
-        Vector2 direction =
+        // sedikit naik ke tengah badan target
+        Transform aimPoint =
+        target.Find("AimPoint");
 
+        Vector2 targetPosition;
+
+        if(aimPoint != null)
+        {
+            targetPosition =
+            aimPoint.position;
+        }
+        else
+        {
+            targetPosition =
+            target.position;
+        }
+
+        Vector2 direction =
         (
-            target.position -
-            transform.position
+            targetPosition -
+            (Vector2)transform.position
         ).normalized;
 
 
+        // gerak
         transform.position +=
-
         (Vector3)
         (
             direction *
@@ -56,19 +69,20 @@ public class ArrowProjectile : MonoBehaviour
         );
 
 
+        // rotasi
         float angle =
-
         Mathf.Atan2(
             direction.y,
             direction.x
         ) * Mathf.Rad2Deg;
 
 
+        // sprite panah menghadap atas
         transform.rotation =
         Quaternion.Euler(
             0,
             0,
-            angle
+            angle - 90f
         );
     }
 
@@ -83,23 +97,18 @@ public class ArrowProjectile : MonoBehaviour
             return;
         }
 
-        DamageBuddyDamageTracker
-        buddy =
-
-        other
-        .GetComponentInParent
+        DamageBuddyDamageTracker buddy =
+        other.GetComponentInParent
         <DamageBuddyDamageTracker>();
 
 
         if(buddy != null)
         {
             buddy.TakeDamage(
-                damage
-            );
+            damage);
 
             Destroy(
-                gameObject
-            );
+            gameObject);
         }
     }
 }
