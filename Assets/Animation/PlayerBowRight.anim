@@ -21,19 +21,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -5596133489752751960, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
-    - time: 0.11666667
-      value: {fileID: -1894186687930549914, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
-    - time: 0.21666667
-      value: {fileID: -4587031449005059944, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
-    - time: 0.33333334
       value: {fileID: 2172348547445100968, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
-    - time: 0.45
+    - time: 0.11666667
       value: {fileID: 8327421993802742895, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
-    - time: 0.55
+    - time: 0.21666667
       value: {fileID: -299797763605567918, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
-    - time: 0.6666667
+    - time: 0.33333334
       value: {fileID: 5703406871443858745, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
+    - time: 0.46666667
+      value: {fileID: 2437948922800961892, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -56,19 +52,17 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -5596133489752751960, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
-    - {fileID: -1894186687930549914, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
-    - {fileID: -4587031449005059944, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
     - {fileID: 2172348547445100968, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
     - {fileID: 8327421993802742895, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
     - {fileID: -299797763605567918, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
     - {fileID: 5703406871443858745, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
+    - {fileID: 2437948922800961892, guid: 25732f07e5c02ce48a8a2ecc892a5630, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.68333334
+    m_StopTime: 0.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -88,7 +82,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.6666667
+  - time: 0.3
+    functionName: SpawnArrow
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
     functionName: EndAttack
     data: 
     objectReferenceParameter: {fileID: 0}

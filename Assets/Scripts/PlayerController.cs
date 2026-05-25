@@ -16,6 +16,16 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] LayerMask enemyLayer;
 
+    [SerializeField] GameObject arrowPrefab;
+
+    [SerializeField] Transform spawnUp;
+    [SerializeField] Transform spawnDown;
+    [SerializeField] Transform spawnLeft;
+    [SerializeField] Transform spawnRight;
+
+    [Header("Bow Indicator")]
+    [SerializeField] GameObject bowRangeIndicator;
+
     Rigidbody2D rb;
     Animator animator;
     SpriteRenderer spriteRenderer;
@@ -58,6 +68,18 @@ public class PlayerController : MonoBehaviour
         attackRight
         .GetComponent<PlayerAttackHitbox>()
         .DeactivateHitbox();
+
+
+        // sembunyikan indikator awal
+        bowRangeIndicator.SetActive(false);
+
+        // sesuaikan ukuran lingkaran
+        bowRangeIndicator.transform.localScale =
+        new Vector3(
+            attackRange * 2,
+            attackRange * 2,
+            1
+        );
     }
 
     void Update()
@@ -76,6 +98,7 @@ public class PlayerController : MonoBehaviour
 
         movement =
         movement.normalized;
+
 
         float speed =
         movement.magnitude;
@@ -112,15 +135,47 @@ public class PlayerController : MonoBehaviour
         }
 
 
+        //=================
         // MELEE
+        //=================
+
         if(Input.GetMouseButtonDown(0))
         {
             MeleeAttack();
         }
 
+
+        //=================
         // BOW
-        if(Input.GetMouseButtonDown(1))
+        //=================
+
+        // tahan klik kanan
+        // tahan klik kanan
+        if(Input.GetMouseButton(1))
         {
+            Transform enemy =
+            GetNearestEnemy();
+
+            // tampilkan indikator
+            // hanya jika TIDAK ada musuh
+            if(enemy == null)
+            {
+                bowRangeIndicator.SetActive(
+                true);
+            }
+            else
+            {
+                bowRangeIndicator.SetActive(
+                false);
+            }
+        }
+
+        // lepas klik kanan
+        if(Input.GetMouseButtonUp(1))
+        {
+            bowRangeIndicator.SetActive(
+            false);
+
             BowAttack();
         }
     }
@@ -131,6 +186,7 @@ public class PlayerController : MonoBehaviour
         if(isAttacking)
             return;
 
+
         rb.MovePosition(
         rb.position +
         movement *
@@ -138,6 +194,7 @@ public class PlayerController : MonoBehaviour
         Time.fixedDeltaTime
         );
     }
+
 
 
     //===================
@@ -155,6 +212,7 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger(
         "Attack");
     }
+
 
     void SetAttackDirection()
     {
@@ -197,6 +255,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     public void DeactivateHitbox()
     {
         if(currentHitbox != null)
@@ -207,12 +266,16 @@ public class PlayerController : MonoBehaviour
     }
 
 
+
     //===================
     // BOW
     //===================
 
     void BowAttack()
     {
+        bowRangeIndicator.SetActive(
+        false);
+
         currentTarget =
         GetNearestEnemy();
 
@@ -224,19 +287,24 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+
         isAttacking = true;
 
         movement = Vector2.zero;
 
+
         Vector2 direction =
+
         currentTarget.position -
         transform.position;
+
 
         direction =
         direction.normalized;
 
 
-        // AUTO ARAH MUSUH
+
+        // auto arah target
 
         if(Mathf.Abs(direction.x) >
            Mathf.Abs(direction.y))
@@ -247,7 +315,6 @@ public class PlayerController : MonoBehaviour
 
             lastMoveY = 0;
         }
-
         else
         {
             lastMoveX = 0;
@@ -270,6 +337,7 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger(
         "BowAttack");
     }
+
 
 
     Transform GetNearestEnemy()
@@ -302,6 +370,7 @@ public class PlayerController : MonoBehaviour
             enemy.transform.position
             );
 
+
             if(distance <
                nearestDistance)
             {
@@ -315,6 +384,45 @@ public class PlayerController : MonoBehaviour
 
         return nearest;
     }
+
+    public void SpawnArrow()
+{
+    if(currentTarget == null)
+        return;
+
+    Transform spawnPoint;
+
+    if(lastMoveY > 0)
+    {
+        spawnPoint = spawnUp;
+    }
+    else if(lastMoveY < 0)
+    {
+        spawnPoint = spawnDown;
+    }
+    else if(lastMoveX > 0)
+    {
+        spawnPoint = spawnRight;
+    }
+    else
+    {
+        spawnPoint = spawnLeft;
+    }
+
+    GameObject arrow =
+    Instantiate(
+        arrowPrefab,
+        spawnPoint.position,
+        Quaternion.identity
+    );
+
+    ArrowProjectile projectile =
+    arrow.GetComponent<ArrowProjectile>();
+
+    projectile.SetTarget(
+        currentTarget
+    );
+}
 
 
     //===================

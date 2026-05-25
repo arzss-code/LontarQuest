@@ -25,4 +25,13 @@ public class AnimationRelay : MonoBehaviour
         Debug.Log("EVENT MATI");
         player.DeactivateHitbox();
     }
+
+    public void SpawnArrow()
+    {
+        Debug.Log(
+        "SPAWN ARROW"
+        );
+
+        player.SpawnArrow();
+    }
 }
