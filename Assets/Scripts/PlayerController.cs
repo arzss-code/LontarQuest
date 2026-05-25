@@ -5,11 +5,16 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] float moveSpeed = 5f;
 
-    [Header("Attack Hitbox")]
+    [Header("Melee Hitbox")]
     [SerializeField] GameObject attackUp;
     [SerializeField] GameObject attackDown;
     [SerializeField] GameObject attackLeft;
     [SerializeField] GameObject attackRight;
+
+    [Header("Bow")]
+    [SerializeField] float attackRange = 5f;
+
+    [SerializeField] LayerMask enemyLayer;
 
     Rigidbody2D rb;
     Animator animator;
@@ -24,20 +29,35 @@ public class PlayerController : MonoBehaviour
 
     PlayerAttackHitbox currentHitbox;
 
+    Transform currentTarget;
+
     void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb =
+        GetComponent<Rigidbody2D>();
 
-        animator = GetComponentInChildren<Animator>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        animator =
+        GetComponentInChildren<Animator>();
 
-        isAttacking = false;
+        spriteRenderer =
+        GetComponentInChildren<SpriteRenderer>();
 
-        // Ambil komponen hitbox
-        attackUp.GetComponent<PlayerAttackHitbox>().DeactivateHitbox();
-        attackDown.GetComponent<PlayerAttackHitbox>().DeactivateHitbox();
-        attackLeft.GetComponent<PlayerAttackHitbox>().DeactivateHitbox();
-        attackRight.GetComponent<PlayerAttackHitbox>().DeactivateHitbox();
+
+        attackUp
+        .GetComponent<PlayerAttackHitbox>()
+        .DeactivateHitbox();
+
+        attackDown
+        .GetComponent<PlayerAttackHitbox>()
+        .DeactivateHitbox();
+
+        attackLeft
+        .GetComponent<PlayerAttackHitbox>()
+        .DeactivateHitbox();
+
+        attackRight
+        .GetComponent<PlayerAttackHitbox>()
+        .DeactivateHitbox();
     }
 
     void Update()
@@ -45,34 +65,66 @@ public class PlayerController : MonoBehaviour
         if(isAttacking)
             return;
 
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
 
-        movement = movement.normalized;
+        movement.x =
+        Input.GetAxisRaw(
+        "Horizontal");
 
-        float speed = movement.magnitude;
+        movement.y =
+        Input.GetAxisRaw(
+        "Vertical");
 
-        if(animator != null)
+        movement =
+        movement.normalized;
+
+        float speed =
+        movement.magnitude;
+
+
+        animator.SetFloat(
+        "MoveX",
+        movement.x);
+
+        animator.SetFloat(
+        "MoveY",
+        movement.y);
+
+        animator.SetFloat(
+        "Speed",
+        speed);
+
+
+        if(movement != Vector2.zero)
         {
-            animator.SetFloat("MoveX", movement.x);
-            animator.SetFloat("MoveY", movement.y);
-            animator.SetFloat("Speed", speed);
+            lastMoveX =
+            movement.x;
 
-            if(movement != Vector2.zero)
-            {
-                lastMoveX = movement.x;
-                lastMoveY = movement.y;
+            lastMoveY =
+            movement.y;
 
-                animator.SetFloat("LastMoveX", lastMoveX);
-                animator.SetFloat("LastMoveY", lastMoveY);
-            }
+            animator.SetFloat(
+            "LastMoveX",
+            lastMoveX);
+
+            animator.SetFloat(
+            "LastMoveY",
+            lastMoveY);
         }
 
+
+        // MELEE
         if(Input.GetMouseButtonDown(0))
         {
-            Attack();
+            MeleeAttack();
+        }
+
+        // BOW
+        if(Input.GetMouseButtonDown(1))
+        {
+            BowAttack();
         }
     }
+
 
     void FixedUpdate()
     {
@@ -80,14 +132,19 @@ public class PlayerController : MonoBehaviour
             return;
 
         rb.MovePosition(
-            rb.position +
-            movement *
-            moveSpeed *
-            Time.fixedDeltaTime
+        rb.position +
+        movement *
+        moveSpeed *
+        Time.fixedDeltaTime
         );
     }
 
-    void Attack()
+
+    //===================
+    // MELEE
+    //===================
+
+    void MeleeAttack()
     {
         isAttacking = true;
 
@@ -95,7 +152,8 @@ public class PlayerController : MonoBehaviour
 
         SetAttackDirection();
 
-        animator.SetTrigger("Attack");
+        animator.SetTrigger(
+        "Attack");
     }
 
     void SetAttackDirection()
@@ -103,48 +161,164 @@ public class PlayerController : MonoBehaviour
         if(lastMoveY > 0)
         {
             currentHitbox =
-                attackUp.GetComponent<PlayerAttackHitbox>();
+            attackUp.GetComponent
+            <PlayerAttackHitbox>();
         }
+
         else if(lastMoveY < 0)
         {
             currentHitbox =
-                attackDown.GetComponent<PlayerAttackHitbox>();
+            attackDown.GetComponent
+            <PlayerAttackHitbox>();
         }
+
         else if(lastMoveX > 0)
         {
             currentHitbox =
-                attackRight.GetComponent<PlayerAttackHitbox>();
+            attackRight.GetComponent
+            <PlayerAttackHitbox>();
         }
+
         else
         {
             currentHitbox =
-                attackLeft.GetComponent<PlayerAttackHitbox>();
+            attackLeft.GetComponent
+            <PlayerAttackHitbox>();
         }
     }
 
-    // Animation Event
+
     public void ActivateHitbox()
     {
-        Debug.Log("HITBOX ON");
-
         if(currentHitbox != null)
         {
-            currentHitbox.ActivateHitbox();
+            currentHitbox
+            .ActivateHitbox();
         }
     }
 
-    // Animation Event
     public void DeactivateHitbox()
     {
-        Debug.Log("HITBOX OFF");
-
         if(currentHitbox != null)
         {
-            currentHitbox.DeactivateHitbox();
+            currentHitbox
+            .DeactivateHitbox();
         }
     }
 
-    // Animation Event
+
+    //===================
+    // BOW
+    //===================
+
+    void BowAttack()
+    {
+        currentTarget =
+        GetNearestEnemy();
+
+        if(currentTarget == null)
+        {
+            Debug.Log(
+            "Tidak ada musuh");
+
+            return;
+        }
+
+        isAttacking = true;
+
+        movement = Vector2.zero;
+
+        Vector2 direction =
+        currentTarget.position -
+        transform.position;
+
+        direction =
+        direction.normalized;
+
+
+        // AUTO ARAH MUSUH
+
+        if(Mathf.Abs(direction.x) >
+           Mathf.Abs(direction.y))
+        {
+            lastMoveX =
+            Mathf.Sign(
+            direction.x);
+
+            lastMoveY = 0;
+        }
+
+        else
+        {
+            lastMoveX = 0;
+
+            lastMoveY =
+            Mathf.Sign(
+            direction.y);
+        }
+
+
+        animator.SetFloat(
+        "LastMoveX",
+        lastMoveX);
+
+        animator.SetFloat(
+        "LastMoveY",
+        lastMoveY);
+
+
+        animator.SetTrigger(
+        "BowAttack");
+    }
+
+
+    Transform GetNearestEnemy()
+    {
+        Collider2D[] enemies =
+
+        Physics2D
+        .OverlapCircleAll(
+            transform.position,
+            attackRange,
+            enemyLayer
+        );
+
+
+        Transform nearest =
+        null;
+
+        float nearestDistance =
+        Mathf.Infinity;
+
+
+        foreach(
+        Collider2D enemy
+        in enemies)
+        {
+            float distance =
+
+            Vector2.Distance(
+            transform.position,
+            enemy.transform.position
+            );
+
+            if(distance <
+               nearestDistance)
+            {
+                nearestDistance =
+                distance;
+
+                nearest =
+                enemy.transform;
+            }
+        }
+
+        return nearest;
+    }
+
+
+    //===================
+
     public void EndAttack()
     {
         DeactivateHitbox();
