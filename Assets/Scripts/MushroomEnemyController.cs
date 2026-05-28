@@ -17,6 +17,9 @@ public class MushroomEnemyController : MonoBehaviour
     [SerializeField]
     float patrolWaitTime = 1f;
 
+    [SerializeField]
+    LayerMask wallLayer;
+
     Rigidbody2D rb;
     Animator animator;
     SpriteRenderer spriteRenderer;
@@ -50,7 +53,9 @@ public class MushroomEnemyController : MonoBehaviour
 
 
         GameObject playerObject =
-        GameObject.FindGameObjectWithTag(
+
+        GameObject
+        .FindGameObjectWithTag(
             "Player"
         );
 
@@ -63,11 +68,13 @@ public class MushroomEnemyController : MonoBehaviour
         startPosition =
         transform.position;
 
+        // BENAR
         SetNewPatrolPoint();
 
         currentState =
         EnemyState.Patrol;
     }
+
 
 
     void FixedUpdate()
@@ -86,6 +93,10 @@ public class MushroomEnemyController : MonoBehaviour
 
         switch(currentState)
         {
+            //====================
+            // PATROL
+            //====================
+
             case EnemyState.Patrol:
 
                 Patrol();
@@ -99,6 +110,11 @@ public class MushroomEnemyController : MonoBehaviour
 
                 break;
 
+
+
+            //====================
+            // CHASE
+            //====================
 
             case EnemyState.Chase:
 
@@ -114,6 +130,11 @@ public class MushroomEnemyController : MonoBehaviour
                 break;
 
 
+
+            //====================
+            // RETURN
+            //====================
+
             case EnemyState.Return:
 
                 ReturnHome();
@@ -122,6 +143,11 @@ public class MushroomEnemyController : MonoBehaviour
         }
     }
 
+
+
+    //====================
+    // PATROL
+    //====================
 
     void Patrol()
     {
@@ -133,12 +159,15 @@ public class MushroomEnemyController : MonoBehaviour
         );
 
 
+        // bergerak ke target patroli
         if(distance > 0.2f)
         {
             MoveTo(
                 patrolTarget
             );
         }
+
+        // sampai tujuan
         else
         {
             StopMoving();
@@ -146,6 +175,7 @@ public class MushroomEnemyController : MonoBehaviour
             waitTimer +=
             Time.fixedDeltaTime;
 
+            // tunggu sebentar
             if(waitTimer >=
                patrolWaitTime)
             {
@@ -157,6 +187,11 @@ public class MushroomEnemyController : MonoBehaviour
     }
 
 
+
+    //====================
+    // CHASE
+    //====================
+
     void ChasePlayer()
     {
         MoveTo(
@@ -164,6 +199,11 @@ public class MushroomEnemyController : MonoBehaviour
         );
     }
 
+
+
+    //====================
+    // RETURN
+    //====================
 
     void ReturnHome()
     {
@@ -175,12 +215,15 @@ public class MushroomEnemyController : MonoBehaviour
         );
 
 
+        // kembali ke rumah
         if(distance > 0.2f)
         {
             MoveTo(
                 startPosition
             );
         }
+
+        // sampai rumah
         else
         {
             StopMoving();
@@ -193,6 +236,11 @@ public class MushroomEnemyController : MonoBehaviour
     }
 
 
+
+    //====================
+    // MOVE
+    //====================
+
     void MoveTo(
     Vector2 target)
     {
@@ -200,11 +248,12 @@ public class MushroomEnemyController : MonoBehaviour
 
         (
             target -
-            rb.position
+            (Vector2)transform.position
         ).normalized;
 
 
         rb.linearVelocity =
+
         direction *
         moveSpeed;
 
@@ -215,22 +264,26 @@ public class MushroomEnemyController : MonoBehaviour
         );
 
 
-        // flip kiri kanan
+        // sprite asli menghadap kiri
 
         if(direction.x > 0)
         {
-            // kanan
             spriteRenderer.flipX =
             true;
         }
+
         else if(direction.x < 0)
         {
-            // kiri (arah asli sprite)
             spriteRenderer.flipX =
             false;
         }
     }
 
+
+
+    //====================
+    // STOP
+    //====================
 
     void StopMoving()
     {
@@ -244,29 +297,63 @@ public class MushroomEnemyController : MonoBehaviour
     }
 
 
+
+    //====================
+    // RANDOM PATROL
+    //====================
+
     void SetNewPatrolPoint()
     {
-        float randomX =
+        int maxAttempts = 10;
 
-        Random.Range(
-            -patrolDistance,
-            patrolDistance
-        );
+        for(int i = 0; i < maxAttempts; i++)
+        {
+            Vector2 randomDirection =
+
+            Random.insideUnitCircle *
+            patrolDistance;
+
+            Vector2 candidatePoint =
+
+            startPosition +
+            randomDirection;
 
 
+            // cek apakah titik kena wall
+            Collider2D wallHit =
+
+            Physics2D.OverlapCircle(
+                candidatePoint,
+                0.2f,
+                wallLayer
+            );
+
+
+            // kalau aman
+            if(wallHit == null)
+            {
+                patrolTarget =
+                candidatePoint;
+
+                return;
+            }
+        }
+
+        // fallback
         patrolTarget =
-
-        startPosition +
-
-        new Vector2(
-            randomX,
-            0
-        );
+        startPosition;
     }
 
 
+
+    //====================
+    // GIZMOS
+    //====================
+
     void OnDrawGizmosSelected()
     {
+        // CHASE RANGE
+
         Gizmos.color =
         Color.red;
 
@@ -275,6 +362,8 @@ public class MushroomEnemyController : MonoBehaviour
             chaseRange
         );
 
+
+        // PATROL AREA
 
         Gizmos.color =
         Color.green;
