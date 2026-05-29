@@ -1,0 +1,350 @@
+fileFormatVersion: 2
+guid: 6aa0f1d73a8707d48a594d699ae3fa1c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3767500955436545593
+    second: Saka-DashUp_0
+  - first:
+      213: 5868695938536546174
+    second: Saka-DashUp_1
+  - first:
+      213: -758418928338409572
+    second: Saka-DashUp_2
+  - first:
+      213: -1351479237706204494
+    second: Saka-DashUp_3
+  - first:
+      213: -3833247857376003491
+    second: Saka-DashUp_4
+  - first:
+      213: -2227104393893175415
+    second: Saka-DashUp_5
+  - first:
+      213: 7073916406854343141
+    second: Saka-DashUp_6
+  - first:
+      213: 4009481920766551972
+    second: Saka-DashUp_7
+  - first:
+      213: 6151907940848310743
+    second: Saka-DashUp_8
+  - first:
+      213: 1009887500797881732
+    second: Saka-DashUp_9
+  - first:
+      213: -8688881597498612947
+    second: Saka-DashUp_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 140
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Saka-DashUp_0
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1197
+        width: 295
+        height: 710
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9367dbb682ad84430800000000000000
+      internalID: 3767500955436545593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saka-DashUp_1
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 1190
+        width: 302
+        height: 717
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7f9f37ccdbc17150800000000000000
+      internalID: 5868695938536546174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saka-DashUp_2
+      rect:
+        serializedVersion: 2
+        x: 1669
+        y: 1161
+        width: 300
+        height: 746
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c97e471c00e8975f0800000000000000
+      internalID: -758418928338409572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saka-DashUp_3
+      rect:
+        serializedVersion: 2
+        x: 2317
+        y: 1145
+        width: 309
+        height: 762
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bab4333bc49e3de0800000000000000
+      internalID: -1351479237706204494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saka-DashUp_4
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 147
+        width: 299
+        height: 852
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5a731512619dcac0800000000000000
+      internalID: -3833247857376003491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saka-DashUp_5
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 53
+        width: 296
+        height: 948
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98f194c7a5cb711e0800000000000000
+      internalID: -2227104393893175415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saka-DashUp_6
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 131
+        width: 293
+        height: 875
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e95c592e799b2260800000000000000
+      internalID: 7073916406854343141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saka-DashUp_8
+      rect:
+        serializedVersion: 2
+        x: 2325
+        y: 166
+        width: 289
+        height: 842
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d91b219da7ff5550800000000000000
+      internalID: 6151907940848310743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 979cef85f2b519d4eb7c7e28e9753261
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Saka-DashUp_0: 3767500955436545593
+      Saka-DashUp_1: 5868695938536546174
+      Saka-DashUp_10: -8688881597498612947
+      Saka-DashUp_2: -758418928338409572
+      Saka-DashUp_3: -1351479237706204494
+      Saka-DashUp_4: -3833247857376003491
+      Saka-DashUp_5: -2227104393893175415
+      Saka-DashUp_6: 7073916406854343141
+      Saka-DashUp_7: 4009481920766551972
+      Saka-DashUp_8: 6151907940848310743
+      Saka-DashUp_9: 1009887500797881732
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

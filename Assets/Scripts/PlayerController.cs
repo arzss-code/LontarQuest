@@ -26,6 +26,24 @@ public class PlayerController : MonoBehaviour
     [Header("Bow Indicator")]
     [SerializeField] GameObject bowRangeIndicator;
 
+    [Header("Dash")]
+    [SerializeField]
+    float dashSpeed = 12f;
+
+    [SerializeField]
+    float dashDuration = 0.2f;
+
+    [SerializeField]
+    float dashCooldown = 1f;
+
+    bool isDashing = false;
+
+    float dashTimer;
+
+    float dashCooldownTimer;
+
+    Vector2 dashDirection;
+
     Rigidbody2D rb;
     Animator animator;
     SpriteRenderer spriteRenderer;
@@ -84,7 +102,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(isAttacking)
+            // cooldown dash
+        if(dashCooldownTimer > 0)
+        {
+            dashCooldownTimer -=
+            Time.deltaTime;
+        }
+
+        if(isAttacking ||
+        isDashing)
             return;
 
 
@@ -119,19 +145,29 @@ public class PlayerController : MonoBehaviour
 
         if(movement != Vector2.zero)
         {
-            lastMoveX =
-            movement.x;
+            if(Mathf.Abs(movement.x) >
+            Mathf.Abs(movement.y))
+            {
+                lastMoveX =
+                Mathf.Sign(movement.x);
 
-            lastMoveY =
-            movement.y;
+                lastMoveY = 0;
+            }
+            else
+            {
+                lastMoveX = 0;
+
+                lastMoveY =
+                Mathf.Sign(movement.y);
+            }
 
             animator.SetFloat(
-            "LastMoveX",
-            lastMoveX);
+                "LastMoveX",
+                lastMoveX);
 
             animator.SetFloat(
-            "LastMoveY",
-            lastMoveY);
+                "LastMoveY",
+                lastMoveY);
         }
 
 
@@ -178,20 +214,48 @@ public class PlayerController : MonoBehaviour
 
             BowAttack();
         }
+
+        //=================
+        // DASH
+        //=================
+
+        if(Input.GetKeyDown(KeyCode.Space) ||
+        Input.GetKeyDown(KeyCode.LeftShift) ||
+        Input.GetKeyDown(KeyCode.RightShift))
+        {
+            Dash();
+        }
     }
 
 
     void FixedUpdate()
     {
+        if(isDashing)
+        {
+            rb.linearVelocity =
+            dashDirection *
+            dashSpeed;
+
+            dashTimer -=
+            Time.fixedDeltaTime;
+
+            if(dashTimer <= 0)
+            {
+                EndDash();
+            }
+
+            return;
+        }
+
         if(isAttacking)
             return;
 
 
         rb.MovePosition(
-        rb.position +
-        movement *
-        moveSpeed *
-        Time.fixedDeltaTime
+            rb.position +
+            movement *
+            moveSpeed *
+            Time.fixedDeltaTime
         );
     }
 
@@ -339,6 +403,66 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    //===================
+    // DASH
+    //===================
+    
+    
+   void Dash()
+    {
+
+        Debug.Log("DASH");
+        if(dashCooldownTimer > 0)
+            return;
+
+        if(isAttacking)
+            return;
+
+        if(isDashing)
+            return;
+
+        // jaga-jaga kalau player belum pernah bergerak
+        if(lastMoveX == 0 &&
+        lastMoveY == 0)
+        {
+            lastMoveY = -1;
+        }
+
+        isDashing = true;
+
+        movement =
+        Vector2.zero;
+
+        dashTimer =
+        dashDuration;
+
+        dashCooldownTimer =
+        dashCooldown;
+
+        if(Mathf.Abs(lastMoveX) >
+        Mathf.Abs(lastMoveY))
+        {
+            dashDirection =
+            new Vector2(
+                Mathf.Sign(lastMoveX),
+                0
+            );
+        }
+        else
+        {
+            dashDirection =
+            new Vector2(
+                0,
+                Mathf.Sign(lastMoveY)
+            );
+        }
+
+        animator.SetTrigger(
+            "Dash"
+        );
+    }
+
+
 
     Transform GetNearestEnemy()
     {
@@ -425,6 +549,14 @@ public class PlayerController : MonoBehaviour
 }
 
 
+    //===================
+    public void EndDash()
+    {
+        isDashing = false;
+
+        rb.linearVelocity =
+        Vector2.zero;
+    }
     //===================
 
     public void EndAttack()
