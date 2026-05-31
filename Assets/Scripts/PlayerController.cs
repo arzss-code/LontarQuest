@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    PlayerStats playerStats;
     [Header("Movement")]
     [SerializeField] float moveSpeed = 5f;
 
@@ -59,8 +60,13 @@ public class PlayerController : MonoBehaviour
 
     Transform currentTarget;
 
+    
+
     void Awake()
     {
+
+        playerStats =
+        GetComponent<PlayerStats>();
         rb =
         GetComponent<Rigidbody2D>();
 
@@ -351,31 +357,30 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        if(!playerStats.UseMana(25))
+        {
+            Debug.Log(
+            "Mana tidak cukup");
+
+            return;
+        }
 
         isAttacking = true;
 
         movement = Vector2.zero;
 
-
         Vector2 direction =
-
         currentTarget.position -
         transform.position;
-
 
         direction =
         direction.normalized;
 
-
-
-        // auto arah target
-
         if(Mathf.Abs(direction.x) >
-           Mathf.Abs(direction.y))
+        Mathf.Abs(direction.y))
         {
             lastMoveX =
-            Mathf.Sign(
-            direction.x);
+            Mathf.Sign(direction.x);
 
             lastMoveY = 0;
         }
@@ -384,10 +389,8 @@ public class PlayerController : MonoBehaviour
             lastMoveX = 0;
 
             lastMoveY =
-            Mathf.Sign(
-            direction.y);
+            Mathf.Sign(direction.y);
         }
-
 
         animator.SetFloat(
         "LastMoveX",
@@ -396,7 +399,6 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat(
         "LastMoveY",
         lastMoveY);
-
 
         animator.SetTrigger(
         "BowAttack");
@@ -410,8 +412,8 @@ public class PlayerController : MonoBehaviour
     
    void Dash()
     {
-
         Debug.Log("DASH");
+
         if(dashCooldownTimer > 0)
             return;
 
@@ -420,6 +422,16 @@ public class PlayerController : MonoBehaviour
 
         if(isDashing)
             return;
+
+        // Cek stamina
+        if(!playerStats.UseStamina(20))
+        {
+            Debug.Log(
+            "Stamina tidak cukup"
+            );
+
+            return;
+        }
 
         // jaga-jaga kalau player belum pernah bergerak
         if(lastMoveX == 0 &&
