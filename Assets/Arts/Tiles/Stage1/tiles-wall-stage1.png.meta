@@ -1,0 +1,2740 @@
+fileFormatVersion: 2
+guid: 5ab5673be9001324db977d1185bb7166
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1106133322338007463
+    second: tiles-wall-stage1_0
+  - first:
+      213: -932763326859661252
+    second: tiles-wall-stage1_1
+  - first:
+      213: -6126761431201323599
+    second: tiles-wall-stage1_2
+  - first:
+      213: 5847425562684386239
+    second: tiles-wall-stage1_3
+  - first:
+      213: -8394036881199910876
+    second: tiles-wall-stage1_4
+  - first:
+      213: -8505540663662540821
+    second: tiles-wall-stage1_5
+  - first:
+      213: -3098761106638595938
+    second: tiles-wall-stage1_6
+  - first:
+      213: 1069105587195550247
+    second: tiles-wall-stage1_7
+  - first:
+      213: 5297773150812817818
+    second: tiles-wall-stage1_8
+  - first:
+      213: -906313059444241455
+    second: tiles-wall-stage1_9
+  - first:
+      213: -4631069045155029590
+    second: tiles-wall-stage1_10
+  - first:
+      213: 6554469873553993466
+    second: tiles-wall-stage1_11
+  - first:
+      213: -2732218742347749572
+    second: tiles-wall-stage1_12
+  - first:
+      213: -6801458978938624168
+    second: tiles-wall-stage1_13
+  - first:
+      213: 8687500496449784493
+    second: tiles-wall-stage1_14
+  - first:
+      213: 2387855352291542924
+    second: tiles-wall-stage1_15
+  - first:
+      213: -8241035344140963861
+    second: tiles-wall-stage1_16
+  - first:
+      213: 5754743651327496185
+    second: tiles-wall-stage1_17
+  - first:
+      213: 3331224144620127783
+    second: tiles-wall-stage1_18
+  - first:
+      213: 1811909583015940674
+    second: tiles-wall-stage1_19
+  - first:
+      213: 790529144594111729
+    second: tiles-wall-stage1_20
+  - first:
+      213: 8067671492007444745
+    second: tiles-wall-stage1_21
+  - first:
+      213: 8833681320941136760
+    second: tiles-wall-stage1_22
+  - first:
+      213: 2143586555257960688
+    second: tiles-wall-stage1_23
+  - first:
+      213: -3201984660503903652
+    second: tiles-wall-stage1_24
+  - first:
+      213: 8520456440717185659
+    second: tiles-wall-stage1_25
+  - first:
+      213: 8592359305761493278
+    second: tiles-wall-stage1_26
+  - first:
+      213: -7383586227489195784
+    second: tiles-wall-stage1_27
+  - first:
+      213: -1924096795601862782
+    second: tiles-wall-stage1_28
+  - first:
+      213: 7691974904276760649
+    second: tiles-wall-stage1_29
+  - first:
+      213: 2760007954386229662
+    second: tiles-wall-stage1_30
+  - first:
+      213: -5517031570382763535
+    second: tiles-wall-stage1_31
+  - first:
+      213: 1541087549295838234
+    second: tiles-wall-stage1_32
+  - first:
+      213: 7944885958603970886
+    second: tiles-wall-stage1_33
+  - first:
+      213: 4395558307794450018
+    second: tiles-wall-stage1_34
+  - first:
+      213: -720055418040562918
+    second: tiles-wall-stage1_35
+  - first:
+      213: -9097488186126173870
+    second: tiles-wall-stage1_36
+  - first:
+      213: -8154551153797288022
+    second: tiles-wall-stage1_37
+  - first:
+      213: 484239521612941372
+    second: tiles-wall-stage1_38
+  - first:
+      213: -8239976499626983941
+    second: tiles-wall-stage1_39
+  - first:
+      213: 183106798010240984
+    second: tiles-wall-stage1_40
+  - first:
+      213: -2733549150586184135
+    second: tiles-wall-stage1_41
+  - first:
+      213: -5007713929845008364
+    second: tiles-wall-stage1_42
+  - first:
+      213: -178135694535376070
+    second: tiles-wall-stage1_43
+  - first:
+      213: -8207667091911999613
+    second: tiles-wall-stage1_44
+  - first:
+      213: -2333436450618473587
+    second: tiles-wall-stage1_45
+  - first:
+      213: 5077526009811370354
+    second: tiles-wall-stage1_46
+  - first:
+      213: 5686742964740395685
+    second: tiles-wall-stage1_47
+  - first:
+      213: -8488683642963937146
+    second: tiles-wall-stage1_48
+  - first:
+      213: -5399034178407285450
+    second: tiles-wall-stage1_49
+  - first:
+      213: 3398681876912984944
+    second: tiles-wall-stage1_50
+  - first:
+      213: 8844416218931889201
+    second: tiles-wall-stage1_51
+  - first:
+      213: 2479814804543115581
+    second: tiles-wall-stage1_52
+  - first:
+      213: 3778872113830128881
+    second: tiles-wall-stage1_53
+  - first:
+      213: 8535443914120414735
+    second: tiles-wall-stage1_54
+  - first:
+      213: 6818751615849501206
+    second: tiles-wall-stage1_55
+  - first:
+      213: -4319441357274110403
+    second: tiles-wall-stage1_56
+  - first:
+      213: -4678325518612619608
+    second: tiles-wall-stage1_57
+  - first:
+      213: -2362979017378122290
+    second: tiles-wall-stage1_58
+  - first:
+      213: 6755392316694540001
+    second: tiles-wall-stage1_59
+  - first:
+      213: -954486599006099166
+    second: tiles-wall-stage1_60
+  - first:
+      213: 7878768015587462927
+    second: tiles-wall-stage1_61
+  - first:
+      213: 3139480825100079533
+    second: tiles-wall-stage1_62
+  - first:
+      213: -7970512947924080022
+    second: tiles-wall-stage1_63
+  - first:
+      213: -3668269183213707943
+    second: tiles-wall-stage1_64
+  - first:
+      213: 3953144019373838564
+    second: tiles-wall-stage1_65
+  - first:
+      213: 428106604912514420
+    second: tiles-wall-stage1_66
+  - first:
+      213: -5504928988814906386
+    second: tiles-wall-stage1_67
+  - first:
+      213: 8711873557560605968
+    second: tiles-wall-stage1_68
+  - first:
+      213: -5147463602620857272
+    second: tiles-wall-stage1_69
+  - first:
+      213: 8896312725320042296
+    second: tiles-wall-stage1_70
+  - first:
+      213: 8303938709190986581
+    second: tiles-wall-stage1_71
+  - first:
+      213: 8408787173050043192
+    second: tiles-wall-stage1_72
+  - first:
+      213: 8619546952266788164
+    second: tiles-wall-stage1_73
+  - first:
+      213: 3104062665763822899
+    second: tiles-wall-stage1_74
+  - first:
+      213: -8874458167269014609
+    second: tiles-wall-stage1_75
+  - first:
+      213: 4166464756964206151
+    second: tiles-wall-stage1_76
+  - first:
+      213: -4780422183638903747
+    second: tiles-wall-stage1_77
+  - first:
+      213: -3504077886906177505
+    second: tiles-wall-stage1_78
+  - first:
+      213: 2591873615347188933
+    second: tiles-wall-stage1_79
+  - first:
+      213: 9140171430677752561
+    second: tiles-wall-stage1_80
+  - first:
+      213: -5029148391496993921
+    second: tiles-wall-stage1_81
+  - first:
+      213: 4125048313563619906
+    second: tiles-wall-stage1_82
+  - first:
+      213: -559661330529154558
+    second: tiles-wall-stage1_83
+  - first:
+      213: 5917342478867309471
+    second: tiles-wall-stage1_84
+  - first:
+      213: -2652560515674006037
+    second: tiles-wall-stage1_85
+  - first:
+      213: -6782068637543099777
+    second: tiles-wall-stage1_86
+  - first:
+      213: 853139298410388744
+    second: tiles-wall-stage1_87
+  - first:
+      213: 288380154429260702
+    second: tiles-wall-stage1_88
+  - first:
+      213: 3571985192415094154
+    second: tiles-wall-stage1_89
+  - first:
+      213: 6219058721264202495
+    second: tiles-wall-stage1_90
+  - first:
+      213: -5505853239878906738
+    second: tiles-wall-stage1_91
+  - first:
+      213: 6341921481288045265
+    second: tiles-wall-stage1_92
+  - first:
+      213: 2704385336815619820
+    second: tiles-wall-stage1_93
+  - first:
+      213: -1087253522497223135
+    second: tiles-wall-stage1_94
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tiles-wall-stage1_6
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 915
+        width: 54
+        height: 56
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e989203013dfef4d0800000000000000
+      internalID: -3098761106638595938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_7
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 915
+        width: 55
+        height: 56
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72a1d200ed936de00800000000000000
+      internalID: 1069105587195550247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_8
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 914
+        width: 120
+        height: 59
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a99ccc2ac98758940800000000000000
+      internalID: 5297773150812817818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_9
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 914
+        width: 205
+        height: 59
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1db478403112c63f0800000000000000
+      internalID: -906313059444241455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_10
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 901
+        width: 85
+        height: 72
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aad1a396d332bbfb0800000000000000
+      internalID: -4631069045155029590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_11
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 914
+        width: 138
+        height: 59
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afe6f287f9726fa50800000000000000
+      internalID: 6554469873553993466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_12
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 914
+        width: 117
+        height: 59
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c37a2bd9785351ad0800000000000000
+      internalID: -2732218742347749572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_13
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 914
+        width: 151
+        height: 59
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 857e8f5281d5c91a0800000000000000
+      internalID: -6801458978938624168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_14
+      rect:
+        serializedVersion: 2
+        x: 1201
+        y: 914
+        width: 155
+        height: 59
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daa4be45ca3309870800000000000000
+      internalID: 8687500496449784493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_15
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 895
+        width: 79
+        height: 78
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c874a50aacd532120800000000000000
+      internalID: 2387855352291542924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_16
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 799
+        width: 54
+        height: 56
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: befe9037406f1ad80800000000000000
+      internalID: -8241035344140963861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_17
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 764
+        width: 56
+        height: 91
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ff4fc66cd4fcdf40800000000000000
+      internalID: 5754743651327496185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_18
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 778
+        width: 119
+        height: 78
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 726894fb5b2ea3e20800000000000000
+      internalID: 3331224144620127783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_19
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 778
+        width: 79
+        height: 78
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2429ac47a22352910800000000000000
+      internalID: 1811909583015940674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_20
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 798
+        width: 95
+        height: 58
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fc1020911688fa00800000000000000
+      internalID: 790529144594111729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_21
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 766
+        width: 111
+        height: 90
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90146a54a7026ff60800000000000000
+      internalID: 8067671492007444745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_22
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 767
+        width: 104
+        height: 89
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87b23b9cb5a879a70800000000000000
+      internalID: 8833681320941136760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_23
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 766
+        width: 135
+        height: 90
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f834736d9c8fbd10800000000000000
+      internalID: 2143586555257960688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_24
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 765
+        width: 100
+        height: 91
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c524a668ae34093d0800000000000000
+      internalID: -3201984660503903652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_25
+      rect:
+        serializedVersion: 2
+        x: 1173
+        y: 766
+        width: 183
+        height: 90
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7213215dfdbe3670800000000000000
+      internalID: 8520456440717185659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_26
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 758
+        width: 79
+        height: 98
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e119f6aa3413e3770800000000000000
+      internalID: 8592359305761493278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_32
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 620
+        width: 54
+        height: 52
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a144e8706fa036510800000000000000
+      internalID: 1541087549295838234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_33
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 620
+        width: 56
+        height: 53
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 649149f7fa7e14e60800000000000000
+      internalID: 7944885958603970886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_34
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 620
+        width: 121
+        height: 53
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 266fa950ef8200d30800000000000000
+      internalID: 4395558307794450018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_35
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 620
+        width: 206
+        height: 53
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1bc81d8969d106f0800000000000000
+      internalID: -720055418040562918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_36
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 608
+        width: 91
+        height: 65
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 259f2adf1ba3fb180800000000000000
+      internalID: -9097488186126173870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_37
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 620
+        width: 118
+        height: 53
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaf29272ee635de80800000000000000
+      internalID: -8154551153797288022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_38
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 620
+        width: 112
+        height: 53
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c38c1ff774d58b600800000000000000
+      internalID: 484239521612941372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_39
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 619
+        width: 143
+        height: 54
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfdba26e709b5ad80800000000000000
+      internalID: -8239976499626983941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_40
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 619
+        width: 138
+        height: 54
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df0c53a9a68a8200800000000000000
+      internalID: 183106798010240984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_41
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 610
+        width: 50
+        height: 63
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93e5d3fc78b701ad0800000000000000
+      internalID: -2733549150586184135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_42
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 497
+        width: 54
+        height: 61
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41810da76b6018ab0800000000000000
+      internalID: -5007713929845008364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_43
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 489
+        width: 62
+        height: 71
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a33c6659782278df0800000000000000
+      internalID: -178135694535376070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_44
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 483
+        width: 120
+        height: 78
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38ffbe71442881e80800000000000000
+      internalID: -8207667091911999613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_45
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 483
+        width: 81
+        height: 77
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8300f649e7fd9fd0800000000000000
+      internalID: -2333436450618473587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_46
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 483
+        width: 94
+        height: 78
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2710d98010ff67640800000000000000
+      internalID: 5077526009811370354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_47
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 464
+        width: 107
+        height: 96
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a29d46c89e5bee40800000000000000
+      internalID: 5686742964740395685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_48
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 461
+        width: 103
+        height: 99
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6883772a333223a80800000000000000
+      internalID: -8488683642963937146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_49
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 461
+        width: 111
+        height: 99
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63d37d12507c215b0800000000000000
+      internalID: -5399034178407285450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_50
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 461
+        width: 63
+        height: 99
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 073d4f9f82b8a2f20800000000000000
+      internalID: 3398681876912984944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_51
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 460
+        width: 51
+        height: 100
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 134832ff0bdadba70800000000000000
+      internalID: 8844416218931889201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_52
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 461
+        width: 56
+        height: 99
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d311c851d621a6220800000000000000
+      internalID: 2479814804543115581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_53
+      rect:
+        serializedVersion: 2
+        x: 1256
+        y: 461
+        width: 61
+        height: 99
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fc697c8a20417430800000000000000
+      internalID: 3778872113830128881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_54
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 462
+        width: 64
+        height: 98
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06ca65640df37670800000000000000
+      internalID: 8535443914120414735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_61
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 279
+        width: 46
+        height: 122
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0fccc444c1075d60800000000000000
+      internalID: 7878768015587462927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_62
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 280
+        width: 52
+        height: 121
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da19d3f3d2da19b20800000000000000
+      internalID: 3139480825100079533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_63
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 293
+        width: 52
+        height: 107
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6a655514bc036190800000000000000
+      internalID: -7970512947924080022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_64
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 294
+        width: 56
+        height: 106
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95dd80afc90b71dc0800000000000000
+      internalID: -3668269183213707943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_65
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 293
+        width: 76
+        height: 107
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e0dcbc7a836cd630800000000000000
+      internalID: 3953144019373838564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_66
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 321
+        width: 60
+        height: 78
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4751fcf50b0f0f500800000000000000
+      internalID: 428106604912514420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_67
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 294
+        width: 65
+        height: 105
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eebefe340409a93b0800000000000000
+      internalID: -5504928988814906386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_68
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 293
+        width: 87
+        height: 106
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01db486d7dac6e870800000000000000
+      internalID: 8711873557560605968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_69
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 293
+        width: 73
+        height: 106
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 844088730298098b0800000000000000
+      internalID: -5147463602620857272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_70
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 330
+        width: 54
+        height: 69
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8370d7bf94d067b70800000000000000
+      internalID: 8896312725320042296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_71
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 333
+        width: 54
+        height: 66
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55bc1f582448d3370800000000000000
+      internalID: 8303938709190986581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_72
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 331
+        width: 43
+        height: 67
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83b4289d16302b470800000000000000
+      internalID: 8408787173050043192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_73
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 333
+        width: 40
+        height: 65
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44da9a6e848ce9770800000000000000
+      internalID: 8619546952266788164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_82
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 67
+        width: 46
+        height: 138
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 242a843f59d1f3930800000000000000
+      internalID: 4125048313563619906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_83
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 67
+        width: 52
+        height: 138
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20a894f2cfeab38f0800000000000000
+      internalID: -559661330529154558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_84
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 87
+        width: 44
+        height: 117
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f93273312af9e1250800000000000000
+      internalID: 5917342478867309471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_85
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 84
+        width: 67
+        height: 120
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed160ec346303bd0800000000000000
+      internalID: -2652560515674006037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_86
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 84
+        width: 55
+        height: 120
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f721de0d18041e1a0800000000000000
+      internalID: -6782068637543099777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_87
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 85
+        width: 74
+        height: 119
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80d5da9fba5f6db00800000000000000
+      internalID: 853139298410388744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_88
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 85
+        width: 67
+        height: 119
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e934709f838800400800000000000000
+      internalID: 288380154429260702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_89
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 113
+        width: 74
+        height: 91
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a856bd87b9d329130800000000000000
+      internalID: 3571985192415094154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_90
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 85
+        width: 73
+        height: 119
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff27f3ef4f88e4650800000000000000
+      internalID: 6219058721264202495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_91
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 134
+        width: 54
+        height: 70
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8c859b46a74793b0800000000000000
+      internalID: -5505853239878906738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_92
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 134
+        width: 55
+        height: 70
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d2d79d7cf7030850800000000000000
+      internalID: 6341921481288045265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_93
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 134
+        width: 42
+        height: 69
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cee8ba8a228e78520800000000000000
+      internalID: 2704385336815619820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_94
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 134
+        width: 43
+        height: 69
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 126c2ca8eac49e0f0800000000000000
+      internalID: -1087253522497223135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 991
+        width: 20
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e09d8f2f74ba3424f8c31bbe091870ed
+      internalID: 1106133322338007463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 991
+        width: 15
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e787a8e470d26c41b8c84b0d4f58d00
+      internalID: -932763326859661252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_2
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 991
+        width: 11
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db84fe8784e81e4408bbd8e120884a06
+      internalID: -6126761431201323599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_3
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 991
+        width: 10
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5d2a2c3ef371a6418ab1b2a43178573
+      internalID: 5847425562684386239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_4
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 991
+        width: 12
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a07f9e29a2864c14f9a9f333f8a77403
+      internalID: -8394036881199910876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_5
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 991
+        width: 30
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60de553841e688f469da6951f072dfc2
+      internalID: -8505540663662540821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_27
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 695
+        width: 20
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd19d3cda7a8f2d4b90f60576f53db62
+      internalID: -7383586227489195784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_28
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 695
+        width: 15
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3e2b81edd9fb784bac5eff24300e812
+      internalID: -1924096795601862782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_29
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 695
+        width: 11
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e50b32545f415aa4788f20d59bf948c7
+      internalID: 7691974904276760649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_30
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 695
+        width: 10
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3c650477ae4433489fda14f9e755a73
+      internalID: 2760007954386229662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_31
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 695
+        width: 13
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3aac70145dd5c478c8d648cae7d20c
+      internalID: -5517031570382763535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_55
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 695
+        width: 16
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c85ebc1c69217c1488c12fe69e417d99
+      internalID: 6818751615849501206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_56
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 695
+        width: 25
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c40e770cb25fd70419c59acbdeb54915
+      internalID: -4319441357274110403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_57
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 695
+        width: 16
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aba488d06224048489a29caa23355d79
+      internalID: -4678325518612619608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_58
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 695
+        width: 17
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5349e25bc99a034b8517248bb03100f
+      internalID: -2362979017378122290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_59
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 423
+        width: 21
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccfaf4a0cec558f48a5696ccd61db824
+      internalID: 6755392316694540001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_60
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 423
+        width: 15
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 533ee97a600d6e746ab9327d6168eade
+      internalID: -954486599006099166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_74
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 423
+        width: 10
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f2d4cfb8892c72438382b74f9b81498
+      internalID: 3104062665763822899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_75
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 423
+        width: 10
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deab5c5177f08c744bfb9e20e44e3328
+      internalID: -8874458167269014609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_76
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 423
+        width: 11
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d76e8dc3c2319d443a4b8ef5e3fff2ec
+      internalID: 4166464756964206151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_77
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 423
+        width: 11
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 883562ad5cb19194ca4757c0012e1e90
+      internalID: -4780422183638903747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_78
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 423
+        width: 24
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 778cc081cdf341143b2898a7582b84f2
+      internalID: -3504077886906177505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_79
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 226
+        width: 20
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54b05674392526744a98a2c05650f8c7
+      internalID: 2591873615347188933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_80
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 226
+        width: 14
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6059b1c3ad42b784e93ece9b64db9826
+      internalID: 9140171430677752561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_81
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 226
+        width: 10
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8bf3bcd19ffc244da0b393b21bb3938
+      internalID: -5029148391496993921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_95
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 226
+        width: 10
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82727afa686752d459faa768b0b819b6
+      internalID: 816162338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_96
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 226
+        width: 13
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4cff623adb6fbc4fbc7c37c3cea5759
+      internalID: -362544405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_97
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 226
+        width: 5
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cd354d9187deb44bb8889239ffa723a
+      internalID: -468589663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_98
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 226
+        width: 15
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 725d9afc269ae7e49b59476fb60ae9d1
+      internalID: -1269289275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_99
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 226
+        width: 14
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41065a7c95ad89d4fa67fdc786229136
+      internalID: -1469053061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-wall-stage1_100
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 226
+        width: 12
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1835d5f6c162e1a4b984244f68f4fda7
+      internalID: 354280460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0fd73561b81ef5247a1f3d39443c6485
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":4,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      tiles-wall-stage1_0: 1106133322338007463
+      tiles-wall-stage1_1: -932763326859661252
+      tiles-wall-stage1_10: -4631069045155029590
+      tiles-wall-stage1_100: 354280460
+      tiles-wall-stage1_11: 6554469873553993466
+      tiles-wall-stage1_12: -2732218742347749572
+      tiles-wall-stage1_13: -6801458978938624168
+      tiles-wall-stage1_14: 8687500496449784493
+      tiles-wall-stage1_15: 2387855352291542924
+      tiles-wall-stage1_16: -8241035344140963861
+      tiles-wall-stage1_17: 5754743651327496185
+      tiles-wall-stage1_18: 3331224144620127783
+      tiles-wall-stage1_19: 1811909583015940674
+      tiles-wall-stage1_2: -6126761431201323599
+      tiles-wall-stage1_20: 790529144594111729
+      tiles-wall-stage1_21: 8067671492007444745
+      tiles-wall-stage1_22: 8833681320941136760
+      tiles-wall-stage1_23: 2143586555257960688
+      tiles-wall-stage1_24: -3201984660503903652
+      tiles-wall-stage1_25: 8520456440717185659
+      tiles-wall-stage1_26: 8592359305761493278
+      tiles-wall-stage1_27: -7383586227489195784
+      tiles-wall-stage1_28: -1924096795601862782
+      tiles-wall-stage1_29: 7691974904276760649
+      tiles-wall-stage1_3: 5847425562684386239
+      tiles-wall-stage1_30: 2760007954386229662
+      tiles-wall-stage1_31: -5517031570382763535
+      tiles-wall-stage1_32: 1541087549295838234
+      tiles-wall-stage1_33: 7944885958603970886
+      tiles-wall-stage1_34: 4395558307794450018
+      tiles-wall-stage1_35: -720055418040562918
+      tiles-wall-stage1_36: -9097488186126173870
+      tiles-wall-stage1_37: -8154551153797288022
+      tiles-wall-stage1_38: 484239521612941372
+      tiles-wall-stage1_39: -8239976499626983941
+      tiles-wall-stage1_4: -8394036881199910876
+      tiles-wall-stage1_40: 183106798010240984
+      tiles-wall-stage1_41: -2733549150586184135
+      tiles-wall-stage1_42: -5007713929845008364
+      tiles-wall-stage1_43: -178135694535376070
+      tiles-wall-stage1_44: -8207667091911999613
+      tiles-wall-stage1_45: -2333436450618473587
+      tiles-wall-stage1_46: 5077526009811370354
+      tiles-wall-stage1_47: 5686742964740395685
+      tiles-wall-stage1_48: -8488683642963937146
+      tiles-wall-stage1_49: -5399034178407285450
+      tiles-wall-stage1_5: -8505540663662540821
+      tiles-wall-stage1_50: 3398681876912984944
+      tiles-wall-stage1_51: 8844416218931889201
+      tiles-wall-stage1_52: 2479814804543115581
+      tiles-wall-stage1_53: 3778872113830128881
+      tiles-wall-stage1_54: 8535443914120414735
+      tiles-wall-stage1_55: 6818751615849501206
+      tiles-wall-stage1_56: -4319441357274110403
+      tiles-wall-stage1_57: -4678325518612619608
+      tiles-wall-stage1_58: -2362979017378122290
+      tiles-wall-stage1_59: 6755392316694540001
+      tiles-wall-stage1_6: -3098761106638595938
+      tiles-wall-stage1_60: -954486599006099166
+      tiles-wall-stage1_61: 7878768015587462927
+      tiles-wall-stage1_62: 3139480825100079533
+      tiles-wall-stage1_63: -7970512947924080022
+      tiles-wall-stage1_64: -3668269183213707943
+      tiles-wall-stage1_65: 3953144019373838564
+      tiles-wall-stage1_66: 428106604912514420
+      tiles-wall-stage1_67: -5504928988814906386
+      tiles-wall-stage1_68: 8711873557560605968
+      tiles-wall-stage1_69: -5147463602620857272
+      tiles-wall-stage1_7: 1069105587195550247
+      tiles-wall-stage1_70: 8896312725320042296
+      tiles-wall-stage1_71: 8303938709190986581
+      tiles-wall-stage1_72: 8408787173050043192
+      tiles-wall-stage1_73: 8619546952266788164
+      tiles-wall-stage1_74: 3104062665763822899
+      tiles-wall-stage1_75: -8874458167269014609
+      tiles-wall-stage1_76: 4166464756964206151
+      tiles-wall-stage1_77: -4780422183638903747
+      tiles-wall-stage1_78: -3504077886906177505
+      tiles-wall-stage1_79: 2591873615347188933
+      tiles-wall-stage1_8: 5297773150812817818
+      tiles-wall-stage1_80: 9140171430677752561
+      tiles-wall-stage1_81: -5029148391496993921
+      tiles-wall-stage1_82: 4125048313563619906
+      tiles-wall-stage1_83: -559661330529154558
+      tiles-wall-stage1_84: 5917342478867309471
+      tiles-wall-stage1_85: -2652560515674006037
+      tiles-wall-stage1_86: -6782068637543099777
+      tiles-wall-stage1_87: 853139298410388744
+      tiles-wall-stage1_88: 288380154429260702
+      tiles-wall-stage1_89: 3571985192415094154
+      tiles-wall-stage1_9: -906313059444241455
+      tiles-wall-stage1_90: 6219058721264202495
+      tiles-wall-stage1_91: -5505853239878906738
+      tiles-wall-stage1_92: 6341921481288045265
+      tiles-wall-stage1_93: 2704385336815619820
+      tiles-wall-stage1_94: -1087253522497223135
+      tiles-wall-stage1_95: 816162338
+      tiles-wall-stage1_96: -362544405
+      tiles-wall-stage1_97: -468589663
+      tiles-wall-stage1_98: -1269289275
+      tiles-wall-stage1_99: -1469053061
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

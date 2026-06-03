@@ -1,0 +1,1690 @@
+fileFormatVersion: 2
+guid: 365cc93d927b99a4e9e2749803f02fc9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1133639193532364101
+    second: tiles-dungeon-stage1_0
+  - first:
+      213: 7059127162973447360
+    second: tiles-dungeon-stage1_1
+  - first:
+      213: 1243495819202205271
+    second: tiles-dungeon-stage1_2
+  - first:
+      213: -3140421230788746868
+    second: tiles-dungeon-stage1_3
+  - first:
+      213: 3762693382287130185
+    second: tiles-dungeon-stage1_4
+  - first:
+      213: 3731897104215261720
+    second: tiles-dungeon-stage1_5
+  - first:
+      213: 2914948926854318026
+    second: tiles-dungeon-stage1_6
+  - first:
+      213: -1171825832351865778
+    second: tiles-dungeon-stage1_7
+  - first:
+      213: -8522817840738874401
+    second: tiles-dungeon-stage1_8
+  - first:
+      213: -5720013994714297263
+    second: tiles-dungeon-stage1_9
+  - first:
+      213: 2095292242583076912
+    second: tiles-dungeon-stage1_10
+  - first:
+      213: 59589796311411433
+    second: tiles-dungeon-stage1_11
+  - first:
+      213: -7103095685926591742
+    second: tiles-dungeon-stage1_12
+  - first:
+      213: 3496962617378059496
+    second: tiles-dungeon-stage1_13
+  - first:
+      213: 5803623066385713291
+    second: tiles-dungeon-stage1_14
+  - first:
+      213: 3198697568501654153
+    second: tiles-dungeon-stage1_15
+  - first:
+      213: -2164459555047691959
+    second: tiles-dungeon-stage1_16
+  - first:
+      213: 2887562128394429809
+    second: tiles-dungeon-stage1_17
+  - first:
+      213: -3267501266729888278
+    second: tiles-dungeon-stage1_18
+  - first:
+      213: 501449773629431106
+    second: tiles-dungeon-stage1_19
+  - first:
+      213: -7251700212797059325
+    second: tiles-dungeon-stage1_20
+  - first:
+      213: -8136529609526669731
+    second: tiles-dungeon-stage1_21
+  - first:
+      213: 1455661185479628485
+    second: tiles-dungeon-stage1_22
+  - first:
+      213: 5327874644103677803
+    second: tiles-dungeon-stage1_23
+  - first:
+      213: -7405297725184816003
+    second: tiles-dungeon-stage1_24
+  - first:
+      213: 2652340780696706679
+    second: tiles-dungeon-stage1_25
+  - first:
+      213: 8304105418937481288
+    second: tiles-dungeon-stage1_26
+  - first:
+      213: 4779832938611168080
+    second: tiles-dungeon-stage1_27
+  - first:
+      213: -2978821157830018430
+    second: tiles-dungeon-stage1_28
+  - first:
+      213: 3493532132074316582
+    second: tiles-dungeon-stage1_29
+  - first:
+      213: 8070568416348022741
+    second: tiles-dungeon-stage1_30
+  - first:
+      213: -2939255058588776195
+    second: tiles-dungeon-stage1_31
+  - first:
+      213: 3282235804591956805
+    second: tiles-dungeon-stage1_32
+  - first:
+      213: -3134448773889779973
+    second: tiles-dungeon-stage1_33
+  - first:
+      213: 5268317895029203789
+    second: tiles-dungeon-stage1_34
+  - first:
+      213: 4877532136296202031
+    second: tiles-dungeon-stage1_35
+  - first:
+      213: 8921992322200223441
+    second: tiles-dungeon-stage1_36
+  - first:
+      213: 127789882867287274
+    second: tiles-dungeon-stage1_37
+  - first:
+      213: -7351152595478374496
+    second: tiles-dungeon-stage1_38
+  - first:
+      213: -4331857260064765835
+    second: tiles-dungeon-stage1_39
+  - first:
+      213: -20051664601144420
+    second: tiles-dungeon-stage1_40
+  - first:
+      213: 8566023532756826690
+    second: tiles-dungeon-stage1_41
+  - first:
+      213: 3218125645478984937
+    second: tiles-dungeon-stage1_42
+  - first:
+      213: -8492947897043019181
+    second: tiles-dungeon-stage1_43
+  - first:
+      213: 3168849566412633344
+    second: tiles-dungeon-stage1_44
+  - first:
+      213: 1675069052488867090
+    second: tiles-dungeon-stage1_45
+  - first:
+      213: 5368613291578695779
+    second: tiles-dungeon-stage1_46
+  - first:
+      213: -7586086145573283530
+    second: tiles-dungeon-stage1_47
+  - first:
+      213: -3659728481034657488
+    second: tiles-dungeon-stage1_48
+  - first:
+      213: 4119880973280444236
+    second: tiles-dungeon-stage1_49
+  - first:
+      213: 8671402533308354832
+    second: tiles-dungeon-stage1_50
+  - first:
+      213: 6150311877972477499
+    second: tiles-dungeon-stage1_51
+  - first:
+      213: -3968738649040176575
+    second: tiles-dungeon-stage1_52
+  - first:
+      213: -6029841033687648480
+    second: tiles-dungeon-stage1_53
+  - first:
+      213: 3303227279486081267
+    second: tiles-dungeon-stage1_54
+  - first:
+      213: -518351176744388765
+    second: tiles-dungeon-stage1_55
+  - first:
+      213: 4187835420377199661
+    second: tiles-dungeon-stage1_56
+  - first:
+      213: 6982340274778460838
+    second: tiles-dungeon-stage1_57
+  - first:
+      213: -4664525316333449135
+    second: tiles-dungeon-stage1_58
+  - first:
+      213: -7892169997791881337
+    second: tiles-dungeon-stage1_59
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_0
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 882
+        width: 265
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bba0b06e8218440f0800000000000000
+      internalID: -1133639193532364101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_1
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 885
+        width: 150
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c4e75df0ce07f160800000000000000
+      internalID: 7059127162973447360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_2
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 923
+        width: 95
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7561b37fbd8c14110800000000000000
+      internalID: 1243495819202205271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_3
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 923
+        width: 97
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c81edbd778bfa64d0800000000000000
+      internalID: -3140421230788746868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_4
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 924
+        width: 148
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94effe112b5c73430800000000000000
+      internalID: 3762693382287130185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_5
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 924
+        width: 133
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8124f03d4ac5ac330800000000000000
+      internalID: 3731897104215261720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_6
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 923
+        width: 146
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac7ce8bda9af37820800000000000000
+      internalID: 2914948926854318026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_7
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 924
+        width: 124
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e446a043d96dcbfe0800000000000000
+      internalID: -1171825832351865778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_8
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 754
+        width: 110
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdbc565645ed8b980800000000000000
+      internalID: -8522817840738874401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_9
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 754
+        width: 115
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15c8ac6e39d6e90b0800000000000000
+      internalID: -5720013994714297263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_10
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 754
+        width: 130
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 030cbcb7139f31d10800000000000000
+      internalID: 2095292242583076912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_11
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 756
+        width: 123
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ea2161aa94b3d000800000000000000
+      internalID: 59589796311411433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_12
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 757
+        width: 106
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2036cb28b1cbc6d90800000000000000
+      internalID: -7103095685926591742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_13
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 758
+        width: 140
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e4b3a909f4b78030800000000000000
+      internalID: 3496962617378059496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_14
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 751
+        width: 172
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b880f221e6c9a8050800000000000000
+      internalID: 5803623066385713291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_15
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 757
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 982627abd7e046c20800000000000000
+      internalID: 3198697568501654153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_16
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 757
+        width: 98
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 949aea2a08b46f1e0800000000000000
+      internalID: -2164459555047691959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_17
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 576
+        width: 153
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17522d1f47ea21820800000000000000
+      internalID: 2887562128394429809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_18
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 576
+        width: 148
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae51d6de8e087a2d0800000000000000
+      internalID: -3267501266729888278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_19
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 576
+        width: 150
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24dd1ed89e185f600800000000000000
+      internalID: 501449773629431106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_20
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 576
+        width: 144
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30f4b9ed319cc5b90800000000000000
+      internalID: -7251700212797059325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_21
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 575
+        width: 131
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5e07b7ed6d351f80800000000000000
+      internalID: -8136529609526669731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_22
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 576
+        width: 165
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c656d1c22c833410800000000000000
+      internalID: 1455661185479628485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_23
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 578
+        width: 135
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b674c91b2c960f940800000000000000
+      internalID: 5327874644103677803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_24
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 577
+        width: 124
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7cc95234f81b3990800000000000000
+      internalID: -7405297725184816003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_25
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 428
+        width: 109
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77e95b823e10fc420800000000000000
+      internalID: 2652340780696706679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_26
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 427
+        width: 93
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8483a29a1eb1e3370800000000000000
+      internalID: 8304105418937481288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_27
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 429
+        width: 79
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05351a7abb0655240800000000000000
+      internalID: 4779832938611168080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_28
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 450
+        width: 84
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28abf1e70f919a6d0800000000000000
+      internalID: -2978821157830018430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_29
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 450
+        width: 82
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 623e3bfe6f48b7030800000000000000
+      internalID: 3493532132074316582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_30
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 450
+        width: 69
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d729e7073b600070800000000000000
+      internalID: 8070568416348022741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_31
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 448
+        width: 59
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df8cb88d81ba537d0800000000000000
+      internalID: -2939255058588776195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_32
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 447
+        width: 81
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 543a5c10318dc8d20800000000000000
+      internalID: 3282235804591956805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_33
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 419
+        width: 78
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf614a972733084d0800000000000000
+      internalID: -3134448773889779973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_34
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 419
+        width: 78
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d43ac097633dc1940800000000000000
+      internalID: 5268317895029203789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_35
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 408
+        width: 93
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2fbc7cb2a970b340800000000000000
+      internalID: 4877532136296202031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_36
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 408
+        width: 67
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1deb18d0fb841db70800000000000000
+      internalID: 8921992322200223441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_37
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 332
+        width: 53
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae4813ea83006c100800000000000000
+      internalID: 127789882867287274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_38
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 328
+        width: 55
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a712d899a57bf990800000000000000
+      internalID: -7351152595478374496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_39
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 328
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 578842ce5c622e3c0800000000000000
+      internalID: -4331857260064765835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_40
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 325
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c932b460e13c8bff0800000000000000
+      internalID: -20051664601144420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_41
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 326
+        width: 42
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24a7b9fa401a0e670800000000000000
+      internalID: 8566023532756826690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_42
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 324
+        width: 51
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec7955693419ac20800000000000000
+      internalID: 3218125645478984937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_43
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 322
+        width: 51
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35a99dc92ecf22a80800000000000000
+      internalID: -8492947897043019181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_44
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 325
+        width: 85
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 005fca034e30afb20800000000000000
+      internalID: 3168849566412633344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_45
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 314
+        width: 65
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21d59d7ad6a0f3710800000000000000
+      internalID: 1675069052488867090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_46
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 200
+        width: 123
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3602df43855218a40800000000000000
+      internalID: 5368613291578695779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_47
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 180
+        width: 150
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6399799e7dec8b690800000000000000
+      internalID: -7586086145573283530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_48
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 181
+        width: 208
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 031ac892658063dc0800000000000000
+      internalID: -3659728481034657488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_49
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 181
+        width: 112
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4f7549cae1cc2930800000000000000
+      internalID: 4119880973280444236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_50
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 181
+        width: 54
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 011544639a2075870800000000000000
+      internalID: 8671402533308354832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_51
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 182
+        width: 86
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b364a68311c4a5550800000000000000
+      internalID: 6150311877972477499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_52
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 182
+        width: 101
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14ab899d9353ce8c0800000000000000
+      internalID: -3968738649040176575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_53
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 187
+        width: 103
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02739fef683b15ca0800000000000000
+      internalID: -6029841033687648480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_54
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 188
+        width: 102
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f8d52e95bb67dd20800000000000000
+      internalID: 3303227279486081267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_55
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 69
+        width: 264
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 367be31e9527ec8f0800000000000000
+      internalID: -518351176744388765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_56
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 47
+        width: 95
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d24b161702e2e1a30800000000000000
+      internalID: 4187835420377199661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_57
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 47
+        width: 111
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a2d2136c7146e060800000000000000
+      internalID: 6982340274778460838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_58
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 42
+        width: 264
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 150d02240f6444fb0800000000000000
+      internalID: -4664525316333449135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-dungeon-stage1_59
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 35
+        width: 498
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7879e969331697290800000000000000
+      internalID: -7892169997791881337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tiles-dungeon-stage1_0: -1133639193532364101
+      tiles-dungeon-stage1_1: 7059127162973447360
+      tiles-dungeon-stage1_10: 2095292242583076912
+      tiles-dungeon-stage1_11: 59589796311411433
+      tiles-dungeon-stage1_12: -7103095685926591742
+      tiles-dungeon-stage1_13: 3496962617378059496
+      tiles-dungeon-stage1_14: 5803623066385713291
+      tiles-dungeon-stage1_15: 3198697568501654153
+      tiles-dungeon-stage1_16: -2164459555047691959
+      tiles-dungeon-stage1_17: 2887562128394429809
+      tiles-dungeon-stage1_18: -3267501266729888278
+      tiles-dungeon-stage1_19: 501449773629431106
+      tiles-dungeon-stage1_2: 1243495819202205271
+      tiles-dungeon-stage1_20: -7251700212797059325
+      tiles-dungeon-stage1_21: -8136529609526669731
+      tiles-dungeon-stage1_22: 1455661185479628485
+      tiles-dungeon-stage1_23: 5327874644103677803
+      tiles-dungeon-stage1_24: -7405297725184816003
+      tiles-dungeon-stage1_25: 2652340780696706679
+      tiles-dungeon-stage1_26: 8304105418937481288
+      tiles-dungeon-stage1_27: 4779832938611168080
+      tiles-dungeon-stage1_28: -2978821157830018430
+      tiles-dungeon-stage1_29: 3493532132074316582
+      tiles-dungeon-stage1_3: -3140421230788746868
+      tiles-dungeon-stage1_30: 8070568416348022741
+      tiles-dungeon-stage1_31: -2939255058588776195
+      tiles-dungeon-stage1_32: 3282235804591956805
+      tiles-dungeon-stage1_33: -3134448773889779973
+      tiles-dungeon-stage1_34: 5268317895029203789
+      tiles-dungeon-stage1_35: 4877532136296202031
+      tiles-dungeon-stage1_36: 8921992322200223441
+      tiles-dungeon-stage1_37: 127789882867287274
+      tiles-dungeon-stage1_38: -7351152595478374496
+      tiles-dungeon-stage1_39: -4331857260064765835
+      tiles-dungeon-stage1_4: 3762693382287130185
+      tiles-dungeon-stage1_40: -20051664601144420
+      tiles-dungeon-stage1_41: 8566023532756826690
+      tiles-dungeon-stage1_42: 3218125645478984937
+      tiles-dungeon-stage1_43: -8492947897043019181
+      tiles-dungeon-stage1_44: 3168849566412633344
+      tiles-dungeon-stage1_45: 1675069052488867090
+      tiles-dungeon-stage1_46: 5368613291578695779
+      tiles-dungeon-stage1_47: -7586086145573283530
+      tiles-dungeon-stage1_48: -3659728481034657488
+      tiles-dungeon-stage1_49: 4119880973280444236
+      tiles-dungeon-stage1_5: 3731897104215261720
+      tiles-dungeon-stage1_50: 8671402533308354832
+      tiles-dungeon-stage1_51: 6150311877972477499
+      tiles-dungeon-stage1_52: -3968738649040176575
+      tiles-dungeon-stage1_53: -6029841033687648480
+      tiles-dungeon-stage1_54: 3303227279486081267
+      tiles-dungeon-stage1_55: -518351176744388765
+      tiles-dungeon-stage1_56: 4187835420377199661
+      tiles-dungeon-stage1_57: 6982340274778460838
+      tiles-dungeon-stage1_58: -4664525316333449135
+      tiles-dungeon-stage1_59: -7892169997791881337
+      tiles-dungeon-stage1_6: 2914948926854318026
+      tiles-dungeon-stage1_7: -1171825832351865778
+      tiles-dungeon-stage1_8: -8522817840738874401
+      tiles-dungeon-stage1_9: -5720013994714297263
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
