@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     PlayerStats playerStats;
+
     [Header("Movement")]
     [SerializeField] float moveSpeed = 5f;
 
@@ -14,9 +15,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Bow")]
     [SerializeField] float attackRange = 5f;
-
     [SerializeField] LayerMask enemyLayer;
-
     [SerializeField] GameObject arrowPrefab;
 
     [SerializeField] Transform spawnUp;
@@ -28,21 +27,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject bowRangeIndicator;
 
     [Header("Dash")]
-    [SerializeField]
-    float dashSpeed = 12f;
+    [SerializeField] float dashSpeed = 12f;
+    [SerializeField] float dashDuration = 0.2f;
+    [SerializeField] float dashCooldown = 1f;
 
-    [SerializeField]
-    float dashDuration = 0.2f;
-
-    [SerializeField]
-    float dashCooldown = 1f;
+    bool canMove = true;
 
     bool isDashing = false;
-
     float dashTimer;
-
     float dashCooldownTimer;
-
     Vector2 dashDirection;
 
     Rigidbody2D rb;
@@ -56,196 +49,148 @@ public class PlayerController : MonoBehaviour
 
     bool isAttacking = false;
 
+    float inputLockTimer = 0f;
+
     PlayerAttackHitbox currentHitbox;
-
     Transform currentTarget;
-
-    
 
     void Awake()
     {
+        playerStats = GetComponent<PlayerStats>();
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        playerStats =
-        GetComponent<PlayerStats>();
-        rb =
-        GetComponent<Rigidbody2D>();
+        attackUp.GetComponent<PlayerAttackHitbox>().DeactivateHitbox();
+        attackDown.GetComponent<PlayerAttackHitbox>().DeactivateHitbox();
+        attackLeft.GetComponent<PlayerAttackHitbox>().DeactivateHitbox();
+        attackRight.GetComponent<PlayerAttackHitbox>().DeactivateHitbox();
 
-        animator =
-        GetComponentInChildren<Animator>();
+        // Sembunyikan indikator bow di awal
+        if (bowRangeIndicator != null)
+        {
+            bowRangeIndicator.SetActive(false);
 
-        spriteRenderer =
-        GetComponentInChildren<SpriteRenderer>();
-
-
-        attackUp
-        .GetComponent<PlayerAttackHitbox>()
-        .DeactivateHitbox();
-
-        attackDown
-        .GetComponent<PlayerAttackHitbox>()
-        .DeactivateHitbox();
-
-        attackLeft
-        .GetComponent<PlayerAttackHitbox>()
-        .DeactivateHitbox();
-
-        attackRight
-        .GetComponent<PlayerAttackHitbox>()
-        .DeactivateHitbox();
-
-
-        // sembunyikan indikator awal
-        bowRangeIndicator.SetActive(false);
-
-        // sesuaikan ukuran lingkaran
-        bowRangeIndicator.transform.localScale =
-        new Vector3(
-            attackRange * 2,
-            attackRange * 2,
-            1
-        );
+            // Sesuaikan ukuran lingkaran indikator bow
+            bowRangeIndicator.transform.localScale =
+                new Vector3(
+                    attackRange * 2,
+                    attackRange * 2,
+                    1
+                );
+        }
     }
 
     void Update()
     {
-            // cooldown dash
-        if(dashCooldownTimer > 0)
+        if (dashCooldownTimer > 0)
         {
-            dashCooldownTimer -=
-            Time.deltaTime;
+            dashCooldownTimer -= Time.deltaTime;
         }
 
-        if(isAttacking ||
-        isDashing)
+        if (inputLockTimer > 0)
+        {
+            inputLockTimer -= Time.deltaTime;
+            movement = Vector2.zero;
+            return;
+        }
+
+        if (!canMove)
+        {
+            movement = Vector2.zero;
+
+            if (animator != null)
+            {
+                animator.SetFloat("Speed", 0);
+            }
+
+            return;
+        }
+
+        if (isAttacking || isDashing)
             return;
 
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        movement = movement.normalized;
 
-        movement.x =
-        Input.GetAxisRaw(
-        "Horizontal");
+        float speed = movement.magnitude;
 
-        movement.y =
-        Input.GetAxisRaw(
-        "Vertical");
+        animator.SetFloat("MoveX", movement.x);
+        animator.SetFloat("MoveY", movement.y);
+        animator.SetFloat("Speed", speed);
 
-        movement =
-        movement.normalized;
-
-
-        float speed =
-        movement.magnitude;
-
-
-        animator.SetFloat(
-        "MoveX",
-        movement.x);
-
-        animator.SetFloat(
-        "MoveY",
-        movement.y);
-
-        animator.SetFloat(
-        "Speed",
-        speed);
-
-
-        if(movement != Vector2.zero)
+        if (movement != Vector2.zero)
         {
-            if(Mathf.Abs(movement.x) >
-            Mathf.Abs(movement.y))
+            if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
             {
-                lastMoveX =
-                Mathf.Sign(movement.x);
-
+                lastMoveX = Mathf.Sign(movement.x);
                 lastMoveY = 0;
             }
             else
             {
                 lastMoveX = 0;
-
-                lastMoveY =
-                Mathf.Sign(movement.y);
+                lastMoveY = Mathf.Sign(movement.y);
             }
 
-            animator.SetFloat(
-                "LastMoveX",
-                lastMoveX);
-
-            animator.SetFloat(
-                "LastMoveY",
-                lastMoveY);
+            animator.SetFloat("LastMoveX", lastMoveX);
+            animator.SetFloat("LastMoveY", lastMoveY);
         }
 
-
-        //=================
-        // MELEE
-        //=================
-
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             MeleeAttack();
         }
 
-
-        //=================
-        // BOW
-        //=================
-
-        // tahan klik kanan
-        // tahan klik kanan
-        if(Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1))
         {
-            Transform enemy =
-            GetNearestEnemy();
+            Transform enemy = GetNearestEnemy();
 
-            // tampilkan indikator
-            // hanya jika TIDAK ada musuh
-            if(enemy == null)
+            if (enemy == null)
             {
-                bowRangeIndicator.SetActive(
-                true);
+                if (bowRangeIndicator != null)
+                    bowRangeIndicator.SetActive(true);
             }
             else
             {
-                bowRangeIndicator.SetActive(
-                false);
+                if (bowRangeIndicator != null)
+                    bowRangeIndicator.SetActive(false);
             }
         }
 
-        // lepas klik kanan
-        if(Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1))
         {
-            bowRangeIndicator.SetActive(
-            false);
+            if (bowRangeIndicator != null)
+                bowRangeIndicator.SetActive(false);
 
             BowAttack();
         }
 
-        //=================
-        // DASH
-        //=================
-
-        if(Input.GetKeyDown(KeyCode.Space) ||
-        Input.GetKeyDown(KeyCode.LeftShift) ||
-        Input.GetKeyDown(KeyCode.RightShift))
+        if (
+            Input.GetKeyDown(KeyCode.Space) ||
+            Input.GetKeyDown(KeyCode.LeftShift) ||
+            Input.GetKeyDown(KeyCode.RightShift)
+        )
         {
             Dash();
         }
     }
 
-
     void FixedUpdate()
     {
-        if(isDashing)
+        if (!canMove)
         {
-            rb.linearVelocity =
-            dashDirection *
-            dashSpeed;
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
 
-            dashTimer -=
-            Time.fixedDeltaTime;
+        if (isDashing)
+        {
+            rb.linearVelocity = dashDirection * dashSpeed;
 
-            if(dashTimer <= 0)
+            dashTimer -= Time.fixedDeltaTime;
+
+            if (dashTimer <= 0)
             {
                 EndDash();
             }
@@ -253,9 +198,13 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if(isAttacking)
+        if (isAttacking)
+        {
+            rb.linearVelocity = Vector2.zero;
             return;
+        }
 
+        Debug.Log("MOVE PLAYER: " + movement);
 
         rb.MovePosition(
             rb.position +
@@ -265,11 +214,60 @@ public class PlayerController : MonoBehaviour
         );
     }
 
+    // ===================
+    // CUTSCENE CONTROL
+    // ===================
 
+    public void SetCanMove(bool value)
+    {
+        canMove = value;
 
-    //===================
+        Debug.Log("SetCanMove dipanggil: " + value);
+
+        movement = Vector2.zero;
+        isAttacking = false;
+        isDashing = false;
+        dashDirection = Vector2.zero;
+        dashTimer = 0f;
+
+        if (value)
+        {
+            inputLockTimer = 0.2f;
+        }
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
+
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", 0);
+            animator.SetFloat("MoveX", 0);
+            animator.SetFloat("MoveY", 0);
+
+            animator.ResetTrigger("Attack");
+            animator.ResetTrigger("BowAttack");
+            animator.ResetTrigger("Dash");
+        }
+
+        if (bowRangeIndicator != null)
+        {
+            bowRangeIndicator.SetActive(false);
+        }
+
+        DeactivateHitbox();
+    }
+
+    public bool CanMove()
+    {
+        return canMove;
+    }
+
+    // ===================
     // MELEE
-    //===================
+    // ===================
 
     void MeleeAttack()
     {
@@ -279,89 +277,69 @@ public class PlayerController : MonoBehaviour
 
         SetAttackDirection();
 
-        animator.SetTrigger(
-        "Attack");
+        animator.SetTrigger("Attack");
     }
-
 
     void SetAttackDirection()
     {
-        if(lastMoveY > 0)
+        if (lastMoveY > 0)
         {
             currentHitbox =
-            attackUp.GetComponent
-            <PlayerAttackHitbox>();
+                attackUp.GetComponent<PlayerAttackHitbox>();
         }
-
-        else if(lastMoveY < 0)
+        else if (lastMoveY < 0)
         {
             currentHitbox =
-            attackDown.GetComponent
-            <PlayerAttackHitbox>();
+                attackDown.GetComponent<PlayerAttackHitbox>();
         }
-
-        else if(lastMoveX > 0)
+        else if (lastMoveX > 0)
         {
             currentHitbox =
-            attackRight.GetComponent
-            <PlayerAttackHitbox>();
+                attackRight.GetComponent<PlayerAttackHitbox>();
         }
-
         else
         {
             currentHitbox =
-            attackLeft.GetComponent
-            <PlayerAttackHitbox>();
+                attackLeft.GetComponent<PlayerAttackHitbox>();
         }
     }
-
 
     public void ActivateHitbox()
     {
-        if(currentHitbox != null)
+        if (currentHitbox != null)
         {
-            currentHitbox
-            .ActivateHitbox();
+            currentHitbox.ActivateHitbox();
         }
     }
-
 
     public void DeactivateHitbox()
     {
-        if(currentHitbox != null)
+        if (currentHitbox != null)
         {
-            currentHitbox
-            .DeactivateHitbox();
+            currentHitbox.DeactivateHitbox();
         }
     }
 
-
-
-    //===================
+    // ===================
     // BOW
-    //===================
+    // ===================
 
     void BowAttack()
     {
-        bowRangeIndicator.SetActive(
-        false);
+        if (bowRangeIndicator != null)
+            bowRangeIndicator.SetActive(false);
 
-        currentTarget =
-        GetNearestEnemy();
+        currentTarget = GetNearestEnemy();
 
-        if(currentTarget == null)
+        if (currentTarget == null)
         {
-            Debug.Log(
-            "Tidak ada musuh");
-
+            Debug.Log("Tidak ada musuh");
             return;
         }
 
-        if(!playerStats.UseMana(25))
+        if (!playerStats.UseMana(25))
         {
-            Debug.Log(
-            "Mana tidak cukup");
-
+            Debug.Log("Mana tidak cukup");
             return;
         }
 
@@ -370,206 +348,157 @@ public class PlayerController : MonoBehaviour
         movement = Vector2.zero;
 
         Vector2 direction =
-        currentTarget.position -
-        transform.position;
+            currentTarget.position -
+            transform.position;
 
-        direction =
-        direction.normalized;
+        direction = direction.normalized;
 
-        if(Mathf.Abs(direction.x) >
-        Mathf.Abs(direction.y))
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
-            lastMoveX =
-            Mathf.Sign(direction.x);
-
+            lastMoveX = Mathf.Sign(direction.x);
             lastMoveY = 0;
         }
         else
         {
             lastMoveX = 0;
-
-            lastMoveY =
-            Mathf.Sign(direction.y);
+            lastMoveY = Mathf.Sign(direction.y);
         }
 
-        animator.SetFloat(
-        "LastMoveX",
-        lastMoveX);
+        animator.SetFloat("LastMoveX", lastMoveX);
+        animator.SetFloat("LastMoveY", lastMoveY);
 
-        animator.SetFloat(
-        "LastMoveY",
-        lastMoveY);
-
-        animator.SetTrigger(
-        "BowAttack");
+        animator.SetTrigger("BowAttack");
     }
 
-
-    //===================
-    // DASH
-    //===================
-    
-    
-   void Dash()
+    public void SpawnArrow()
     {
-        Debug.Log("DASH");
-
-        if(dashCooldownTimer > 0)
+        if (currentTarget == null)
             return;
 
-        if(isAttacking)
-            return;
+        Transform spawnPoint;
 
-        if(isDashing)
-            return;
-
-        // Cek stamina
-        if(!playerStats.UseStamina(20))
+        if (lastMoveY > 0)
         {
-            Debug.Log(
-            "Stamina tidak cukup"
-            );
-
-            return;
+            spawnPoint = spawnUp;
         }
-
-        // jaga-jaga kalau player belum pernah bergerak
-        if(lastMoveX == 0 &&
-        lastMoveY == 0)
+        else if (lastMoveY < 0)
         {
-            lastMoveY = -1;
+            spawnPoint = spawnDown;
         }
-
-        isDashing = true;
-
-        movement =
-        Vector2.zero;
-
-        dashTimer =
-        dashDuration;
-
-        dashCooldownTimer =
-        dashCooldown;
-
-        if(Mathf.Abs(lastMoveX) >
-        Mathf.Abs(lastMoveY))
+        else if (lastMoveX > 0)
         {
-            dashDirection =
-            new Vector2(
-                Mathf.Sign(lastMoveX),
-                0
-            );
+            spawnPoint = spawnRight;
         }
         else
         {
-            dashDirection =
-            new Vector2(
-                0,
-                Mathf.Sign(lastMoveY)
-            );
+            spawnPoint = spawnLeft;
         }
 
-        animator.SetTrigger(
-            "Dash"
-        );
+        GameObject arrow =
+            Instantiate(
+                arrowPrefab,
+                spawnPoint.position,
+                Quaternion.identity
+            );
+
+        ArrowProjectile projectile =
+            arrow.GetComponent<ArrowProjectile>();
+
+        projectile.SetTarget(currentTarget);
     }
-
-
 
     Transform GetNearestEnemy()
     {
         Collider2D[] enemies =
-
-        Physics2D
-        .OverlapCircleAll(
-            transform.position,
-            attackRange,
-            enemyLayer
-        );
-
-
-        Transform nearest =
-        null;
-
-        float nearestDistance =
-        Mathf.Infinity;
-
-
-        foreach(
-        Collider2D enemy
-        in enemies)
-        {
-            float distance =
-
-            Vector2.Distance(
-            transform.position,
-            enemy.transform.position
+            Physics2D.OverlapCircleAll(
+                transform.position,
+                attackRange,
+                enemyLayer
             );
 
+        Transform nearest = null;
+        float nearestDistance = Mathf.Infinity;
 
-            if(distance <
-               nearestDistance)
+        foreach (Collider2D enemy in enemies)
+        {
+            float distance =
+                Vector2.Distance(
+                    transform.position,
+                    enemy.transform.position
+                );
+
+            if (distance < nearestDistance)
             {
-                nearestDistance =
-                distance;
-
-                nearest =
-                enemy.transform;
+                nearestDistance = distance;
+                nearest = enemy.transform;
             }
         }
 
         return nearest;
     }
 
-    public void SpawnArrow()
-{
-    if(currentTarget == null)
-        return;
+    // ===================
+    // DASH
+    // ===================
 
-    Transform spawnPoint;
-
-    if(lastMoveY > 0)
+    void Dash()
     {
-        spawnPoint = spawnUp;
+        Debug.Log("DASH");
+
+        if (dashCooldownTimer > 0)
+            return;
+
+        if (isAttacking)
+            return;
+
+        if (isDashing)
+            return;
+
+        if (!playerStats.UseStamina(20))
+        {
+            Debug.Log("Stamina tidak cukup");
+            return;
+        }
+
+        // Jaga-jaga kalau player belum pernah bergerak
+        if (lastMoveX == 0 && lastMoveY == 0)
+        {
+            lastMoveY = -1;
+        }
+
+        isDashing = true;
+
+        movement = Vector2.zero;
+
+        dashTimer = dashDuration;
+        dashCooldownTimer = dashCooldown;
+
+        if (Mathf.Abs(lastMoveX) > Mathf.Abs(lastMoveY))
+        {
+            dashDirection =
+                new Vector2(
+                    Mathf.Sign(lastMoveX),
+                    0
+                );
+        }
+        else
+        {
+            dashDirection =
+                new Vector2(
+                    0,
+                    Mathf.Sign(lastMoveY)
+                );
+        }
+
+        animator.SetTrigger("Dash");
     }
-    else if(lastMoveY < 0)
-    {
-        spawnPoint = spawnDown;
-    }
-    else if(lastMoveX > 0)
-    {
-        spawnPoint = spawnRight;
-    }
-    else
-    {
-        spawnPoint = spawnLeft;
-    }
 
-    GameObject arrow =
-    Instantiate(
-        arrowPrefab,
-        spawnPoint.position,
-        Quaternion.identity
-    );
-
-    ArrowProjectile projectile =
-    arrow.GetComponent<ArrowProjectile>();
-
-    projectile.SetTarget(
-        currentTarget
-    );
-}
-
-
-    //===================
     public void EndDash()
     {
         isDashing = false;
 
-        rb.linearVelocity =
-        Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
     }
-    //===================
 
     public void EndAttack()
     {

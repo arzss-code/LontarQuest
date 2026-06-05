@@ -48,11 +48,11 @@ TagManager:
   - name: Ground
     uniqueID: 329318713
     locked: 0
-  - name: Decoration
-    uniqueID: 2767408023
-    locked: 0
   - name: Character
     uniqueID: 486542803
+    locked: 0
+  - name: Foreground
+    uniqueID: 2767408023
     locked: 0
   - name: Effects
     uniqueID: 1857334475
