@@ -1,0 +1,1144 @@
+fileFormatVersion: 2
+guid: 678a82302f1153544aa55a8fbe130033
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4512384196076429993
+    second: tiles-door-stage1_0
+  - first:
+      213: -7694395249651394359
+    second: tiles-door-stage1_1
+  - first:
+      213: -8637267102492053718
+    second: tiles-door-stage1_2
+  - first:
+      213: 7486724546285711661
+    second: tiles-door-stage1_3
+  - first:
+      213: 4165393840240713924
+    second: tiles-door-stage1_4
+  - first:
+      213: -1742022715647454151
+    second: tiles-door-stage1_5
+  - first:
+      213: 5062103448565989646
+    second: tiles-door-stage1_6
+  - first:
+      213: -6523663713220939689
+    second: tiles-door-stage1_7
+  - first:
+      213: -1400114628408754858
+    second: tiles-door-stage1_8
+  - first:
+      213: 1686968842702085705
+    second: tiles-door-stage1_9
+  - first:
+      213: -684544456658328570
+    second: tiles-door-stage1_10
+  - first:
+      213: 2909504042528872144
+    second: tiles-door-stage1_11
+  - first:
+      213: -8876334601229430336
+    second: tiles-door-stage1_12
+  - first:
+      213: -6372898433415588083
+    second: tiles-door-stage1_13
+  - first:
+      213: 2260589146670116836
+    second: tiles-door-stage1_14
+  - first:
+      213: -1944832545053466310
+    second: tiles-door-stage1_15
+  - first:
+      213: -598466413545506165
+    second: tiles-door-stage1_16
+  - first:
+      213: -719199779356581570
+    second: tiles-door-stage1_17
+  - first:
+      213: -4049683078636976906
+    second: tiles-door-stage1_18
+  - first:
+      213: -2363045227274758958
+    second: tiles-door-stage1_19
+  - first:
+      213: -1002607543189431933
+    second: tiles-door-stage1_20
+  - first:
+      213: -4069522131471926876
+    second: tiles-door-stage1_21
+  - first:
+      213: -5292019868990833294
+    second: tiles-door-stage1_22
+  - first:
+      213: -7795049065702655589
+    second: tiles-door-stage1_23
+  - first:
+      213: 8326332034138487441
+    second: tiles-door-stage1_24
+  - first:
+      213: 4273539036755401680
+    second: tiles-door-stage1_25
+  - first:
+      213: -1168536704167700836
+    second: tiles-door-stage1_26
+  - first:
+      213: -6379641851777380045
+    second: tiles-door-stage1_27
+  - first:
+      213: -3073235974736164150
+    second: tiles-door-stage1_28
+  - first:
+      213: -1514579408216396318
+    second: tiles-door-stage1_29
+  - first:
+      213: -1108942163746047158
+    second: tiles-door-stage1_30
+  - first:
+      213: -7114398565691371550
+    second: tiles-door-stage1_31
+  - first:
+      213: 6532491352529549936
+    second: tiles-door-stage1_32
+  - first:
+      213: -763021515914462906
+    second: tiles-door-stage1_33
+  - first:
+      213: 223612291554939955
+    second: tiles-door-stage1_34
+  - first:
+      213: 111628792013063006
+    second: tiles-door-stage1_35
+  - first:
+      213: 1635470350392561942
+    second: tiles-door-stage1_36
+  - first:
+      213: 6633074166081279064
+    second: tiles-door-stage1_37
+  - first:
+      213: -7531299789542253916
+    second: tiles-door-stage1_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 86.53
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tiles-door-stage1_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 849
+        width: 178
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75d17c63b7ac061c0800000000000000
+      internalID: -4512384196076429993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_1
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 850
+        width: 159
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c8531f7944083590800000000000000
+      internalID: -7694395249651394359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_2
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 851
+        width: 146
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2f2bcd1553422880800000000000000
+      internalID: -8637267102492053718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_3
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 851
+        width: 156
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d21be88fe4036e760800000000000000
+      internalID: 7486724546285711661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_4
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 850
+        width: 152
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c0e525e0a37ec930800000000000000
+      internalID: 4165393840240713924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_5
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 853
+        width: 93
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9341c2bd19713d7e0800000000000000
+      internalID: -1742022715647454151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_6
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 852
+        width: 76
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e014e0c2444304640800000000000000
+      internalID: 5062103448565989646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_7
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 642
+        width: 73
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7503c5baa6a4775a0800000000000000
+      internalID: -6523663713220939689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_8
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 637
+        width: 126
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65d3ed0e92bc19ce0800000000000000
+      internalID: -1400114628408754858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_9
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 638
+        width: 77
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94ed8687931596710800000000000000
+      internalID: 1686968842702085705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_10
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 637
+        width: 121
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 604eaeb81720086f0800000000000000
+      internalID: -684544456658328570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_11
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 637
+        width: 81
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d61f7fe282a06820800000000000000
+      internalID: 2909504042528872144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_12
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 629
+        width: 92
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c1163285bce0d480800000000000000
+      internalID: -8876334601229430336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_13
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 610
+        width: 298
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d07de9ec3aaee87a0800000000000000
+      internalID: -6372898433415588083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_14
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 548
+        width: 257
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ef206e0ad93f5f10800000000000000
+      internalID: 2260589146670116836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_15
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 428
+        width: 85
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a31287cba119205e0800000000000000
+      internalID: -1944832545053466310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_16
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 431
+        width: 83
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8a3e9ab7f1d1b7f0800000000000000
+      internalID: -598466413545506165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_17
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 432
+        width: 83
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3169e47c93e406f0800000000000000
+      internalID: -719199779356581570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_18
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 432
+        width: 82
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f4cee432b2acc7c0800000000000000
+      internalID: -4049683078636976906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_19
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 432
+        width: 83
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d41b10c2e6c43fd0800000000000000
+      internalID: -2363045227274758958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_20
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 428
+        width: 105
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 389111360c50612f0800000000000000
+      internalID: -1002607543189431933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_21
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 427
+        width: 120
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a97604ce272687c0800000000000000
+      internalID: -4069522131471926876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_22
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 427
+        width: 115
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27dfd7ca7f7fe86b0800000000000000
+      internalID: -5292019868990833294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_23
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 425
+        width: 81
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b997d08bc2c62d390800000000000000
+      internalID: -7795049065702655589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_24
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 264
+        width: 121
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19ab7c8ced21d8370800000000000000
+      internalID: 8326332034138487441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_25
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 264
+        width: 121
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0db129b9c19ae4b30800000000000000
+      internalID: 4273539036755401680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_26
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 265
+        width: 73
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9614190f0688cfe0800000000000000
+      internalID: -1168536704167700836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_27
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 265
+        width: 74
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 331189e5985f677a0800000000000000
+      internalID: -6379641851777380045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_28
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 265
+        width: 74
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aca46e6e92ca955d0800000000000000
+      internalID: -3073235974736164150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_29
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 266
+        width: 419
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ede3258d022bfae0800000000000000
+      internalID: -1514579408216396318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_30
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 241
+        width: 71
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4bb67d3afe3c90f0800000000000000
+      internalID: -1108942163746047158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_31
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 241
+        width: 67
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2efca6db234944d90800000000000000
+      internalID: -7114398565691371550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_32
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 121
+        width: 100
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07ab5d5464218aa50800000000000000
+      internalID: 6532491352529549936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_33
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 122
+        width: 103
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64930f359f33965f0800000000000000
+      internalID: -763021515914462906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_34
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 121
+        width: 100
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3341b85c13e6a1300800000000000000
+      internalID: 223612291554939955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_35
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 122
+        width: 94
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5305ae7bc59c8100800000000000000
+      internalID: 111628792013063006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_36
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 123
+        width: 79
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61115db5e9b52b610800000000000000
+      internalID: 1635470350392561942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_37
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 123
+        width: 77
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 854581e7fc96d0c50800000000000000
+      internalID: 6633074166081279064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiles-door-stage1_38
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 123
+        width: 76
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa1c537eb27b7790800000000000000
+      internalID: -7531299789542253916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tiles-door-stage1_0: -4512384196076429993
+      tiles-door-stage1_1: -7694395249651394359
+      tiles-door-stage1_10: -684544456658328570
+      tiles-door-stage1_11: 2909504042528872144
+      tiles-door-stage1_12: -8876334601229430336
+      tiles-door-stage1_13: -6372898433415588083
+      tiles-door-stage1_14: 2260589146670116836
+      tiles-door-stage1_15: -1944832545053466310
+      tiles-door-stage1_16: -598466413545506165
+      tiles-door-stage1_17: -719199779356581570
+      tiles-door-stage1_18: -4049683078636976906
+      tiles-door-stage1_19: -2363045227274758958
+      tiles-door-stage1_2: -8637267102492053718
+      tiles-door-stage1_20: -1002607543189431933
+      tiles-door-stage1_21: -4069522131471926876
+      tiles-door-stage1_22: -5292019868990833294
+      tiles-door-stage1_23: -7795049065702655589
+      tiles-door-stage1_24: 8326332034138487441
+      tiles-door-stage1_25: 4273539036755401680
+      tiles-door-stage1_26: -1168536704167700836
+      tiles-door-stage1_27: -6379641851777380045
+      tiles-door-stage1_28: -3073235974736164150
+      tiles-door-stage1_29: -1514579408216396318
+      tiles-door-stage1_3: 7486724546285711661
+      tiles-door-stage1_30: -1108942163746047158
+      tiles-door-stage1_31: -7114398565691371550
+      tiles-door-stage1_32: 6532491352529549936
+      tiles-door-stage1_33: -763021515914462906
+      tiles-door-stage1_34: 223612291554939955
+      tiles-door-stage1_35: 111628792013063006
+      tiles-door-stage1_36: 1635470350392561942
+      tiles-door-stage1_37: 6633074166081279064
+      tiles-door-stage1_38: -7531299789542253916
+      tiles-door-stage1_4: 4165393840240713924
+      tiles-door-stage1_5: -1742022715647454151
+      tiles-door-stage1_6: 5062103448565989646
+      tiles-door-stage1_7: -6523663713220939689
+      tiles-door-stage1_8: -1400114628408754858
+      tiles-door-stage1_9: 1686968842702085705
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
