@@ -29,7 +29,11 @@ public class CutsceneManager : MonoBehaviour
 
     private void Start()
     {
-        StartIntroCutscene();
+        if (dialogPanel != null)
+            dialogPanel.SetActive(false);
+
+        if (doorMarker != null)
+            doorMarker.SetActive(false);
     }
 
     private void Update()
@@ -50,7 +54,7 @@ public class CutsceneManager : MonoBehaviour
         }
     }
 
-    private void StartIntroCutscene()
+    public void StartIntroCutscene()
     {
         cutsceneActive = true;
 
@@ -60,7 +64,8 @@ public class CutsceneManager : MonoBehaviour
         if (playerController != null)
             playerController.SetCanMove(false);
 
-        dialogPanel.SetActive(true);
+        if (dialogPanel != null)
+            dialogPanel.SetActive(true);
 
         currentLineIndex = 0;
         ShowLine(lines[currentLineIndex]);
@@ -112,10 +117,12 @@ public class CutsceneManager : MonoBehaviour
 
     private void EndCutscene()
     {
-        Debug.Log("CUTSCENE SELESAI - PLAYER BISA GERAK");
+        Debug.Log("CUTSCENE DIALOG SELESAI - PLAYER BISA GERAK");
 
         cutsceneActive = false;
-        dialogPanel.SetActive(false);
+
+        if (dialogPanel != null)
+            dialogPanel.SetActive(false);
 
         if (playerController != null)
         {
