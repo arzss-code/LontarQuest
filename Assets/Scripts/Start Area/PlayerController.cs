@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     Vector2 dashDirection;
 
     Rigidbody2D rb;
+    [SerializeField]
     Animator animator;
     SpriteRenderer spriteRenderer;
 
@@ -58,7 +59,9 @@ public class PlayerController : MonoBehaviour
     {
         playerStats = GetComponent<PlayerStats>();
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponentInChildren<Animator>();
+        
+
+        Debug.Log("Animator ditemukan: " + animator.gameObject.name);
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         attackUp.GetComponent<PlayerAttackHitbox>().DeactivateHitbox();
@@ -83,6 +86,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        if (!canMove)
+        return;
+
+        
         if (dashCooldownTimer > 0)
         {
             dashCooldownTimer -= Time.deltaTime;
