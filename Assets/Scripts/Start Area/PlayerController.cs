@@ -212,7 +212,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        Debug.Log("MOVE PLAYER: " + movement);
+        
 
         rb.MovePosition(
             rb.position +
