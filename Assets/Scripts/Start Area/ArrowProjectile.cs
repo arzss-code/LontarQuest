@@ -86,29 +86,30 @@ public class ArrowProjectile : MonoBehaviour
         );
     }
 
-    private void OnTriggerEnter2D(
-    Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(
-        other.gameObject.layer !=
-        LayerMask.NameToLayer(
-        "Enemy"))
+        if(other.gameObject.layer != LayerMask.NameToLayer("Enemy"))
         {
             return;
         }
 
-        DamageBuddyDamageTracker buddy =
-        other.GetComponentInParent
-        <DamageBuddyDamageTracker>();
-
+        DamageBuddyDamageTracker buddy = other.GetComponentInParent<DamageBuddyDamageTracker>();
+        KalaAI kala = other.GetComponentInParent<KalaAI>();
 
         if(buddy != null)
         {
-            buddy.TakeDamage(
-            damage);
-
-            Destroy(
-            gameObject);
+            buddy.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+        else if (kala != null)
+        {
+            kala.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+        else 
+        {
+            // Destroy if it hits enemy layer but no specific script found
+            Destroy(gameObject);
         }
     }
 }
