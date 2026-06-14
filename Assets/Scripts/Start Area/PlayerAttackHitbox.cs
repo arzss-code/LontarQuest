@@ -51,11 +51,17 @@ public class PlayerAttackHitbox : MonoBehaviour
         DamageBuddyDamageTracker buddy =
             other.GetComponentInParent<DamageBuddyDamageTracker>();
 
+        KalaAI kala = other.GetComponentInParent<KalaAI>();
+
         if(buddy != null)
         {
             Debug.Log("Damage Masuk: " + damage);
-
             buddy.TakeDamage(damage);
+        }
+        else if (kala != null)
+        {
+            Debug.Log("Damage Masuk ke Kala: " + damage);
+            kala.TakeDamage(damage);
         }
     }
 }

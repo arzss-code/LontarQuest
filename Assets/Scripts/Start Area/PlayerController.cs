@@ -31,6 +31,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float dashDuration = 0.2f;
     [SerializeField] float dashCooldown = 1f;
 
+    [Header("Knockback")]
+    [SerializeField] float knockbackForce = 15f;
+    [SerializeField] float knockbackDuration = 0.2f;
+    bool isKnockedBack = false;
+    float knockbackTimer;
+    Vector2 knockbackDirection;
+
     bool canMove = true;
 
     bool isDashing = false;
@@ -115,7 +122,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (isAttacking || isDashing)
+        if (isKnockedBack || isAttacking || isDashing)
             return;
 
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -189,6 +196,18 @@ public class PlayerController : MonoBehaviour
         if (!canMove)
         {
             rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        if (isKnockedBack)
+        {
+            rb.linearVelocity = knockbackDirection * knockbackForce;
+            knockbackTimer -= Time.fixedDeltaTime;
+            if (knockbackTimer <= 0)
+            {
+                isKnockedBack = false;
+                rb.linearVelocity = Vector2.zero;
+            }
             return;
         }
 
@@ -513,5 +532,20 @@ public class PlayerController : MonoBehaviour
         DeactivateHitbox();
 
         isAttacking = false;
+    }
+
+    // ===================
+    // KNOCKBACK
+    // ===================
+    public void ApplyKnockback(Vector2 direction)
+    {
+        isKnockedBack = true;
+        knockbackDirection = direction.normalized;
+        knockbackTimer = knockbackDuration;
+        
+        isAttacking = false;
+        isDashing = false;
+        
+        DeactivateHitbox();
     }
 }

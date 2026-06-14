@@ -2862,6 +2862,9 @@ MonoBehaviour:
   dashSpeed: 12
   dashDuration: 0.2
   dashCooldown: 2
+  knockbackForce: 15
+  knockbackDuration: 0.2
+  animator: {fileID: 972405346}
 --- !u!70 &811627573
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
