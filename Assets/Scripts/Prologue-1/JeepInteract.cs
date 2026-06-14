@@ -63,6 +63,6 @@ public class JeepInteract : MonoBehaviour
 
         Debug.Log("LOAD CUTSCENE");
 
-        SceneManager.LoadScene("CutScene");
+        SceneManager.LoadScene("Cutscene_to_1-1");
     }
 }
