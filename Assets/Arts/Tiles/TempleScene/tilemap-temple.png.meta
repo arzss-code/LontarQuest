@@ -1,0 +1,708 @@
+fileFormatVersion: 2
+guid: ba623ed73344369849355355a1eaa720
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2480684450949360416
+    second: tilemap-temple_0
+  - first:
+      213: -5667596121539222804
+    second: tilemap-temple_1
+  - first:
+      213: -7578941911935085431
+    second: tilemap-temple_2
+  - first:
+      213: -8162220912726331415
+    second: tilemap-temple_3
+  - first:
+      213: 1499389997125621137
+    second: tilemap-temple_4
+  - first:
+      213: -956747713015045346
+    second: tilemap-temple_5
+  - first:
+      213: 8380634386565687503
+    second: tilemap-temple_6
+  - first:
+      213: -4531930904376130581
+    second: tilemap-temple_7
+  - first:
+      213: 627262518533291763
+    second: tilemap-temple_8
+  - first:
+      213: -7871004374351058445
+    second: tilemap-temple_9
+  - first:
+      213: 9122495570776008227
+    second: tilemap-temple_10
+  - first:
+      213: -3723287376426284822
+    second: tilemap-temple_11
+  - first:
+      213: -6443864143823641472
+    second: tilemap-temple_12
+  - first:
+      213: -7108033088419079512
+    second: tilemap-temple_13
+  - first:
+      213: 8466542237128931474
+    second: tilemap-temple_14
+  - first:
+      213: -2485489383634411294
+    second: tilemap-temple_15
+  - first:
+      213: 8945108144823762919
+    second: tilemap-temple_16
+  - first:
+      213: -1924862697485125393
+    second: tilemap-temple_17
+  - first:
+      213: 4585258104013298461
+    second: tilemap-temple_18
+  - first:
+      213: 1426174444656384895
+    second: tilemap-temple_19
+  - first:
+      213: -1945212270448908293
+    second: tilemap-temple_20
+  - first:
+      213: 142814366607587043
+    second: tilemap-temple_21
+  - first:
+      213: 6337501971749051848
+    second: tilemap-temple_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tilemap-temple_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 681
+        width: 301
+        height: 343
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02bebaa6d592d6220800000000000000
+      internalID: 2480684450949360416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_1
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 686
+        width: 370
+        height: 337
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce2e54d0b57a851b0800000000000000
+      internalID: -5667596121539222804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_2
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 681
+        width: 200
+        height: 343
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9841acd6c7032d690800000000000000
+      internalID: -7578941911935085431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_3
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 848
+        width: 107
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9efaeae3357f9be80800000000000000
+      internalID: -8162220912726331415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_4
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 824
+        width: 108
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 195527e1247eec410800000000000000
+      internalID: 1499389997125621137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_5
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 824
+        width: 120
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e13221a2603f8b2f0800000000000000
+      internalID: -956747713015045346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_6
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 682
+        width: 117
+        height: 163
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc8eba3729efd4470800000000000000
+      internalID: 8380634386565687503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_7
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 690
+        width: 259
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be3cb0a8ad85b11c0800000000000000
+      internalID: -4531930904376130581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_8
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 484
+        width: 276
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fef71eefeb74b800800000000000000
+      internalID: 627262518533291763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_9
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 474
+        width: 648
+        height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f96241593394c290800000000000000
+      internalID: -7871004374351058445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_10
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 308
+        width: 316
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 326ad29736d999e70800000000000000
+      internalID: 9122495570776008227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_11
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 492
+        width: 561
+        height: 189
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae84a63abd9345cc0800000000000000
+      internalID: -3723287376426284822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_12
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 315
+        width: 285
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 084e386c3bbc296a0800000000000000
+      internalID: -6443864143823641472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_13
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 322
+        width: 185
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aade09e0913b5d90800000000000000
+      internalID: -7108033088419079512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_14
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 324
+        width: 189
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29839e79e433f7570800000000000000
+      internalID: 8466542237128931474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_15
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 322
+        width: 189
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e067730394c18dd0800000000000000
+      internalID: -2485489383634411294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_16
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 388
+        width: 316
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ef7ca9e678632c70800000000000000
+      internalID: 8945108144823762919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_17
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 328
+        width: 536
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe8bff233938945e0800000000000000
+      internalID: -1924862697485125393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_19
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 93
+        width: 752
+        height: 222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7bdb79e91acac310800000000000000
+      internalID: 1426174444656384895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_20
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 102
+        width: 479
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf769270fb73105e0800000000000000
+      internalID: -1945212270448908293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_21
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 122
+        width: 283
+        height: 182
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e6b776e8e06bf100800000000000000
+      internalID: 142814366607587043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilemap-temple_22
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 0
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cd907d377453f750800000000000000
+      internalID: 6337501971749051848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1675f6a3fb2573d2486085fb5a2bfef6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      tilemap-temple_0: 2480684450949360416
+      tilemap-temple_1: -5667596121539222804
+      tilemap-temple_10: 9122495570776008227
+      tilemap-temple_11: -3723287376426284822
+      tilemap-temple_12: -6443864143823641472
+      tilemap-temple_13: -7108033088419079512
+      tilemap-temple_14: 8466542237128931474
+      tilemap-temple_15: -2485489383634411294
+      tilemap-temple_16: 8945108144823762919
+      tilemap-temple_17: -1924862697485125393
+      tilemap-temple_18: 4585258104013298461
+      tilemap-temple_19: 1426174444656384895
+      tilemap-temple_2: -7578941911935085431
+      tilemap-temple_20: -1945212270448908293
+      tilemap-temple_21: 142814366607587043
+      tilemap-temple_22: 6337501971749051848
+      tilemap-temple_3: -8162220912726331415
+      tilemap-temple_4: 1499389997125621137
+      tilemap-temple_5: -956747713015045346
+      tilemap-temple_6: 8380634386565687503
+      tilemap-temple_7: -4531930904376130581
+      tilemap-temple_8: 627262518533291763
+      tilemap-temple_9: -7871004374351058445
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,832 @@
+fileFormatVersion: 2
+guid: c546f57cd31fdfb1784be29a747d2a14
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2821594203620671246
+    second: prasasti-temple_0
+  - first:
+      213: -8447512675625775011
+    second: prasasti-temple_1
+  - first:
+      213: -6204574102386156332
+    second: prasasti-temple_2
+  - first:
+      213: 847636654510501885
+    second: prasasti-temple_3
+  - first:
+      213: -7383163483770636584
+    second: prasasti-temple_4
+  - first:
+      213: -2339388817832099367
+    second: prasasti-temple_5
+  - first:
+      213: -3162545654383385873
+    second: prasasti-temple_6
+  - first:
+      213: 1255038479907718981
+    second: prasasti-temple_7
+  - first:
+      213: -1972643619473773580
+    second: prasasti-temple_8
+  - first:
+      213: 157786627172852462
+    second: prasasti-temple_9
+  - first:
+      213: -7713932610778676007
+    second: prasasti-temple_10
+  - first:
+      213: -7731794869083636799
+    second: prasasti-temple_11
+  - first:
+      213: -3074023559428098078
+    second: prasasti-temple_12
+  - first:
+      213: 1101446507981806113
+    second: prasasti-temple_13
+  - first:
+      213: 2094929544094820531
+    second: prasasti-temple_14
+  - first:
+      213: 3443094263611545714
+    second: prasasti-temple_15
+  - first:
+      213: -2401524994241899605
+    second: prasasti-temple_16
+  - first:
+      213: 2318500712086538193
+    second: prasasti-temple_17
+  - first:
+      213: -4768190893108832428
+    second: prasasti-temple_18
+  - first:
+      213: 1434876158166214453
+    second: prasasti-temple_19
+  - first:
+      213: -3767237655334747602
+    second: prasasti-temple_20
+  - first:
+      213: -4896776624710159633
+    second: prasasti-temple_21
+  - first:
+      213: -7844780444729513789
+    second: prasasti-temple_22
+  - first:
+      213: -4203846645684658352
+    second: prasasti-temple_23
+  - first:
+      213: 5831926636436244236
+    second: prasasti-temple_24
+  - first:
+      213: -3836835487730286292
+    second: prasasti-temple_25
+  - first:
+      213: 5182364795575397450
+    second: prasasti-temple_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: prasasti-temple_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 587
+        width: 297
+        height: 437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0f7c1f8af0582720800000000000000
+      internalID: 2821594203620671246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_1
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 585
+        width: 345
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5057b57af764ca80800000000000000
+      internalID: -8447512675625775011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_2
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 722
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dc5fa42abce4e9a0800000000000000
+      internalID: -6204574102386156332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_3
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 617
+        width: 358
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dffe2badb0963cb00800000000000000
+      internalID: 847636654510501885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_4
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 585
+        width: 658
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d6373fddebb98990800000000000000
+      internalID: -7383163483770636584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_5
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 651
+        width: 233
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d1c899c342d88fd0800000000000000
+      internalID: -2339388817832099367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_6
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 690
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe2e584bb716c14d0800000000000000
+      internalID: -3162545654383385873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_7
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 675
+        width: 37
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547885619daca6110800000000000000
+      internalID: 1255038479907718981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 626
+        width: 6
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fb23d06413cf94e0800000000000000
+      internalID: -1972643619473773580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_9
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 651
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee2e1f6f912903200800000000000000
+      internalID: 157786627172852462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_10
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 663
+        width: 21
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d44c31292b92f490800000000000000
+      internalID: -7713932610778676007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 547
+        width: 6
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cbf418088523b490800000000000000
+      internalID: -7731794869083636799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_12
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 630
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e73b1d0cdfd655d0800000000000000
+      internalID: -3074023559428098078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 309
+        width: 6
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12a995763cf194f00800000000000000
+      internalID: 1101446507981806113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 285
+        width: 6
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b82e39225fa21d10800000000000000
+      internalID: 2094929544094820531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 417
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27850ce8df358cf20800000000000000
+      internalID: 3443094263611545714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 57
+        width: 6
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba35df6ddb11caed0800000000000000
+      internalID: -2401524994241899605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_17
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 296
+        width: 289
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d7886b1d18fc2020800000000000000
+      internalID: 2318500712086538193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_18
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 281
+        width: 275
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 457defa45abf3ddb0800000000000000
+      internalID: -4768190893108832428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_19
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 270
+        width: 471
+        height: 310
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 537ac287344b9e310800000000000000
+      internalID: 1434876158166214453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_20
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 334
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e220c49ef4518bbc0800000000000000
+      internalID: -3767237655334747602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_21
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 283
+        width: 449
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe2f6b3aa972b0cb0800000000000000
+      internalID: -4896776624710159633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_22
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 29
+        width: 290
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c867fabfbdb12390800000000000000
+      internalID: -7844780444729513789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 6
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05f9fb9afbfe8a5c0800000000000000
+      internalID: -4203846645684658352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_24
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 1
+        width: 171
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c07cbe0806a2fe050800000000000000
+      internalID: 5831926636436244236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_25
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 61
+        width: 31
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c21493cc372d0cac0800000000000000
+      internalID: -3836835487730286292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prasasti-temple_26
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 0
+        width: 617
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4ce2c003557be740800000000000000
+      internalID: 5182364795575397450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      prasasti-temple_0: 2821594203620671246
+      prasasti-temple_1: -8447512675625775011
+      prasasti-temple_10: -7713932610778676007
+      prasasti-temple_11: -7731794869083636799
+      prasasti-temple_12: -3074023559428098078
+      prasasti-temple_13: 1101446507981806113
+      prasasti-temple_14: 2094929544094820531
+      prasasti-temple_15: 3443094263611545714
+      prasasti-temple_16: -2401524994241899605
+      prasasti-temple_17: 2318500712086538193
+      prasasti-temple_18: -4768190893108832428
+      prasasti-temple_19: 1434876158166214453
+      prasasti-temple_2: -6204574102386156332
+      prasasti-temple_20: -3767237655334747602
+      prasasti-temple_21: -4896776624710159633
+      prasasti-temple_22: -7844780444729513789
+      prasasti-temple_23: -4203846645684658352
+      prasasti-temple_24: 5831926636436244236
+      prasasti-temple_25: -3836835487730286292
+      prasasti-temple_26: 5182364795575397450
+      prasasti-temple_3: 847636654510501885
+      prasasti-temple_4: -7383163483770636584
+      prasasti-temple_5: -2339388817832099367
+      prasasti-temple_6: -3162545654383385873
+      prasasti-temple_7: 1255038479907718981
+      prasasti-temple_8: -1972643619473773580
+      prasasti-temple_9: 157786627172852462
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
