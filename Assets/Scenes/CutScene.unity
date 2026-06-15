@@ -3183,7 +3183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afca895f60d13a1cba6fb780c1b72d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorTrigger
-  nextSceneName: TempleScene
+  nextSceneName: InsideTemple
 --- !u!61 &970823905
 BoxCollider2D:
   m_ObjectHideFlags: 0
