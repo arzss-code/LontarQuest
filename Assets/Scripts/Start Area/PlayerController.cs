@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     float knockbackTimer;
     Vector2 knockbackDirection;
 
-    bool canMove = true;
+    public bool canMove = true;
 
     bool isDashing = false;
     float dashTimer;

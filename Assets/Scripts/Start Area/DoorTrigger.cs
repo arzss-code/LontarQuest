@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class DoorTrigger : MonoBehaviour
 {
-    [SerializeField] private string nextSceneName = "SampleScene";
+    [SerializeField] private string nextSceneName = "TempleScene";
 
     private bool canEnter = false;
 

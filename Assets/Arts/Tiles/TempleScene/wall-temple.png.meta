@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 08608c666b49915f2b4db4a0fd1a69dd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6116023982547186265
+    second: wall-temple_0
+  - first:
+      213: -335775188431583312
+    second: wall-temple_1
+  - first:
+      213: 874831955473902848
+    second: wall-temple_2
+  - first:
+      213: -8608096621679438943
+    second: wall-temple_3
+  - first:
+      213: 6877774406553190832
+    second: wall-temple_4
+  - first:
+      213: -4458311199536940237
+    second: wall-temple_5
+  - first:
+      213: 8052407522074118506
+    second: wall-temple_6
+  - first:
+      213: -3958489689714871088
+    second: wall-temple_7
+  - first:
+      213: -8963192768619845115
+    second: wall-temple_8
+  - first:
+      213: 640068799066751299
+    second: wall-temple_9
+  - first:
+      213: 1906227705866488932
+    second: wall-temple_10
+  - first:
+      213: 5152272226733131012
+    second: wall-temple_11
+  - first:
+      213: 4530096569433779314
+    second: wall-temple_12
+  - first:
+      213: -200695645002707831
+    second: wall-temple_13
+  - first:
+      213: 395825783667920479
+    second: wall-temple_14
+  - first:
+      213: 3245145905920618628
+    second: wall-temple_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wall-temple_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 663
+        width: 230
+        height: 361
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ad418a87948f1ba0800000000000000
+      internalID: -6116023982547186265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-temple_1
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 653
+        width: 487
+        height: 371
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b74521ce36175bf0800000000000000
+      internalID: -335775188431583312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-temple_2
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 679
+        width: 121
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00dae284707042c00800000000000000
+      internalID: 874831955473902848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-temple_3
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 529
+        width: 793
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a39e80fab5e98880800000000000000
+      internalID: -8608096621679438943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-temple_4
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 679
+        width: 155
+        height: 341
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b140ebf163c27f50800000000000000
+      internalID: 6877774406553190832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-temple_5
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 664
+        width: 183
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33b747dc595e022c0800000000000000
+      internalID: -4458311199536940237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-temple_6
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 661
+        width: 378
+        height: 363
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6949e35af5efbf60800000000000000
+      internalID: 8052407522074118506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-temple_7
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 535
+        width: 289
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d4bf75a99e9019c0800000000000000
+      internalID: -3958489689714871088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-temple_8
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 537
+        width: 402
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50a601d7aa75c9380800000000000000
+      internalID: -8963192768619845115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-temple_9
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 249
+        width: 287
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3414f287e2bf1e800800000000000000
+      internalID: 640068799066751299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-temple_10
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 241
+        width: 1076
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46c0e25bff7447a10800000000000000
+      internalID: 1906227705866488932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-temple_11
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 267
+        width: 122
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4050a84da4c808740800000000000000
+      internalID: 5152272226733131012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-temple_12
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 0
+        width: 486
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27ce05314d22ede30800000000000000
+      internalID: 4530096569433779314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-temple_13
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 105
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98c45abcf5cf63df0800000000000000
+      internalID: -200695645002707831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-temple_14
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 0
+        width: 888
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5e877cf3714e7500800000000000000
+      internalID: 395825783667920479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall-temple_15
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 17
+        width: 117
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48036b60203190d20800000000000000
+      internalID: 3245145905920618628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      wall-temple_0: -6116023982547186265
+      wall-temple_1: -335775188431583312
+      wall-temple_10: 1906227705866488932
+      wall-temple_11: 5152272226733131012
+      wall-temple_12: 4530096569433779314
+      wall-temple_13: -200695645002707831
+      wall-temple_14: 395825783667920479
+      wall-temple_15: 3245145905920618628
+      wall-temple_2: 874831955473902848
+      wall-temple_3: -8608096621679438943
+      wall-temple_4: 6877774406553190832
+      wall-temple_5: -4458311199536940237
+      wall-temple_6: 8052407522074118506
+      wall-temple_7: -3958489689714871088
+      wall-temple_8: -8963192768619845115
+      wall-temple_9: 640068799066751299
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

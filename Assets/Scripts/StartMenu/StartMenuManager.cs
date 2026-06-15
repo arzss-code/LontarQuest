@@ -9,7 +9,7 @@ public class StartMenuManager : MonoBehaviour
     public CanvasGroup fadePanel;
 
     [Header("Scene")]
-    public string nextSceneName = "SampleScene";
+    public string nextSceneName = "TempleScene";
 
     private bool canPress = false;
     private bool loading = false;
