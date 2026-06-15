@@ -292,6 +292,18 @@ public class PlayerController : MonoBehaviour
         return canMove;
     }
 
+    public void TriggerDeath()
+    {
+        // Kunci semua pergerakan
+        SetCanMove(false);
+        
+        // Putar animasi mati (Pastikan parameter 'Die' ada di Animator Saka)
+        if (animator != null)
+        {
+            animator.SetTrigger("Die");
+        }
+    }
+
     // ===================
     // MELEE
     // ===================

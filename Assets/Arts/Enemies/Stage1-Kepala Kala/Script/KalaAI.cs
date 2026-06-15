@@ -19,8 +19,13 @@ public class KalaAI : MonoBehaviour
     [Header("Target & Deteksi")]
     public Transform player;
     public LayerMask playerLayer; 
-    public float chaseDistance = 8f; 
+    public float chaseDistance = 15f; 
     public float attackDistance = 1.5f; 
+    
+    [Header("Arena Settings")]
+    [Tooltip("Batas maksimal bos boleh mengejar, jika lewat akan kembali ke tengah")]
+    public float leashRadius = 12f;
+    private Vector2 startPosition;
 
     [Header("Patroli")]
     public float wanderSpeed = 1.5f;
@@ -52,17 +57,18 @@ public class KalaAI : MonoBehaviour
     private bool hasEngaged = false;
 
     // State Machine
-    private enum State { Patrol, Chase, Charging, Cooldown }
+    private enum State { Patrol, Chase, Charging, Cooldown, Return }
     private State currentState;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         
-        // Buat massa sangat berat agar tidak bisa didorong oleh player
-        rb.mass = 1000f;
-        // Kunci rotasi agar boss tidak terguling
+        // Buat massa sangat berat dan ganti ke Kinematic agar tidak bisa didorong player
+        rb.bodyType = RigidbodyType2D.Kinematic;
         rb.freezeRotation = true;
+        
+        startPosition = transform.position;
 
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -101,7 +107,30 @@ public class KalaAI : MonoBehaviour
         }
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float distanceFromStart = Vector2.Distance(transform.position, startPosition);
 
+        // Jika keluar dari arena (leash), kembali ke posisi awal
+        if (currentState == State.Return)
+        {
+            if (distanceFromStart < 1f)
+            {
+                currentState = State.Patrol;
+            }
+            else
+            {
+                movement = (startPosition - (Vector2)transform.position).normalized;
+                UpdateAnimator(movement);
+            }
+            return;
+        }
+
+        if (distanceFromStart > leashRadius && (currentState == State.Chase || currentState == State.Patrol))
+        {
+            currentState = State.Return;
+            return;
+        }
+
+        // Aktifkan boss jika pemain masuk jangkauan deteksi
         if (!hasEngaged && distanceToPlayer <= chaseDistance)
         {
             hasEngaged = true;
@@ -112,14 +141,16 @@ public class KalaAI : MonoBehaviour
         {
             StartCoroutine(SprayAttackRoutine());
         }
-        else if (distanceToPlayer <= chaseDistance)
+        else if (hasEngaged && distanceToPlayer <= chaseDistance)
         {
+            // Sebagai Boss, dia harus terus mengejar selama pemain masih di dalam arena
             currentState = State.Chase;
             Vector2 direction = (player.position - transform.position).normalized;
             movement = direction;
         }
         else
         {
+            // Pemain kabur jauh, bos mondar-mandir di tengah
             currentState = State.Patrol;
             
             wanderTimer -= Time.deltaTime;
@@ -128,6 +159,14 @@ public class KalaAI : MonoBehaviour
                 wanderTimer = wanderChangeTime;
                 wanderDirection = Random.insideUnitCircle.normalized;
             }
+            
+            // Usahakan patroli tidak keluar dari titik awal
+            Vector2 desiredPos = (Vector2)transform.position + wanderDirection;
+            if (Vector2.Distance(desiredPos, startPosition) > (leashRadius * 0.5f))
+            {
+                wanderDirection = (startPosition - (Vector2)transform.position).normalized;
+            }
+            
             movement = wanderDirection;
         }
 
@@ -138,7 +177,7 @@ public class KalaAI : MonoBehaviour
     {
         if (isDead) return;
 
-        if (currentState == State.Chase)
+        if (currentState == State.Chase || currentState == State.Return)
         {
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         }
@@ -193,17 +232,18 @@ public class KalaAI : MonoBehaviour
             audioSource.PlayOneShot(chargeSFX);
         }
 
-        // Fase Ancang-ancang (Berkedip Merah)
+        // Fase Ancang-ancang (Berkedip Putih, bukan merah)
         float timer = 0;
-        bool isRed = false;
+        bool isBlink = false;
         while (timer < chargeTime)
         {
-            spriteRenderer.color = isRed ? Color.white : Color.red;
-            isRed = !isRed;
+            // Kedip antara warna asli (putih) dan abu-abu agak redup untuk efek charging
+            spriteRenderer.color = isBlink ? Color.white : new Color(0.7f, 0.7f, 0.7f, 1f);
+            isBlink = !isBlink;
             yield return new WaitForSeconds(0.15f);
             timer += 0.15f;
         }
-        spriteRenderer.color = Color.white; 
+        spriteRenderer.color = Color.white;
 
         // Tentukan titik tengah semburan (di depan boss)
         Vector2 sprayCenter = (Vector2)transform.position + attackDirection * (attackRadius * 0.75f);
@@ -258,10 +298,13 @@ public class KalaAI : MonoBehaviour
     // --- SISTEM HP & MENERIMA SERANGAN ---
     public void TakeDamage(int damageAmount)
     {
-        if (isDead) return;
+        if (currentHealth <= 0) return;
 
         currentHealth -= damageAmount;
         Debug.Log("Bos terkena serangan! Sisa HP: " + currentHealth);
+        
+        // Memunculkan angka damage putih (false = musuh)
+        DamagePopupManager.Create(transform.position, damageAmount, false);
 
         if (hitSFX != null && audioSource != null)
         {
@@ -283,9 +326,9 @@ public class KalaAI : MonoBehaviour
 
     IEnumerator DamageFlash()
     {
-        // Berkedip sebentar saat menerima damage dari Saka
-        spriteRenderer.color = Color.gray;
-        yield return new WaitForSeconds(0.1f);
+        // Berkedip MERAH saat menerima damage (Sesuai permintaan)
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.15f);
         spriteRenderer.color = Color.white;
     }
 
@@ -318,5 +361,8 @@ public class KalaAI : MonoBehaviour
         
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRadius);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(Application.isPlaying ? startPosition : (Vector2)transform.position, leashRadius);
     }
 }

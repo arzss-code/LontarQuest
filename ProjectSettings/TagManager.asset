@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -53,6 +54,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2767408023
+    locked: 0
+  - name: Entities
+    uniqueID: 83457193
     locked: 0
   - name: Effects
     uniqueID: 1857334475

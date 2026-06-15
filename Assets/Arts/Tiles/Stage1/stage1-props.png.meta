@@ -1,0 +1,1040 @@
+fileFormatVersion: 2
+guid: 44a3424f3c2f26840adbb1cc3e847fa1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -880583067708291009
+    second: stage1-props_0
+  - first:
+      213: -4924025242321482783
+    second: stage1-props_1
+  - first:
+      213: -9136668951599253155
+    second: stage1-props_2
+  - first:
+      213: 8475153997597839091
+    second: stage1-props_3
+  - first:
+      213: -8872026554364203489
+    second: stage1-props_4
+  - first:
+      213: -3450483729358440545
+    second: stage1-props_5
+  - first:
+      213: -4756503380817557275
+    second: stage1-props_6
+  - first:
+      213: -2319708176917317773
+    second: stage1-props_7
+  - first:
+      213: -3633903594195258621
+    second: stage1-props_8
+  - first:
+      213: 3307192672681065324
+    second: stage1-props_9
+  - first:
+      213: -8285570132732930314
+    second: stage1-props_10
+  - first:
+      213: 8952408606698334332
+    second: stage1-props_11
+  - first:
+      213: 2953707180761512493
+    second: stage1-props_12
+  - first:
+      213: 4308584298434924466
+    second: stage1-props_13
+  - first:
+      213: -4159513786973949407
+    second: stage1-props_14
+  - first:
+      213: -7644982362458299039
+    second: stage1-props_15
+  - first:
+      213: 3019373922662588359
+    second: stage1-props_16
+  - first:
+      213: -2494511976864453639
+    second: stage1-props_17
+  - first:
+      213: 3078020471919075217
+    second: stage1-props_18
+  - first:
+      213: -1906789342737264928
+    second: stage1-props_19
+  - first:
+      213: 563287775980212053
+    second: stage1-props_20
+  - first:
+      213: -576380617358225926
+    second: stage1-props_21
+  - first:
+      213: 6281814153013692481
+    second: stage1-props_22
+  - first:
+      213: 2714657613356026648
+    second: stage1-props_23
+  - first:
+      213: 942753740889001801
+    second: stage1-props_24
+  - first:
+      213: -5602797552759612267
+    second: stage1-props_25
+  - first:
+      213: 7094719712418834169
+    second: stage1-props_26
+  - first:
+      213: 7150122993806672983
+    second: stage1-props_27
+  - first:
+      213: 2557514522071791905
+    second: stage1-props_28
+  - first:
+      213: -8560007127303243299
+    second: stage1-props_29
+  - first:
+      213: 3798958569949573197
+    second: stage1-props_30
+  - first:
+      213: -3695008886009647443
+    second: stage1-props_31
+  - first:
+      213: -7372823618318548317
+    second: stage1-props_32
+  - first:
+      213: -8960045105852431563
+    second: stage1-props_33
+  - first:
+      213: 5512661393000735899
+    second: stage1-props_34
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: stage1-props_0
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 884
+        width: 136
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f38060e8d5a87c3f0800000000000000
+      internalID: -880583067708291009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_1
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 883
+        width: 169
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eb0f5671295aabb0800000000000000
+      internalID: -4924025242321482783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_2
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 884
+        width: 148
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d59f5952ff7043180800000000000000
+      internalID: -9136668951599253155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_3
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 881
+        width: 148
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fe0d8358abcd9570800000000000000
+      internalID: 8475153997597839091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_4
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 878
+        width: 123
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1ee945dada30e480800000000000000
+      internalID: -8872026554364203489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_5
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 667
+        width: 120
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f973350645b6d10d0800000000000000
+      internalID: -3450483729358440545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_6
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 665
+        width: 172
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e8cc6d40618dfdb0800000000000000
+      internalID: -4756503380817557275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_7
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 676
+        width: 94
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 377364414bdbecfd0800000000000000
+      internalID: -2319708176917317773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_8
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 680
+        width: 95
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 303f9ff2fe7c19dc0800000000000000
+      internalID: -3633903594195258621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_9
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 682
+        width: 121
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6bfdeaa63285ed20800000000000000
+      internalID: 3307192672681065324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_10
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 669
+        width: 198
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f61ed4fcddb30d80800000000000000
+      internalID: -8285570132732930314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_11
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 479
+        width: 97
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c78676622385d3c70800000000000000
+      internalID: 8952408606698334332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_12
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 472
+        width: 88
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2a7fcf080dadf820800000000000000
+      internalID: 2953707180761512493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_13
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 483
+        width: 75
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bf0a01779a2bcb30800000000000000
+      internalID: 4308584298434924466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_14
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 483
+        width: 87
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 122f311bf307646c0800000000000000
+      internalID: -4159513786973949407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_15
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 494
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 165eb83db0197e590800000000000000
+      internalID: -7644982362458299039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_16
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 495
+        width: 84
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cf9168d598f6e920800000000000000
+      internalID: 3019373922662588359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_17
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 494
+        width: 79
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fb6903d296b16dd0800000000000000
+      internalID: -2494511976864453639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_18
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 489
+        width: 150
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19fdd18af4357ba20800000000000000
+      internalID: 3078020471919075217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_19
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 316
+        width: 174
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ee05a40239b985e0800000000000000
+      internalID: -1906789342737264928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_20
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 308
+        width: 140
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55fce917f3331d700800000000000000
+      internalID: 563287775980212053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_21
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 325
+        width: 99
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afd41fed1e84008f0800000000000000
+      internalID: -576380617358225926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_22
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 328
+        width: 72
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 148076f80bc7d2750800000000000000
+      internalID: 6281814153013692481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_23
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 339
+        width: 59
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81b45ea67b66ca520800000000000000
+      internalID: 2714657613356026648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_24
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 342
+        width: 55
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94f0c5c4885551d00800000000000000
+      internalID: 942753740889001801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_25
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 329
+        width: 47
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59cd5578f4dde32b0800000000000000
+      internalID: -5602797552759612267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_26
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 345
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f6afaf2df1857260800000000000000
+      internalID: 7094719712418834169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_27
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 334
+        width: 50
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 754033adaf65a3360800000000000000
+      internalID: 7150122993806672983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_28
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 331
+        width: 47
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 129fdf358ed1e7320800000000000000
+      internalID: 2557514522071791905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_29
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 320
+        width: 77
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd9374ededeb43980800000000000000
+      internalID: -8560007127303243299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_30
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 105
+        width: 59
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d40354e01bc98b430800000000000000
+      internalID: 3798958569949573197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_31
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 89
+        width: 60
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daeab73cef0b8bcc0800000000000000
+      internalID: -3695008886009647443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_32
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 83
+        width: 72
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a243866bf77ea990800000000000000
+      internalID: -7372823618318548317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_33
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 82
+        width: 68
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5334036d27687a380800000000000000
+      internalID: -8960045105852431563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage1-props_34
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 85
+        width: 132
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b94a1d06458e08c40800000000000000
+      internalID: 5512661393000735899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      stage1-props_0: -880583067708291009
+      stage1-props_1: -4924025242321482783
+      stage1-props_10: -8285570132732930314
+      stage1-props_11: 8952408606698334332
+      stage1-props_12: 2953707180761512493
+      stage1-props_13: 4308584298434924466
+      stage1-props_14: -4159513786973949407
+      stage1-props_15: -7644982362458299039
+      stage1-props_16: 3019373922662588359
+      stage1-props_17: -2494511976864453639
+      stage1-props_18: 3078020471919075217
+      stage1-props_19: -1906789342737264928
+      stage1-props_2: -9136668951599253155
+      stage1-props_20: 563287775980212053
+      stage1-props_21: -576380617358225926
+      stage1-props_22: 6281814153013692481
+      stage1-props_23: 2714657613356026648
+      stage1-props_24: 942753740889001801
+      stage1-props_25: -5602797552759612267
+      stage1-props_26: 7094719712418834169
+      stage1-props_27: 7150122993806672983
+      stage1-props_28: 2557514522071791905
+      stage1-props_29: -8560007127303243299
+      stage1-props_3: 8475153997597839091
+      stage1-props_30: 3798958569949573197
+      stage1-props_31: -3695008886009647443
+      stage1-props_32: -7372823618318548317
+      stage1-props_33: -8960045105852431563
+      stage1-props_34: 5512661393000735899
+      stage1-props_4: -8872026554364203489
+      stage1-props_5: -3450483729358440545
+      stage1-props_6: -4756503380817557275
+      stage1-props_7: -2319708176917317773
+      stage1-props_8: -3633903594195258621
+      stage1-props_9: 3307192672681065324
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,58 +1,118 @@
-# Panduan Implementasi Sistem Roguelike & Jurnal LontarQuest
+# Panduan Implementasi Sistem Roguelike & Jurnal LontarQuest untuk Pemula
 
-Dokumen ini berisi panduan teknis dan urutan kerja (Workflow) untuk memasang sistem *Boon* (Hadiah Ruangan) dan *Jurnal Nusantara* (Edukasi Mitologi) ke dalam Unity Editor Anda.
+Dokumen ini berisi panduan teknis yang dijelaskan langkah demi langkah (*step-by-step*) khusus untuk pemula. Panduan ini akan memandu Anda merakit sistem *Boon* (Hadiah Kekuatan) dan *Jurnal Nusantara* (Koleksi Mitologi) di Unity Editor dengan sangat detail.
 
 ---
 
 ## Urutan Implementasi (Wajib Berurutan)
-
-Untuk menghindari error referensi kosong (Missing Reference) di Unity, harap lakukan perakitan dengan urutan berikut:
-
-1. **Buat Data Master Dulu:** Buat setidaknya 1 `Boon Data` dan 1 `Lore Data` menggunakan menu *ScriptableObject* (Klik Kanan -> Create -> LontarQuest).
-2. **Pasang Skrip ke Saka:** Pasang `PlayerModifier` ke karakter utama (Saka).
-3. **Bangun Ruangan (Room):** Pasang `RoomManager` di tengah ruangan, dan masukkan musuh-musuhnya ke dalam list.
-4. **Pasang Pintu (Boon Door):** Pasang `BoonDoor` di pintu keluar ruangan tersebut, lalu hubungkan pintu ini ke `RoomManager` di langkah 3.
-5. **Pasang Pemicu Cerita (Lore):** Pasang `LoreInteractable` pada patung/arca yang ada di ruangan tersebut, dan masukkan `Lore Data` dari langkah 1 ke dalamnya.
-6. **Pasang Manajer Global:** Buat objek kosong `GameManager` dan pasang `JournalManager` dan `BoonUIManager`.
+Lakukan urutan perakitan ini agar tidak terjadi *error* di Unity:
+1. Buat Data Master Dulu
+2. Pasang Skrip ke Karakter Saka
+3. Bangun Ruangan (Room Manager)
+4. Pasang Pintu Hadiah (Boon Door)
+5. Pasang Arca Pemicu Cerita (Lore)
+6. Pasang Manajer Global
 
 ---
 
 ## Detail Langkah Eksekusi di Unity
 
-### A. Membuat Data Aksara & Mitologi (Tanpa Coding)
-Sistem ini menggunakan *ScriptableObject*. Anda bertindak sebagai Game Designer di sini.
-1. Buka folder `Assets/` di tab Project, lalu buat folder baru bernama `Data` (atau bebas).
-2. Di dalam folder `Data`, klik kanan area kosong -> **Create -> LontarQuest**.
-3. Pilih **Boon Data** untuk membuat *template* kekuatan baru. Di Inspector, isi nama, tipe Aksara (Lontara/Batak/Kawi), ikon, dan jumlah status bonusnya (misal: kecepatan lari, tambahan damage).
-4. Pilih **Lore Data** untuk membuat *template* buku mitologi monster. Isi ID, nama monster, gambar, dan sejarah mitologinya.
+### A. Membuat Data Aksara & Mitologi (ScriptableObject)
+Kita akan membuat "cetakan" data kekuatan dan data buku cerita. Anda **tidak perlu ngoding** sama sekali di bagian ini.
 
-### B. Setup Player Saka
-Saka membutuhkan sistem untuk menerima *buff* tersebut.
-1. Klik *Prefab* **Saka**.
-2. Tarik skrip `PlayerModifier.cs` (ada di `Assets/Scripts/Systems/`) ke Saka. Pastikan posisinya berdampingan dengan `PlayerStats.cs`. Skrip ini akan otomatis menampung kekuatan yang Saka dapatkan.
+**1. Membuat Folder Data**
+- Di bagian bawah layar Unity, cari tab **Project** (tempat semua aset berada).
+- Buka folder `Assets`.
+- Klik kanan di area kosong -> pilih **Create** -> **Folder**. Beri nama folder tersebut `Data`.
 
-### C. Setup Pintu Lorong (Memilih Jalur)
-Pintu ini yang akan menghadang Saka, dan memberi Boon setelah dilewati.
-1. Di setiap pintu keluar ruangan/lorong, pastikan ada objek dengan `BoxCollider2D`.
-2. Centang **Is Trigger** di BoxCollider-nya.
-3. Tarik skrip `BoonDoor.cs` ke pintu tersebut.
-4. Di Inspector pintu tersebut, atur **Door Reward Type** (Lontara/Batak/Kawi).
-5. *(Opsional)* Jika pintu ini punya "saingan" di lorong sebelahnya, masukkan objek pintu sebelahnya ke kolom **Other Doors To Lock**. (Jadi jika pintu ini dilewati Saka, pintu saingannya akan hilang/tertutup permanen).
+**2. Membuat Data Kekuatan (Boon)**
+- Masuk ke folder `Data` yang baru dibuat.
+- Klik kanan di area kosong -> pilih **Create** -> **LontarQuest** -> **Boon Data**.
+- Beri nama file baru ini, misalnya `Boon_KecepatanLontara`.
+- Klik file tersebut. Di sebelah kanan layar (tab **Inspector**), isilah datanya:
+  - `Boon Name`: Tulis nama kekuatan (misal: Lari Kencang Lontara).
+  - `Boon Icon`: (Opsional) Tarik gambar ikon dari tab Project ke kotak ini.
+  - `Type`: Pilih `Lontara`, `Batak`, atau `Kawi`.
+  - `Stat Modifiers`: Ubah angka `Size` menjadi 1, lalu tekan Enter. Akan muncul *Element 0*. Isi `Stat Type` dengan `MoveSpeed`, dan `Value` dengan angka bonus kecepatannya (misal: 2).
 
-### D. Setup Ruangan (Room Manager)
-Manajer ini yang bertugas mendeteksi apakah musuh sudah mati semua.
-1. Buat Objek Kosong (*Create Empty*) di tengah ruangan tempur, beri nama `Room_Manager`.
-2. Pasangkan skrip `RoomManager.cs`.
-3. Masukkan semua objek musuh (misal: Jamur, Gana) yang ada di ruangan itu ke kolom **Enemies In Room**.
-4. Masukkan objek Pintu (dari Langkah C) ke kolom **Exit Doors**. 
-*(Pintu-pintu ini awalnya akan disembunyikan/dikunci oleh sistem, dan baru akan muncul/terbuka setelah seluruh musuh di dalam list mati).*
-
-### E. Setup Arca/Benda Bersejarah (Jurnal Edukasi)
-Sistem interaksi untuk menyimpan sejarah monster ke dalam buku.
-1. Pasang skrip `LoreInteractable.cs` ke objek visual arca/patung di peta Anda.
-2. Tambahkan `BoxCollider2D` dan centang **Is Trigger**.
-3. Masukkan data mitologi (`LoreData`) yang sudah Anda buat di langkah A ke kolom **Lore Data To Unlock**.
-4. Buat objek kosong (misalnya bernama `Global_Managers`), lalu pasangkan skrip `JournalManager.cs`. Ini akan bertugas men-*save* progres bacaan pemain secara permanen ke hardisk.
+**3. Membuat Data Buku Mitologi (Lore)**
+- Masih di folder `Data`, klik kanan -> **Create** -> **LontarQuest** -> **Lore Data**.
+- Beri nama filenya, misal `Lore_Gana`.
+- Klik file tersebut, lihat ke **Inspector**:
+  - `Lore ID`: Tulis ID unik tanpa spasi, misal `monster_gana`.
+  - `Title`: Nama monster/karakter (Gana).
+  - `Description`: Tulis kisah/mitologi monster tersebut selengkap mungkin.
+  - `Lore Image`: (Opsional) Tarik dan masukkan gambar monster.
 
 ---
-*Catatan: UI Canvas untuk Pemilihan 3 Boon dan UI Buku Jurnal sengaja belum dikaitkan secara penuh karena Anda belum memiliki Aset/Kerangka Canvas-nya di Unity. Sistem saat ini diatur untuk mengambil pilihan pertama secara otomatis (Auto-Pick) atau menampilkannya di Console untuk tujuan pengujian (Testing).*
+
+### B. Memasang Sistem ke Player (Saka)
+Saka perlu dipasang sistem agar bisa menerima hadiah kekuatan dari ruangan.
+
+1. Di tab **Project**, cari *Prefab* Saka (biasanya di folder `Assets/Prefabs/` atau tempat Anda menyimpannya).
+2. Klik ganda (*Double Click*) file Saka tersebut untuk masuk ke dalam layar biru (*Prefab Mode*).
+3. Di tab **Hierarchy** (kiri atas), pastikan objek Saka terpilih.
+4. Lihat ke tab **Inspector** (kanan). Tarik layar (*scroll*) ke paling bawah, lalu klik tombol **Add Component**.
+5. Ketik `PlayerModifier`, lalu klik skrip tersebut untuk menambahkannya ke Saka.
+6. Keluar dari *Prefab Mode* dengan mengklik tombol panah kiri `<` (Back) di pojok kiri atas jendela Hierarchy.
+
+---
+
+### C. Membuat Pintu Lorong (Memilih Jalur Hadiah)
+Ini adalah pintu yang akan dilalui Saka setelah mengalahkan musuh di dalam sebuah ruangan tempur. Pintu ini yang akan menyuntikkan kekuatan ke Saka.
+
+1. Di tab **Hierarchy**, klik kanan -> **2D Object** -> **Sprites** -> **Square** (atau jika Anda punya gambar pintu sendiri, tarik ke Scene). Beri nama objek ini `Pintu_Lontara`.
+2. Di **Inspector**, klik **Add Component**, ketik dan tambahkan `BoxCollider2D`.
+3. Di dalam BoxCollider2D, **WAJIB centang kotak `Is Trigger`**. (Ini agar Saka bisa menembus pintu, bukan menabraknya dan mentok seperti tembok).
+4. Posisikan pintu ini di ujung lorong keluar ruangan Anda.
+5. Klik **Add Component** lagi, ketik dan tambahkan skrip `BoonDoor`.
+6. Di komponen `Boon Door (Script)`, ubah **Door Reward Type** menjadi `Lontara`, `Batak`, atau `Kawi` sesuai jenis pintunya.
+7. *(Opsional: Lakukan Langkah 1-6 untuk membuat pintu sebelahnya (misal `Pintu_Batak`) jika ruangan ini punya jalan bercabang dua)*.
+
+---
+
+### D. Mengatur Ruangan & Musuh (Room Manager)
+Sistem ini bertugas mengunci pintu di awal, mengawasi semua musuh, dan baru akan membuka pintu jika semua musuh mati.
+
+1. Di **Hierarchy**, klik kanan area kosong -> **Create Empty**. Beri nama `Room_1_Manager`.
+2. Posisikan objek kosong ini di tengah-tengah ruangan tempur tersebut.
+3. Klik objek `Room_1_Manager`, lalu di **Inspector** klik **Add Component**, ketik dan tambahkan skrip `RoomManager`.
+4. **Memasukkan Musuh:**
+   - Masih di Inspector `Room_1_Manager`, cari bagian **Enemies In Room**.
+   - Klik tanda panah kecil di sebelahnya untuk membuka daftar. Ubah angka `Size` sesuai jumlah musuh yang ada di dalam ruangan itu (misal: 3). Tekan Enter.
+   - Tarik objek musuh satu per satu dari tab **Hierarchy** ke kotak *Element 0*, *Element 1*, dan *Element 2*.
+5. **Memasukkan Pintu:**
+   - Cari bagian **Exit Doors** di bawahnya.
+   - Ubah `Size` sesuai jumlah pintu keluar ruangan tersebut (misal: 2, jika ada jalan cabang).
+   - Tarik objek `Pintu_Lontara` dan `Pintu_Batak` (dari Langkah C) dari tab **Hierarchy** ke dalam kotak Element pintu tersebut.
+6. Selesai! Sekarang saat game dimulai, pintu-pintu tersebut akan otomatis hilang, dan baru akan muncul/terbuka setelah 3 musuh tadi dikalahkan.
+
+---
+
+### E. Memasang Prasasti/Arca (Buku Jurnal Edukasi)
+Ini adalah objek yang jika disentuh oleh Saka, akan membuka cerita mitologi baru di halaman Jurnal.
+
+1. Masukkan gambar arca/buku/prasasti ke dalam Scene. Beri nama objeknya `Prasasti_Gana`.
+2. Klik `Prasasti_Gana` di **Hierarchy**. Di **Inspector**, tambahkan komponen **BoxCollider2D** dan **centang `Is Trigger`**.
+3. Di Scene view, klik tombol *Edit Collider* (ikon kotak dengan 4 titik di komponen BoxCollider2D) dan perbesar kotak hijaunya agar menutupi area di sekitar prasasti. (Saka harus menyentuh area hijau ini untuk berinteraksi).
+4. Klik **Add Component**, tambahkan skrip `LoreInteractable`.
+5. Di Inspector skrip tersebut, cari kolom **Lore Data To Unlock**.
+6. Tarik file data `Lore_Gana` (yang dibuat di Langkah A.3) dari folder `Data` ke dalam kolom tersebut.
+
+---
+
+### F. Menyambungkan Sistem Global (Game Manager)
+Langkah terakhir yang sangat penting agar buku jurnal bisa dibaca dan progres bacaan pemain tersimpan permanen walau game ditutup.
+
+1. Di **Hierarchy**, klik kanan area kosong -> **Create Empty**. Beri nama `Global_Managers`.
+2. Klik objek `Global_Managers`, di **Inspector** klik **Add Component**, tambahkan skrip `JournalManager`.
+3. Klik **Add Component** lagi, tambahkan skrip `BoonUIManager`.
+
+---
+
+🎉 **Selesai! Anda siap menguji coba (Playtest) sistemnya.**
+- Coba mainkan (tekan tombol *Play*).
+- Pukul/kalahkan semua musuh di dalam ruangan yang sudah disetel `RoomManager`-nya. Pintu akan otomatis terbuka.
+- Jalan melewati pintu tersebut, Saka akan langsung menerima efek *Boon* (bonus status).
+- Sentuh arca/prasasti di ujung jalan, dan Jurnal Gana akan terbuka!
+*(Catatan: Sistem UI/Canvas visual di layar belum terhubung sepenuhnya, tapi sistem dasarnya sudah berjalan di balik layar dan bisa dicek lewat jendela Console Unity)*.

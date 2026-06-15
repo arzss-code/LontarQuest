@@ -15,7 +15,7 @@ public class BoonData : ScriptableObject
     public BoonType type;
     [TextArea(2, 4)]
     public string description;
-    public Sprite icon; // Bisa pakai kotak polos untuk sementara
+    public Sprite icon;
 
     [Header("Statistik Modifier")]
     [Tooltip("Persentase tambahan kecepatan. Misal 0.2 = +20%")]

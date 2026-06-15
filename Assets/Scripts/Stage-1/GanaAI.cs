@@ -1,12 +1,16 @@
-    using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class GanaAI : MonoBehaviour
 {
-    public enum GanaState { Idle, Chase, Charging, Cooldown }
+    public enum GanaState { Idle, Chase, Charging, Cooldown, Return }
 
     [Header("State Machine")]
     [SerializeField] private GanaState currentState = GanaState.Idle;
+    
+    [Header("Patrol Settings")]
+    [SerializeField] private float leashRadius = 8f;
+    private Vector2 startPosition;
 
     [Header("Detection Settings")]
     [SerializeField] private float detectionRadius = 6f;
@@ -18,9 +22,15 @@ public class GanaAI : MonoBehaviour
     [SerializeField] private float stopDistance = 1.2f;
     [SerializeField] private float attackDistance = 1.5f;
     [SerializeField] private float attackRadius = 1.5f;
-    [SerializeField] private float chargeTime = 0.5f;
+    
+    // Waktu tunggu animasi serangan sampai frame 4 (dikunci di 0.8 detik)
+    private readonly float attackHitDelay = 0.8f;
+    
     [SerializeField] private float attackCooldown = 1.5f;
     [SerializeField] private int attackDamage = 15;
+    
+    [Tooltip("Geser posisi lingkaran serangan agar pas di tangan yang menyala")]
+    [SerializeField] private Vector2 handHitboxOffset = new Vector2(0.8f, 0f);
     public LayerMask playerLayer;
 
     [Header("Health Settings")]
@@ -29,6 +39,14 @@ public class GanaAI : MonoBehaviour
 
     [Header("Visual Flash")]
     [SerializeField] private float flashDuration = 0.15f;
+
+    [Header("VFX Settings")]
+    [Tooltip("Prefab efek visual (misal: debu/slash) yang muncul di lokasi hitbox")]
+    [SerializeField] private GameObject attackVFXPrefab;
+    [SerializeField] private float vfxLifetime = 0.5f;
+
+    [Header("Audio Settings")]
+    [SerializeField] private AudioClip deathSFX; // Masukkan file suara kematian di Inspector
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -52,6 +70,8 @@ public class GanaAI : MonoBehaviour
 
     private void Start()
     {
+        rb.bodyType = RigidbodyType2D.Kinematic; // Agar tidak saling terpental secara fisika
+        startPosition = transform.position;
         currentHealth = maxHealth;
         if (spriteRenderer != null)
         {
@@ -74,7 +94,6 @@ public class GanaAI : MonoBehaviour
     {
         if (playerTransform == null)
         {
-            // Fallback: try to find player if they were spawned or missing initially
             GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
             if (playerObj != null)
             {
@@ -90,6 +109,22 @@ public class GanaAI : MonoBehaviour
 
         // Handle State Transitions
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+        float distanceFromStart = Vector2.Distance(transform.position, startPosition);
+        
+        if (currentState == GanaState.Return)
+        {
+            if (distanceFromStart < 0.5f)
+            {
+                currentState = GanaState.Idle;
+            }
+            return;
+        }
+
+        if (distanceFromStart > leashRadius && currentState == GanaState.Chase)
+        {
+            currentState = GanaState.Return;
+            return;
+        }
         
         if (distanceToPlayer <= attackDistance)
         {
@@ -107,11 +142,19 @@ public class GanaAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (currentState == GanaState.Chase && playerTransform != null)
+        if (currentState == GanaState.Return)
+        {
+            Vector2 direction = (startPosition - rb.position).normalized;
+            Vector2 targetPos = rb.position + direction * moveSpeed * Time.fixedDeltaTime;
+            rb.MovePosition(targetPos);
+            UpdateAnimator(direction);
+            rb.linearVelocity = Vector2.zero;
+        }
+        else if (currentState == GanaState.Chase && playerTransform != null)
         {
             float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
             
-            // Anti-Cornering: Hanya bergerak maju jika jarak masih lebih besar dari stopDistance
+            // Anti-Cornering
             if (distanceToPlayer > stopDistance)
             {
                 Vector2 direction = ((Vector2)playerTransform.position - rb.position).normalized;
@@ -125,7 +168,7 @@ public class GanaAI : MonoBehaviour
                 UpdateAnimator(Vector2.zero);
             }
             
-            rb.linearVelocity = Vector2.zero; // Prevent persistent slide/momentum from other forces
+            rb.linearVelocity = Vector2.zero;
         }
         else
         {
@@ -142,24 +185,30 @@ public class GanaAI : MonoBehaviour
         Vector2 attackDirection = (playerTransform.position - transform.position).normalized;
         UpdateAnimator(attackDirection);
 
-        // Fase Ancang-ancang (Berkedip Merah sebagai Telegraph)
-        float timer = 0;
-        bool isRed = false;
-        while (timer < chargeTime)
-        {
-            spriteRenderer.color = isRed ? originalColor : Color.red;
-            isRed = !isRed;
-            yield return new WaitForSeconds(0.1f);
-            timer += 0.1f;
-        }
-        spriteRenderer.color = originalColor;
-
         if (anim != null)
         {
-            anim.SetTrigger("Attack"); // Jika ada parameter "Attack" di Animator
+            anim.SetTrigger("Attack"); 
         }
 
-        Vector2 smashCenter = (Vector2)transform.position + attackDirection * (attackRadius * 0.75f);
+        // Tunggu sampai animasi mencapai frame pukulan (frame ke-4)
+        yield return new WaitForSeconds(attackHitDelay);
+
+        // Agar tidak aneh saat Saka di atas/bawah, hitbox serangan akan selalu diarahkan 
+        // ke posisi Saka secara melingkar (360 derajat), menggunakan jarak offset.x
+        Vector2 actualHandOffset = attackDirection * Mathf.Abs(handHitboxOffset.x);
+        Vector2 smashCenter = (Vector2)transform.position + actualHandOffset;
+
+        // Tampilkan Efek Visual (VFX) di titik hitbox agar pemain bisa melihat serangannya
+        if (attackVFXPrefab != null)
+        {
+            GameObject vfx = Instantiate(attackVFXPrefab, smashCenter, Quaternion.identity);
+            
+            // Putar efek agar mengarah ke pemain
+            float angle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
+            vfx.transform.rotation = Quaternion.Euler(0, 0, angle);
+            
+            Destroy(vfx, vfxLifetime);
+        }
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(smashCenter, attackRadius, playerLayer);
         foreach(Collider2D hit in hits)
@@ -169,12 +218,7 @@ public class GanaAI : MonoBehaviour
                 PlayerStats pStats = hit.GetComponent<PlayerStats>();
                 if (pStats != null) pStats.TakeDamage(attackDamage);
 
-                PlayerController pCtrl = hit.GetComponent<PlayerController>();
-                if (pCtrl != null)
-                {
-                    Vector2 kbDir = (hit.transform.position - transform.position).normalized;
-                    pCtrl.ApplyKnockback(kbDir);
-                }
+                // Knockback dihapus agar Saka tidak terpental sesuai permintaan
                 break;
             }
         }
@@ -185,11 +229,14 @@ public class GanaAI : MonoBehaviour
         currentState = GanaState.Idle;
     }
 
-
-
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damageAmount)
     {
-        currentHealth -= damage;
+        if (currentHealth <= 0) return;
+
+        currentHealth -= damageAmount;
+        
+        // Memunculkan angka damage putih (false = musuh)
+        DamagePopupManager.Create(transform.position, damageAmount, false);
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         if (spriteRenderer != null)
@@ -205,18 +252,23 @@ public class GanaAI : MonoBehaviour
 
     private IEnumerator FlashDamageColor()
     {
-        spriteRenderer.color = Color.gray;
+        // Berkedip merah hanya saat menerima damage
+        spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(flashDuration);
         spriteRenderer.color = originalColor;
     }
 
     private void Die()
     {
-        // Add optional particles, sounds, or visual feedback here in the future
+        // Memutar Death SFX sebelum objek dihancurkan
+        if (deathSFX != null)
+        {
+            AudioSource.PlayClipAtPoint(deathSFX, transform.position);
+        }
+        
         Destroy(gameObject);
     }
 
-    // Helper for visualising detection range in editor
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
@@ -227,6 +279,32 @@ public class GanaAI : MonoBehaviour
         
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, stopDistance);
+
+        // Visualisasi radius leash (area maksimal Gana bisa mengejar)
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(Application.isPlaying ? startPosition : (Vector2)transform.position, leashRadius);
+
+        // Visualisasi area hitbox serangan di tangan (Warna Magenta)
+        Gizmos.color = Color.magenta;
+        Vector2 actualHandOffset;
+        if (Application.isPlaying && playerTransform != null && currentState == GanaState.Charging)
+        {
+            // Tampilkan secara dinamis jika sedang nyerang
+            Vector2 attackDirection = (playerTransform.position - transform.position).normalized;
+            actualHandOffset = attackDirection * Mathf.Abs(handHitboxOffset.x);
+        }
+        else
+        {
+            // Tampilkan default Kiri/Kanan
+            float flipMultiplier = 1f;
+            if (Application.isPlaying && spriteRenderer != null)
+            {
+                flipMultiplier = spriteRenderer.flipX ? -1f : 1f;
+            }
+            actualHandOffset = new Vector2(handHitboxOffset.x * flipMultiplier, handHitboxOffset.y);
+        }
+        
+        Gizmos.DrawWireSphere((Vector2)transform.position + actualHandOffset, attackRadius);
     }
 
     private void UpdateAnimator(Vector2 dir)
@@ -235,7 +313,6 @@ public class GanaAI : MonoBehaviour
         {
             if (dir.magnitude > 0)
             {
-                // Fokus Kiri/Kanan: Memutar sprite berdasarkan arah sumbu X
                 if (dir.x < 0)
                 {
                     spriteRenderer.flipX = true; // Menghadap Kiri

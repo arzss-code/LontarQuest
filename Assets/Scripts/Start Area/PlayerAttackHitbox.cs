@@ -46,22 +46,15 @@ public class PlayerAttackHitbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Kena: " + other.name);
-
-        DamageBuddyDamageTracker buddy =
-            other.GetComponentInParent<DamageBuddyDamageTracker>();
-
-        KalaAI kala = other.GetComponentInParent<KalaAI>();
-
-        if(buddy != null)
+        // Hanya serang jika memiliki Tag "Enemy" 
+        // (Pastikan semua musuh, termasuk bos dan Gana, memiliki Tag "Enemy" di Unity)
+        if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Damage Masuk: " + damage);
-            buddy.TakeDamage(damage);
-        }
-        else if (kala != null)
-        {
-            Debug.Log("Damage Masuk ke Kala: " + damage);
-            kala.TakeDamage(damage);
+            Debug.Log("Damage Masuk ke: " + other.name);
+            
+            // SendMessageUpwards akan otomatis memanggil fungsi "TakeDamage(int)" 
+            // pada script apapun (KalaAI, GanaAI, dll) yang menempel di objek ini atau parentnya.
+            other.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
         }
     }
 }

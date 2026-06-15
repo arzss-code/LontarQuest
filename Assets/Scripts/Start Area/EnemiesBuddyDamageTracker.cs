@@ -67,6 +67,9 @@ public class DamageBuddyDamageTracker : MonoBehaviour
 
         totalDamage += damage;
         damageThisSecond += damage;
+        
+        // Memunculkan angka damage putih (false = musuh)
+        DamagePopupManager.Create(transform.position, damage, false);
 
         UpdateUI();
 
