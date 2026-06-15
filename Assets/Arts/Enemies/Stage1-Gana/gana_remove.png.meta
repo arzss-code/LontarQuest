@@ -1,0 +1,922 @@
+fileFormatVersion: 2
+guid: cc39672a736f5604ebe071310a3aed35
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3083606142713225881
+    second: gana_remove_0
+  - first:
+      213: -6939691237835269879
+    second: gana_remove_1
+  - first:
+      213: -6964169116279709343
+    second: gana_remove_2
+  - first:
+      213: -1420325379367059511
+    second: gana_remove_3
+  - first:
+      213: -3304115070953977707
+    second: gana_remove_4
+  - first:
+      213: 4043268922310247749
+    second: gana_remove_5
+  - first:
+      213: 7969857620440332698
+    second: gana_remove_6
+  - first:
+      213: 2584839328675538693
+    second: gana_remove_7
+  - first:
+      213: 5002132568547929922
+    second: gana_remove_8
+  - first:
+      213: 868324150363153072
+    second: gana_remove_9
+  - first:
+      213: -1748723343862943057
+    second: gana_remove_10
+  - first:
+      213: 5467586315899847517
+    second: gana_remove_11
+  - first:
+      213: 611599332611906251
+    second: gana_remove_12
+  - first:
+      213: 5891279956957637384
+    second: gana_remove_13
+  - first:
+      213: -7793440424377627618
+    second: gana_remove_14
+  - first:
+      213: -8798899028186088744
+    second: gana_remove_15
+  - first:
+      213: 4282199216996357373
+    second: gana_remove_16
+  - first:
+      213: -465653370610769115
+    second: gana_remove_17
+  - first:
+      213: -484718639433596087
+    second: gana_remove_18
+  - first:
+      213: 965575743646270501
+    second: gana_remove_19
+  - first:
+      213: 3443932777757100592
+    second: gana_remove_20
+  - first:
+      213: -1929845949625545256
+    second: gana_remove_21
+  - first:
+      213: 166416243293386983
+    second: gana_remove_22
+  - first:
+      213: -5632701977986995234
+    second: gana_remove_23
+  - first:
+      213: -1701197759685759670
+    second: gana_remove_24
+  - first:
+      213: 3957590530575123283
+    second: gana_remove_25
+  - first:
+      213: 7578398800005662923
+    second: gana_remove_26
+  - first:
+      213: 1925488084810643041
+    second: gana_remove_27
+  - first:
+      213: -1864696347721074285
+    second: gana_remove_28
+  - first:
+      213: 8296420741938089885
+    second: gana_remove_29
+  - first:
+      213: -3715695210723911821
+    second: gana_remove_30
+  - first:
+      213: -2388747557210065733
+    second: gana_remove_31
+  - first:
+      213: 2454860006184642986
+    second: gana_remove_32
+  - first:
+      213: -1087449611592523622
+    second: gana_remove_33
+  - first:
+      213: -5611170841139872935
+    second: gana_remove_34
+  - first:
+      213: 301858341759680064
+    second: gana_remove_35
+  - first:
+      213: 7496726708184391147
+    second: gana_remove_36
+  - first:
+      213: 1243605730772958411
+    second: gana_remove_37
+  - first:
+      213: -957983543846490154
+    second: gana_remove_38
+  - first:
+      213: 2767902291997853122
+    second: gana_remove_39
+  - first:
+      213: 7365531948421881712
+    second: gana_remove_40
+  - first:
+      213: -2024467994821452523
+    second: gana_remove_41
+  - first:
+      213: -886268667427809396
+    second: gana_remove_42
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gana_remove_
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 1022
+        width: 160
+        height: 215
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cfba59b79df94ce0800000000000000
+      internalID: -1420325379367059511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_4
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1023
+        width: 167
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59806c259dc6522d0800000000000000
+      internalID: -3304115070953977707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_6
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1024
+        width: 187
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9939c8974f9a9e60800000000000000
+      internalID: 7969857620440332698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_7
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 1022
+        width: 160
+        height: 221
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5072a23aca13fd320800000000000000
+      internalID: 2584839328675538693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_8
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 1023
+        width: 212
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24f26b391152b6540800000000000000
+      internalID: 5002132568547929922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_9
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 1030
+        width: 247
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b2e944d638ec0c00800000000000000
+      internalID: 868324150363153072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_13
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 702
+        width: 159
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ba6d258e702c150800000000000000
+      internalID: 5891279956957637384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_14
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 702
+        width: 169
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1c4dc6b93328d390800000000000000
+      internalID: -7793440424377627618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_15
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 707
+        width: 159
+        height: 215
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8da3072d3f704e580800000000000000
+      internalID: -8798899028186088744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_21
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 698
+        width: 231
+        height: 231
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df41682ff7d6d6b30800000000000000
+      internalID: 4282199216996357373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_12
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 718
+        width: 157
+        height: 185
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 943cc8037fee549f0800000000000000
+      internalID: -484718639433596087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_20
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 710
+        width: 216
+        height: 209
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03a49885d9e4bcf20800000000000000
+      internalID: 3443932777757100592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_24
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 373
+        width: 127
+        height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d6d31a6a12468e0800000000000000
+      internalID: -1701197759685759670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_25
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 371
+        width: 206
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 353416d8e9f2ce630800000000000000
+      internalID: 3957590530575123283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_26
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 371
+        width: 148
+        height: 209
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc885987e81eb2960800000000000000
+      internalID: 7578398800005662923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_27
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 374
+        width: 119
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 166b2622635b8ba10800000000000000
+      internalID: 1925488084810643041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_28
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 366
+        width: 125
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 399fd142d844f16e0800000000000000
+      internalID: -1864696347721074285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_29
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 370
+        width: 222
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9f076e55bec22370800000000000000
+      internalID: 8296420741938089885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_30
+      rect:
+        serializedVersion: 2
+        x: 1577
+        y: 370
+        width: 212
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3775e2774e23f6cc0800000000000000
+      internalID: -3715695210723911821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_31
+      rect:
+        serializedVersion: 2
+        x: 1852
+        y: 371
+        width: 252
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb4796ab0c679ded0800000000000000
+      internalID: -2388747557210065733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_37
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 32
+        width: 124
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bccbc5fb2dc224110800000000000000
+      internalID: 1243605730772958411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_38
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 33
+        width: 119
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6df2c50ea0f84b2f0800000000000000
+      internalID: -957983543846490154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_39
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 39
+        width: 148
+        height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c585873870996620800000000000000
+      internalID: 2767902291997853122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_40
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 39
+        width: 205
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07f1a776840a73660800000000000000
+      internalID: 7365531948421881712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_41
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 40
+        width: 128
+        height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51d1585b515a7e3e0800000000000000
+      internalID: -2024467994821452523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_42
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 74
+        width: 252
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c871866b75753b3f0800000000000000
+      internalID: -886268667427809396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_43
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 74
+        width: 213
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e074469008fc0154fb562180400548f2
+      internalID: 1555273865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gana_remove_44
+      rect:
+        serializedVersion: 2
+        x: 1822
+        y: 74
+        width: 221
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a4552fdc31e3249ac8aa190217041a
+      internalID: -1022202209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 88fdecfc1a04f1946a65abdd7555ccaf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      gana_remove_: -1420325379367059511
+      gana_remove_0: 3083606142713225881
+      gana_remove_1: -6939691237835269879
+      gana_remove_10: -1748723343862943057
+      gana_remove_11: 5467586315899847517
+      gana_remove_12: -484718639433596087
+      gana_remove_13: 5891279956957637384
+      gana_remove_14: -7793440424377627618
+      gana_remove_15: -8798899028186088744
+      gana_remove_17: -465653370610769115
+      gana_remove_19: 965575743646270501
+      gana_remove_2: -6964169116279709343
+      gana_remove_20: 3443932777757100592
+      gana_remove_21: 4282199216996357373
+      gana_remove_22: 166416243293386983
+      gana_remove_23: -5632701977986995234
+      gana_remove_24: -1701197759685759670
+      gana_remove_25: 3957590530575123283
+      gana_remove_26: 7578398800005662923
+      gana_remove_27: 1925488084810643041
+      gana_remove_28: -1864696347721074285
+      gana_remove_29: 8296420741938089885
+      gana_remove_30: -3715695210723911821
+      gana_remove_31: -2388747557210065733
+      gana_remove_32: 2454860006184642986
+      gana_remove_33: -1087449611592523622
+      gana_remove_34: -5611170841139872935
+      gana_remove_35: 301858341759680064
+      gana_remove_36: 7496726708184391147
+      gana_remove_37: 1243605730772958411
+      gana_remove_38: -957983543846490154
+      gana_remove_39: 2767902291997853122
+      gana_remove_4: -3304115070953977707
+      gana_remove_40: 7365531948421881712
+      gana_remove_41: -2024467994821452523
+      gana_remove_42: -886268667427809396
+      gana_remove_43: 1555273865
+      gana_remove_44: -1022202209
+      gana_remove_45: 45212719
+      gana_remove_46: -1173901433
+      gana_remove_5: 4043268922310247749
+      gana_remove_6: 7969857620440332698
+      gana_remove_7: 2584839328675538693
+      gana_remove_8: 5002132568547929922
+      gana_remove_9: 868324150363153072
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

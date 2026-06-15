@@ -93,23 +93,8 @@ public class ArrowProjectile : MonoBehaviour
             return;
         }
 
-        DamageBuddyDamageTracker buddy = other.GetComponentInParent<DamageBuddyDamageTracker>();
-        KalaAI kala = other.GetComponentInParent<KalaAI>();
-
-        if(buddy != null)
-        {
-            buddy.TakeDamage(damage);
-            Destroy(gameObject);
-        }
-        else if (kala != null)
-        {
-            kala.TakeDamage(damage);
-            Destroy(gameObject);
-        }
-        else 
-        {
-            // Destroy if it hits enemy layer but no specific script found
-            Destroy(gameObject);
-        }
+        // Otomatis mencari fungsi TakeDamage di semua musuh (Kala, Gana, dll)
+        other.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+        Destroy(gameObject);
     }
 }

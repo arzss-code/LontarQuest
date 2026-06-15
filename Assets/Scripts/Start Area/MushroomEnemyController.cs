@@ -235,6 +235,17 @@ public class MushroomEnemyController : MonoBehaviour
         }
     }
 
+    //====================
+    // TAKE DAMAGE
+    //====================
+
+    public void TakeDamage(int damage)
+    {
+        // Asumsi ada variabel currentHealth, jika tidak, cukup tampilkan pop-up
+        // currentHealth -= damage;
+        DamagePopupManager.Create(transform.position, damage, false);
+    }
+
 
 
     //====================
