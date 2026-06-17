@@ -216,8 +216,8 @@ MonoBehaviour:
 
     yang menunggu untuk ditemukan.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -478,8 +478,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hasilnya Nihil..
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -899,8 +899,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Mereka Tidak Pernah Kembali
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1062,7 +1062,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1555635847
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
@@ -1185,8 +1185,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hingga pada suatu hari...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1336,8 +1336,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Saka Terjatuh Dalam Kesedihan Yang amat Dalam..
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1509,8 +1509,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Bersamaan dengan itu..
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1682,8 +1682,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Di dalamnya, tersembunyi sebuah jurnal kuno milik sang ayah...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1855,8 +1855,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Present
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2028,8 +2028,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Bercerita tentang petualangan Seorang Pemuda..
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2435,8 +2435,8 @@ MonoBehaviour:
     seorang arkeolog
     ternama yang sangat ia kagumi.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2611,8 +2611,8 @@ MonoBehaviour:
     Saka menjalani kehidupan yang hangat
     dan penuh kebahagiaan.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2784,8 +2784,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Ia mengira kebahagiaan itu akan berlangsung selamanya...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3055,7 +3055,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1555635847
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1801425986, guid: 56905a35f71fb894b9a2e67d00084ce9, type: 3}
@@ -3159,8 +3159,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Kehilangan Ayah Tercintanya, Sekaligus Panutannya
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3329,8 +3329,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Demi Menemukan Kebenaran
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3502,8 +3502,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sebelum, Sang Ibu Datang dan Berkata...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3786,8 +3786,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Suara bisikan yang tak asing itu menggema dalam dirinya...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4088,8 +4088,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: matanya tertuju pada sebuah kotak kayu usang di sudut ruangan.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4283,8 +4283,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Perkenalkan Ini Saka.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4434,8 +4434,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: membangunkannya dari keterpurukan.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4613,7 +4613,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1555635847
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4866276332771638146, guid: 2549c1785c44f5149b36b5f4a648e2ef, type: 3}
@@ -4867,8 +4867,8 @@ MonoBehaviour:
   m_text: Jurnal yang mencatat koordinat rahasia menuju sebuah candi terlupakan di
     pedalaman Nusantara.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5163,8 +5163,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tragedi Itu Benar-benar Membuat Saka Terpukul..
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5263,6 +5263,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1772765211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1772765213}
+  - component: {fileID: 1772765212}
+  m_Layer: 0
+  m_Name: StoryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1772765212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772765211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d029b05e4799187b571b26ae89978d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoryManager
+  nextScene: Prologue-1
+--- !u!4 &1772765213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772765211}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.44309, y: 0.0532, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1822094021
 GameObject:
   m_ObjectHideFlags: 0
@@ -5360,8 +5405,8 @@ MonoBehaviour:
 
     yang tak pernah padam.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5511,8 +5556,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Berjuanglah Nak~ '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5798,8 +5843,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Kini, Saka tahu apa yang harus ia lakukan.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5906,3 +5951,4 @@ SceneRoots:
   - {fileID: 462262653}
   - {fileID: 1706864435}
   - {fileID: 1157816850}
+  - {fileID: 1772765213}

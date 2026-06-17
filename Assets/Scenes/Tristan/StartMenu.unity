@@ -558,7 +558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StartMenuManager
   anyKeyText: {fileID: 1833807233}
   fadePanel: {fileID: 490255707}
-  nextSceneName: SampleScene
+  nextSceneName: Story-1
 --- !u!4 &1700459009
 Transform:
   m_ObjectHideFlags: 0

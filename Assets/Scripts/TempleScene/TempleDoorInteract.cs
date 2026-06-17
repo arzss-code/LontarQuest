@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TempleDoorInteract : MonoBehaviour
 {
@@ -79,10 +80,7 @@ public class TempleDoorInteract : MonoBehaviour
             );
         }
 
-        Debug.Log("FADE COMPLETE");
-
-        // BESOK:
-        // SceneManager.LoadScene("NextScene");
+        SceneManager.LoadScene("TempleScene");
     }
 
     private void OnTriggerEnter2D(Collider2D other)

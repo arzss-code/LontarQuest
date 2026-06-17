@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tristan/StartMenu.unity
     guid: 5da07dcde80c02e41a78a5218c05abef
   - enabled: 1
+    path: Assets/Scenes/Tristan/Story-1.unity
+    guid: 020f81f42ecd89142a22de127d33b527
+  - enabled: 1
     path: Assets/Scenes/Tristan/Prologue-1.unity
     guid: 6ba4b3778a69144458337fa89306f01b
   - enabled: 1
@@ -20,6 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tristan/InsideTemple.unity
     guid: 602d2edfebd344240a39f7b671a7bdb7
+  - enabled: 1
+    path: Assets/Scenes/TempleScene.unity
+    guid: 028678115b7a61bc09b00d4a05bb27ac
+  - enabled: 1
+    path: Assets/Scenes/Stage1.unity
+    guid: b4084729798e00b429cf538818dac741
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
