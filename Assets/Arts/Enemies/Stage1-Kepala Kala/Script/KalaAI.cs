@@ -80,7 +80,7 @@ public class KalaAI : MonoBehaviour
         {
             healthBar.maxValue = maxHealth;
             healthBar.value = currentHealth;
-            healthBar.gameObject.SetActive(false);
+            // SetActive(false) dihapus. Biar BossArenaController yang mengatur Parent UI-nya.
         }
 
         if (player == null)
@@ -134,7 +134,7 @@ public class KalaAI : MonoBehaviour
         if (!hasEngaged && distanceToPlayer <= chaseDistance)
         {
             hasEngaged = true;
-            if (healthBar != null) healthBar.gameObject.SetActive(true);
+            // SetActive dihapus. BossArenaController yang akan memunculkan UI saat arena terkunci.
         }
 
         if (distanceToPlayer <= attackDistance && currentState != State.Charging && currentState != State.Cooldown)
@@ -344,10 +344,7 @@ public class KalaAI : MonoBehaviour
             audioSource.PlayOneShot(deathSFX);
         }
 
-        if (healthBar != null)
-        {
-            healthBar.gameObject.SetActive(false);
-        }
+        // SetActive dihapus. BossArenaController yang akan menghilangkan UI saat mendeteksi bos hancur.
 
         // (Opsional) Mainkan animasi mati atau jatuhkan item di sini
 

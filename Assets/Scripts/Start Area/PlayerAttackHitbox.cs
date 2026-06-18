@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class PlayerAttackHitbox : MonoBehaviour
 {
-    [Header("Attack")]
-    [SerializeField]
-    private int damage = 25;
-
     private Collider2D hitbox;
+    private PlayerStats playerStats;
 
     void Awake()
     {
+        playerStats = GetComponentInParent<PlayerStats>();
         hitbox = GetComponent<Collider2D>();
 
         if(hitbox != null)
@@ -52,9 +50,10 @@ public class PlayerAttackHitbox : MonoBehaviour
         {
             Debug.Log("Damage Masuk ke: " + other.name);
             
-            // SendMessageUpwards akan otomatis memanggil fungsi "TakeDamage(int)" 
-            // pada script apapun (KalaAI, GanaAI, dll) yang menempel di objek ini atau parentnya.
-            other.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+            // Ambil damage dari PlayerStats Saka
+            int damageAmount = (playerStats != null) ? playerStats.meleeDamage : 35;
+            
+            other.SendMessageUpwards("TakeDamage", damageAmount, SendMessageOptions.DontRequireReceiver);
         }
     }
 }

@@ -254,9 +254,9 @@ MonoBehaviour:
   detectionRadius: 5
   moveSpeed: 2
   stopDistance: 1.2
-  attackDistance: 1.1
-  attackRadius: 1.2
-  attackCooldown: 1.5
+  attackDistance: 1
+  attackRadius: 1
+  attackCooldown: 1.8
   attackDamage: 15
   handHitboxOffset: {x: 0.51, y: 0}
   playerLayer:
