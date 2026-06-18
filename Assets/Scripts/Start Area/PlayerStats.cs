@@ -20,6 +20,13 @@ public class PlayerStats : MonoBehaviour
 
     float currentStamina;
 
+    [Header("Offense (Damage)")]
+    [Tooltip("Besar damage untuk pukulan jarak dekat (Pedang)")]
+    public int meleeDamage = 35;
+    
+    [Tooltip("Besar damage untuk serangan jarak jauh (Panah)")]
+    public int rangedDamage = 15;
+
     [Header("Recharge Rate")]
     [SerializeField]
     float manaRechargeRate = 10f;

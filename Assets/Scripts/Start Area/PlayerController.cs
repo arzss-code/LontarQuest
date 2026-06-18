@@ -443,7 +443,9 @@ public class PlayerController : MonoBehaviour
         ArrowProjectile projectile =
             arrow.GetComponent<ArrowProjectile>();
 
-        projectile.SetTarget(currentTarget);
+        int arrowDamage = (playerStats != null) ? playerStats.rangedDamage : 15;
+
+        projectile.SetTarget(currentTarget, arrowDamage);
     }
 
     Transform GetNearestEnemy()

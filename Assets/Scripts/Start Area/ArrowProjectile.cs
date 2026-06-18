@@ -2,16 +2,14 @@ using UnityEngine;
 
 public class ArrowProjectile : MonoBehaviour
 {
-    [SerializeField]
-    float speed = 10f;
-
-    [SerializeField]
-    int damage = 25;
+    [Tooltip("Kecepatan luncur panah")]
+    public float speed = 10f;
 
     [SerializeField]
     float lifeTime = 5f;
 
     Transform target;
+    private int currentDamage = 15;
 
     void Start()
     {
@@ -21,10 +19,10 @@ public class ArrowProjectile : MonoBehaviour
         );
     }
 
-    public void SetTarget(
-    Transform newTarget)
+    public void SetTarget(Transform newTarget, int damageValue)
     {
         target = newTarget;
+        currentDamage = damageValue;
     }
 
     void Update()
@@ -94,7 +92,7 @@ public class ArrowProjectile : MonoBehaviour
         }
 
         // Otomatis mencari fungsi TakeDamage di semua musuh (Kala, Gana, dll)
-        other.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+        other.SendMessageUpwards("TakeDamage", currentDamage, SendMessageOptions.DontRequireReceiver);
         Destroy(gameObject);
     }
 }

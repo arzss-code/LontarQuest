@@ -649,6 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92c0c5414eb20e45bb778785e18b544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackHitbox
+  damage: 25
 --- !u!61 &27756763
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1054,10 +1055,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomManager
   entryDoor: {fileID: 682061927}
-  exitDoors:
-  - {fileID: 169017472}
+  exitDoors: []
   nextRoomBlockades:
-  - {fileID: 169017472}
   - {fileID: 1320993341}
   guideParticlePrefab: {fileID: 0}
   enemiesInRoom:
@@ -1745,7 +1744,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoonDoor
   doorRewardType: 1
   otherDoorsToLock: []
-  nextRoomBlockades: []
+  nextRoomBlockades:
+  - {fileID: 1320993341}
 --- !u!1 &181236049
 GameObject:
   m_ObjectHideFlags: 0
@@ -2206,6 +2206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92c0c5414eb20e45bb778785e18b544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackHitbox
+  damage: 25
 --- !u!61 &268434387
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3719,8 +3720,6 @@ MonoBehaviour:
   maxHP: 200
   maxMana: 80
   maxStamina: 100
-  meleeDamage: 40
-  rangedDamage: 25
   manaRechargeRate: 20
   staminaRechargeRate: 30
   manaRechargeDelay: 1
@@ -3745,7 +3744,7 @@ MonoBehaviour:
   attackDown: {fileID: 27756760}
   attackLeft: {fileID: 1541426886}
   attackRight: {fileID: 2034167065}
-  attackRange: 4
+  attackRange: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -3755,7 +3754,7 @@ MonoBehaviour:
   spawnLeft: {fileID: 1111846677}
   spawnRight: {fileID: 181236050}
   bowRangeIndicator: {fileID: 444221251}
-  dashSpeed: 7
+  dashSpeed: 6
   dashDuration: 0.2
   dashCooldown: 2
   knockbackForce: 12
@@ -5874,7 +5873,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 1.29}
+  m_Offset: {x: 0, y: 0}
   m_Radius: 1
 --- !u!212 &637805776
 SpriteRenderer:
@@ -29627,6 +29626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92c0c5414eb20e45bb778785e18b544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackHitbox
+  damage: 25
 --- !u!61 &1541426889
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50829,6 +50829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92c0c5414eb20e45bb778785e18b544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackHitbox
+  damage: 25
 --- !u!61 &2034167067
 BoxCollider2D:
   m_ObjectHideFlags: 0
