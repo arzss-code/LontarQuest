@@ -20,6 +20,13 @@ public class PlayerStats : MonoBehaviour
 
     float currentStamina;
 
+    [Header("Offense (Damage)")]
+    [Tooltip("Besar damage untuk pukulan jarak dekat (Pedang)")]
+    public int meleeDamage = 35;
+    
+    [Tooltip("Besar damage untuk serangan jarak jauh (Panah)")]
+    public int rangedDamage = 15;
+
     [Header("Recharge Rate")]
     [SerializeField]
     float manaRechargeRate = 10f;
@@ -43,7 +50,16 @@ public class PlayerStats : MonoBehaviour
     public int MaxMana => maxMana;
     public int CurrentMana => Mathf.RoundToInt(currentMana);
 
-    public int MaxStamina => maxStamina;
+    public int MaxStamina 
+    {
+        get 
+        {
+            int extra = 0;
+            PlayerModifier modifier = GetComponent<PlayerModifier>();
+            if (modifier != null) extra = Mathf.RoundToInt(modifier.TotalExtraStamina);
+            return maxStamina + extra;
+        }
+    }
     public int CurrentStamina => Mathf.RoundToInt(currentStamina);
 
     [Header("Damage Visuals")]
@@ -159,6 +175,15 @@ public class PlayerStats : MonoBehaviour
     {
         if (isDead) return; // Kalau sudah mati, jangan terima damage lagi
         if (isInvincible) return; // Abaikan damage jika masih kebal (I-Frames)
+
+        // Terapkan efek Damage Reduction dari Boon
+        PlayerModifier modifier = GetComponent<PlayerModifier>();
+        if (modifier != null && modifier.TotalDamageReduction > 0)
+        {
+            float reduction = amount * modifier.TotalDamageReduction;
+            amount -= Mathf.RoundToInt(reduction);
+            if (amount < 0) amount = 0;
+        }
 
         currentHP -= amount;
         

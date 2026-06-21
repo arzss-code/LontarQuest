@@ -61,24 +61,38 @@ public class JournalManager : MonoBehaviour
         return unlockedLoreIDs.Contains(loreID);
     }
 
-    // --- Sistem Save Game Sederhana (PlayerPrefs) --- //
+    // --- Sistem Save Game (JSON Serialization) --- //
+    [System.Serializable]
+    private class JournalSaveData
+    {
+        public List<string> unlockedIDs = new List<string>();
+    }
+
+    private string GetSavePath()
+    {
+        return System.IO.Path.Combine(Application.persistentDataPath, "journal_save.json");
+    }
+
     private void SaveJournalData()
     {
-        // Gabungkan semua ID menjadi satu string dipisahkan koma
-        string data = string.Join(",", unlockedLoreIDs);
-        PlayerPrefs.SetString("UnlockedJournalLores", data);
-        PlayerPrefs.Save();
+        JournalSaveData data = new JournalSaveData();
+        data.unlockedIDs = new List<string>(unlockedLoreIDs);
+
+        string json = JsonUtility.ToJson(data, true);
+        System.IO.File.WriteAllText(GetSavePath(), json);
     }
 
     private void LoadJournalData()
     {
-        string data = PlayerPrefs.GetString("UnlockedJournalLores", "");
-        if (!string.IsNullOrEmpty(data))
+        string path = GetSavePath();
+        if (System.IO.File.Exists(path))
         {
-            string[] ids = data.Split(',');
-            foreach (string id in ids)
+            string json = System.IO.File.ReadAllText(path);
+            JournalSaveData data = JsonUtility.FromJson<JournalSaveData>(json);
+
+            if (data != null && data.unlockedIDs != null)
             {
-                if (!string.IsNullOrEmpty(id))
+                foreach (string id in data.unlockedIDs)
                 {
                     unlockedLoreIDs.Add(id);
                 }

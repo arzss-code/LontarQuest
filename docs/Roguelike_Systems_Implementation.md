@@ -37,10 +37,10 @@ Kita akan membuat "cetakan" data kekuatan dan data buku cerita. Anda **tidak per
 
 **3. Membuat Data Buku Mitologi (Lore)**
 - Masih di folder `Data`, klik kanan -> **Create** -> **LontarQuest** -> **Lore Data**.
-- Beri nama filenya, misal `Lore_Gana`.
+- Beri nama filenya, misal `Lore_KepalaKala`.
 - Klik file tersebut, lihat ke **Inspector**:
-  - `Lore ID`: Tulis ID unik tanpa spasi, misal `monster_gana`.
-  - `Title`: Nama monster/karakter (Gana).
+  - `Lore ID`: Tulis ID unik tanpa spasi, misal `monster_kepalakala`.
+  - `Title`: Nama monster/karakter (Kepala Kala).
   - `Description`: Tulis kisah/mitologi monster tersebut selengkap mungkin.
   - `Lore Image`: (Opsional) Tarik dan masukkan gambar monster.
 
@@ -92,12 +92,12 @@ Sistem ini bertugas mengunci pintu di awal, mengawasi semua musuh, dan baru akan
 ### E. Memasang Prasasti/Arca (Buku Jurnal Edukasi)
 Ini adalah objek yang jika disentuh oleh Saka, akan membuka cerita mitologi baru di halaman Jurnal.
 
-1. Masukkan gambar arca/buku/prasasti ke dalam Scene. Beri nama objeknya `Prasasti_Gana`.
-2. Klik `Prasasti_Gana` di **Hierarchy**. Di **Inspector**, tambahkan komponen **BoxCollider2D** dan **centang `Is Trigger`**.
+1. Masukkan gambar arca/buku/prasasti ke dalam Scene. Beri nama objeknya `Prasasti_KepalaKala`.
+2. Klik `Prasasti_KepalaKala` di **Hierarchy**. Di **Inspector**, tambahkan komponen **BoxCollider2D** dan **centang `Is Trigger`**.
 3. Di Scene view, klik tombol *Edit Collider* (ikon kotak dengan 4 titik di komponen BoxCollider2D) dan perbesar kotak hijaunya agar menutupi area di sekitar prasasti. (Saka harus menyentuh area hijau ini untuk berinteraksi).
 4. Klik **Add Component**, tambahkan skrip `LoreInteractable`.
 5. Di Inspector skrip tersebut, cari kolom **Lore Data To Unlock**.
-6. Tarik file data `Lore_Gana` (yang dibuat di Langkah A.3) dari folder `Data` ke dalam kolom tersebut.
+6. Tarik file data `Lore_KepalaKala` (yang dibuat di Langkah A.3) dari folder `Data` ke dalam kolom tersebut.
 
 ---
 
@@ -114,5 +114,5 @@ Langkah terakhir yang sangat penting agar buku jurnal bisa dibaca dan progres ba
 - Coba mainkan (tekan tombol *Play*).
 - Pukul/kalahkan semua musuh di dalam ruangan yang sudah disetel `RoomManager`-nya. Pintu akan otomatis terbuka.
 - Jalan melewati pintu tersebut, Saka akan langsung menerima efek *Boon* (bonus status).
-- Sentuh arca/prasasti di ujung jalan, dan Jurnal Gana akan terbuka!
+- Sentuh arca/prasasti di ujung jalan, dan Jurnal Kepala Kala akan terbuka!
 *(Catatan: Sistem UI/Canvas visual di layar belum terhubung sepenuhnya, tapi sistem dasarnya sudah berjalan di balik layar dan bisa dicek lewat jendela Console Unity)*.

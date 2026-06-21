@@ -10,6 +10,10 @@ public class BoonDoor : MonoBehaviour
     [Tooltip("Pintu lorong lain yang harus ditutup/diblokir jika pemain memilih lorong ini")]
     public GameObject[] otherDoorsToLock;
 
+    [Header("Blokade Ruangan Berikutnya")]
+    [Tooltip("Jeruji/Tembok fisik yang menghalangi jalan ke arena bawah. Akan TERBUKA (hilang) setelah Saka menyentuh Boon ini.")]
+    public GameObject[] nextRoomBlockades;
+
     private bool isUsed = false;
 
     private void Start()
@@ -24,31 +28,49 @@ public class BoonDoor : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isUsed = true;
-            Debug.Log($"Saka Memilih Jalur: {doorRewardType}");
+            Debug.Log($"Saka Memilih Jalur Boon: {doorRewardType}");
 
-            // 1. Kunci pintu lorong lain
+            // 1. Kunci pintu lorong alternatif lain (jika ada)
             LockOtherDoors();
 
-            // 2. Tampilkan UI Pemilihan Boon sesuai tipe pintu
+            // 2. BUKA blokade menuju ruangan selanjutnya (Arena Bawah)
+            UnlockNextRooms();
+
+            // 3. Tampilkan UI Pemilihan Boon (3 Pilihan Boost)
             if (BoonUIManager.Instance != null)
             {
-                BoonUIManager.Instance.ShowBoonSelection(doorRewardType);
+                BoonUIManager.Instance.ShowBoonSelection();
             }
 
-            // 3. Matikan trigger ini agar tidak dobel
-            this.enabled = false;
+            // 4. Hilangkan objek pintu Boon ini agar seolah-olah jalan terbuka
+            gameObject.SetActive(false);
         }
     }
 
     private void LockOtherDoors()
     {
+        if (otherDoorsToLock == null) return;
+        
         foreach (GameObject door in otherDoorsToLock)
         {
             if (door != null)
             {
-                // Disini Anda bisa mengubah Sprite pintu menjadi batu 
-                // atau mengaktifkan Collider non-trigger agar jalan tertutup.
-                door.SetActive(false); // Sederhananya, hilangkan saja pintunya
+                // Sembunyikan pintu alternatif agar tidak bisa dipilih lagi
+                door.SetActive(false);
+            }
+        }
+    }
+
+    private void UnlockNextRooms()
+    {
+        if (nextRoomBlockades == null) return;
+
+        // Buka tembok penghalang (dengan cara menyembunyikannya) agar jalan tembus
+        foreach (GameObject blockade in nextRoomBlockades)
+        {
+            if (blockade != null)
+            {
+                blockade.SetActive(false);
             }
         }
     }
