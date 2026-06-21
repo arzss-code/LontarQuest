@@ -1,0 +1,728 @@
+fileFormatVersion: 2
+guid: a605327b319b76d03980de6e0dbf413a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -360565854356198582
+    second: button-leaf-hover_0
+  - first:
+      213: 4295929852775418956
+    second: button-leaf-hover_1
+  - first:
+      213: 504101388532715541
+    second: button-leaf-hover_2
+  - first:
+      213: -8214374775861968268
+    second: button-leaf-hover_3
+  - first:
+      213: -5751101579221602938
+    second: button-leaf-hover_4
+  - first:
+      213: 3535423568625274427
+    second: button-leaf-hover_5
+  - first:
+      213: 581772986719870501
+    second: button-leaf-hover_6
+  - first:
+      213: 8639316030349425735
+    second: button-leaf-hover_7
+  - first:
+      213: -6479520215637326486
+    second: button-leaf-hover_8
+  - first:
+      213: 2828101135298800580
+    second: button-leaf-hover_9
+  - first:
+      213: 3051724882499349342
+    second: button-leaf-hover_10
+  - first:
+      213: 4949421065599550328
+    second: button-leaf-hover_11
+  - first:
+      213: 651303428646544864
+    second: button-leaf-hover_12
+  - first:
+      213: 3213752432381167357
+    second: button-leaf-hover_13
+  - first:
+      213: 6644699444024309315
+    second: button-leaf-hover_14
+  - first:
+      213: 3337802124416235118
+    second: button-leaf-hover_15
+  - first:
+      213: 6717726568162286939
+    second: button-leaf-hover_16
+  - first:
+      213: 5751037546774951442
+    second: button-leaf-hover_17
+  - first:
+      213: 2712083201020623482
+    second: button-leaf-hover_18
+  - first:
+      213: -1395305642046759187
+    second: button-leaf-hover_19
+  - first:
+      213: 8622109651097584245
+    second: button-leaf-hover_20
+  - first:
+      213: -5504072310171514351
+    second: button-leaf-hover_21
+  - first:
+      213: 5545560290452902798
+    second: button-leaf-hover_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: button-leaf-hover_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 0
+        width: 1525
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4ba6fc04430ffaf0800000000000000
+      internalID: -360565854356198582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_1
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 832
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4ccca6b0753e9b30800000000000000
+      internalID: 4295929852775418956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_2
+      rect:
+        serializedVersion: 2
+        x: 1323
+        y: 833
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5101642ca8deef600800000000000000
+      internalID: 504101388532715541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_3
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 803
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47281d8b9ada00e80800000000000000
+      internalID: -8214374775861968268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_4
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 829
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68dee47959bff20b0800000000000000
+      internalID: -5751101579221602938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_5
+      rect:
+        serializedVersion: 2
+        x: 1242
+        y: 809
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3e04721109501130800000000000000
+      internalID: 3535423568625274427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_6
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 816
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52e1b55f27fd21800800000000000000
+      internalID: 581772986719870501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_7
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 815
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74cb053182405e770800000000000000
+      internalID: 8639316030349425735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_8
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 806
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6589ff91be1416a0800000000000000
+      internalID: -6479520215637326486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_9
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 614
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cb2d56affe6f3720800000000000000
+      internalID: 2828101135298800580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_10
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 519
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b2895ac97e95a20800000000000000
+      internalID: 3051724882499349342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_11
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 499
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87385ea6c30efa440800000000000000
+      internalID: 4949421065599550328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_12
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 480
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e5a8718405e90900800000000000000
+      internalID: 651303428646544864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 464
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df680206fca899c20800000000000000
+      internalID: 3213752432381167357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_14
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 441
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 346fd4070f6b63c50800000000000000
+      internalID: 6644699444024309315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_15
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 448
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e66bf540951425e20800000000000000
+      internalID: 3337802124416235118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_16
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 440
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5d5481c8b82a3d50800000000000000
+      internalID: 6717726568162286939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_17
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 423
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2167471bd2acfcf40800000000000000
+      internalID: 5751037546774951442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_18
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 401
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7a73265d4143a520800000000000000
+      internalID: 2712083201020623482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_19
+      rect:
+        serializedVersion: 2
+        x: 1471
+        y: 329
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dee54b449e0e2ace0800000000000000
+      internalID: -1395305642046759187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_20
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 232
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5728328bb03e7a770800000000000000
+      internalID: 8622109651097584245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_21
+      rect:
+        serializedVersion: 2
+        x: 1489
+        y: 227
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11ac92e456b9d93b0800000000000000
+      internalID: -5504072310171514351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-leaf-hover_22
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 173
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8315f8d3b9c5fc40800000000000000
+      internalID: 5545560290452902798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      button-leaf-hover_0: -360565854356198582
+      button-leaf-hover_1: 4295929852775418956
+      button-leaf-hover_10: 3051724882499349342
+      button-leaf-hover_11: 4949421065599550328
+      button-leaf-hover_12: 651303428646544864
+      button-leaf-hover_13: 3213752432381167357
+      button-leaf-hover_14: 6644699444024309315
+      button-leaf-hover_15: 3337802124416235118
+      button-leaf-hover_16: 6717726568162286939
+      button-leaf-hover_17: 5751037546774951442
+      button-leaf-hover_18: 2712083201020623482
+      button-leaf-hover_19: -1395305642046759187
+      button-leaf-hover_2: 504101388532715541
+      button-leaf-hover_20: 8622109651097584245
+      button-leaf-hover_21: -5504072310171514351
+      button-leaf-hover_22: 5545560290452902798
+      button-leaf-hover_3: -8214374775861968268
+      button-leaf-hover_4: -5751101579221602938
+      button-leaf-hover_5: 3535423568625274427
+      button-leaf-hover_6: 581772986719870501
+      button-leaf-hover_7: 8639316030349425735
+      button-leaf-hover_8: -6479520215637326486
+      button-leaf-hover_9: 2828101135298800580
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

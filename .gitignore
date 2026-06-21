@@ -74,3 +74,6 @@ Desktop.ini
 # =========================
 !.gitignore
 !.gitattributes
+
+# Unity auto-recovery backups
+/[Aa]ssets/_Recovery/
