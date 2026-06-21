@@ -10,8 +10,9 @@ public class BoonUIManager : MonoBehaviour
 
     [Header("UI Canvas")]
     public GameObject boonSelectionPanel;
-    // Nanti disini kita tambahkan referensi ke Button UI untuk memilih 3 Boon
-    // public Button boonButton1, boonButton2, boonButton3;
+    
+    [Tooltip("Daftar komponen BoonUIElement (biasanya 3 tombol) yang ada di dalam panel")]
+    public List<BoonUIElement> boonUIElements;
 
     private PlayerModifier playerModifier;
 
@@ -29,8 +30,22 @@ public class BoonUIManager : MonoBehaviour
 
     private void Start()
     {
+        // Auto-Binding: Cari UI Canvas secara otomatis agar user tidak perlu drag-and-drop manual
+        if (boonSelectionPanel == null || boonUIElements == null || boonUIElements.Count == 0)
+        {
+            BoonUIElement[] foundElements = FindObjectsOfType<BoonUIElement>(true); // true = cari yang non-aktif juga
+            if (foundElements.Length > 0)
+            {
+                boonUIElements = new List<BoonUIElement>(foundElements);
+                boonSelectionPanel = foundElements[0].transform.parent.gameObject;
+                Debug.Log("[BoonUIManager] UI Canvas berhasil ditemukan dan diikat secara otomatis.");
+            }
+        }
+
         if (boonSelectionPanel != null)
+        {
             boonSelectionPanel.SetActive(false);
+        }
 
         // Cari PlayerModifier di arena
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -40,47 +55,79 @@ public class BoonUIManager : MonoBehaviour
         }
     }
 
-    public void ShowBoonSelection(BoonType typeNeeded)
+    public void ShowBoonSelection()
     {
-        // 1. Filter Boon yang sesuai tipe (Lontara/Batak/Kawi)
-        List<BoonData> filteredBoons = new List<BoonData>();
-        foreach (var boon in allAvailableBoons)
+        // 1. Ambil SEMUA boon tanpa filter tipe
+        List<BoonData> validBoons = new List<BoonData>(allAvailableBoons);
+
+        // 2. Acak urutan daftar boon (Fisher-Yates shuffle)
+        for (int i = 0; i < validBoons.Count; i++)
         {
-            if (boon.type == typeNeeded)
-            {
-                filteredBoons.Add(boon);
-            }
+            BoonData temp = validBoons[i];
+            int randomIndex = Random.Range(i, validBoons.Count);
+            validBoons[i] = validBoons[randomIndex];
+            validBoons[randomIndex] = temp;
         }
 
-        // 2. Acak dan ambil 3 (Logika Randomizer)
-        // ... (Akan disambungkan ke tombol UI nanti)
-
-        Debug.Log("Menampilkan UI Pemilihan 3 Boon " + typeNeeded);
-
-        if (boonSelectionPanel != null)
+        // 3. Tampilkan di UI
+        if (boonSelectionPanel != null && boonUIElements.Count > 0)
         {
             boonSelectionPanel.SetActive(true);
             Time.timeScale = 0f; // Pause game saat memilih
+
+            // Setup masing-masing tombol
+            for (int i = 0; i < boonUIElements.Count; i++)
+            {
+                if (i < validBoons.Count)
+                {
+                    // Masih ada boon yang tersisa di daftar yang terfilter
+                    boonUIElements[i].Setup(validBoons[i]);
+                }
+                else
+                {
+                    // Jika boon kurang dari jumlah tombol, sembunyikan tombol berlebih
+                    boonUIElements[i].gameObject.SetActive(false);
+                }
+            }
         }
         else
         {
             // JIKA UI BELUM DIBUAT (Otomatis ambil boon pertama untuk testing)
-            if (filteredBoons.Count > 0 && playerModifier != null)
+            if (validBoons.Count > 0 && playerModifier != null)
             {
                 Debug.LogWarning("UI Canvas belum dipasang! Mengambil Boon pertama secara otomatis untuk testing.");
-                SelectBoon(filteredBoons[0]);
+                SelectBoon(validBoons[0]);
             }
         }
     }
 
-    // Fungsi ini dipanggil dari Tombol UI
+    // Fungsi ini dipanggil dari Tombol UI via BoonUIElement
     public void SelectBoon(BoonData selectedBoon)
     {
+        // Pastikan kita punya referensi ke PlayerModifier
+        if (playerModifier == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null) playerModifier = player.GetComponent<PlayerModifier>();
+        }
+
         if (playerModifier != null)
         {
             playerModifier.AddBoon(selectedBoon);
+            Debug.Log($"[BoonUIManager] Sukses menerapkan {selectedBoon.boonName}!");
+            
+            // Log semua status untuk membuktikan efeknya masuk
+            if (selectedBoon.movementSpeedBonus > 0) Debug.Log($"-> Move Speed Naik: +{selectedBoon.movementSpeedBonus * 100}%");
+            if (selectedBoon.attackSpeedBonus > 0) Debug.Log($"-> Attack Speed Naik: +{selectedBoon.attackSpeedBonus * 100}%");
+            if (selectedBoon.damageReduction > 0) Debug.Log($"-> Damage Reduction: {selectedBoon.damageReduction * 100}%");
+            if (selectedBoon.extraStamina > 0) Debug.Log($"-> Extra Stamina Naik: +{selectedBoon.extraStamina}");
+            if (selectedBoon.hasElementalEffect) Debug.Log($"-> Efek Elemental: AKTIF!");
         }
-
+        else
+        {
+            Debug.LogError("[BoonUIManager] PlayerModifier tidak ditemukan! Pastikan objek Saka memiliki tag 'Player' dan komponen PlayerModifier.");
+        }
+        
         // Tutup UI dan Lanjut Main
         if (boonSelectionPanel != null)
             boonSelectionPanel.SetActive(false);

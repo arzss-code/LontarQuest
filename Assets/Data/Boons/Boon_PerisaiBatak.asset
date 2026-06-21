@@ -16,7 +16,7 @@ MonoBehaviour:
   type: 1
   description: Ketangguhan ukiran Gorga melindungi tubuhmu, mengurangi rasa sakit
     dan perlahan menyembuhkan luka.
-  icon: {fileID: 0}
+  icon: {fileID: -2626376687607900404, guid: 072ff80bfff20844b9301f2ca2579a8b, type: 3}
   attackSpeedBonus: 0
   movementSpeedBonus: 0
   damageReduction: 0.2

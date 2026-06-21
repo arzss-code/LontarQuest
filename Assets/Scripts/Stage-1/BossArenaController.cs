@@ -24,6 +24,20 @@ public class BossArenaController : MonoBehaviour
     [Tooltip("Script AI Bos (contoh: KalaAI / GanaAI) yang akan dibangunkan saat Saka masuk arena")]
     [SerializeField] private MonoBehaviour bossAI;
 
+    [Header("Post-Boss Cutscene")]
+    [Tooltip("Dialog yang akan muncul setelah Boss mati")]
+    [SerializeField] private IntroDialogue postBossDialogue;
+    
+    [Tooltip("Waktu tunggu sebelum dialog muncul (agar player melihat bos hancur)")]
+    [SerializeField] private float postBossDelay = 1.5f;
+
+    [Header("Lontar Reward (Drop)")]
+    [Tooltip("Prefab LontarPickup yang akan dijatuhkan bos saat mati")]
+    public GameObject lontarRewardPrefab;
+    
+    [Tooltip("Titik kemunculan Lontar (opsional, jika kosong akan muncul di lokasi Trigger Boss)")]
+    public Transform lontarSpawnPoint;
+
     private bool isArenaLocked = false;
 
     void Start()
@@ -62,7 +76,8 @@ public class BossArenaController : MonoBehaviour
         {
             if (bossObject == null) // Jika objek bos dihancurkan (Destroy)
             {
-                UnlockArena();
+                isArenaLocked = false; // Set false langsung agar coroutine tidak terpanggil dobel
+                StartCoroutine(UnlockArenaSequence());
             }
         }
     }
@@ -94,14 +109,49 @@ public class BossArenaController : MonoBehaviour
         {
             bossAI.enabled = true; // Bangunkan bos
         }
+
+        if (QuestManager.Instance != null)
+        {
+            QuestManager.Instance.SetObjective("Kalahkan Kepala Kala");
+        }
         
         Debug.Log("Arena Terkunci! Pertarungan Bos Dimulai!");
     }
 
-    private void UnlockArena()
+    private System.Collections.IEnumerator UnlockArenaSequence()
     {
-        isArenaLocked = false;
-        
+        // Hilangkan UI Darah Bos secepatnya
+        if (bossHealthUI != null) bossHealthUI.SetActive(false);
+
+        if (QuestManager.Instance != null)
+        {
+            QuestManager.Instance.CompleteCurrentObjective();
+        }
+
+        // Beri jeda agar pemain melihat animasi bos mati / hancur
+        yield return new WaitForSeconds(postBossDelay);
+
+        // Jalankan dialog jika di-assign
+        if (postBossDialogue != null)
+        {
+            postBossDialogue.StartDialogue();
+            
+            // Tunggu hingga dialog selesai dimainkan
+            yield return new WaitUntil(() => !postBossDialogue.IsPlaying);
+        }
+
+        // Spawn Lontar Item
+        if (lontarRewardPrefab != null)
+        {
+            Vector3 spawnPos = lontarSpawnPoint != null ? lontarSpawnPoint.position : transform.position;
+            Instantiate(lontarRewardPrefab, spawnPos, Quaternion.identity);
+
+            if (QuestManager.Instance != null)
+            {
+                QuestManager.Instance.SetObjective("Ambil Lontar Kuno yang Terjatuh");
+            }
+        }
+
         // Buka pintu masuk (opsional agar bisa mundur)
         if (entryDoor != null) entryDoor.SetActive(false);
 
@@ -113,9 +163,6 @@ public class BossArenaController : MonoBehaviour
                 if (blockade != null) blockade.SetActive(false);
             }
         }
-
-        // Hilangkan UI Darah Bos
-        if (bossHealthUI != null) bossHealthUI.SetActive(false);
 
         // Munculkan kunang-kunang jika ada
         if (guideParticlePrefab != null)

@@ -11,6 +11,7 @@ public class PlayerModifier : MonoBehaviour
     public float TotalAttackSpeedBonus { get; private set; } = 0f;
     public float TotalMovementSpeedBonus { get; private set; } = 0f;
     public float TotalDamageReduction { get; private set; } = 0f;
+    public float TotalExtraStamina { get; private set; } = 0f;
     public bool HasElementalEffect { get; private set; } = false;
 
     private float healthRegenTimer = 0f;
@@ -67,6 +68,7 @@ public class PlayerModifier : MonoBehaviour
         TotalAttackSpeedBonus = 0f;
         TotalMovementSpeedBonus = 0f;
         TotalDamageReduction = 0f;
+        TotalExtraStamina = 0f;
         totalHealthRegenPerSec = 0f;
         HasElementalEffect = false;
 
@@ -76,6 +78,7 @@ public class PlayerModifier : MonoBehaviour
             TotalAttackSpeedBonus += boon.attackSpeedBonus;
             TotalMovementSpeedBonus += boon.movementSpeedBonus;
             TotalDamageReduction += boon.damageReduction;
+            TotalExtraStamina += boon.extraStamina;
             totalHealthRegenPerSec += boon.healthRegen;
             
             if (boon.hasElementalEffect) HasElementalEffect = true;

@@ -39,7 +39,7 @@ public class BoonDoor : MonoBehaviour
             // 3. Tampilkan UI Pemilihan Boon (3 Pilihan Boost)
             if (BoonUIManager.Instance != null)
             {
-                BoonUIManager.Instance.ShowBoonSelection(doorRewardType);
+                BoonUIManager.Instance.ShowBoonSelection();
             }
 
             // 4. Hilangkan objek pintu Boon ini agar seolah-olah jalan terbuka
