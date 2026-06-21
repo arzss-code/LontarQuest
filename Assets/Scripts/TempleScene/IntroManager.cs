@@ -13,12 +13,8 @@ public class IntroManager : MonoBehaviour
     public DialogueManager dialogueManager;
     public Animator animator;
 
-    [Header("UI")]
-    public GameObject questPanel;
-    public GameObject ePrompt;
-
     [Header("Objects")]
-    public GameObject prasastiHighlight;
+    // public GameObject prasastiHighlight;
 
     [Header("Settings")]
     public float walkSpeed = 2f;
@@ -111,11 +107,7 @@ public class IntroManager : MonoBehaviour
         // QUEST
         //-----------------------
 
-        prasastiHighlight.SetActive(true);
-
-        questPanel.SetActive(true);
-
-        ePrompt.SetActive(true);
+        // prasastiHighlight.SetActive(true);
 
         yield return ShowDialogueAndWait(
             "Aku harus memeriksanya lebih dekat."
