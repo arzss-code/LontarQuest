@@ -2,16 +2,15 @@ using UnityEngine;
 
 public class ArrowProjectile : MonoBehaviour
 {
-    [SerializeField]
-    float speed = 10f;
-
-    [SerializeField]
-    int damage = 25;
+    [Tooltip("Kecepatan luncur panah")]
+    public float speed = 10f;
 
     [SerializeField]
     float lifeTime = 5f;
 
     Transform target;
+    private int currentDamage = 15;
+    private bool hasFireEffect = false;
 
     void Start()
     {
@@ -21,10 +20,11 @@ public class ArrowProjectile : MonoBehaviour
         );
     }
 
-    public void SetTarget(
-    Transform newTarget)
+    public void SetTarget(Transform newTarget, int damageValue, bool isFire = false)
     {
         target = newTarget;
+        currentDamage = damageValue;
+        hasFireEffect = isFire;
     }
 
     void Update()
@@ -94,7 +94,23 @@ public class ArrowProjectile : MonoBehaviour
         }
 
         // Otomatis mencari fungsi TakeDamage di semua musuh (Kala, Gana, dll)
-        other.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+        other.SendMessageUpwards("TakeDamage", currentDamage, SendMessageOptions.DontRequireReceiver);
+
+        if (hasFireEffect)
+        {
+            BurnEffect existingBurn = other.GetComponent<BurnEffect>();
+            if (existingBurn == null)
+            {
+                BurnEffect burn = other.gameObject.AddComponent<BurnEffect>();
+                burn.StartBurn(5, 4); // 5 damage per detik selama 4 detik
+            }
+            else
+            {
+                existingBurn.StopAllCoroutines();
+                existingBurn.StartBurn(5, 4); // Reset durasi api
+            }
+        }
+
         Destroy(gameObject);
     }
 }

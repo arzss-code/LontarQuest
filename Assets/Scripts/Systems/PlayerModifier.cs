@@ -11,6 +11,7 @@ public class PlayerModifier : MonoBehaviour
     public float TotalAttackSpeedBonus { get; private set; } = 0f;
     public float TotalMovementSpeedBonus { get; private set; } = 0f;
     public float TotalDamageReduction { get; private set; } = 0f;
+    public float TotalExtraStamina { get; private set; } = 0f;
     public bool HasElementalEffect { get; private set; } = false;
 
     private float healthRegenTimer = 0f;
@@ -35,6 +36,10 @@ public class PlayerModifier : MonoBehaviour
         }
     }
 
+    [Header("Visual & Audio Feedback")]
+    public GameObject boonPickupVFXPrefab;
+    public AudioClip boonPickupSound;
+
     public void AddBoon(BoonData newBoon)
     {
         if (newBoon == null) return;
@@ -42,6 +47,18 @@ public class PlayerModifier : MonoBehaviour
         activeBoons.Add(newBoon);
         RecalculateModifiers();
         
+        // Play Visual Feedback
+        if (boonPickupVFXPrefab != null)
+        {
+            Instantiate(boonPickupVFXPrefab, transform.position, Quaternion.identity);
+        }
+
+        // Play Audio Feedback
+        if (boonPickupSound != null)
+        {
+            AudioSource.PlayClipAtPoint(boonPickupSound, transform.position);
+        }
+
         Debug.Log($"Boon Diperoleh: {newBoon.boonName} ({newBoon.type})");
     }
 
@@ -51,6 +68,7 @@ public class PlayerModifier : MonoBehaviour
         TotalAttackSpeedBonus = 0f;
         TotalMovementSpeedBonus = 0f;
         TotalDamageReduction = 0f;
+        TotalExtraStamina = 0f;
         totalHealthRegenPerSec = 0f;
         HasElementalEffect = false;
 
@@ -60,6 +78,7 @@ public class PlayerModifier : MonoBehaviour
             TotalAttackSpeedBonus += boon.attackSpeedBonus;
             TotalMovementSpeedBonus += boon.movementSpeedBonus;
             TotalDamageReduction += boon.damageReduction;
+            TotalExtraStamina += boon.extraStamina;
             totalHealthRegenPerSec += boon.healthRegen;
             
             if (boon.hasElementalEffect) HasElementalEffect = true;

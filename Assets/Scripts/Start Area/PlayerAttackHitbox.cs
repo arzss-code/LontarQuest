@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class PlayerAttackHitbox : MonoBehaviour
 {
-    [Header("Attack")]
-    [SerializeField]
-    private int damage = 25;
-
     private Collider2D hitbox;
+    private PlayerStats playerStats;
 
     void Awake()
     {
+        playerStats = GetComponentInParent<PlayerStats>();
         hitbox = GetComponent<Collider2D>();
 
         if(hitbox != null)
@@ -46,15 +44,29 @@ public class PlayerAttackHitbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Hanya serang jika memiliki Tag "Enemy" 
-        // (Pastikan semua musuh, termasuk bos dan Gana, memiliki Tag "Enemy" di Unity)
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("Damage Masuk ke: " + other.name);
             
-            // SendMessageUpwards akan otomatis memanggil fungsi "TakeDamage(int)" 
-            // pada script apapun (KalaAI, GanaAI, dll) yang menempel di objek ini atau parentnya.
-            other.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+            int damageAmount = (playerStats != null) ? playerStats.meleeDamage : 35;
+            other.SendMessageUpwards("TakeDamage", damageAmount, SendMessageOptions.DontRequireReceiver);
+
+            // Cek efek elemen (Nyala Api Kawi)
+            PlayerModifier pm = GetComponentInParent<PlayerModifier>();
+            if (pm != null && pm.HasElementalEffect)
+            {
+                BurnEffect existingBurn = other.GetComponent<BurnEffect>();
+                if (existingBurn == null)
+                {
+                    BurnEffect burn = other.gameObject.AddComponent<BurnEffect>();
+                    burn.StartBurn(5, 4); // 5 damage per detik selama 4 detik
+                }
+                else
+                {
+                    existingBurn.StopAllCoroutines();
+                    existingBurn.StartBurn(5, 4); // Reset durasi api
+                }
+            }
         }
     }
 }

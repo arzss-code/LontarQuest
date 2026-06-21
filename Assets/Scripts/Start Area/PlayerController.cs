@@ -233,10 +233,17 @@ public class PlayerController : MonoBehaviour
 
         
 
+        PlayerModifier modifier = GetComponent<PlayerModifier>();
+        float finalMoveSpeed = moveSpeed;
+        if (modifier != null)
+        {
+            finalMoveSpeed *= (1f + modifier.TotalMovementSpeedBonus);
+        }
+
         rb.MovePosition(
             rb.position +
             movement *
-            moveSpeed *
+            finalMoveSpeed *
             Time.fixedDeltaTime
         );
     }
@@ -315,6 +322,12 @@ public class PlayerController : MonoBehaviour
         movement = Vector2.zero;
 
         SetAttackDirection();
+
+        PlayerModifier modifier = GetComponent<PlayerModifier>();
+        if (modifier != null && animator != null)
+        {
+            animator.speed = 1f + modifier.TotalAttackSpeedBonus;
+        }
 
         animator.SetTrigger("Attack");
     }
@@ -406,6 +419,12 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("LastMoveX", lastMoveX);
         animator.SetFloat("LastMoveY", lastMoveY);
 
+        PlayerModifier modifier = GetComponent<PlayerModifier>();
+        if (modifier != null && animator != null)
+        {
+            animator.speed = 1f + modifier.TotalAttackSpeedBonus;
+        }
+
         animator.SetTrigger("BowAttack");
     }
 
@@ -443,7 +462,12 @@ public class PlayerController : MonoBehaviour
         ArrowProjectile projectile =
             arrow.GetComponent<ArrowProjectile>();
 
-        projectile.SetTarget(currentTarget);
+        int arrowDamage = (playerStats != null) ? playerStats.rangedDamage : 15;
+        
+        PlayerModifier pm = GetComponent<PlayerModifier>();
+        bool isFire = (pm != null && pm.HasElementalEffect);
+
+        projectile.SetTarget(currentTarget, arrowDamage, isFire);
     }
 
     Transform GetNearestEnemy()
@@ -544,6 +568,11 @@ public class PlayerController : MonoBehaviour
         DeactivateHitbox();
 
         isAttacking = false;
+
+        if (animator != null)
+        {
+            animator.speed = 1f; // Kembalikan ke kecepatan normal
+        }
     }
 
     // ===================

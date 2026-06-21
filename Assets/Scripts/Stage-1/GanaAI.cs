@@ -70,7 +70,13 @@ public class GanaAI : MonoBehaviour
 
     private void Start()
     {
-        rb.bodyType = RigidbodyType2D.Kinematic; // Agar tidak saling terpental secara fisika
+        // Ubah menjadi Dynamic agar bisa menabrak tembok (Static Collider)
+        rb.bodyType = RigidbodyType2D.Dynamic; 
+        rb.mass = 1000f; // Massa raksasa agar Saka menabrak seperti tembok
+        rb.gravityScale = 0f; // Penting untuk Top-Down
+        rb.freezeRotation = true; // Agar tidak terguling
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // Mencegah tembus saat cepat
+        
         startPosition = transform.position;
         currentHealth = maxHealth;
         if (spriteRenderer != null)
@@ -145,30 +151,26 @@ public class GanaAI : MonoBehaviour
         if (currentState == GanaState.Return)
         {
             Vector2 direction = (startPosition - rb.position).normalized;
-            Vector2 targetPos = rb.position + direction * moveSpeed * Time.fixedDeltaTime;
-            rb.MovePosition(targetPos);
+            rb.linearVelocity = direction * moveSpeed;
             UpdateAnimator(direction);
-            rb.linearVelocity = Vector2.zero;
         }
         else if (currentState == GanaState.Chase && playerTransform != null)
         {
             float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
             
-            // Anti-Cornering
+            // Anti-Cornering & Movement
             if (distanceToPlayer > stopDistance)
             {
                 Vector2 direction = ((Vector2)playerTransform.position - rb.position).normalized;
-                Vector2 targetPos = rb.position + direction * moveSpeed * Time.fixedDeltaTime;
-                rb.MovePosition(targetPos);
+                rb.linearVelocity = direction * moveSpeed;
                 
                 UpdateAnimator(direction);
             }
             else
             {
+                rb.linearVelocity = Vector2.zero;
                 UpdateAnimator(Vector2.zero);
             }
-            
-            rb.linearVelocity = Vector2.zero;
         }
         else
         {
