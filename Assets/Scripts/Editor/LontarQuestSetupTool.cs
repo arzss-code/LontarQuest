@@ -34,6 +34,15 @@ public class LontarQuestSetupTool : EditorWindow
         {
             GenerateStage1Content();
         }
+
+        EditorGUILayout.Space();
+        GUILayout.Label("UI Helpers", EditorStyles.boldLabel);
+        EditorGUILayout.HelpBox("Alat untuk membuat UI otomatis agar tidak perlu setup manual yang rumit.", MessageType.Info);
+        
+        if (GUILayout.Button("Generate Boon UI Prefab"))
+        {
+            GenerateBoonUIPrefab();
+        }
     }
 
     private void GenerateDataAssets()
@@ -185,6 +194,131 @@ public class LontarQuestSetupTool : EditorWindow
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         Debug.Log("✅ Stage 1 Content Generated (Boon Batak, Room Template, Prasasti)!");
+    }
+
+    private void GenerateBoonUIPrefab()
+    {
+        string prefabsPath = "Assets/Prefabs/Systems";
+        if (!AssetDatabase.IsValidFolder("Assets/Prefabs")) AssetDatabase.CreateFolder("Assets", "Prefabs");
+        if (!AssetDatabase.IsValidFolder(prefabsPath)) AssetDatabase.CreateFolder("Assets/Prefabs", "Systems");
+
+        // Create Canvas
+        GameObject canvasObj = new GameObject("BoonSelectionCanvas");
+        Canvas canvas = canvasObj.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvasObj.AddComponent<UnityEngine.UI.CanvasScaler>();
+        canvasObj.AddComponent<UnityEngine.UI.GraphicRaycaster>();
+
+        // Tambahkan BoonUIManager langsung ke Canvas ini!
+        BoonUIManager manager = canvasObj.AddComponent<BoonUIManager>();
+
+        // Create Panel
+        GameObject panelObj = new GameObject("BoonSelectionPanel");
+        panelObj.transform.SetParent(canvasObj.transform, false);
+        UnityEngine.UI.Image panelImg = panelObj.AddComponent<UnityEngine.UI.Image>();
+        panelImg.color = new Color(0, 0, 0, 0.8f);
+        RectTransform panelRect = panelObj.GetComponent<RectTransform>();
+        panelRect.anchorMin = Vector2.zero;
+        panelRect.anchorMax = Vector2.one;
+        panelRect.sizeDelta = Vector2.zero;
+
+        // Create Horizontal Layout Group for Buttons
+        UnityEngine.UI.HorizontalLayoutGroup hlg = panelObj.AddComponent<UnityEngine.UI.HorizontalLayoutGroup>();
+        hlg.childAlignment = TextAnchor.MiddleCenter;
+        hlg.spacing = 50;
+        hlg.childControlWidth = false;
+        hlg.childControlHeight = false;
+
+        System.Collections.Generic.List<BoonUIElement> generatedElements = new System.Collections.Generic.List<BoonUIElement>();
+
+        // Create 3 Buttons
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject btnObj = new GameObject($"BoonButton_{i+1}");
+            btnObj.transform.SetParent(panelObj.transform, false);
+            
+            // Background Image untuk Card
+            UnityEngine.UI.Image btnImg = btnObj.AddComponent<UnityEngine.UI.Image>();
+            btnImg.color = new Color(0.15f, 0.15f, 0.15f, 1f); // Warna gelap agar tulisan terbaca
+            
+            UnityEngine.UI.Button btn = btnObj.AddComponent<UnityEngine.UI.Button>();
+            
+            RectTransform btnRect = btnObj.GetComponent<RectTransform>();
+            btnRect.sizeDelta = new Vector2(280, 420); // Sedikit lebih besar
+
+            BoonUIElement uiElement = btnObj.AddComponent<BoonUIElement>();
+            generatedElements.Add(uiElement);
+
+            // Name Text
+            GameObject nameObj = new GameObject("NameText");
+            nameObj.transform.SetParent(btnObj.transform, false);
+            TMPro.TextMeshProUGUI nameText = nameObj.AddComponent<TMPro.TextMeshProUGUI>();
+            nameText.text = "Nama Boon";
+            nameText.color = new Color(1f, 0.84f, 0f, 1f); // Warna emas
+            nameText.fontSize = 24;
+            nameText.fontStyle = TMPro.FontStyles.Bold;
+            nameText.alignment = TMPro.TextAlignmentOptions.Center;
+            RectTransform nameRect = nameObj.GetComponent<RectTransform>();
+            nameRect.anchorMin = new Vector2(0, 0.8f);
+            nameRect.anchorMax = new Vector2(1, 1);
+            nameRect.sizeDelta = Vector2.zero;
+
+            // Icon Image
+            GameObject iconObj = new GameObject("IconImage");
+            iconObj.transform.SetParent(btnObj.transform, false);
+            UnityEngine.UI.Image iconImg = iconObj.AddComponent<UnityEngine.UI.Image>();
+            RectTransform iconRect = iconObj.GetComponent<RectTransform>();
+            iconRect.anchorMin = new Vector2(0.5f, 0.6f);
+            iconRect.anchorMax = new Vector2(0.5f, 0.6f);
+            iconRect.sizeDelta = new Vector2(100, 100);
+            iconRect.anchoredPosition = Vector2.zero;
+
+            // Desc Text
+            GameObject descObj = new GameObject("DescText");
+            descObj.transform.SetParent(btnObj.transform, false);
+            TMPro.TextMeshProUGUI descText = descObj.AddComponent<TMPro.TextMeshProUGUI>();
+            descText.text = "Deskripsi dari boon ini akan muncul di sini...";
+            descText.color = Color.white;
+            descText.fontSize = 18;
+            descText.alignment = TMPro.TextAlignmentOptions.Center;
+            descText.enableWordWrapping = true;
+            RectTransform descRect = descObj.GetComponent<RectTransform>();
+            descRect.anchorMin = new Vector2(0.1f, 0.05f);
+            descRect.anchorMax = new Vector2(0.9f, 0.45f);
+            descRect.sizeDelta = Vector2.zero;
+
+            // Wire up fields via SerializedObject to access private SerializeFields
+            SerializedObject serializedObject = new SerializedObject(uiElement);
+            serializedObject.Update();
+            serializedObject.FindProperty("nameText").objectReferenceValue = nameText;
+            serializedObject.FindProperty("descriptionText").objectReferenceValue = descText;
+            serializedObject.FindProperty("iconImage").objectReferenceValue = iconImg;
+            serializedObject.FindProperty("selectButton").objectReferenceValue = btn;
+            serializedObject.ApplyModifiedProperties();
+        }
+
+        // Setup Manager references
+        manager.boonSelectionPanel = panelObj;
+        manager.boonUIElements = generatedElements;
+
+        // Auto-populate BoonData assets if any exist in the project
+        string[] boonGuids = AssetDatabase.FindAssets("t:BoonData");
+        manager.allAvailableBoons = new System.Collections.Generic.List<BoonData>();
+        foreach (string guid in boonGuids)
+        {
+            string assetPath = AssetDatabase.GUIDToAssetPath(guid);
+            BoonData boon = AssetDatabase.LoadAssetAtPath<BoonData>(assetPath);
+            if (boon != null) manager.allAvailableBoons.Add(boon);
+        }
+
+        // Save as Prefab
+        string path = $"{prefabsPath}/BoonSelectionCanvas.prefab";
+        PrefabUtility.SaveAsPrefabAsset(canvasObj, path);
+        DestroyImmediate(canvasObj);
+        
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        Debug.Log($"✅ Boon UI Prefab Generated at {path}!");
     }
 }
 #endif

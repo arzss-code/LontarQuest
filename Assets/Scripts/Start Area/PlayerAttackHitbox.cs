@@ -44,16 +44,29 @@ public class PlayerAttackHitbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Hanya serang jika memiliki Tag "Enemy" 
-        // (Pastikan semua musuh, termasuk bos dan Gana, memiliki Tag "Enemy" di Unity)
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("Damage Masuk ke: " + other.name);
             
-            // Ambil damage dari PlayerStats Saka
             int damageAmount = (playerStats != null) ? playerStats.meleeDamage : 35;
-            
             other.SendMessageUpwards("TakeDamage", damageAmount, SendMessageOptions.DontRequireReceiver);
+
+            // Cek efek elemen (Nyala Api Kawi)
+            PlayerModifier pm = GetComponentInParent<PlayerModifier>();
+            if (pm != null && pm.HasElementalEffect)
+            {
+                BurnEffect existingBurn = other.GetComponent<BurnEffect>();
+                if (existingBurn == null)
+                {
+                    BurnEffect burn = other.gameObject.AddComponent<BurnEffect>();
+                    burn.StartBurn(5, 4); // 5 damage per detik selama 4 detik
+                }
+                else
+                {
+                    existingBurn.StopAllCoroutines();
+                    existingBurn.StartBurn(5, 4); // Reset durasi api
+                }
+            }
         }
     }
 }

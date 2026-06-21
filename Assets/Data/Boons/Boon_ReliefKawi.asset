@@ -16,7 +16,7 @@ MonoBehaviour:
   type: 2
   description: Kekuatan kuno dari prasasti yang memberikan ekstra stamina dan membakar
     musuh yang terkena serangan.
-  icon: {fileID: 0}
+  icon: {fileID: -1240149337706566557, guid: 072ff80bfff20844b9301f2ca2579a8b, type: 3}
   attackSpeedBonus: 0
   movementSpeedBonus: 0
   damageReduction: 0

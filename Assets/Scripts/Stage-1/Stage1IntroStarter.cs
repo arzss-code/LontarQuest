@@ -134,5 +134,11 @@ public class Stage1IntroStarter : MonoBehaviour
 
         Debug.Log("STAGE 1 CUTSCENE MULAI");
         introDialogue.StartDialogue();
+
+        // Update Quest pertama kali
+        if (QuestManager.Instance != null)
+        {
+            QuestManager.Instance.SetObjective("Jelajahi Reruntuhan Candi");
+        }
     }
 }

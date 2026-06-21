@@ -26,6 +26,13 @@ public class RoomManager : MonoBehaviour
     [SerializeField] private bool isRoomActive = false;
     [SerializeField] private bool isRoomCleared = false;
 
+    [Header("Quest Updates")]
+    [Tooltip("Misi yang muncul saat Saka masuk ke ruangan ini")]
+    public string questOnEnter;
+    
+    [Tooltip("Misi yang muncul setelah ruangan ini berhasil dibersihkan")]
+    public string questOnClear;
+
     private void Start()
     {
         // Pastikan BoxCollider diset ke Trigger
@@ -90,6 +97,12 @@ public class RoomManager : MonoBehaviour
                 if (enemy != null) enemy.SetActive(true);
             }
         }
+
+        // 3. Perbarui Quest di layar
+        if (QuestManager.Instance != null && !string.IsNullOrEmpty(questOnEnter))
+        {
+            QuestManager.Instance.SetObjective(questOnEnter);
+        }
     }
 
     private void Update()
@@ -136,6 +149,12 @@ public class RoomManager : MonoBehaviour
         if (guideParticlePrefab != null)
         {
             SpawnGuideParticle();
+        }
+
+        // 5. Perbarui Quest di layar
+        if (QuestManager.Instance != null && !string.IsNullOrEmpty(questOnClear))
+        {
+            QuestManager.Instance.SetObjective(questOnClear);
         }
     }
 
