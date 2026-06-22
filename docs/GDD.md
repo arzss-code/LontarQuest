@@ -65,12 +65,12 @@ Prof. Arya terbangun dengan selamat di dunia nyata. Namun Saka kini berdiri abad
 
 ### B. Musuh & Penjaga (Bestiary)
 
-| Nama Penjaga                  | Tipe Tempur | Asal               | Wujud & Sifat                                       | Mekanisme Ancaman                                                                   |
-| ----------------------------- | ----------- | ------------------ | --------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| **Kepala Kala** _(Banaspati)_ | Chaser      | Candi Hindu-Buddha | Kepala raksasa batu melayang tanpa rahang bawah.    | Agresif, mendeteksi pergerakan/suara, meledakkan energi di jarak dekat.             |
-| **Dwarapala** _(Buta Ijo)_    | Tanker      | Hindu-Buddha       | Raksasa batu berwajah menyeramkan, membawa Gada.    | Sangat teritorial, lambat namun serangannya menghancurkan arena & memberi stun.     |
-| **Yaksa** _(Leak)_            | Ranged      | Roh Alam           | Roh alam setengah dewa/iblis yang melayang.         | Menjaga jarak, menembakkan proyektil energi, memaksa pemain menghindar.             |
-| **Bhatara Kala**              | Final Boss  | Hindu              | Entitas kosmik pusaran waktu tanpa bentuk permanen. | Absolut. Memiliki fase serangan kombinasi musuh dan fase AoE besar (Pusaka Lontar). |
+| Nama Penjaga                            | Tipe Tempur | Asal               | Wujud & Sifat                                       | Mekanisme Ancaman                                                                   |
+| --------------------------------------- | ----------- | ------------------ | --------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| **Kepala Kala** _Referensi (Banaspati)_ | Chaser      | Candi Hindu-Buddha | Kepala raksasa batu melayang tanpa rahang bawah.    | Agresif, mendeteksi pergerakan/suara, meledakkan energi di jarak dekat.             |
+| **Dwarapala** _Referensi (Buta Ijo)_    | Tanker      | Hindu-Buddha       | Raksasa batu berwajah menyeramkan, membawa Gada.    | Sangat teritorial, lambat namun serangannya menghancurkan arena & memberi stun.     |
+| **Yaksa** _Referensi (Leak)_            | Ranged      | Roh Alam           | Roh alam setengah dewa/iblis yang melayang.         | Menjaga jarak, menembakkan proyektil energi, memaksa pemain menghindar.             |
+| **Bhatara Kala**                        | Final Boss  | Hindu              | Entitas kosmik pusaran waktu tanpa bentuk permanen. | Absolut. Memiliki fase serangan kombinasi musuh dan fase AoE besar (Pusaka Lontar). |
 
 ---
 

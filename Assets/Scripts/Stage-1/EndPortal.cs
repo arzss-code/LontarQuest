@@ -14,8 +14,22 @@ public class EndPortal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if player entered the portal and we haven't already triggered it (avoid double loads)
-        if (other.CompareTag("Player") && !hasTriggered)
+        Debug.Log($"[EndPortal] OnTriggerEnter2D called with: {other.gameObject.name}. Root: {other.transform.root.name}");
+
+        PlayerController player = other.GetComponentInParent<PlayerController>();
+        if (player == null)
+        {
+            Debug.Log($"[EndPortal] No PlayerController found on {other.gameObject.name} or its parents.");
+            return;
+        }
+
+        if (!player.CompareTag("Player"))
+        {
+            Debug.LogWarning($"[EndPortal] Ignored {player.gameObject.name}: PlayerController found but tag is {player.tag}.");
+            return;
+        }
+
+        if (!hasTriggered)
         {
             hasTriggered = true;
             Debug.Log($"EndPortal triggered! Traveling to: {targetSceneName}");

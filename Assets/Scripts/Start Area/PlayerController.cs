@@ -240,6 +240,10 @@ public class PlayerController : MonoBehaviour
             finalMoveSpeed *= (1f + modifier.TotalMovementSpeedBonus);
         }
 
+        // Reset velocity agar Saka tidak tergelincir atau terdorong oleh musuh
+        // (Ini tidak akan merusak fungsi Knockback karena Knockback me-return di atas)
+        rb.linearVelocity = Vector2.zero;
+
         rb.MovePosition(
             rb.position +
             movement *
