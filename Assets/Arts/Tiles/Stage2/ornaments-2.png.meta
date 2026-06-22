@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: fec227e1577143c948943265573697dd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6253613034945631221
+    second: ornaments-2_0
+  - first:
+      213: 2769865001159370041
+    second: ornaments-2_1
+  - first:
+      213: 4308946980544588932
+    second: ornaments-2_2
+  - first:
+      213: 1762387837290307095
+    second: ornaments-2_3
+  - first:
+      213: 1952012649819341220
+    second: ornaments-2_4
+  - first:
+      213: 3992402325360872545
+    second: ornaments-2_5
+  - first:
+      213: 4160446803593483778
+    second: ornaments-2_6
+  - first:
+      213: -2405227749965302847
+    second: ornaments-2_7
+  - first:
+      213: 6186091738334032860
+    second: ornaments-2_8
+  - first:
+      213: -5873823810728926926
+    second: ornaments-2_9
+  - first:
+      213: -278182594569738533
+    second: ornaments-2_10
+  - first:
+      213: 979997969573429334
+    second: ornaments-2_11
+  - first:
+      213: 7265262805448387818
+    second: ornaments-2_12
+  - first:
+      213: 4517821779057163209
+    second: ornaments-2_13
+  - first:
+      213: 1873053335716703905
+    second: ornaments-2_14
+  - first:
+      213: 2488909306283228797
+    second: ornaments-2_15
+  - first:
+      213: 6453419849353896061
+    second: ornaments-2_16
+  - first:
+      213: 3376969855773632074
+    second: ornaments-2_17
+  - first:
+      213: 4970927470347159009
+    second: ornaments-2_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ornaments-2_0
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 911
+        width: 305
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f3dfa61ceb49c650800000000000000
+      internalID: 6253613034945631221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_1
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 1121
+        width: 63
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93524ed0b89807620800000000000000
+      internalID: 2769865001159370041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_2
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 1144
+        width: 58
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48c2a53f2747ccb30800000000000000
+      internalID: 4308946980544588932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_3
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 1091
+        width: 73
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e58268662457810800000000000000
+      internalID: 1762387837290307095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_4
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1143
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a10d8da921f61b10800000000000000
+      internalID: 1952012649819341220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_5
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 1106
+        width: 67
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16c049323ccd76730800000000000000
+      internalID: 3992402325360872545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_6
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 920
+        width: 320
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 206591b2350ecb930800000000000000
+      internalID: 4160446803593483778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_7
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 568
+        width: 272
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c3f767da1aee9ed0800000000000000
+      internalID: -2405227749965302847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_8
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 629
+        width: 192
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd3f06329a969d550800000000000000
+      internalID: 6186091738334032860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_9
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 609
+        width: 256
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23165407d5cfb7ea0800000000000000
+      internalID: -5873823810728926926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_10
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 602
+        width: 270
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd669f37762b32cf0800000000000000
+      internalID: -278182594569738533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_11
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 309
+        width: 205
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 650470906f6a99d00800000000000000
+      internalID: 979997969573429334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_12
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 315
+        width: 213
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeceb9e470663d460800000000000000
+      internalID: 7265262805448387818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_13
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 315
+        width: 221
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cbb93bb8f682be30800000000000000
+      internalID: 4517821779057163209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_14
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 315
+        width: 222
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ae21c0c51c6ef910800000000000000
+      internalID: 1873053335716703905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 19
+        width: 170
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7efc27c3d16a8220800000000000000
+      internalID: 2488909306283228797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_16
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 35
+        width: 208
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d70a13b49272f8950800000000000000
+      internalID: 6453419849353896061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_17
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 31
+        width: 162
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a46e69e11386dde20800000000000000
+      internalID: 3376969855773632074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments-2_18
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 0
+        width: 455
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e5064a72384cf440800000000000000
+      internalID: 4970927470347159009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ornaments-2_0: 6253613034945631221
+      ornaments-2_1: 2769865001159370041
+      ornaments-2_10: -278182594569738533
+      ornaments-2_11: 979997969573429334
+      ornaments-2_12: 7265262805448387818
+      ornaments-2_13: 4517821779057163209
+      ornaments-2_14: 1873053335716703905
+      ornaments-2_15: 2488909306283228797
+      ornaments-2_16: 6453419849353896061
+      ornaments-2_17: 3376969855773632074
+      ornaments-2_18: 4970927470347159009
+      ornaments-2_2: 4308946980544588932
+      ornaments-2_3: 1762387837290307095
+      ornaments-2_4: 1952012649819341220
+      ornaments-2_5: 3992402325360872545
+      ornaments-2_6: 4160446803593483778
+      ornaments-2_7: -2405227749965302847
+      ornaments-2_8: 6186091738334032860
+      ornaments-2_9: -5873823810728926926
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

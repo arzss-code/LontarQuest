@@ -1,0 +1,1365 @@
+fileFormatVersion: 2
+guid: 16933e257f3005e609c077220a1a3043
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6570171191824703312
+    second: ornaments_0
+  - first:
+      213: -2344197044257633823
+    second: ornaments_1
+  - first:
+      213: -817552932513018341
+    second: ornaments_2
+  - first:
+      213: -4374095837462193850
+    second: ornaments_3
+  - first:
+      213: 1331680239602455716
+    second: ornaments_4
+  - first:
+      213: -1896090342408415719
+    second: ornaments_5
+  - first:
+      213: -5763796263920078822
+    second: ornaments_6
+  - first:
+      213: -6868356498211536993
+    second: ornaments_7
+  - first:
+      213: -1247120679994294573
+    second: ornaments_8
+  - first:
+      213: 4456798909800656505
+    second: ornaments_9
+  - first:
+      213: 6950588438379424907
+    second: ornaments_10
+  - first:
+      213: -5728912768551047660
+    second: ornaments_11
+  - first:
+      213: 3441665071561611788
+    second: ornaments_12
+  - first:
+      213: -7176023202686340702
+    second: ornaments_13
+  - first:
+      213: 7353117978959928581
+    second: ornaments_14
+  - first:
+      213: 2739310696752903068
+    second: ornaments_15
+  - first:
+      213: -5139405557806867769
+    second: ornaments_16
+  - first:
+      213: -6973543543211131249
+    second: ornaments_17
+  - first:
+      213: 8567742833881188832
+    second: ornaments_18
+  - first:
+      213: -4716747842451481997
+    second: ornaments_19
+  - first:
+      213: 1601771740842093198
+    second: ornaments_20
+  - first:
+      213: 8419225406005010201
+    second: ornaments_21
+  - first:
+      213: -4393919730157792295
+    second: ornaments_22
+  - first:
+      213: 5412577392694213551
+    second: ornaments_23
+  - first:
+      213: 4809751035018937819
+    second: ornaments_24
+  - first:
+      213: -3593368187299837716
+    second: ornaments_25
+  - first:
+      213: 5554995788616915353
+    second: ornaments_26
+  - first:
+      213: 1445741888534080751
+    second: ornaments_27
+  - first:
+      213: -8265788649927668009
+    second: ornaments_28
+  - first:
+      213: 8544370678169366856
+    second: ornaments_29
+  - first:
+      213: -6184515737404152034
+    second: ornaments_30
+  - first:
+      213: -3407607389887944797
+    second: ornaments_31
+  - first:
+      213: 4750441998620643761
+    second: ornaments_32
+  - first:
+      213: -8308292028638837763
+    second: ornaments_33
+  - first:
+      213: -8067787240673394107
+    second: ornaments_34
+  - first:
+      213: 2069179040416997921
+    second: ornaments_35
+  - first:
+      213: -1942522044839767352
+    second: ornaments_36
+  - first:
+      213: 4369783874745395416
+    second: ornaments_37
+  - first:
+      213: -2291032477537834577
+    second: ornaments_38
+  - first:
+      213: -1993477432291089950
+    second: ornaments_39
+  - first:
+      213: -3126434662984626505
+    second: ornaments_40
+  - first:
+      213: -2117970393332625306
+    second: ornaments_41
+  - first:
+      213: -5596611009077901647
+    second: ornaments_42
+  - first:
+      213: -1287892673812351206
+    second: ornaments_43
+  - first:
+      213: 4285791249587774008
+    second: ornaments_44
+  - first:
+      213: 4210429320235900717
+    second: ornaments_45
+  - first:
+      213: -3654682087855336280
+    second: ornaments_46
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 120
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ornaments_0
+      rect:
+        serializedVersion: 2
+        x: 1495
+        y: 1308
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b0a8cd7c1012d4a0800000000000000
+      internalID: -6570171191824703312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_1
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1165
+        width: 245
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e9c085553db77fd0800000000000000
+      internalID: -2344197044257633823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_2
+      rect:
+        serializedVersion: 2
+        x: 1778
+        y: 1186
+        width: 187
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1e8b7080f777a4f0800000000000000
+      internalID: -817552932513018341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_3
+      rect:
+        serializedVersion: 2
+        x: 2009
+        y: 1209
+        width: 179
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6491d82c2071c43c0800000000000000
+      internalID: -4374095837462193850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_4
+      rect:
+        serializedVersion: 2
+        x: 2261
+        y: 1217
+        width: 111
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a459e35f141b7210800000000000000
+      internalID: 1331680239602455716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_5
+      rect:
+        serializedVersion: 2
+        x: 2457
+        y: 1223
+        width: 118
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91692b621ebbfa5e0800000000000000
+      internalID: -1896090342408415719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_6
+      rect:
+        serializedVersion: 2
+        x: 2617
+        y: 1239
+        width: 119
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a10f15bf5d1e200b0800000000000000
+      internalID: -5763796263920078822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_7
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 883
+        width: 291
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9ffa5da722bea0a0800000000000000
+      internalID: -6868356498211536993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_8
+      rect:
+        serializedVersion: 2
+        x: 1423
+        y: 883
+        width: 110
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3de75ec595651bee0800000000000000
+      internalID: -1247120679994294573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_9
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 896
+        width: 139
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97e240ecefab9dd30800000000000000
+      internalID: 4456798909800656505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_10
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 866
+        width: 264
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8cea81eb53757060800000000000000
+      internalID: 6950588438379424907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_11
+      rect:
+        serializedVersion: 2
+        x: 2469
+        y: 1011
+        width: 250
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41ea059a030de70b0800000000000000
+      internalID: -5728912768551047660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_12
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 582
+        width: 254
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0a9c4ad52043cf20800000000000000
+      internalID: 3441665071561611788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_13
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 811
+        width: 130
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a17be7dae4a96c90800000000000000
+      internalID: -7176023202686340702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_14
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 583
+        width: 108
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50dd177e7d58b0660800000000000000
+      internalID: 7353117978959928581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_15
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 581
+        width: 234
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c937261b09cf30620800000000000000
+      internalID: 2739310696752903068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_16
+      rect:
+        serializedVersion: 2
+        x: 1445
+        y: 581
+        width: 278
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cad04affd92da8b0800000000000000
+      internalID: -5139405557806867769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_17
+      rect:
+        serializedVersion: 2
+        x: 1843
+        y: 559
+        width: 190
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8e7e29481ff83f90800000000000000
+      internalID: -6973543543211131249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_18
+      rect:
+        serializedVersion: 2
+        x: 2106
+        y: 562
+        width: 104
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e9036ca6bcb6e670800000000000000
+      internalID: 8567742833881188832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_19
+      rect:
+        serializedVersion: 2
+        x: 2252
+        y: 561
+        width: 262
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37ad693e3deba8eb0800000000000000
+      internalID: -4716747842451481997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_20
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 543
+        width: 174
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8ae62869e2aa3610800000000000000
+      internalID: 1601771740842093198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_21
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 266
+        width: 306
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91f5fd856e817d470800000000000000
+      internalID: 8419225406005010201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_22
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 271
+        width: 165
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d35d501949a503c0800000000000000
+      internalID: -4393919730157792295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_23
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 290
+        width: 197
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fab39da26765d1b40800000000000000
+      internalID: 5412577392694213551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_24
+      rect:
+        serializedVersion: 2
+        x: 1636
+        y: 307
+        width: 239
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd50f5c451bafb240800000000000000
+      internalID: 4809751035018937819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_25
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 294
+        width: 234
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce8cdc01caac12ec0800000000000000
+      internalID: -3593368187299837716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_26
+      rect:
+        serializedVersion: 2
+        x: 2264
+        y: 467
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9995d45fc3f471d40800000000000000
+      internalID: 5554995788616915353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_27
+      rect:
+        serializedVersion: 2
+        x: 2276
+        y: 294
+        width: 134
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fece9f6769e401410800000000000000
+      internalID: 1445741888534080751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_28
+      rect:
+        serializedVersion: 2
+        x: 2497
+        y: 395
+        width: 186
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7de0b9454050a4d80800000000000000
+      internalID: -8265788649927668009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_29
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 353
+        width: 256
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8417c8d9cd3b39670800000000000000
+      internalID: 8544370678169366856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_30
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 448
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e17663c24bf2c2aa0800000000000000
+      internalID: -6184515737404152034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_31
+      rect:
+        serializedVersion: 2
+        x: 1486
+        y: 448
+        width: 25
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a7abb7122fb5b0d0800000000000000
+      internalID: -3407607389887944797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_32
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 7
+        width: 297
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b151ed24d5fce140800000000000000
+      internalID: 4750441998620643761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_33
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 1
+        width: 59
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df3c5ce4b6403bc80800000000000000
+      internalID: -8308292028638837763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_34
+      rect:
+        serializedVersion: 2
+        x: 1593
+        y: 2
+        width: 183
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 542cb34ef36790090800000000000000
+      internalID: -8067787240673394107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_35
+      rect:
+        serializedVersion: 2
+        x: 1673
+        y: 237
+        width: 19
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1222db0df5337bc10800000000000000
+      internalID: 2069179040416997921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_36
+      rect:
+        serializedVersion: 2
+        x: 2519
+        y: 233
+        width: 155
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c2d5fcfd76ca05e0800000000000000
+      internalID: -1942522044839767352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_37
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 4
+        width: 307
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d8ed6f284794ac30800000000000000
+      internalID: 4369783874745395416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_38
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 6
+        width: 120
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa9697f991e9430e0800000000000000
+      internalID: -2291032477537834577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_39
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 0
+        width: 193
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e1288456deb554e0800000000000000
+      internalID: -1993477432291089950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_40
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 31
+        width: 166
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7be45531d3cac94d0800000000000000
+      internalID: -3126434662984626505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_41
+      rect:
+        serializedVersion: 2
+        x: 1805
+        y: 6
+        width: 192
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6605d9416257b92e0800000000000000
+      internalID: -2117970393332625306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_42
+      rect:
+        serializedVersion: 2
+        x: 2024
+        y: 6
+        width: 158
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b60fd970f7d452b0800000000000000
+      internalID: -5596611009077901647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_43
+      rect:
+        serializedVersion: 2
+        x: 2424
+        y: 179
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a17369ccf6c702ee0800000000000000
+      internalID: -1287892673812351206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_44
+      rect:
+        serializedVersion: 2
+        x: 2436
+        y: 55
+        width: 109
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83228253f603a7b30800000000000000
+      internalID: 4285791249587774008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_45
+      rect:
+        serializedVersion: 2
+        x: 2616
+        y: 54
+        width: 102
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2fdc80b8237e6a30800000000000000
+      internalID: 4210429320235900717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ornaments_46
+      rect:
+        serializedVersion: 2
+        x: 2209
+        y: 56
+        width: 171
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a456622106f74dc0800000000000000
+      internalID: -3654682087855336280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ornaments_0: -6570171191824703312
+      ornaments_1: -2344197044257633823
+      ornaments_10: 6950588438379424907
+      ornaments_11: -5728912768551047660
+      ornaments_12: 3441665071561611788
+      ornaments_13: -7176023202686340702
+      ornaments_14: 7353117978959928581
+      ornaments_15: 2739310696752903068
+      ornaments_16: -5139405557806867769
+      ornaments_17: -6973543543211131249
+      ornaments_18: 8567742833881188832
+      ornaments_19: -4716747842451481997
+      ornaments_2: -817552932513018341
+      ornaments_20: 1601771740842093198
+      ornaments_21: 8419225406005010201
+      ornaments_22: -4393919730157792295
+      ornaments_23: 5412577392694213551
+      ornaments_24: 4809751035018937819
+      ornaments_25: -3593368187299837716
+      ornaments_26: 5554995788616915353
+      ornaments_27: 1445741888534080751
+      ornaments_28: -8265788649927668009
+      ornaments_29: 8544370678169366856
+      ornaments_3: -4374095837462193850
+      ornaments_30: -6184515737404152034
+      ornaments_31: -3407607389887944797
+      ornaments_32: 4750441998620643761
+      ornaments_33: -8308292028638837763
+      ornaments_34: -8067787240673394107
+      ornaments_35: 2069179040416997921
+      ornaments_36: -1942522044839767352
+      ornaments_37: 4369783874745395416
+      ornaments_38: -2291032477537834577
+      ornaments_39: -1993477432291089950
+      ornaments_4: 1331680239602455716
+      ornaments_40: -3126434662984626505
+      ornaments_41: -2117970393332625306
+      ornaments_42: -5596611009077901647
+      ornaments_43: -1287892673812351206
+      ornaments_44: 4285791249587774008
+      ornaments_45: 4210429320235900717
+      ornaments_46: -3654682087855336280
+      ornaments_5: -1896090342408415719
+      ornaments_6: -5763796263920078822
+      ornaments_7: -6868356498211536993
+      ornaments_8: -1247120679994294573
+      ornaments_9: 4456798909800656505
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
