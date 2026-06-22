@@ -152,12 +152,12 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("LastMoveY", lastMoveY);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.J))
         {
             MeleeAttack();
         }
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.K))
         {
             Transform enemy = GetNearestEnemy();
 
@@ -173,7 +173,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1) || Input.GetKeyUp(KeyCode.K))
         {
             if (bowRangeIndicator != null)
                 bowRangeIndicator.SetActive(false);

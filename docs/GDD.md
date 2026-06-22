@@ -89,17 +89,21 @@ Permainan menggunakan sistem Roguelite dengan Level Tetap (Fixed), berfokus pada
 
 - `W, A, S, D` : Pergerakan
 - `Space` : _Dodge Roll_
-- `Klik Kiri` : _Light Melee_
-- `Klik Kanan` : _Special Attack_
+- `Klik Kiri` / `J` : _Light Melee_ (Sabetan Pedang)
+- `Klik Kanan` / `K` : _Special Attack_ (Panah)
 - `E` : Interaksi objek/Jurnal
 - `Tab` : Membuka Jurnal Nusantara
 
 ### Fitur Kunci
 
-1. **Sistem Pertarungan Aksara (Boons):** Power-up per _run_.
-   - _Aksara Lontara_ = Kecepatan (Dash/Attack Speed).
-   - _Aksara Batak_ = Ketahanan (Damage Reduction/HP Reg).
-   - _Aksara Kawi_ = Kekuatan Spesial (Elemental/Stamina).
+1. **Sistem Pertarungan Aksara (Boons - Slot & Level-Up):** Power-up ala *Roguelike (Hades Style)*.
+   - Pemain memiliki 4 Slot kemampuan: **Melee**, **Bow**, **Dash**, dan **Passive**.
+   - Setiap slot hanya bisa diisi oleh 1 *Boon*. Jika pemain mengambil *Boon* berbeda untuk slot yang sama, *Boon* lama akan **tergantikan (Overwrite)**.
+   - Jika pemain mengambil *Boon* yang sama, *Boon* tersebut akan **naik level (Upgrade)**.
+   - **Tipe Elemen:**
+     - *Aksara Lontara* = Kecepatan (Kec. Serang/Lari).
+     - *Aksara Batak* = Ketahanan (Damage Reduction/Shield).
+     - *Aksara Kawi* = Kekuatan Spesial (Damage over Time/Burn).
 2. **Buku Panduan Ekologi Gaib:** Jurnal sejarah dan mitologi budaya Nusantara.
 
 ---
