@@ -419,7 +419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92c0c5414eb20e45bb778785e18b544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackHitbox
-  damage: 25
 --- !u!61 &147823384
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3057,10 +3056,15 @@ MonoBehaviour:
   maxHP: 200
   maxMana: 100
   maxStamina: 100
+  meleeDamage: 35
+  rangedDamage: 15
   manaRechargeRate: 20
   staminaRechargeRate: 30
   manaRechargeDelay: 1
   staminaRechargeDelay: 2.5
+  spriteRenderer: {fileID: 0}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  invincibilityDuration: 0.6
 --- !u!114 &811627572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3676,7 +3680,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 0703ddb29d61e2c419621616ba027967, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3834,8 +3838,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Saka
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4edf2704450f734e8ef89c5861b2123, type: 2}
+  m_sharedMaterial: {fileID: -3963409732909167857, guid: c4edf2704450f734e8ef89c5861b2123, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4071,7 +4075,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92c0c5414eb20e45bb778785e18b544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackHitbox
-  damage: 25
 --- !u!61 &1220784969
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4226,7 +4229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92c0c5414eb20e45bb778785e18b544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackHitbox
-  damage: 25
 --- !u!61 &1310842280
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4612,8 +4614,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c615885405fcc160189421741b57f5a4, type: 2}
-  m_sharedMaterial: {fileID: 8167654629391326471, guid: c615885405fcc160189421741b57f5a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4edf2704450f734e8ef89c5861b2123, type: 2}
+  m_sharedMaterial: {fileID: -3963409732909167857, guid: c4edf2704450f734e8ef89c5861b2123, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6781,7 +6783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92c0c5414eb20e45bb778785e18b544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackHitbox
-  damage: 25
 --- !u!61 &1722310847
 BoxCollider2D:
   m_ObjectHideFlags: 0
