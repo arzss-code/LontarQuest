@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class DialogueLine
 public class IntroDialogue : MonoBehaviour
 {
     public bool IsPlaying { get; private set; }
+    public event Action OnDialogueFinished;
 
     [Header("UI")]
     [SerializeField] private GameObject dialoguePanel;
@@ -96,6 +98,8 @@ public class IntroDialogue : MonoBehaviour
             playerController.SetCanMove(true);
 
         IsPlaying = false;
+
+        OnDialogueFinished?.Invoke();
     }
 
     private IEnumerator TypeText(string textToType)
@@ -119,5 +123,10 @@ public class IntroDialogue : MonoBehaviour
         }
 
         isTyping = false;
+    }
+
+    public bool HasFinished()
+    {
+        return !IsPlaying && !dialoguePanel.activeSelf;
     }
 }
