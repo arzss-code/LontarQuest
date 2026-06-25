@@ -10,13 +10,23 @@ public class StageIntroManager : MonoBehaviour
 
     [Header("Flash")]
     [SerializeField] private Image whiteFlash;
-    [SerializeField] private float flashDuration = 0.2f;
+    [SerializeField] private float maxAlpha = 0.55f;
+    [SerializeField] private float holdDuration = 0.35f;
+    [SerializeField] private float fadeOutDuration = 0.6f;
+
+    [Header("Shake")]
+    [SerializeField] private CameraShake cameraShake;
 
     private void OnEnable()
     {
         if (introDialogueA != null)
         {
             introDialogueA.OnDialogueFinished += HandleDialogueAFinished;
+        }
+
+        if (introDialogueB != null)
+        {
+            introDialogueB.OnDialogueFinished += HandleDialogueBFinished;
         }
     }
 
@@ -26,6 +36,11 @@ public class StageIntroManager : MonoBehaviour
         {
             introDialogueA.OnDialogueFinished -= HandleDialogueAFinished;
         }
+
+        if (introDialogueB != null)
+        {
+            introDialogueB.OnDialogueFinished -= HandleDialogueBFinished;
+        }
     }
 
     private void HandleDialogueAFinished()
@@ -33,32 +48,46 @@ public class StageIntroManager : MonoBehaviour
         StartCoroutine(FlashSequence());
     }
 
+    private void HandleDialogueBFinished()
+    {
+        if (cameraShake != null)
+        {
+            cameraShake.StopShake();
+        }
+    }
+
     private IEnumerator FlashSequence()
     {
         Color c = whiteFlash.color;
 
-        // Langsung putih penuh
-        float maxAlpha = 0.55f;
-
+        // White Flash
         c.a = maxAlpha;
         whiteFlash.color = c;
 
-        // Tahan putih sebentar
-        yield return new WaitForSeconds(0.35f);
+        // Mulai Gempa
+        if (cameraShake != null)
+        {
+            cameraShake.StartShake(
+                1f, // Amplitude
+                1f  // Frequency
+            );
+        }
 
-        // Baru fade keluar
+        // Tahan Flash
+        yield return new WaitForSeconds(holdDuration);
+
+        // Fade Out Flash
         float t = 0f;
-        float fadeOutDuration = 0.6f;
 
         while (t < fadeOutDuration)
         {
             t += Time.deltaTime;
 
             c.a = Mathf.Lerp(
-            maxAlpha,
-            0f,
-            t / fadeOutDuration
-        );
+                maxAlpha,
+                0f,
+                t / fadeOutDuration
+            );
 
             whiteFlash.color = c;
 
@@ -68,6 +97,7 @@ public class StageIntroManager : MonoBehaviour
         c.a = 0f;
         whiteFlash.color = c;
 
+        // Munculkan Dialog B
         if (introDialogueB != null)
         {
             introDialogueB.StartDialogue();
