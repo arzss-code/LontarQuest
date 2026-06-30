@@ -7,12 +7,27 @@ public enum BoonType
     Kawi     // Bonus kekuatan spesial (Elemental/Stamina)
 }
 
+public enum BoonSlot
+{
+    Melee,
+    Bow,
+    Dash,
+    Passive
+}
+
 [CreateAssetMenu(fileName = "New Boon", menuName = "LontarQuest/Boon Data")]
 public class BoonData : ScriptableObject
 {
     [Header("Identitas Boon")]
     public string boonName;
     public BoonType type;
+    public BoonSlot slot;
+    
+    [Tooltip("Level dari Boon ini (1 atau 2)")]
+    public int level = 1;
+    [Tooltip("Boon referensi untuk level selanjutnya jika pemain sudah punya ini. Kosongkan jika ini Max Level.")]
+    public BoonData nextLevelBoon;
+
     [TextArea(2, 4)]
     public string description;
     public Sprite icon;

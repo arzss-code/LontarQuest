@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4312207685492710175}
   - component: {fileID: 1532091758370282508}
-  - component: {fileID: 5153536078365469262}
   - component: {fileID: 2382787862870918805}
   - component: {fileID: 3874891979806133681}
   - component: {fileID: 5800082722276190362}
@@ -97,42 +96,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!58 &5153536078365469262
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2488683568627285925}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
 --- !u!60 &2382787862870918805
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -143,7 +106,7 @@ PolygonCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 30c5e201b26dc8c4fb29b91ec8c12007, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -253,11 +216,11 @@ MonoBehaviour:
   leashRadius: 7
   detectionRadius: 5
   moveSpeed: 2
-  stopDistance: 1.2
+  stopDistance: 1
   attackDistance: 1
   attackRadius: 1
-  attackCooldown: 1.8
-  attackDamage: 15
+  attackCooldown: 1.6
+  attackDamage: 10
   handHitboxOffset: {x: 0.51, y: 0}
   playerLayer:
     serializedVersion: 2
@@ -266,7 +229,7 @@ MonoBehaviour:
   flashDuration: 0.15
   attackVFXPrefab: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
   vfxLifetime: 0.5
-  deathSFX: {fileID: 8300000, guid: bd71dd20181c84a40a2f0c858109e9f2, type: 3}
+  deathSFX: {fileID: 8300000, guid: 0f461a1e2578b8646a0a8f8c3f7532ae, type: 3}
 --- !u!114 &9217256201374677159
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,8 +23,8 @@ public class GanaAI : MonoBehaviour
     [SerializeField] private float attackDistance = 1.5f;
     [SerializeField] private float attackRadius = 1.5f;
     
-    // Waktu tunggu animasi serangan sampai frame 4 (dikunci di 0.8 detik)
-    private readonly float attackHitDelay = 0.8f;
+    // Waktu tunggu animasi serangan sampai frame 4 
+    private readonly float attackHitDelay = 0.3f;
     
     [SerializeField] private float attackCooldown = 1.5f;
     [SerializeField] private int attackDamage = 15;
@@ -88,8 +88,8 @@ public class GanaAI : MonoBehaviour
             originalColor = Color.white;
         }
 
-        // Find player by tag
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        // Cari player menggunakan komponen PlayerController untuk memastikan tidak salah ambil hitbox
+        PlayerController playerObj = Object.FindFirstObjectByType<PlayerController>();
         if (playerObj != null)
         {
             playerTransform = playerObj.transform;
@@ -100,7 +100,7 @@ public class GanaAI : MonoBehaviour
     {
         if (playerTransform == null)
         {
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            PlayerController playerObj = Object.FindFirstObjectByType<PlayerController>();
             if (playerObj != null)
             {
                 playerTransform = playerObj.transform;
@@ -119,6 +119,13 @@ public class GanaAI : MonoBehaviour
         
         if (currentState == GanaState.Return)
         {
+            // Jika saat kembali Gana melihat pemain lagi, dia bisa kembali mengejar (mencegah stuck selamanya)
+            if (distanceToPlayer <= detectionRadius)
+            {
+                currentState = GanaState.Chase;
+                return;
+            }
+
             if (distanceFromStart < 0.5f)
             {
                 currentState = GanaState.Idle;
@@ -192,7 +199,7 @@ public class GanaAI : MonoBehaviour
             anim.SetTrigger("Attack"); 
         }
 
-        // Tunggu sampai animasi mencapai frame pukulan (frame ke-4)
+        // Tunggu sampai animasi mencapai frame pukulan
         yield return new WaitForSeconds(attackHitDelay);
 
         // Agar tidak aneh saat Saka di atas/bawah, hitbox serangan akan selalu diarahkan 
@@ -229,6 +236,30 @@ public class GanaAI : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown);
 
         currentState = GanaState.Idle;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        // Jika Gana secara fisik menyentuh pemain (collider bertabrakan), paksa Gana untuk menyerang
+        // Hal ini mengatasi masalah di mana Gana tidak menyerang karena terhalang ukuran collider pemain.
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (currentState == GanaState.Chase || currentState == GanaState.Idle)
+            {
+                StartCoroutine(SmashAttackRoutine());
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (currentState == GanaState.Chase || currentState == GanaState.Idle)
+            {
+                StartCoroutine(SmashAttackRoutine());
+            }
+        }
     }
 
     public void TakeDamage(int damageAmount)

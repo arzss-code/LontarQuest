@@ -21,8 +21,13 @@ public class Stage1IntroStarter : MonoBehaviour
     [Tooltip("Jeda waktu sebelum animasi dimulai")]
     [SerializeField] private float startDelay = 0.5f;
 
+    [Header("Mechanic Tips")]
+    [Tooltip("Panel UI untuk menampilkan tips mekanik dasar")]
+    [SerializeField] private GameObject mechanicTipsPanel;
+
     private PlayerController playerController;
     private Animator playerAnimator;
+    private bool isShowingTips = false;
 
     private void Start()
     {
@@ -44,14 +49,57 @@ public class Stage1IntroStarter : MonoBehaviour
             }
         }
 
+        if (mechanicTipsPanel != null)
+        {
+            mechanicTipsPanel.SetActive(false);
+        }
+
         if (introDialogue != null)
         {
+            introDialogue.OnDialogueFinished += OnIntroFinished;
             StartCoroutine(IntroSequence());
         }
         else
         {
             Debug.LogWarning("Stage1IntroStarter: IntroDialogue belum di-assign di Inspector!");
         }
+    }
+
+    private void OnIntroFinished()
+    {
+        if (introDialogue != null)
+        {
+            introDialogue.OnDialogueFinished -= OnIntroFinished;
+        }
+
+        if (mechanicTipsPanel != null)
+        {
+            StartCoroutine(ShowTipsRoutine());
+        }
+    }
+
+    private IEnumerator ShowTipsRoutine()
+    {
+        isShowingTips = true;
+        mechanicTipsPanel.SetActive(true);
+
+        if (playerController != null)
+            playerController.SetCanMove(false);
+
+        // Tunggu satu frame agar spasi dari menutup dialog tidak langsung menutup tips
+        yield return null;
+
+        // Tunggu sampai pemain menekan Spasi atau Klik Kiri
+        while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetMouseButtonDown(0))
+        {
+            yield return null;
+        }
+
+        mechanicTipsPanel.SetActive(false);
+        isShowingTips = false;
+
+        if (playerController != null)
+            playerController.SetCanMove(true);
     }
 
     private IEnumerator IntroSequence()
