@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class PlayerModifier : MonoBehaviour
 {
     private PlayerStats playerStats;
-    private List<BoonData> activeBoons = new List<BoonData>();
+    private Dictionary<BoonSlot, BoonData> activeBoons = new Dictionary<BoonSlot, BoonData>();
 
     // Variabel penampung buff sementara
     public float TotalAttackSpeedBonus { get; private set; } = 0f;
@@ -44,7 +44,15 @@ public class PlayerModifier : MonoBehaviour
     {
         if (newBoon == null) return;
 
-        activeBoons.Add(newBoon);
+        if (activeBoons.ContainsKey(newBoon.slot))
+        {
+            activeBoons[newBoon.slot] = newBoon;
+        }
+        else
+        {
+            activeBoons.Add(newBoon.slot, newBoon);
+        }
+
         RecalculateModifiers();
         
         // Play Visual Feedback
@@ -73,7 +81,7 @@ public class PlayerModifier : MonoBehaviour
         HasElementalEffect = false;
 
         // Hitung ulang dari semua boon yang dimiliki
-        foreach (var boon in activeBoons)
+        foreach (var boon in activeBoons.Values)
         {
             TotalAttackSpeedBonus += boon.attackSpeedBonus;
             TotalMovementSpeedBonus += boon.movementSpeedBonus;
@@ -83,6 +91,16 @@ public class PlayerModifier : MonoBehaviour
             
             if (boon.hasElementalEffect) HasElementalEffect = true;
         }
+    }
+
+    public bool HasBoonInSlot(BoonSlot slot, out BoonData currentBoon)
+    {
+        return activeBoons.TryGetValue(slot, out currentBoon);
+    }
+
+    public Dictionary<BoonSlot, BoonData> GetActiveBoons()
+    {
+        return activeBoons;
     }
 
     // Fungsi ini dipanggil saat Saka mati (Roguelike Reset)

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e43fe944c12fd6b468217fde707c0393
+guid: ac9e594dad7328b4a8090a91266c1768
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -775425114236950064
-    second: panel-mekanik_0
+      213: -4115791958557862901
+    second: panel-mekanik2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: panel-mekanik_0
+      name: panel-mekanik2_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 53
-        width: 1526
-        height: 952
+        x: 0
+        y: 7
+        width: 1536
+        height: 1017
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d96dfb87f22d35f0800000000000000
-      internalID: -775425114236950064
+      spriteID: b04dfb42505c1e6c0800000000000000
+      internalID: -4115791958557862901
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      panel-mekanik_0: -775425114236950064
+      panel-mekanik2_0: -4115791958557862901
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

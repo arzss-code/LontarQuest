@@ -71,6 +71,10 @@ public class PlayerStats : MonoBehaviour, IDamageable
     private bool isInvincible = false;
     private bool isDead = false;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip takeDamageSound;
+    [SerializeField] private AudioClip deathSound;
+
     void Start()
     {
         currentHP = maxHP;
@@ -190,6 +194,11 @@ public class PlayerStats : MonoBehaviour, IDamageable
         // Panggil teks damage melayang merah (true = damage pemain)
         DamagePopupManager.Create(transform.position, amount, true);
 
+        if (takeDamageSound != null)
+        {
+            AudioSource.PlayClipAtPoint(takeDamageSound, transform.position);
+        }
+
         currentHP =
             Mathf.Clamp(
                 currentHP,
@@ -250,6 +259,11 @@ public class PlayerStats : MonoBehaviour, IDamageable
         isDead = true;
 
         Debug.Log("Player Died");
+
+        if (deathSound != null)
+        {
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
+        }
 
         PlayerController pc = GetComponent<PlayerController>();
         if (pc != null)

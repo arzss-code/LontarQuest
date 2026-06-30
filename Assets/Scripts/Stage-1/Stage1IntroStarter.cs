@@ -27,7 +27,6 @@ public class Stage1IntroStarter : MonoBehaviour
 
     private PlayerController playerController;
     private Animator playerAnimator;
-    private bool isShowingTips = false;
 
     private void Start()
     {
@@ -74,32 +73,27 @@ public class Stage1IntroStarter : MonoBehaviour
 
         if (mechanicTipsPanel != null)
         {
-            StartCoroutine(ShowTipsRoutine());
+            mechanicTipsPanel.SetActive(true);
+            
+            if (playerController != null)
+            {
+                playerController.SetCanMove(false);
+            }
         }
     }
 
-    private IEnumerator ShowTipsRoutine()
+    // Fungsi ini dipanggil dari UI Button (Bisa ditaruh di tombol "Close" atau "Lanjut")
+    public void CloseMechanicTips()
     {
-        isShowingTips = true;
-        mechanicTipsPanel.SetActive(true);
-
-        if (playerController != null)
-            playerController.SetCanMove(false);
-
-        // Tunggu satu frame agar spasi dari menutup dialog tidak langsung menutup tips
-        yield return null;
-
-        // Tunggu sampai pemain menekan Spasi atau Klik Kiri
-        while (!Input.GetKeyDown(KeyCode.Space) && !Input.GetMouseButtonDown(0))
+        if (mechanicTipsPanel != null)
         {
-            yield return null;
+            mechanicTipsPanel.SetActive(false);
         }
 
-        mechanicTipsPanel.SetActive(false);
-        isShowingTips = false;
-
         if (playerController != null)
+        {
             playerController.SetCanMove(true);
+        }
     }
 
     private IEnumerator IntroSequence()

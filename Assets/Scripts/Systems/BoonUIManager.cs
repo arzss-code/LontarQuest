@@ -57,8 +57,45 @@ public class BoonUIManager : MonoBehaviour
 
     public void ShowBoonSelection()
     {
-        // 1. Ambil SEMUA boon tanpa filter tipe
-        List<BoonData> validBoons = new List<BoonData>(allAvailableBoons);
+        // Pastikan kita punya referensi ke PlayerModifier sebelum menyaring
+        if (playerModifier == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null) playerModifier = player.GetComponent<PlayerModifier>();
+        }
+
+        // 1. Saring BOON berdasarkan Slot dan Level
+        List<BoonData> validBoons = new List<BoonData>();
+
+        foreach (BoonData boon in allAvailableBoons)
+        {
+            if (playerModifier != null && playerModifier.HasBoonInSlot(boon.slot, out BoonData currentBoon))
+            {
+                // Jika slot sudah terisi oleh boon yang SAMA persis
+                if (currentBoon.boonName == boon.boonName)
+                {
+                    // Tawarkan upgrade jika ada next level
+                    if (currentBoon.nextLevelBoon != null)
+                    {
+                        if (!validBoons.Contains(currentBoon.nextLevelBoon))
+                            validBoons.Add(currentBoon.nextLevelBoon);
+                    }
+                    // Jika tidak ada nextLevelBoon (sudah max level), buang dari opsi
+                }
+                else
+                {
+                    // Slot sudah terisi tapi dengan boon yang BERBEDA (opsi Replace)
+                    if (!validBoons.Contains(boon))
+                        validBoons.Add(boon);
+                }
+            }
+            else
+            {
+                // Slot masih kosong
+                if (!validBoons.Contains(boon))
+                    validBoons.Add(boon);
+            }
+        }
 
         // 2. Acak urutan daftar boon (Fisher-Yates shuffle)
         for (int i = 0; i < validBoons.Count; i++)
