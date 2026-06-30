@@ -1,0 +1,1366 @@
+fileFormatVersion: 2
+guid: 0a1df8e8171bb3d4da38f03a6c260835
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7567543714202240095
+    second: Lontar Quest  the lost expedition_0
+  - first:
+      213: 3417888537423179847
+    second: Lontar Quest  the lost expedition_1
+  - first:
+      213: -253317801037965003
+    second: Lontar Quest  the lost expedition_2
+  - first:
+      213: -2391330145423926230
+    second: Lontar Quest  the lost expedition_3
+  - first:
+      213: -6269782292346762641
+    second: Lontar Quest  the lost expedition_4
+  - first:
+      213: -5122252445003333024
+    second: Lontar Quest  the lost expedition_5
+  - first:
+      213: 8968616835830274673
+    second: Lontar Quest  the lost expedition_6
+  - first:
+      213: -3748493683678518299
+    second: Lontar Quest  the lost expedition_7
+  - first:
+      213: 1112625199439311381
+    second: Lontar Quest  the lost expedition_8
+  - first:
+      213: 5988258137654710819
+    second: Lontar Quest  the lost expedition_9
+  - first:
+      213: 5660482941767350939
+    second: Lontar Quest  the lost expedition_10
+  - first:
+      213: -1882421455958061816
+    second: Lontar Quest  the lost expedition_11
+  - first:
+      213: 2053660597062318247
+    second: Lontar Quest  the lost expedition_12
+  - first:
+      213: 7879003722169441576
+    second: Lontar Quest  the lost expedition_13
+  - first:
+      213: -1370200495647392208
+    second: Lontar Quest  the lost expedition_14
+  - first:
+      213: -4776654190055009493
+    second: Lontar Quest  the lost expedition_15
+  - first:
+      213: 3240439953224628280
+    second: Lontar Quest  the lost expedition_16
+  - first:
+      213: -2447400174892748414
+    second: Lontar Quest  the lost expedition_17
+  - first:
+      213: 3112175549029154110
+    second: Lontar Quest  the lost expedition_18
+  - first:
+      213: 9210999331809044812
+    second: Lontar Quest  the lost expedition_19
+  - first:
+      213: 7990947783374747733
+    second: Lontar Quest  the lost expedition_20
+  - first:
+      213: -7661973029100980827
+    second: Lontar Quest  the lost expedition_21
+  - first:
+      213: -5858178436055307431
+    second: Lontar Quest  the lost expedition_22
+  - first:
+      213: 6888063859338633235
+    second: Lontar Quest  the lost expedition_23
+  - first:
+      213: -2836136995439926065
+    second: Lontar Quest  the lost expedition_24
+  - first:
+      213: -7023494898679314615
+    second: Lontar Quest  the lost expedition_25
+  - first:
+      213: 8127760288522256397
+    second: Lontar Quest  the lost expedition_26
+  - first:
+      213: 5679373848091267738
+    second: Lontar Quest  the lost expedition_27
+  - first:
+      213: 4372801595333953689
+    second: Lontar Quest  the lost expedition_28
+  - first:
+      213: -6268698304192843648
+    second: Lontar Quest  the lost expedition_29
+  - first:
+      213: -8013029575355324391
+    second: Lontar Quest  the lost expedition_30
+  - first:
+      213: -4732507397142364742
+    second: Lontar Quest  the lost expedition_31
+  - first:
+      213: 6906356663165735045
+    second: Lontar Quest  the lost expedition_32
+  - first:
+      213: -1793880726428224910
+    second: Lontar Quest  the lost expedition_33
+  - first:
+      213: 263140228978810469
+    second: Lontar Quest  the lost expedition_34
+  - first:
+      213: 2093195178031549476
+    second: Lontar Quest  the lost expedition_35
+  - first:
+      213: -624910931566766805
+    second: Lontar Quest  the lost expedition_36
+  - first:
+      213: 4878851019049030667
+    second: Lontar Quest  the lost expedition_37
+  - first:
+      213: 3832639646443164581
+    second: Lontar Quest  the lost expedition_38
+  - first:
+      213: 7242219803639665188
+    second: Lontar Quest  the lost expedition_39
+  - first:
+      213: -3121881501241242327
+    second: Lontar Quest  the lost expedition_40
+  - first:
+      213: 1329778318852227600
+    second: Lontar Quest  the lost expedition_41
+  - first:
+      213: -4332856618575973621
+    second: Lontar Quest  the lost expedition_42
+  - first:
+      213: -4401052353479777012
+    second: Lontar Quest  the lost expedition_43
+  - first:
+      213: 5998598462985649903
+    second: Lontar Quest  the lost expedition_44
+  - first:
+      213: 5188158091629937536
+    second: Lontar Quest  the lost expedition_45
+  - first:
+      213: -4611303467645657338
+    second: Lontar Quest  the lost expedition_46
+  - first:
+      213: -1269709188002846674
+    second: Lontar Quest  the lost expedition_47
+  - first:
+      213: 8675178800575487252
+    second: Lontar Quest  the lost expedition_48
+  - first:
+      213: -8892483516597757802
+    second: Lontar Quest  the lost expedition_49
+  - first:
+      213: -8697798482039298403
+    second: Lontar Quest  the lost expedition_50
+  - first:
+      213: 6429199784967808473
+    second: Lontar Quest  the lost expedition_51
+  - first:
+      213: 5244048891596392851
+    second: Lontar Quest  the lost expedition_52
+  - first:
+      213: 4489472009896701543
+    second: Lontar Quest  the lost expedition_53
+  - first:
+      213: -4972802124983587119
+    second: Lontar Quest  the lost expedition_54
+  - first:
+      213: -2768646249370230210
+    second: Lontar Quest  the lost expedition_55
+  - first:
+      213: -1222658570408924949
+    second: Lontar Quest  the lost expedition_56
+  - first:
+      213: -4310872085272582005
+    second: Lontar Quest  the lost expedition_57
+  - first:
+      213: -350237853295429251
+    second: Lontar Quest  the lost expedition_58
+  - first:
+      213: -5569666562036188992
+    second: Lontar Quest  the lost expedition_59
+  - first:
+      213: 7845990662167702424
+    second: Lontar Quest  the lost expedition_60
+  - first:
+      213: -1174529195066699571
+    second: Lontar Quest  the lost expedition_61
+  - first:
+      213: 6319882232960383117
+    second: Lontar Quest  the lost expedition_62
+  - first:
+      213: 299708120431096989
+    second: Lontar Quest  the lost expedition_63
+  - first:
+      213: 7151000082159018895
+    second: Lontar Quest  the lost expedition_64
+  - first:
+      213: -8309802978252589867
+    second: Lontar Quest  the lost expedition_65
+  - first:
+      213: -2664324060931732366
+    second: Lontar Quest  the lost expedition_66
+  - first:
+      213: -3459669182267154889
+    second: Lontar Quest  the lost expedition_67
+  - first:
+      213: -6926058405303247438
+    second: Lontar Quest  the lost expedition_68
+  - first:
+      213: 9062714744966417206
+    second: Lontar Quest  the lost expedition_69
+  - first:
+      213: 7163254705993271816
+    second: Lontar Quest  the lost expedition_70
+  - first:
+      213: -1010143848323210018
+    second: Lontar Quest  the lost expedition_71
+  - first:
+      213: -3131334597390608422
+    second: Lontar Quest  the lost expedition_72
+  - first:
+      213: 7038800765243592006
+    second: Lontar Quest  the lost expedition_73
+  - first:
+      213: 424976960097436586
+    second: Lontar Quest  the lost expedition_74
+  - first:
+      213: -4140491418438810271
+    second: Lontar Quest  the lost expedition_75
+  - first:
+      213: -4542789168328528285
+    second: Lontar Quest  the lost expedition_76
+  - first:
+      213: -8478862815611362674
+    second: Lontar Quest  the lost expedition_77
+  - first:
+      213: 8152436171502281275
+    second: Lontar Quest  the lost expedition_78
+  - first:
+      213: 7943990841577696543
+    second: Lontar Quest  the lost expedition_79
+  - first:
+      213: -5116293759829233475
+    second: Lontar Quest  the lost expedition_80
+  - first:
+      213: -2000588035256325851
+    second: Lontar Quest  the lost expedition_81
+  - first:
+      213: 5599438156758326795
+    second: Lontar Quest  the lost expedition_82
+  - first:
+      213: -8966429038051766737
+    second: Lontar Quest  the lost expedition_83
+  - first:
+      213: -7851202005640939541
+    second: Lontar Quest  the lost expedition_84
+  - first:
+      213: 4696164710717146490
+    second: Lontar Quest  the lost expedition_85
+  - first:
+      213: -8390330091265817611
+    second: Lontar Quest  the lost expedition_86
+  - first:
+      213: -9140157907139981147
+    second: Lontar Quest  the lost expedition_87
+  - first:
+      213: 1023408200129903769
+    second: Lontar Quest  the lost expedition_88
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 80
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_0
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 847
+        width: 157
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ab3cb4261faaf690800000000000000
+      internalID: -7567543714202240095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_2
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 848
+        width: 160
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53959d55dc80c7cf0800000000000000
+      internalID: -253317801037965003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_3
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 847
+        width: 161
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2cd25d07e940ded0800000000000000
+      internalID: -2391330145423926230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_4
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 847
+        width: 172
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6a03ad49324df8a0800000000000000
+      internalID: -6269782292346762641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_5
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 847
+        width: 156
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06243b54a8a1ae8b0800000000000000
+      internalID: -5122252445003333024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_6
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 847
+        width: 160
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17a50429e7de67c70800000000000000
+      internalID: 8968616835830274673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_7
+      rect:
+        serializedVersion: 2
+        x: 1361
+        y: 846
+        width: 167
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e3eb85eadcaafbc0800000000000000
+      internalID: -3748493683678518299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_8
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 848
+        width: 152
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5127ab459b6d07f00800000000000000
+      internalID: 1112625199439311381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_12
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 638
+        width: 156
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a8bd19ae61108c10800000000000000
+      internalID: 2053660597062318247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_13
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 638
+        width: 150
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82dd3ebf328d75d60800000000000000
+      internalID: 7879003722169441576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_14
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 638
+        width: 160
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03e7fd9a8e11cfce0800000000000000
+      internalID: -1370200495647392208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_15
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 638
+        width: 153
+        height: 182
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b23d3ea625ae5bdb0800000000000000
+      internalID: -4776654190055009493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_16
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 638
+        width: 159
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 838ffe708fa58fc20800000000000000
+      internalID: 3240439953224628280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_17
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 663
+        width: 144
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 281f9400286190ed0800000000000000
+      internalID: -2447400174892748414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_18
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 682
+        width: 166
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3df98e3c2ba03b20800000000000000
+      internalID: 3112175549029154110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_20
+      rect:
+        serializedVersion: 2
+        x: 1431
+        y: 678
+        width: 266
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5583fbecbac85ee60800000000000000
+      internalID: 7990947783374747733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_34
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 444
+        width: 160
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56e9562e4acd6a300800000000000000
+      internalID: 263140228978810469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_35
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 444
+        width: 168
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42c81289ce58c0d10800000000000000
+      internalID: 2093195178031549476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_36
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 444
+        width: 173
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2554b391ded357f0800000000000000
+      internalID: -624910931566766805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_39
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 444
+        width: 152
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 422dd3d5a88818460800000000000000
+      internalID: 7242219803639665188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_40
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 445
+        width: 162
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92d07a7a059dca4d0800000000000000
+      internalID: -3121881501241242327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_41
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 446
+        width: 164
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0120435e552547210800000000000000
+      internalID: 1329778318852227600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_42
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 446
+        width: 154
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b033413acd99ed3c0800000000000000
+      internalID: -4332856618575973621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_43
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 446
+        width: 144
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c05e0f8c3325ce2c0800000000000000
+      internalID: -4401052353479777012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_45
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 243
+        width: 142
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 083cb2adb4a000840800000000000000
+      internalID: 5188158091629937536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_47
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 244
+        width: 163
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e286a018836116ee0800000000000000
+      internalID: -1269709188002846674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_48
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 243
+        width: 162
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41d1d43f72d646870800000000000000
+      internalID: 8675178800575487252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_49
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 243
+        width: 169
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6989c262b5d879480800000000000000
+      internalID: -8892483516597757802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_51
+      rect:
+        serializedVersion: 2
+        x: 1317
+        y: 244
+        width: 155
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d5260d142b193950800000000000000
+      internalID: 6429199784967808473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_53
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 242
+        width: 154
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76ea3fab10fcd4e30800000000000000
+      internalID: 4489472009896701543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_54
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 247
+        width: 146
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1deab0a70de0dfab0800000000000000
+      internalID: -4972802124983587119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_55
+      rect:
+        serializedVersion: 2
+        x: 1516
+        y: 242
+        width: 143
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e32e195b7eac399d0800000000000000
+      internalID: -2768646249370230210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_56
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 37
+        width: 153
+        height: 187
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be86035128e380fe0800000000000000
+      internalID: -1222658570408924949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_57
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 38
+        width: 150
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b882e2dada4bc24c0800000000000000
+      internalID: -4310872085272582005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_58
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 40
+        width: 149
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d793e6f2784b32bf0800000000000000
+      internalID: -350237853295429251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_59
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 44
+        width: 126
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c8367c65c194b2b0800000000000000
+      internalID: -5569666562036188992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_60
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 47
+        width: 136
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89ba989ffee82ec60800000000000000
+      internalID: 7845990662167702424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_62
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 48
+        width: 137
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d88f7ed186bb4b750800000000000000
+      internalID: 6319882232960383117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_64
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 49
+        width: 154
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f83a0e5efa47d3360800000000000000
+      internalID: 7151000082159018895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lontar Quest  the lost expedition_70
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 53
+        width: 184
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80acf5ad33ef86360800000000000000
+      internalID: 7163254705993271816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 16991b9686c933b4f8c2004b52267b7f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Lontar Quest  the lost expedition_0: -7567543714202240095
+      Lontar Quest  the lost expedition_1: 3417888537423179847
+      Lontar Quest  the lost expedition_10: 5660482941767350939
+      Lontar Quest  the lost expedition_11: -1882421455958061816
+      Lontar Quest  the lost expedition_12: 2053660597062318247
+      Lontar Quest  the lost expedition_13: 7879003722169441576
+      Lontar Quest  the lost expedition_14: -1370200495647392208
+      Lontar Quest  the lost expedition_15: -4776654190055009493
+      Lontar Quest  the lost expedition_16: 3240439953224628280
+      Lontar Quest  the lost expedition_17: -2447400174892748414
+      Lontar Quest  the lost expedition_18: 3112175549029154110
+      Lontar Quest  the lost expedition_19: 9210999331809044812
+      Lontar Quest  the lost expedition_2: -253317801037965003
+      Lontar Quest  the lost expedition_20: 7990947783374747733
+      Lontar Quest  the lost expedition_21: -7661973029100980827
+      Lontar Quest  the lost expedition_22: -5858178436055307431
+      Lontar Quest  the lost expedition_23: 6888063859338633235
+      Lontar Quest  the lost expedition_24: -2836136995439926065
+      Lontar Quest  the lost expedition_25: -7023494898679314615
+      Lontar Quest  the lost expedition_26: 8127760288522256397
+      Lontar Quest  the lost expedition_27: 5679373848091267738
+      Lontar Quest  the lost expedition_28: 4372801595333953689
+      Lontar Quest  the lost expedition_29: -6268698304192843648
+      Lontar Quest  the lost expedition_3: -2391330145423926230
+      Lontar Quest  the lost expedition_30: -8013029575355324391
+      Lontar Quest  the lost expedition_31: -4732507397142364742
+      Lontar Quest  the lost expedition_32: 6906356663165735045
+      Lontar Quest  the lost expedition_33: -1793880726428224910
+      Lontar Quest  the lost expedition_34: 263140228978810469
+      Lontar Quest  the lost expedition_35: 2093195178031549476
+      Lontar Quest  the lost expedition_36: -624910931566766805
+      Lontar Quest  the lost expedition_37: 4878851019049030667
+      Lontar Quest  the lost expedition_38: 3832639646443164581
+      Lontar Quest  the lost expedition_39: 7242219803639665188
+      Lontar Quest  the lost expedition_4: -6269782292346762641
+      Lontar Quest  the lost expedition_40: -3121881501241242327
+      Lontar Quest  the lost expedition_41: 1329778318852227600
+      Lontar Quest  the lost expedition_42: -4332856618575973621
+      Lontar Quest  the lost expedition_43: -4401052353479777012
+      Lontar Quest  the lost expedition_44: 5998598462985649903
+      Lontar Quest  the lost expedition_45: 5188158091629937536
+      Lontar Quest  the lost expedition_46: -4611303467645657338
+      Lontar Quest  the lost expedition_47: -1269709188002846674
+      Lontar Quest  the lost expedition_48: 8675178800575487252
+      Lontar Quest  the lost expedition_49: -8892483516597757802
+      Lontar Quest  the lost expedition_5: -5122252445003333024
+      Lontar Quest  the lost expedition_50: -8697798482039298403
+      Lontar Quest  the lost expedition_51: 6429199784967808473
+      Lontar Quest  the lost expedition_52: 5244048891596392851
+      Lontar Quest  the lost expedition_53: 4489472009896701543
+      Lontar Quest  the lost expedition_54: -4972802124983587119
+      Lontar Quest  the lost expedition_55: -2768646249370230210
+      Lontar Quest  the lost expedition_56: -1222658570408924949
+      Lontar Quest  the lost expedition_57: -4310872085272582005
+      Lontar Quest  the lost expedition_58: -350237853295429251
+      Lontar Quest  the lost expedition_59: -5569666562036188992
+      Lontar Quest  the lost expedition_6: 8968616835830274673
+      Lontar Quest  the lost expedition_60: 7845990662167702424
+      Lontar Quest  the lost expedition_61: -1174529195066699571
+      Lontar Quest  the lost expedition_62: 6319882232960383117
+      Lontar Quest  the lost expedition_63: 299708120431096989
+      Lontar Quest  the lost expedition_64: 7151000082159018895
+      Lontar Quest  the lost expedition_65: -8309802978252589867
+      Lontar Quest  the lost expedition_66: -2664324060931732366
+      Lontar Quest  the lost expedition_67: -3459669182267154889
+      Lontar Quest  the lost expedition_68: -6926058405303247438
+      Lontar Quest  the lost expedition_69: 9062714744966417206
+      Lontar Quest  the lost expedition_7: -3748493683678518299
+      Lontar Quest  the lost expedition_70: 7163254705993271816
+      Lontar Quest  the lost expedition_71: -1010143848323210018
+      Lontar Quest  the lost expedition_72: -3131334597390608422
+      Lontar Quest  the lost expedition_73: 7038800765243592006
+      Lontar Quest  the lost expedition_74: 424976960097436586
+      Lontar Quest  the lost expedition_75: -4140491418438810271
+      Lontar Quest  the lost expedition_76: -4542789168328528285
+      Lontar Quest  the lost expedition_77: -8478862815611362674
+      Lontar Quest  the lost expedition_78: 8152436171502281275
+      Lontar Quest  the lost expedition_79: 7943990841577696543
+      Lontar Quest  the lost expedition_8: 1112625199439311381
+      Lontar Quest  the lost expedition_80: -5116293759829233475
+      Lontar Quest  the lost expedition_81: -2000588035256325851
+      Lontar Quest  the lost expedition_82: 5599438156758326795
+      Lontar Quest  the lost expedition_83: -8966429038051766737
+      Lontar Quest  the lost expedition_84: -7851202005640939541
+      Lontar Quest  the lost expedition_85: 4696164710717146490
+      Lontar Quest  the lost expedition_86: -8390330091265817611
+      Lontar Quest  the lost expedition_87: -9140157907139981147
+      Lontar Quest  the lost expedition_88: 1023408200129903769
+      Lontar Quest  the lost expedition_9: 5988258137654710819
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

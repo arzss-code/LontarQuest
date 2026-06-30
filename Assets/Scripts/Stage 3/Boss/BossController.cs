@@ -8,6 +8,13 @@ public class BossController : MonoBehaviour
     [Header("Components")]
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Collider2D bossCollider;
+    [SerializeField] private GameObject aoeIndicator;
+    [SerializeField] private BossAttack bossAttack;
+
+    [Header("Slam Attack")]
+    [SerializeField] private float slamRadius = 2.5f;
+    [SerializeField] private int slamDamage = 25;
+    [SerializeField] private LayerMask playerLayer;
 
     private Transform player;
 
@@ -96,6 +103,42 @@ public class BossController : MonoBehaviour
     /// <summary>
     /// Digunakan saat Boss mati atau arena di-reset.
     /// </summary>
+    
+    public void StartSlam()
+    {
+        animator.SetTrigger("Slam");
+    }
+
+    public void SlamImpact()
+    {
+        Debug.Log("SLAM IMPACT");
+
+        Collider2D hit = Physics2D.OverlapCircle(
+            transform.position,
+            slamRadius,
+            playerLayer);
+
+        if (hit == null)
+            return;
+
+        PlayerStats playerStats = hit.GetComponentInParent<PlayerStats>();
+
+        if (playerStats != null)
+        {
+            playerStats.TakeDamage(slamDamage);
+
+            Debug.Log("Player terkena Slam!");
+        }
+    }
+
+    public void OnSlamFinished()
+    {
+        Debug.Log("SLAM FINISHED");
+
+        if (bossAttack != null)
+            bossAttack.FinishAttack();
+    }
+    
     public void Sleep()
     {
         isAwaken = false;
@@ -105,5 +148,14 @@ public class BossController : MonoBehaviour
 
         if (bossCollider != null)
             bossCollider.enabled = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(
+            transform.position,
+            slamRadius);
     }
 }

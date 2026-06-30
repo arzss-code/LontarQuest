@@ -11,4 +11,20 @@ public class BossAnimationRelay : MonoBehaviour
             bossController.OnSpawnFinished();
         }
     }
+
+    public void SlamImpact()
+    {
+        if (bossController != null)
+        {
+            bossController.SlamImpact();
+        }
+    }
+
+    public void OnSlamFinished()
+    {
+        if (bossController != null)
+        {
+            bossController.OnSlamFinished();
+        }
+    }
 }
