@@ -73,11 +73,36 @@ public class Stage1IntroStarter : MonoBehaviour
 
         if (mechanicTipsPanel != null)
         {
-            mechanicTipsPanel.SetActive(true);
-            
-            if (playerController != null)
+            // Cek apakah sudah pernah melihat tips ini menggunakan SaveManager
+            bool hasSeen = false;
+            if (SaveManager.Instance != null)
             {
-                playerController.SetCanMove(false);
+                hasSeen = SaveManager.Instance.HasSeenMechanicTips();
+            }
+
+            if (!hasSeen)
+            {
+                mechanicTipsPanel.SetActive(true);
+                
+                if (playerController != null)
+                {
+                    playerController.SetCanMove(false);
+                }
+
+                // Tandai bahwa pemain sudah melihat tips ini
+                if (SaveManager.Instance != null)
+                {
+                    SaveManager.Instance.SetHasSeenMechanicTips(true);
+                }
+            }
+            else
+            {
+                // Jika sudah pernah melihat, pastikan panel mati dan pemain bebas bergerak
+                mechanicTipsPanel.SetActive(false);
+                if (playerController != null)
+                {
+                    playerController.SetCanMove(true);
+                }
             }
         }
     }
