@@ -11,10 +11,19 @@ public class BossController : MonoBehaviour
     [SerializeField] private GameObject aoeIndicator;
     [SerializeField] private BossAttack bossAttack;
 
+    [Header("Effects")]
+    [SerializeField] private CameraShake cameraShake;
+    [SerializeField] private ParticleSystem slamDust;
+
     [Header("Slam Attack")]
     [SerializeField] private float slamRadius = 2.5f;
     [SerializeField] private int slamDamage = 25;
     [SerializeField] private LayerMask playerLayer;
+    [Header("Shockwave")]
+    [SerializeField] private float shockwaveRadius = 3.5f;
+    [SerializeField] private float shockwaveForce = 10f;
+
+    
 
     private Transform player;
 
@@ -113,6 +122,25 @@ public class BossController : MonoBehaviour
     {
         Debug.Log("SLAM IMPACT");
 
+        DoSlamDamage();
+        if (slamDust != null)
+        {
+            slamDust.Play();
+        }
+
+        DoShockwave();
+
+        if (cameraShake != null)
+        {
+            cameraShake.Shake(
+                3f,     // Amplitude
+                4f,     // Frequency
+                0.18f); // Duration
+        }
+    }
+    
+    private void DoSlamDamage()
+    {
         Collider2D hit = Physics2D.OverlapCircle(
             transform.position,
             slamRadius,
@@ -121,7 +149,8 @@ public class BossController : MonoBehaviour
         if (hit == null)
             return;
 
-        PlayerStats playerStats = hit.GetComponentInParent<PlayerStats>();
+        PlayerStats playerStats =
+            hit.GetComponentInParent<PlayerStats>();
 
         if (playerStats != null)
         {
@@ -131,6 +160,33 @@ public class BossController : MonoBehaviour
         }
     }
 
+    private void DoShockwave()
+    {
+        
+
+        Collider2D hit = Physics2D.OverlapCircle(
+            transform.position,
+            shockwaveRadius,
+            playerLayer);
+
+        if (hit == null)
+            return;
+
+        PlayerController playerController =
+            hit.GetComponentInParent<PlayerController>();
+
+        if (playerController == null)
+            return;
+
+        Vector2 knockDirection =
+            ((Vector2)player.position -
+            (Vector2)transform.position).normalized;
+
+        playerController.ApplyKnockback(knockDirection);
+
+        
+    }
+    
     public void OnSlamFinished()
     {
         Debug.Log("SLAM FINISHED");
@@ -152,10 +208,16 @@ public class BossController : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        // Radius Damage
         Gizmos.color = Color.red;
-
         Gizmos.DrawWireSphere(
             transform.position,
             slamRadius);
+
+        // Radius Shockwave
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(
+            transform.position,
+            shockwaveRadius);
     }
 }

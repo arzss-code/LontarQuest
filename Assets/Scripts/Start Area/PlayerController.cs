@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     Vector2 movement;
+    // External movement (Gravity Pull, Conveyor, dll)
+    private Vector2 externalMovement = Vector2.zero;
 
     float lastMoveX = 0f;
     float lastMoveY = -1f;
@@ -268,10 +270,15 @@ public class PlayerController : MonoBehaviour
         // (Ini tidak akan merusak fungsi Knockback karena Knockback me-return di atas)
         rb.linearVelocity = Vector2.zero;
 
+        Vector2 finalMovement =
+            movement * finalMoveSpeed +
+            externalMovement;
+
+        Debug.Log("External Movement : " + externalMovement);
+
         rb.MovePosition(
             rb.position +
-            movement *
-            finalMoveSpeed *
+            finalMovement *
             Time.fixedDeltaTime
         );
     }
@@ -324,7 +331,18 @@ public class PlayerController : MonoBehaviour
 
     public bool CanMove()
     {
+        
         return canMove;
+    }
+
+    public void SetExternalMovement(Vector2 force)
+    {
+        externalMovement = force;
+    }
+
+    public void ClearExternalMovement()
+    {
+        externalMovement = Vector2.zero;
     }
 
     public void TriggerDeath()

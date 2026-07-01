@@ -7,20 +7,22 @@ public class BossAttack : MonoBehaviour
     {
         Waiting,
         Preparing,
-        Attacking,
         Recovering
     }
 
     [Header("Attack")]
     [SerializeField] private float attackRange = 2f;
-    [SerializeField] private float prepareDuration = 1.0f;
-    [SerializeField] private float cooldownDuration = 2.0f;
+    [SerializeField] private float cooldownDuration = 2f;
 
     [Header("References")]
     [SerializeField] private BossController bossController;
     [SerializeField] private BossMovement bossMovement;
     [SerializeField] private GameObject aoeIndicator;
     [SerializeField] private Animator aoeAnimator;
+    [SerializeField] private GravityPullController gravityPull;
+
+    [Header("Effects")]
+    [SerializeField] private ParticleSystem gravityParticles;
 
     private Transform player;
 
@@ -59,22 +61,28 @@ public class BossAttack : MonoBehaviour
         if (currentState != AttackState.Waiting)
             return;
 
-        float distance =
-            Vector2.Distance(
-                transform.position,
-                player.position);
+        float distance = Vector2.Distance(
+            transform.position,
+            player.position);
 
         if (distance <= attackRange)
         {
-            AttackRoutine();
+            BeginAttack();
         }
     }
 
-    private void AttackRoutine()
+    private void BeginAttack()
     {
         currentState = AttackState.Preparing;
 
         bossMovement.SetCanMove(false);
+
+        gravityPull.StartPull();
+
+        if (gravityParticles != null)
+        {
+            gravityParticles.Play();
+        }
 
         if (aoeIndicator != null)
         {
@@ -82,15 +90,25 @@ public class BossAttack : MonoBehaviour
             aoeAnimator.Play("AOEFill", 0, 0f);
         }
 
-        // Tidak memanggil StartSlam()
-        // Animation Event AOEFill yang akan memanggil BossController.StartSlam()
+        // Boss Slam akan dipanggil dari Animation Event
+        // pada akhir animasi AOEFill.
     }
 
     /// <summary>
-    /// Dipanggil dari Animation Event pada frame terakhir BossSlam
+    /// Dipanggil oleh BossController saat Animation Event
+    /// OnSlamFinished().
     /// </summary>
     public void FinishAttack()
     {
+        gravityPull.StopPull();
+
+        if (gravityParticles != null)
+        {
+            gravityParticles.Stop(
+                true,
+                ParticleSystemStopBehavior.StopEmitting);
+        }
+
         StartCoroutine(RecoverRoutine());
     }
 
