@@ -59,6 +59,14 @@ public class PlayerController : MonoBehaviour
 
     float inputLockTimer = 0f;
 
+    [Header("SFX")]
+    [SerializeField] AudioClip footstepSound;
+    [SerializeField] AudioClip meleeSound;
+    [SerializeField] AudioClip rangedSound;
+    [SerializeField] AudioClip dashSound;
+    [SerializeField] float footstepInterval = 0.35f;
+    float footstepTimer = 0f;
+
     PlayerAttackHitbox currentHitbox;
     Transform currentTarget;
 
@@ -150,6 +158,22 @@ public class PlayerController : MonoBehaviour
 
             animator.SetFloat("LastMoveX", lastMoveX);
             animator.SetFloat("LastMoveY", lastMoveY);
+
+            // Footstep SFX
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0)
+            {
+                if (footstepSound != null)
+                {
+                    AudioSource.PlayClipAtPoint(footstepSound, transform.position);
+                }
+                footstepTimer = footstepInterval;
+            }
+        }
+        else
+        {
+            // Reset timer agar langsung bunyi saat mulai jalan lagi
+            footstepTimer = 0f;
         }
 
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.J))
@@ -333,6 +357,11 @@ public class PlayerController : MonoBehaviour
             animator.speed = 1f + modifier.TotalAttackSpeedBonus;
         }
 
+        if (meleeSound != null)
+        {
+            AudioSource.PlayClipAtPoint(meleeSound, transform.position);
+        }
+
         animator.SetTrigger("Attack");
     }
 
@@ -427,6 +456,11 @@ public class PlayerController : MonoBehaviour
         if (modifier != null && animator != null)
         {
             animator.speed = 1f + modifier.TotalAttackSpeedBonus;
+        }
+
+        if (rangedSound != null)
+        {
+            AudioSource.PlayClipAtPoint(rangedSound, transform.position);
         }
 
         animator.SetTrigger("BowAttack");
@@ -555,6 +589,11 @@ public class PlayerController : MonoBehaviour
                     0,
                     Mathf.Sign(lastMoveY)
                 );
+        }
+
+        if (dashSound != null)
+        {
+            AudioSource.PlayClipAtPoint(dashSound, transform.position);
         }
 
         animator.SetTrigger("Dash");

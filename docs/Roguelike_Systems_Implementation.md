@@ -30,10 +30,13 @@ Kita akan membuat "cetakan" data kekuatan dan data buku cerita. Anda **tidak per
 - Klik kanan di area kosong -> pilih **Create** -> **LontarQuest** -> **Boon Data**.
 - Beri nama file baru ini, misalnya `Boon_KecepatanLontara`.
 - Klik file tersebut. Di sebelah kanan layar (tab **Inspector**), isilah datanya:
-  - `Boon Name`: Tulis nama kekuatan (misal: Lari Kencang Lontara).
+  - `Boon Name`: Tulis nama kekuatan (misal: Lari Kencang Lontara Lv 1).
   - `Boon Icon`: (Opsional) Tarik gambar ikon dari tab Project ke kotak ini.
   - `Type`: Pilih `Lontara`, `Batak`, atau `Kawi`.
-  - `Stat Modifiers`: Ubah angka `Size` menjadi 1, lalu tekan Enter. Akan muncul *Element 0*. Isi `Stat Type` dengan `MoveSpeed`, dan `Value` dengan angka bonus kecepatannya (misal: 2).
+  - `Slot`: Pilih tempat efek ini beroperasi (`Melee`, `Bow`, `Dash`, `Passive`).
+  - `Level`: Tulis angka level *Boon* ini (misal: 1).
+  - `Next Level Boon`: Tarik file `BoonData` versi level 2-nya ke sini (jika ada).
+  - `Stat Modifiers`: Isi bonus kecepatan, damage reduction, atau centang efek elemental sesuai kebutuhan `Boon` ini.
 
 **3. Membuat Data Buku Mitologi (Lore)**
 - Masih di folder `Data`, klik kanan -> **Create** -> **LontarQuest** -> **Lore Data**.
