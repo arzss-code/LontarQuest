@@ -1,52 +1,10 @@
 fileFormatVersion: 2
-guid: 072ff80bfff20844b9301f2ca2579a8b
+guid: d6742b0b522cd9c4cb76ac2436710f26
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6447850777862955487
-    second: Remove BG (6)_0
-  - first:
-      213: 8941179054865653533
-    second: Remove BG (6)_1
-  - first:
-      213: -2626376687607900404
-    second: Remove BG (6)_2
-  - first:
-      213: 2326829368807555877
-    second: Remove BG (6)_3
-  - first:
-      213: 2724883347011718171
-    second: Remove BG (6)_4
-  - first:
-      213: 5200306955716850231
-    second: Remove BG (6)_5
-  - first:
-      213: 7493057393885255529
-    second: Remove BG (6)_6
-  - first:
-      213: -1453175243259281838
-    second: Remove BG (6)_7
-  - first:
-      213: -1240149337706566557
-    second: Remove BG (6)_8
-  - first:
-      213: -3456853671817156688
-    second: Remove BG (6)_9
-  - first:
-      213: 2052020709379352604
-    second: Remove BG (6)_10
-  - first:
-      213: 8219117072047873427
-    second: Remove BG (6)_11
-  - first:
-      213: 1248343012000507025
-    second: Remove BG (6)_12
-  - first:
-      213: -4612802091390238789
-    second: Remove BG (6)_13
-  - first:
-      213: 3329709905641154982
-    second: Remove BG (6)_14
+      213: 8415405014216299598
+    second: ChatGPT Image Jul 1, 2026, 11_15_10 PM_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -155,67 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Remove BG (6)_2
+      name: ChatGPT Image Jul 1, 2026, 11_15_10 PM_0
       rect:
         serializedVersion: 2
-        x: 604
-        y: 85
-        width: 408
-        height: 633
+        x: 0
+        y: 0
+        width: 1402
+        height: 1122
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c0793c8515c3d8bd0800000000000000
-      internalID: -2626376687607900404
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Remove BG (6)_6
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 85
-        width: 574
-        height: 659
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9671524ffffacf760800000000000000
-      internalID: 7493057393885255529
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Remove BG (6)_8
-      rect:
-        serializedVersion: 2
-        x: 1052
-        y: 87
-        width: 542
-        height: 679
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 36c60997fba1acee0800000000000000
-      internalID: -1240149337706566557
+      spriteID: e445761164689c470800000000000000
+      internalID: 8415405014216299598
       vertices: []
       indices: 
       edges: []
@@ -224,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 355e1dcf4d3081a4c974e20d037777ca
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -234,21 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Remove BG (6)_0: 6447850777862955487
-      Remove BG (6)_1: 8941179054865653533
-      Remove BG (6)_10: 2052020709379352604
-      Remove BG (6)_11: 8219117072047873427
-      Remove BG (6)_12: 1248343012000507025
-      Remove BG (6)_13: -4612802091390238789
-      Remove BG (6)_14: 3329709905641154982
-      Remove BG (6)_2: -2626376687607900404
-      Remove BG (6)_3: 2326829368807555877
-      Remove BG (6)_4: 2724883347011718171
-      Remove BG (6)_5: 5200306955716850231
-      Remove BG (6)_6: 7493057393885255529
-      Remove BG (6)_7: -1453175243259281838
-      Remove BG (6)_8: -1240149337706566557
-      Remove BG (6)_9: -3456853671817156688
+      ChatGPT Image Jul 1, 2026, 11_15_10 PM_0: 8415405014216299598
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
