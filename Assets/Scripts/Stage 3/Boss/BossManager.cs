@@ -29,6 +29,10 @@ public class BossManager : MonoBehaviour
 
     private void Awake()
     {
+        //--------------------------------------------------
+        // Barrier
+        //--------------------------------------------------
+
         if (entranceBarrier != null)
         {
             entranceCollider = entranceBarrier.GetComponent<BoxCollider2D>();
@@ -41,7 +45,10 @@ public class BossManager : MonoBehaviour
                 entranceSprite.enabled = false;
         }
 
-        // Boss HP UI awalnya disembunyikan
+        //--------------------------------------------------
+        // Boss UI
+        //--------------------------------------------------
+
         if (bossUIAnimator != null)
         {
             bossUIAnimator.gameObject.SetActive(false);
@@ -57,11 +64,21 @@ public class BossManager : MonoBehaviour
     {
         Debug.Log("=== Boss Fight Finished ===");
 
+        //--------------------------------------------------
+        // Buka Barrier
+        //--------------------------------------------------
+
         if (entranceCollider != null)
             entranceCollider.enabled = false;
 
         if (entranceSprite != null)
             entranceSprite.enabled = false;
+
+        //--------------------------------------------------
+        // Sembunyikan Boss UI
+        //--------------------------------------------------
+
+        HideBossUI();
     }
 
     private IEnumerator BossIntroSequence()
@@ -96,23 +113,19 @@ public class BossManager : MonoBehaviour
             cmBoss.Priority = 20;
 
         //--------------------------------------------------
-        // Tunggu kamera
+        // Tunggu Kamera
         //--------------------------------------------------
 
         yield return new WaitForSeconds(cameraFocusDelay);
 
         //--------------------------------------------------
-        // Munculkan Boss HP UI
+        // Tampilkan Boss UI
         //--------------------------------------------------
 
-        if (bossUIAnimator != null)
-        {
-            bossUIAnimator.gameObject.SetActive(true);
-            bossUIAnimator.SetTrigger("Show");
-        }
+        ShowBossUI();
 
         //--------------------------------------------------
-        // Tunggu animasi UI selesai
+        // Tunggu Animasi UI
         //--------------------------------------------------
 
         yield return new WaitForSeconds(uiAnimationDelay);
@@ -125,19 +138,21 @@ public class BossManager : MonoBehaviour
             bossController.ShowBoss();
 
         //--------------------------------------------------
-        // Tunggu animasi Boss Spawn selesai
+        // Tunggu Boss Bangun
         //--------------------------------------------------
 
-        yield return new WaitUntil(() => bossController != null && bossController.IsAwaken);
+        yield return new WaitUntil(() =>
+            bossController != null &&
+            bossController.IsAwaken);
 
         //--------------------------------------------------
-        // Boss diam sebentar
+        // Boss Diam Sebentar
         //--------------------------------------------------
 
         yield return new WaitForSeconds(bossRevealDelay);
 
         //--------------------------------------------------
-        // Kamera kembali ke Player
+        // Kamera Kembali ke Player
         //--------------------------------------------------
 
         if (cmPlayer != null)
@@ -147,18 +162,44 @@ public class BossManager : MonoBehaviour
             cmBoss.Priority = 5;
 
         //--------------------------------------------------
-        // Tunggu kamera kembali
+        // Tunggu Kamera
         //--------------------------------------------------
 
         yield return new WaitForSeconds(cameraReturnDelay);
 
         //--------------------------------------------------
-        // Battle dimulai
+        // Battle Dimulai
         //--------------------------------------------------
 
         if (playerController != null)
             playerController.SetCanMove(true);
 
         Debug.Log("=== Battle Start ===");
+    }
+
+    /// <summary>
+    /// Menampilkan Boss HP UI
+    /// </summary>
+    public void ShowBossUI()
+    {
+        if (bossUIAnimator == null)
+            return;
+
+        bossUIAnimator.gameObject.SetActive(true);
+
+        bossUIAnimator.ResetTrigger("Hide");
+        bossUIAnimator.SetTrigger("Show");
+    }
+
+    /// <summary>
+    /// Menyembunyikan Boss HP UI
+    /// </summary>
+    public void HideBossUI()
+    {
+        if (bossUIAnimator == null)
+            return;
+
+        bossUIAnimator.ResetTrigger("Show");
+        bossUIAnimator.SetTrigger("Hide");
     }
 }

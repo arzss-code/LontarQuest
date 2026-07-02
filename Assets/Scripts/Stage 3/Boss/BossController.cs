@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class BossController : MonoBehaviour
 {
@@ -14,6 +15,14 @@ public class BossController : MonoBehaviour
     [Header("Effects")]
     [SerializeField] private CameraShake cameraShake;
     [SerializeField] private ParticleSystem slamDust;
+    [SerializeField] private ParticleSystem shieldBreakParticle;
+
+    [Header("Hit Flash")]
+    [SerializeField] private Color hitFlashColor = Color.white;
+    [SerializeField] private float hitFlashDuration = 0.08f;
+
+    private Color originalColor;
+    private Coroutine flashRoutine;
 
     [Header("Slam Attack")]
     [SerializeField] private float slamRadius = 2.5f;
@@ -22,10 +31,13 @@ public class BossController : MonoBehaviour
     [Header("Shockwave")]
     [SerializeField] private float shockwaveRadius = 3.5f;
     [SerializeField] private float shockwaveForce = 10f;
+    [SerializeField] private BossStats bossStats;
+    [SerializeField] private BossShieldBreakUI shieldBreakUI;
 
     
 
     private Transform player;
+    private Vector3 impactPoint;
 
     // Boss belum aktif saat awal scene
     private bool isAwaken = false;
@@ -33,6 +45,7 @@ public class BossController : MonoBehaviour
 
     private void Start()
     {
+        originalColor = spriteRenderer.color;
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
 
         if (playerObj != null)
@@ -109,6 +122,23 @@ public class BossController : MonoBehaviour
         Debug.Log("Bahtara Kala telah bangkit!");
     }
 
+    public void PlayHitFlash()
+    {
+        if (flashRoutine != null)
+            StopCoroutine(flashRoutine);
+
+        flashRoutine = StartCoroutine(HitFlashRoutine());
+    }
+
+    private IEnumerator HitFlashRoutine()
+    {
+        spriteRenderer.color = hitFlashColor;
+
+        yield return new WaitForSeconds(hitFlashDuration);
+
+        spriteRenderer.color = originalColor;
+    }
+
     /// <summary>
     /// Digunakan saat Boss mati atau arena di-reset.
     /// </summary>
@@ -117,32 +147,39 @@ public class BossController : MonoBehaviour
     {
         animator.SetTrigger("Slam");
     }
+    public void SetImpactPoint(Vector3 point)
+    {
+        impactPoint = point;
+    }
 
     public void SlamImpact()
     {
         Debug.Log("SLAM IMPACT");
 
-        DoSlamDamage();
+        // Pindahkan Dust ke titik impact
         if (slamDust != null)
         {
+            slamDust.transform.position = impactPoint;
             slamDust.Play();
         }
+
+        DoSlamDamage();
 
         DoShockwave();
 
         if (cameraShake != null)
         {
             cameraShake.Shake(
-                3f,     // Amplitude
-                4f,     // Frequency
-                0.18f); // Duration
+                3f,
+                4f,
+                0.18f);
         }
     }
     
     private void DoSlamDamage()
     {
         Collider2D hit = Physics2D.OverlapCircle(
-            transform.position,
+            impactPoint,
             slamRadius,
             playerLayer);
 
@@ -162,10 +199,8 @@ public class BossController : MonoBehaviour
 
     private void DoShockwave()
     {
-        
-
         Collider2D hit = Physics2D.OverlapCircle(
-            transform.position,
+            impactPoint,
             shockwaveRadius,
             playerLayer);
 
@@ -180,11 +215,9 @@ public class BossController : MonoBehaviour
 
         Vector2 knockDirection =
             ((Vector2)player.position -
-            (Vector2)transform.position).normalized;
+            (Vector2)impactPoint).normalized;
 
         playerController.ApplyKnockback(knockDirection);
-
-        
     }
     
     public void OnSlamFinished()
@@ -193,6 +226,51 @@ public class BossController : MonoBehaviour
 
         if (bossAttack != null)
             bossAttack.FinishAttack();
+    }
+
+    public void PlayShieldBreakEffect()
+    {
+        Debug.Log("Shield Break Effect");
+
+        //----------------------------------------
+        // Particle
+        //----------------------------------------
+
+        if (shieldBreakParticle != null)
+        {
+            shieldBreakParticle.transform.position = transform.position;
+            shieldBreakParticle.Play();
+        }
+
+        //----------------------------------------
+        // Camera Shake
+        //----------------------------------------
+
+        if (cameraShake != null)
+        {
+            cameraShake.Shake(
+                1.5f,
+                2f,
+                0.15f);
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (bossStats != null)
+        {
+            bossStats.OnShieldBroken += OnShieldBroken;
+            bossStats.OnShieldRecovered += OnShieldRecovered;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (bossStats != null)
+        {
+            bossStats.OnShieldBroken -= OnShieldBroken;
+            bossStats.OnShieldRecovered -= OnShieldRecovered;
+        }
     }
     
     public void Sleep()
@@ -206,18 +284,42 @@ public class BossController : MonoBehaviour
             bossCollider.enabled = false;
     }
 
+    private void OnShieldBroken()
+    {
+        Debug.Log("BossController : Shield Broken");
+
+        PlayShieldBreakEffect();
+
+        if (shieldBreakUI != null)
+            shieldBreakUI.Show();
+    }
+
+    private void OnShieldRecovered()
+    {
+        Debug.Log("BossController : Shield Recovered");
+
+        if (shieldBreakUI != null)
+            shieldBreakUI.Hide();
+    }
+
     private void OnDrawGizmosSelected()
     {
-        // Radius Damage
+        // Slam Radius
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(
-            transform.position,
+            impactPoint,
             slamRadius);
 
-        // Radius Shockwave
+        // Shockwave Radius
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(
-            transform.position,
+            impactPoint,
             shockwaveRadius);
+
+        // Titik Impact
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(
+            impactPoint,
+            0.15f);
     }
 }
