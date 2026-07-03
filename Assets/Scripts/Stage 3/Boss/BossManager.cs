@@ -18,11 +18,17 @@ public class BossManager : MonoBehaviour
     [Header("Boss UI")]
     [SerializeField] private Animator bossUIAnimator;
 
+    [Header("Shield Break UI")]
+    [SerializeField] private BossShieldBreakUI shieldBreakUI;
+
     [Header("Cutscene Timing")]
     [SerializeField] private float cameraFocusDelay = 1.2f;
     [SerializeField] private float uiAnimationDelay = 1.2f;
     [SerializeField] private float bossRevealDelay = 2f;
     [SerializeField] private float cameraReturnDelay = 0.8f;
+
+    [Header("UI")]
+    [SerializeField] private float hideUIAfter = 0.8f;
 
     private BoxCollider2D entranceCollider;
     private SpriteRenderer entranceSprite;
@@ -50,9 +56,14 @@ public class BossManager : MonoBehaviour
         //--------------------------------------------------
 
         if (bossUIAnimator != null)
-        {
             bossUIAnimator.gameObject.SetActive(false);
-        }
+
+        //--------------------------------------------------
+        // Shield Break UI
+        //--------------------------------------------------
+
+        if (shieldBreakUI != null)
+            shieldBreakUI.Hide();
     }
 
     public void StartBossFight()
@@ -65,7 +76,7 @@ public class BossManager : MonoBehaviour
         Debug.Log("=== Boss Fight Finished ===");
 
         //--------------------------------------------------
-        // Buka Barrier
+        // Barrier dibuka kembali
         //--------------------------------------------------
 
         if (entranceCollider != null)
@@ -75,10 +86,17 @@ public class BossManager : MonoBehaviour
             entranceSprite.enabled = false;
 
         //--------------------------------------------------
-        // Sembunyikan Boss UI
+        // Hide Boss UI
         //--------------------------------------------------
 
         HideBossUI();
+
+        //--------------------------------------------------
+        // Hide Shield Break Text
+        //--------------------------------------------------
+
+        if (shieldBreakUI != null)
+            shieldBreakUI.Hide();
     }
 
     private IEnumerator BossIntroSequence()
@@ -119,7 +137,7 @@ public class BossManager : MonoBehaviour
         yield return new WaitForSeconds(cameraFocusDelay);
 
         //--------------------------------------------------
-        // Tampilkan Boss UI
+        // Boss UI Muncul
         //--------------------------------------------------
 
         ShowBossUI();
@@ -152,7 +170,7 @@ public class BossManager : MonoBehaviour
         yield return new WaitForSeconds(bossRevealDelay);
 
         //--------------------------------------------------
-        // Kamera Kembali ke Player
+        // Kamera kembali ke Player
         //--------------------------------------------------
 
         if (cmPlayer != null)
@@ -168,7 +186,7 @@ public class BossManager : MonoBehaviour
         yield return new WaitForSeconds(cameraReturnDelay);
 
         //--------------------------------------------------
-        // Battle Dimulai
+        // Battle Start
         //--------------------------------------------------
 
         if (playerController != null)
@@ -178,7 +196,7 @@ public class BossManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Menampilkan Boss HP UI
+    /// Menampilkan Boss UI
     /// </summary>
     public void ShowBossUI()
     {
@@ -192,7 +210,7 @@ public class BossManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Menyembunyikan Boss HP UI
+    /// Menyembunyikan Boss UI
     /// </summary>
     public void HideBossUI()
     {
@@ -201,5 +219,15 @@ public class BossManager : MonoBehaviour
 
         bossUIAnimator.ResetTrigger("Show");
         bossUIAnimator.SetTrigger("Hide");
+
+        StartCoroutine(DisableBossUIRoutine());
+    }
+
+    private IEnumerator DisableBossUIRoutine()
+    {
+        yield return new WaitForSeconds(hideUIAfter);
+
+        if (bossUIAnimator != null)
+            bossUIAnimator.gameObject.SetActive(false);
     }
 }

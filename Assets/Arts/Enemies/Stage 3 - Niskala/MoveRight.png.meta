@@ -1,0 +1,386 @@
+fileFormatVersion: 2
+guid: f56e54d6a1033b1488e2e921ed4dcf69
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 381892303405902340
+    second: MoveRight_0
+  - first:
+      213: 5461049510731326858
+    second: MoveRight_1
+  - first:
+      213: 3967538471674445190
+    second: MoveRight_2
+  - first:
+      213: 6415243467168466405
+    second: MoveRight_3
+  - first:
+      213: 7879514585057258060
+    second: MoveRight_4
+  - first:
+      213: -1622603334914855079
+    second: MoveRight_5
+  - first:
+      213: -1748576367106752416
+    second: MoveRight_6
+  - first:
+      213: -2208665695605497780
+    second: MoveRight_7
+  - first:
+      213: 6222389849450895004
+    second: MoveRight_8
+  - first:
+      213: -6698736337732813400
+    second: MoveRight_9
+  - first:
+      213: 568854827106483260
+    second: MoveRight_10
+  - first:
+      213: -8542147391659346539
+    second: MoveRight_11
+  - first:
+      213: -324567532144043361
+    second: MoveRight_12
+  - first:
+      213: 1258120973574242505
+    second: MoveRight_13
+  - first:
+      213: -8477841905094633365
+    second: MoveRight_14
+  - first:
+      213: -7982987783137843438
+    second: MoveRight_15
+  - first:
+      213: 3256847912341862496
+    second: MoveRight_16
+  - first:
+      213: -599412740117160411
+    second: MoveRight_17
+  - first:
+      213: -3715762108548593533
+    second: MoveRight_18
+  - first:
+      213: -6428664914356643716
+    second: MoveRight_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MoveRight_0
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 596
+        width: 262
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40ae6fec601cc4500800000000000000
+      internalID: 381892303405902340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveRight_1
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 596
+        width: 330
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8526fb989b89cb40800000000000000
+      internalID: 5461049510731326858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveRight_2
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 596
+        width: 383
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68df9d418378f0730800000000000000
+      internalID: 3967538471674445190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveRight_3
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 596
+        width: 366
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e5c838a1f5870950800000000000000
+      internalID: 6415243467168466405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveRight_10
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 221
+        width: 338
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3cb27a837af4e700800000000000000
+      internalID: 568854827106483260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveRight_11
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 221
+        width: 384
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5957d1d9432347980800000000000000
+      internalID: -8542147391659346539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveRight_13
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 220
+        width: 296
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c08c521c5eb57110800000000000000
+      internalID: 1258120973574242505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoveRight_14
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 220
+        width: 269
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b68d9e074b7a85a80800000000000000
+      internalID: -8477841905094633365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2500d6e95d9b5124c8faa753b31d74d2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MoveRight_0: 381892303405902340
+      MoveRight_1: 5461049510731326858
+      MoveRight_10: 568854827106483260
+      MoveRight_11: -8542147391659346539
+      MoveRight_12: -324567532144043361
+      MoveRight_13: 1258120973574242505
+      MoveRight_14: -8477841905094633365
+      MoveRight_15: -7982987783137843438
+      MoveRight_16: 3256847912341862496
+      MoveRight_17: -599412740117160411
+      MoveRight_18: -3715762108548593533
+      MoveRight_19: -6428664914356643716
+      MoveRight_2: 3967538471674445190
+      MoveRight_3: 6415243467168466405
+      MoveRight_4: 7879514585057258060
+      MoveRight_5: -1622603334914855079
+      MoveRight_6: -1748576367106752416
+      MoveRight_7: -2208665695605497780
+      MoveRight_8: 6222389849450895004
+      MoveRight_9: -6698736337732813400
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

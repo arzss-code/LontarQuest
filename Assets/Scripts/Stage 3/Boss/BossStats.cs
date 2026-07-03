@@ -67,16 +67,16 @@ public class BossStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (currentHP <= 0)
+            return;
+
+        // Hit Flash
         BossController controller = GetComponent<BossController>();
 
         if (controller != null)
         {
             controller.PlayHitFlash();
         }
-
-
-        if (currentHP <= 0)
-            return;
 
         float finalDamage = damage;
 
@@ -108,7 +108,6 @@ public class BossStats : MonoBehaviour
 
         currentHP = Mathf.Clamp(currentHP, 0, maxHP);
 
-        // Beritahu UI bahwa nilainya berubah
         OnHealthChanged?.Invoke();
 
         Debug.Log($"HP : {currentHP}/{maxHP} | Shield : {currentShield}/{maxShield}");
@@ -174,23 +173,37 @@ public class BossStats : MonoBehaviour
     }
 
     private void Die()
-    {
-        Debug.Log("===== BAHTARA KALA DEAD =====");
+{
+    Debug.Log("===== BAHTARA KALA DEAD =====");
 
-        StopAllCoroutines();
+    StopAllCoroutines();
 
-        BossAttack attack = GetComponent<BossAttack>();
-        if (attack != null)
-            attack.enabled = false;
+    BossAttack attack = GetComponent<BossAttack>();
+    if (attack != null)
+        attack.enabled = false;
 
-        BossMovement movement = GetComponent<BossMovement>();
-        if (movement != null)
-            movement.enabled = false;
+    BossMovement movement = GetComponent<BossMovement>();
+    if (movement != null)
+        movement.enabled = false;
 
-        BossController controller = GetComponent<BossController>();
-        if (controller != null)
-            controller.enabled = false;
+    BossController controller = GetComponent<BossController>();
+    if (controller != null)
+        controller.enabled = false;
 
-        Destroy(gameObject);
-    }
+    //----------------------------------------
+    // Beritahu BossManager
+    //----------------------------------------
+
+    BossManager manager =
+        FindFirstObjectByType<BossManager>();
+
+    if (manager != null)
+        manager.EndBossFight();
+
+    //----------------------------------------
+    // Destroy setelah sebentar
+    //----------------------------------------
+
+    Destroy(gameObject, 1f);
+}
 }

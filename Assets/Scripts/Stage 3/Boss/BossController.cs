@@ -18,10 +18,8 @@ public class BossController : MonoBehaviour
     [SerializeField] private ParticleSystem shieldBreakParticle;
 
     [Header("Hit Flash")]
-    [SerializeField] private Color hitFlashColor = Color.white;
-    [SerializeField] private float hitFlashDuration = 0.08f;
-
-    private Color originalColor;
+    private Material hitMaterial;
+    private static readonly int FlashID = Shader.PropertyToID("_Flash");
     private Coroutine flashRoutine;
 
     [Header("Slam Attack")]
@@ -45,7 +43,7 @@ public class BossController : MonoBehaviour
 
     private void Start()
     {
-        originalColor = spriteRenderer.color;
+        hitMaterial = spriteRenderer.material;
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
 
         if (playerObj != null)
@@ -132,11 +130,13 @@ public class BossController : MonoBehaviour
 
     private IEnumerator HitFlashRoutine()
     {
-        spriteRenderer.color = hitFlashColor;
+        hitMaterial.SetFloat(FlashID, 1f);
 
-        yield return new WaitForSeconds(hitFlashDuration);
+        yield return new WaitForSeconds(0.08f);
 
-        spriteRenderer.color = originalColor;
+        hitMaterial.SetFloat(FlashID, 0f);
+
+        flashRoutine = null;
     }
 
     /// <summary>
@@ -301,6 +301,8 @@ public class BossController : MonoBehaviour
         if (shieldBreakUI != null)
             shieldBreakUI.Hide();
     }
+
+    
 
     private void OnDrawGizmosSelected()
     {
