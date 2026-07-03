@@ -6998,6 +6998,7 @@ GameObject:
   - component: {fileID: 383573410}
   - component: {fileID: 383573409}
   - component: {fileID: 383573411}
+  - component: {fileID: 383573412}
   m_Layer: 6
   m_Name: Niskala_01
   m_TagString: Enemy
@@ -7082,7 +7083,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -7101,17 +7102,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   detection: {fileID: 1721894265}
   animator: {fileID: 954752554}
+  visual: {fileID: 954752553}
   currentRoom: {fileID: 488113763}
   moveSpeed: 7
-  retreatDistance: 8
-  safeDistance: 3
-  retreatRadius: 7.92
-  randomOffsetRadius: 7
-  destinationTolerance: 0.15
-  waitAfterMove: 1
+  wanderRadius: 6
+  waitTime: 2
+  arriveDistance: 0.15
+  retreatDistance: 3
+  safeDistance: 7
+  retreatDistanceMove: 4
+  retreatRandomOffset: 1.5
   wallLayer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &383573412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383573407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb98a2b73b24c514284b0cdaae176528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  detection: {fileID: 1721894265}
+  animator: {fileID: 954752554}
+  projectileSpawn: {fileID: 1471000083}
+  indicatorPrefab: {fileID: 4112934988979025059, guid: 8478a5025e46f9f44b3f0787e6533295, type: 3}
+  projectilePrefab: {fileID: 2120782982337418185, guid: 4c8be3a5d2e4fc64580b519fd3d2e0f7, type: 3}
+  attackRange: 8
+  attackCooldown: 4
+  indicatorDelay: 0.8
 --- !u!1 &383620947
 GameObject:
   m_ObjectHideFlags: 0
@@ -16202,6 +16225,7 @@ GameObject:
   - component: {fileID: 954752555}
   - component: {fileID: 954752554}
   - component: {fileID: 954752556}
+  - component: {fileID: 954752557}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -16317,6 +16341,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b966efd0388d44097811e6f475c0d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::YSort
+--- !u!114 &954752557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954752552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac98001c49763bc43808699ed0f1d0e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAnimationRelay
+  attack: {fileID: 383573412}
 --- !u!1 &975133139
 GameObject:
   m_ObjectHideFlags: 0
@@ -56729,7 +56766,7 @@ Transform:
   m_GameObject: {fileID: 1471000082}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.089, y: -0.161, z: 0}
+  m_LocalPosition: {x: 0.07, y: -0.202, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

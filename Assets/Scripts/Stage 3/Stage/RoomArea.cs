@@ -3,15 +3,26 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class RoomArea : MonoBehaviour
 {
-    public BoxCollider2D Boundary { get; private set; }
+    private BoxCollider2D boundary;
 
-    private void Awake()
+    private BoxCollider2D Boundary
     {
-        Boundary = GetComponent<BoxCollider2D>();
+        get
+        {
+            if (boundary == null)
+                boundary = GetComponent<BoxCollider2D>();
+
+            return boundary;
+        }
     }
 
-    public bool Contains(Vector2 position)
+    public bool Contains(Vector2 point)
     {
-        return Boundary.OverlapPoint(position);
+        return Boundary.OverlapPoint(point);
+    }
+
+    public Bounds GetBounds()
+    {
+        return Boundary.bounds;
     }
 }
