@@ -17,6 +17,8 @@ public class VoidShot : MonoBehaviour
 
     private Vector2 direction;
     private Vector2 targetPosition;
+    private Collider2D ownerCollider;
+    private bool hasHit;
 
     //--------------------------------------------------
 
@@ -35,19 +37,17 @@ public class VoidShot : MonoBehaviour
     //--------------------------------------------------
 
     public void Initialize(
-        Vector2 startPosition,
-        Vector2 target)
+    Vector2 startPosition,
+    Vector2 target)
     {
+        hasHit = false;
+
         transform.position = startPosition;
 
         targetPosition = target;
 
         direction =
             (targetPosition - startPosition).normalized;
-
-        //------------------------------------
-        // Hadapkan sprite ke arah tembakan
-        //------------------------------------
 
         float angle =
             Mathf.Atan2(direction.y, direction.x)
@@ -68,20 +68,42 @@ public class VoidShot : MonoBehaviour
             Time.fixedDeltaTime);
     }
 
+    public void SetOwner(Collider2D owner)
+    {
+        ownerCollider = owner;
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
     //--------------------------------------------------
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
+
         //------------------------------------
-        // Player
+        // Abaikan collider milik Enemy sendiri
         //------------------------------------
 
-        IDamageable damageable =
-            other.GetComponentInParent<IDamageable>();
+        if (ownerCollider != null && other == ownerCollider)
+            return;
 
-        if (damageable != null)
+        //------------------------------------
+        // Cari PlayerStats
+        //------------------------------------
+
+        PlayerStats player =
+            other.GetComponentInParent<PlayerStats>();
+
+        if (player != null)
         {
-            damageable.TakeDamage(damage);
+            hasHit = true;
+            
+
+            player.TakeDamage(damage);
 
             Destroy(gameObject);
 
@@ -94,6 +116,8 @@ public class VoidShot : MonoBehaviour
 
         if (((1 << other.gameObject.layer) & wallLayer) != 0)
         {
+            hasHit = true;
+
             Destroy(gameObject);
 
             return;

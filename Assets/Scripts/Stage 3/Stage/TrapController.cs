@@ -18,7 +18,6 @@ public class TrapController : MonoBehaviour
 
     public void EnableDamage()
     {
-        Debug.Log("Trap ON");
 
         if (damageCollider != null)
             damageCollider.enabled = true;
@@ -29,7 +28,6 @@ public class TrapController : MonoBehaviour
 
     public void DisableDamage()
     {
-        Debug.Log("Trap OFF");
 
         if (damageCollider != null)
             damageCollider.enabled = false;

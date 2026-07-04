@@ -15,7 +15,6 @@ public class EnemyAttack : MonoBehaviour
     [Header("Combat")]
     [SerializeField] private float attackRange = 8f;
     [SerializeField] private float attackCooldown = 2f;
-    [SerializeField] private float indicatorDelay = 0.8f;
 
     //------------------------------------------------
 
@@ -28,60 +27,34 @@ public class EnemyAttack : MonoBehaviour
 
     public void TryAttack()
     {
-        //----------------------------------------
-        // Sedang attack?
-        //----------------------------------------
-
         if (isAttacking)
             return;
-
-        //----------------------------------------
 
         if (!detection.HasTarget)
             return;
 
-        //----------------------------------------
-
         if (Time.time < nextAttackTime)
             return;
 
-        //----------------------------------------
-
-        float distance = Vector2.Distance(
-            transform.position,
-            detection.Target.position);
+        float distance =
+            Vector2.Distance(
+                transform.position,
+                detection.Target.position);
 
         if (distance > attackRange)
             return;
 
-        //----------------------------------------
-        // Lock posisi Player
-        //----------------------------------------
+        //---------------------------------
 
-        lockedPosition = detection.Target.position;
+        lockedPosition =
+            detection.Target.position;
 
-        //----------------------------------------
-
-        StartCoroutine(AttackRoutine());
-    }
-
-    private IEnumerator AttackRoutine()
-    {
         isAttacking = true;
 
         nextAttackTime =
             Time.time + attackCooldown;
 
-        //---------------------------------
-
         animator.SetTrigger("Attack");
-
-        //---------------------------------
-
-        yield return new WaitForSeconds(
-            attackCooldown);
-
-        isAttacking = false;
     }
 
     
@@ -137,10 +110,21 @@ public class EnemyAttack : MonoBehaviour
         shot.Initialize(
             projectileSpawn.position,
             lockedPosition);
+
+        Collider2D owner =
+            GetComponent<Collider2D>();
+
+        if(owner != null)
+        {
+            shot.SetOwner(owner);
+        }
     }
 
     public void EndAttack()
     {
+        if (!isAttacking)
+            return;
+
         isAttacking = false;
     }
 

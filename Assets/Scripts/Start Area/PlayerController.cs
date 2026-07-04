@@ -274,8 +274,6 @@ public class PlayerController : MonoBehaviour
             movement * finalMoveSpeed +
             externalMovement;
 
-        Debug.Log("External Movement : " + externalMovement);
-
         rb.MovePosition(
             rb.position +
             finalMovement *

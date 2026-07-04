@@ -40,8 +40,6 @@ public class TrapDamage : MonoBehaviour
             playerStats.TakeDamage(damage);
 
             hasDamagedPlayer = true;
-
-            Debug.Log("Player terkena Void Trap!");
         }
     }
 }
