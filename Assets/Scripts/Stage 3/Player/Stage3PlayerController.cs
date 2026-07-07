@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Stage3PlayerController : MonoBehaviour
 {
     PlayerStats playerStats;
-    Stage3PlayerStats stage3PlayerStats;
+
     [Header("Movement")]
     [SerializeField] float moveSpeed = 5f;
 
@@ -75,8 +75,6 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         playerStats = GetComponent<PlayerStats>();
-        stage3PlayerStats = GetComponent<Stage3PlayerStats>();
-
         rb = GetComponent<Rigidbody2D>();
         
 
@@ -101,39 +99,6 @@ public class PlayerController : MonoBehaviour
                     1
                 );
         }
-    }
-
-    private bool UsePlayerMana(int amount)
-    {
-        if (playerStats != null)
-            return playerStats.UseMana(amount);
-
-        if (stage3PlayerStats != null)
-            return stage3PlayerStats.UseMana(amount);
-
-        return false;
-    }
-
-    private bool UsePlayerStamina(int amount)
-    {
-        if (playerStats != null)
-            return playerStats.UseStamina(amount);
-
-        if (stage3PlayerStats != null)
-            return stage3PlayerStats.UseStamina(amount);
-
-        return false;
-    }
-
-    private int GetPlayerRangedDamage()
-    {
-        if (playerStats != null)
-            return playerStats.rangedDamage;
-
-        if (stage3PlayerStats != null)
-            return stage3PlayerStats.rangedDamage;
-
-        return 15;
     }
 
     void Update()
@@ -251,8 +216,6 @@ public class PlayerController : MonoBehaviour
             Dash();
         }
     }
-
-    
 
     void FixedUpdate()
     {
@@ -475,18 +438,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        bool useManaSuccess = false;
-
-        if (playerStats != null)
-        {
-            useManaSuccess = playerStats.UseMana(25);
-        }
-        else if (stage3PlayerStats != null)
-        {
-            useManaSuccess = stage3PlayerStats.UseMana(25);
-        }
-
-        if (!useManaSuccess)
+        if (!playerStats.UseMana(25))
         {
             Debug.Log("Mana tidak cukup");
             return;
@@ -564,16 +516,7 @@ public class PlayerController : MonoBehaviour
         ArrowProjectile projectile =
             arrow.GetComponent<ArrowProjectile>();
 
-        int arrowDamage = 15;
-
-        if (playerStats != null)
-        {
-            arrowDamage = playerStats.rangedDamage;
-        }
-        else if (stage3PlayerStats != null)
-        {
-            arrowDamage = stage3PlayerStats.rangedDamage;
-        }
+        int arrowDamage = (playerStats != null) ? playerStats.rangedDamage : 15;
         
         PlayerModifier pm = GetComponent<PlayerModifier>();
         bool isFire = (pm != null && pm.HasElementalEffect);
@@ -616,53 +559,61 @@ public class PlayerController : MonoBehaviour
     // ===================
 
     void Dash()
-{
-    Debug.Log("DASH");
-
-    if (dashCooldownTimer > 0)
-        return;
-
-    if (isAttacking)
-        return;
-
-    if (isDashing)
-        return;
-
-    if (!UsePlayerStamina(20))
     {
-        Debug.Log("Stamina tidak cukup");
-        return;
+        Debug.Log("DASH");
+
+        if (dashCooldownTimer > 0)
+            return;
+
+        if (isAttacking)
+            return;
+
+        if (isDashing)
+            return;
+
+        if (!playerStats.UseStamina(20))
+        {
+            Debug.Log("Stamina tidak cukup");
+            return;
+        }
+
+        // Jaga-jaga kalau player belum pernah bergerak
+        if (lastMoveX == 0 && lastMoveY == 0)
+        {
+            lastMoveY = -1;
+        }
+
+        isDashing = true;
+
+        movement = Vector2.zero;
+
+        dashTimer = dashDuration;
+        dashCooldownTimer = dashCooldown;
+
+        if (Mathf.Abs(lastMoveX) > Mathf.Abs(lastMoveY))
+        {
+            dashDirection =
+                new Vector2(
+                    Mathf.Sign(lastMoveX),
+                    0
+                );
+        }
+        else
+        {
+            dashDirection =
+                new Vector2(
+                    0,
+                    Mathf.Sign(lastMoveY)
+                );
+        }
+
+        if (dashSound != null)
+        {
+            AudioSource.PlayClipAtPoint(dashSound, transform.position);
+        }
+
+        animator.SetTrigger("Dash");
     }
-
-    // Jaga-jaga kalau player belum pernah bergerak
-    if (lastMoveX == 0 && lastMoveY == 0)
-    {
-        lastMoveY = -1;
-    }
-
-    isDashing = true;
-
-    movement = Vector2.zero;
-
-    dashTimer = dashDuration;
-    dashCooldownTimer = dashCooldown;
-
-    if (Mathf.Abs(lastMoveX) > Mathf.Abs(lastMoveY))
-    {
-        dashDirection = new Vector2(Mathf.Sign(lastMoveX), 0);
-    }
-    else
-    {
-        dashDirection = new Vector2(0, Mathf.Sign(lastMoveY));
-    }
-
-    if (dashSound != null)
-    {
-        AudioSource.PlayClipAtPoint(dashSound, transform.position);
-    }
-
-    animator.SetTrigger("Dash");
-}
 
     public void EndDash()
     {

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd58de4dec052945a09c704fcb096c2, type: 3}
+  m_Name: Boon_ArcaneReservoir
+  m_EditorClassIdentifier: Assembly-CSharp::BuffData
+  cardPrefab: {fileID: 2379861094628573874, guid: e2c207e45b2738c4ca58608a35934521, type: 3}
+  title: Arcane Reservoir
+  cardSprite: {fileID: 8046281814006101762, guid: d5f71f9c8faf9d840b61a7398b552c67, type: 3}
+  description: 
+  effects:
+  - buffType: 3
+    valueType: 0
+    value: 50
+  - buffType: 5
+    valueType: 1
+    value: 25

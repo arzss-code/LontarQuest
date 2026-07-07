@@ -8,8 +8,27 @@ public class TreasureChest : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private KeyCode interactKey = KeyCode.E;
 
+    [Header("Loot")]
+    [SerializeField] private Transform lootSpawn;
+    [SerializeField] private GameObject lootPrefab;
+
+    [Header("Interaction")]
+    [SerializeField] private GameObject interactPrompt;
+    [SerializeField] private BoxCollider2D interactionCollider;
+    [SerializeField] private BoxCollider2D chestCollider;
+
+    //------------------------------------------------
+
     private bool playerInside;
     private bool opened;
+
+    //------------------------------------------------
+
+    private void Awake()
+    {
+        if (interactPrompt != null)
+            interactPrompt.SetActive(false);
+    }
 
     //------------------------------------------------
 
@@ -33,29 +52,68 @@ public class TreasureChest : MonoBehaviour
     {
         opened = true;
 
-        if (animator != null)
-        {
-            animator.SetTrigger("Open");
-        }
+        if (interactPrompt != null)
+            interactPrompt.SetActive(false);
 
-        Debug.Log("Chest Opened");
+        animator.SetTrigger("Open");
     }
 
     //------------------------------------------------
+    // Dipanggil oleh ChestInteraction.cs
+    //------------------------------------------------
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void PlayerEnter()
     {
-        if (!other.CompareTag("Player"))
+        if (opened)
             return;
 
         playerInside = true;
+
+        if (interactPrompt != null)
+            interactPrompt.SetActive(true);
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public void PlayerExit()
     {
-        if (!other.CompareTag("Player"))
+        playerInside = false;
+
+        if (interactPrompt != null)
+            interactPrompt.SetActive(false);
+    }
+
+    //------------------------------------------------
+    // Animation Event
+    //------------------------------------------------
+
+    public void SpawnLoot()
+    {
+        if (lootPrefab == null)
             return;
 
+        if (lootSpawn == null)
+            return;
+
+        Instantiate(
+            lootPrefab,
+            lootSpawn.position,
+            Quaternion.identity);
+    }
+
+    //------------------------------------------------
+    // Animation Event
+    //------------------------------------------------
+
+    public void DisableChest()
+    {
         playerInside = false;
+
+        if (interactPrompt != null)
+            interactPrompt.SetActive(false);
+
+        if (interactionCollider != null)
+            interactionCollider.enabled = false;
+
+        if (chestCollider != null)
+            chestCollider.enabled = false;
     }
 }

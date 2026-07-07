@@ -17,7 +17,7 @@ public class VoidShot : MonoBehaviour
 
     private Vector2 direction;
     private Vector2 targetPosition;
-    private Collider2D ownerCollider;
+    private GameObject owner;
     private bool hasHit;
 
     //--------------------------------------------------
@@ -31,6 +31,14 @@ public class VoidShot : MonoBehaviour
 
     private void OnEnable()
     {
+        hasHit = false;
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0;
+        }
+
         Destroy(gameObject, maxLifeTime);
     }
 
@@ -68,9 +76,9 @@ public class VoidShot : MonoBehaviour
             Time.fixedDeltaTime);
     }
 
-    public void SetOwner(Collider2D owner)
+    public void SetOwner(GameObject obj)
     {
-        ownerCollider = owner;
+        owner = obj;
     }
 
     private void OnBecameInvisible()
@@ -82,28 +90,38 @@ public class VoidShot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
-
-        //------------------------------------
-        // Abaikan collider milik Enemy sendiri
-        //------------------------------------
-
-        if (ownerCollider != null && other == ownerCollider)
+        if (hasHit)
             return;
 
         //------------------------------------
-        // Cari PlayerStats
+        // Abaikan semua Trigger
         //------------------------------------
 
-        PlayerStats player =
-            other.GetComponentInParent<PlayerStats>();
+        if (other.isTrigger)
+            return;
 
-        if (player != null)
+        //------------------------------------
+        // Abaikan semua collider milik Owner
+        //------------------------------------
+
+        if (owner != null)
+        {
+            if (other.transform.root.gameObject == owner)
+                return;
+        }
+
+        //------------------------------------
+        // Cari Object yang bisa menerima Damage
+        //------------------------------------
+
+        IDamageable damageable =
+            other.GetComponentInParent<IDamageable>();
+
+        if (damageable != null)
         {
             hasHit = true;
-            
 
-            player.TakeDamage(damage);
+            damageable.TakeDamage(damage);
 
             Destroy(gameObject);
 

@@ -28,16 +28,18 @@ public class TrapDamage : MonoBehaviour
         if (hasDamagedPlayer)
             return;
 
-        PlayerStats playerStats =
-            other.GetComponent<PlayerStats>();
+        IDamageable damageable =
+            other.GetComponent<IDamageable>();
 
-        if (playerStats == null)
-            playerStats =
-                other.GetComponentInParent<PlayerStats>();
-
-        if (playerStats != null)
+        if (damageable == null)
         {
-            playerStats.TakeDamage(damage);
+            damageable =
+                other.GetComponentInParent<IDamageable>();
+        }
+
+        if (damageable != null)
+        {
+            damageable.TakeDamage(damage);
 
             hasDamagedPlayer = true;
         }
