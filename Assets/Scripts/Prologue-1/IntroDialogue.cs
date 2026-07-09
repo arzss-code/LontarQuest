@@ -31,6 +31,8 @@ public class IntroDialogue : MonoBehaviour
     [Header("Behaviour")]
     [SerializeField] private bool freezePlayer = true;
 
+    [SerializeField] private bool unfreezePlayerWhenFinished = true;
+
     private PlayerController playerController;
 
     private bool isTyping;
@@ -94,7 +96,7 @@ public class IntroDialogue : MonoBehaviour
 
         dialoguePanel.SetActive(false);
 
-        if (freezePlayer && playerController != null)
+        if (unfreezePlayerWhenFinished && playerController != null)
             playerController.SetCanMove(true);
 
         IsPlaying = false;

@@ -86,4 +86,6 @@ public class DialogueManager : MonoBehaviour
             dialogFinished = true;
         }
     }
+
+    
 }
