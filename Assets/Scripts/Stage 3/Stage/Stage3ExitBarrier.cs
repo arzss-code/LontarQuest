@@ -10,20 +10,29 @@ public class ExitBarrier : MonoBehaviour
     [SerializeField] private SpriteRenderer barrierRenderer;
     [SerializeField] private Collider2D barrierCollider;
 
+    [Header("Interaction")]
+    [SerializeField] private Collider2D interactionTrigger;
+
     [SerializeField] private float fadeDuration = 1f;
 
-private bool opened = false;
-
+    private bool opened = false;
     private bool playerInside;
 
-    void Start()
+    //----------------------------------------------------
+
+    private void Start()
     {
         if (interactionUI != null)
             interactionUI.SetActive(false);
     }
 
-    void Update()
+    //----------------------------------------------------
+
+    private void Update()
     {
+        if (opened)
+            return;
+
         if (!playerInside)
             return;
 
@@ -33,29 +42,40 @@ private bool opened = false;
         }
     }
 
+    //----------------------------------------------------
+
     public void PlayerEnter()
     {
+        if (opened)
+            return;
+
         playerInside = true;
 
         if (interactionUI != null)
             interactionUI.SetActive(true);
     }
 
+    //----------------------------------------------------
+
     public void PlayerExit()
     {
+        if (opened)
+            return;
+
         playerInside = false;
 
         if (interactionUI != null)
             interactionUI.SetActive(false);
     }
 
-    void OpenBarrier()
+    //----------------------------------------------------
+
+    private void OpenBarrier()
     {
         if (opened)
             return;
 
         opened = true;
-
         playerInside = false;
 
         if (interactionUI != null)
@@ -64,11 +84,13 @@ private bool opened = false;
         StartCoroutine(FadeBarrier());
     }
 
-    System.Collections.IEnumerator FadeBarrier()
-    {
-        Color start = barrierRenderer.color;
+    //----------------------------------------------------
 
-        float timer = 0;
+    private IEnumerator FadeBarrier()
+    {
+        Color startColor = barrierRenderer.color;
+
+        float timer = 0f;
 
         while (timer < fadeDuration)
         {
@@ -76,7 +98,7 @@ private bool opened = false;
 
             float t = timer / fadeDuration;
 
-            Color c = start;
+            Color c = startColor;
             c.a = Mathf.Lerp(1f, 0f, t);
 
             barrierRenderer.color = c;
@@ -84,6 +106,32 @@ private bool opened = false;
             yield return null;
         }
 
-        barrierCollider.enabled = false;
+        //----------------------------------------
+        // Matikan Barrier
+        //----------------------------------------
+
+        if (barrierCollider != null)
+            barrierCollider.enabled = false;
+
+        //----------------------------------------
+        // Matikan Trigger Interaksi
+        //----------------------------------------
+
+        if (interactionTrigger != null)
+            interactionTrigger.enabled = false;
+
+        //----------------------------------------
+        // Sembunyikan Prompt
+        //----------------------------------------
+
+        if (interactionUI != null)
+            interactionUI.SetActive(false);
+
+        //----------------------------------------
+        // Matikan Sprite
+        //----------------------------------------
+
+        if (barrierRenderer != null)
+            barrierRenderer.enabled = false;
     }
 }
