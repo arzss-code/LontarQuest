@@ -216,7 +216,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 130
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -278,15 +278,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprites_0
+      name: Yaksa_WalkFront_1
       rect:
         serializedVersion: 2
         x: 52
-        y: 1211
+        y: 1195
         width: 228
-        height: 289
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 306
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -300,15 +300,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_1
+      name: Yaksa_WalkFront_0
       rect:
         serializedVersion: 2
-        x: 318
-        y: 1214
-        width: 225
-        height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 317
+        y: 1193
+        width: 226
+        height: 305
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -322,15 +322,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_2
+      name: Yaksa_WalkSide_0
       rect:
         serializedVersion: 2
         x: 823
-        y: 1196
+        y: 1198
         width: 184
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 302
+      alignment: 9
+      pivot: {x: 0.60521966, y: -0.0016439072}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -344,15 +344,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_3
+      name: Yaksa_WalkSide_1
       rect:
         serializedVersion: 2
         x: 1069
-        y: 1209
-        width: 174
-        height: 289
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 1196
+        width: 175
+        height: 302
+      alignment: 9
+      pivot: {x: 0.5538965, y: 0.001643503}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -366,15 +366,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_4
+      name: Yaksa_WalkSide_2
       rect:
         serializedVersion: 2
-        x: 1305
+        x: 1304
         y: 1193
-        width: 183
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 184
+        height: 305
+      alignment: 9
+      pivot: {x: 0.5863342, y: 0.0016277375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -388,15 +388,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_5
+      name: Yaksa_WalkSide_3
       rect:
         serializedVersion: 2
         x: 1554
         y: 1196
-        width: 170
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 171
+        height: 305
+      alignment: 9
+      pivot: {x: 0.55515796, y: -0.0016277375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -410,15 +410,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_6
+      name: Yaksa_WalkBack_0
       rect:
         serializedVersion: 2
         x: 2015
-        y: 1191
+        y: 1173
         width: 212
-        height: 290
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 309
+      alignment: 9
+      pivot: {x: 0.52249205, y: 0.00000039504957}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -432,15 +432,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_7
+      name: Yaksa_WalkBack_1
       rect:
         serializedVersion: 2
         x: 2264
-        y: 1190
+        y: 1172
         width: 204
-        height: 285
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 303
+      alignment: 9
+      pivot: {x: 0.5275963, y: -0.00000040287233}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -454,15 +454,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_8
+      name: Yaksa_WalkBack_2
       rect:
         serializedVersion: 2
         x: 2506
-        y: 1193
+        y: 1175
         width: 210
-        height: 290
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 308
+      alignment: 9
+      pivot: {x: 0.52680665, y: -0.00000039633218}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -476,169 +476,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_9
+      name: Yaksa_Shoot_0
       rect:
         serializedVersion: 2
-        x: 120
-        y: 1194
-        width: 88
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ef910339304d7e270800000000000000
-      internalID: 8279819551763339774
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_10
-      rect:
-        serializedVersion: 2
-        x: 386
-        y: 1193
-        width: 89
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7796cc3a21f6a4160800000000000000
-      internalID: 7010537895803775351
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_11
-      rect:
-        serializedVersion: 2
-        x: 1122
-        y: 1196
-        width: 88
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c791212689fc32c60800000000000000
-      internalID: 7792300033668422012
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_12
-      rect:
-        serializedVersion: 2
-        x: 2081
-        y: 1175
-        width: 86
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 532266b5fd4d12c60800000000000000
-      internalID: 7791742886103884341
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_13
-      rect:
-        serializedVersion: 2
-        x: 2326
-        y: 1173
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c88f36b21746a7500800000000000000
-      internalID: 394738354570393740
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_14
-      rect:
-        serializedVersion: 2
-        x: 2570
-        y: 1176
-        width: 87
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3c53d050ddfc57280800000000000000
-      internalID: -9046095728324299325
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_15
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 829
-        width: 115
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f0fcaf3983aa87e60800000000000000
-      internalID: 7960299501354929935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_16
-      rect:
-        serializedVersion: 2
-        x: 271
-        y: 678
-        width: 270
-        height: 276
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 270
+        y: 660
+        width: 271
+        height: 295
+      alignment: 9
+      pivot: {x: 0.35783875, y: -0.0008538736}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -652,15 +498,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_17
+      name: Yaksa_Shoot_1
       rect:
         serializedVersion: 2
         x: 633
-        y: 674
-        width: 307
-        height: 307
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 660
+        width: 306
+        height: 291
+      alignment: 9
+      pivot: {x: 0.34226143, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -674,15 +520,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_18
+      name: Yaksa_Shoot_3
       rect:
         serializedVersion: 2
         x: 1015
         y: 660
-        width: 265
-        height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 266
+        height: 283
+      alignment: 9
+      pivot: {x: 0.39768672, y: -0.0016872016}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -696,15 +542,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_19
+      name: Yaksa_Arrow
       rect:
         serializedVersion: 2
-        x: 1323
+        x: 1324
         y: 818
-        width: 341
+        width: 340
         height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -718,15 +564,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_20
+      name: Yaksa_Shoot_4
       rect:
         serializedVersion: 2
         x: 1722
         y: 658
-        width: 251
-        height: 292
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 252
+        height: 293
+      alignment: 9
+      pivot: {x: 0.46868268, y: -0.0000002083111}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -740,15 +586,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_21
+      name: Yaksa_Shoot_5
       rect:
         serializedVersion: 2
         x: 2082
-        y: 660
-        width: 233
-        height: 290
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 659
+        width: 232
+        height: 292
+      alignment: 9
+      pivot: {x: 0.4744873, y: 0.001688918}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -762,15 +608,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_22
+      name: Yaksa_Shoot_6
       rect:
         serializedVersion: 2
         x: 2441
-        y: 668
-        width: 221
-        height: 282
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 660
+        width: 222
+        height: 291
+      alignment: 9
+      pivot: {x: 0.4555631, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -784,59 +630,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_23
+      name: Yaksa_Death_0
       rect:
         serializedVersion: 2
-        x: 305
-        y: 658
-        width: 117
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1dcbcaaa3f430d8b0800000000000000
-      internalID: -5129541754429850415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_24
-      rect:
-        serializedVersion: 2
-        x: 679
-        y: 658
-        width: 115
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 024e97f98dbd0d510800000000000000
-      internalID: 1571997993387287584
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_25
-      rect:
-        serializedVersion: 2
-        x: 2482
-        y: 660
-        width: 51
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 251
+        y: 296
+        width: 261
+        height: 284
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -850,15 +652,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_26
+      name: Yaksa_Death_1
       rect:
         serializedVersion: 2
-        x: 2559
-        y: 664
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 618
+        y: 294
+        width: 247
+        height: 273
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -872,15 +674,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_27
+      name: Yaksa_Death_3
       rect:
         serializedVersion: 2
-        x: 2572
-        y: 661
-        width: 25
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1326
+        y: 288
+        width: 271
+        height: 253
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -894,59 +696,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_28
+      name: Yaksa_Death_2
       rect:
         serializedVersion: 2
-        x: 251
-        y: 296
-        width: 261
-        height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b2723bdb1508f4ca0800000000000000
-      internalID: -6030460287462463701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_29
-      rect:
-        serializedVersion: 2
-        x: 1750
-        y: 538
-        width: 21
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d0c4023299ce25c00800000000000000
-      internalID: 888032219008879629
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_30
-      rect:
-        serializedVersion: 2
-        x: 1764
-        y: 579
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 963
+        y: 288
+        width: 275
+        height: 249
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -960,15 +718,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_31
+      name: Yaksa_Death_4
       rect:
         serializedVersion: 2
-        x: 618
-        y: 294
-        width: 248
-        height: 273
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1695
+        y: 286
+        width: 241
+        height: 303
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -982,169 +740,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_32
+      name: Yaksa_Death_5
       rect:
         serializedVersion: 2
-        x: 964
-        y: 289
-        width: 275
-        height: 247
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1bd31dcb81e775b30800000000000000
-      internalID: 4276025015923719601
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_33
-      rect:
-        serializedVersion: 2
-        x: 1326
-        y: 289
-        width: 271
-        height: 251
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 45f4f7008c8ae5920800000000000000
-      internalID: 2981005580321115988
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_34
-      rect:
-        serializedVersion: 2
-        x: 1747
-        y: 496
-        width: 19
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fb3e0fa1ab3e50a80800000000000000
-      internalID: -8501138333136526401
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_35
-      rect:
-        serializedVersion: 2
-        x: 2121
-        y: 518
-        width: 32
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 49c5e1a62bf038e70800000000000000
-      internalID: 9116147329686985876
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_36
-      rect:
-        serializedVersion: 2
-        x: 1695
-        y: 285
-        width: 242
-        height: 230
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 97894f3a8d1e6eb80800000000000000
-      internalID: -8365750937214216071
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_37
-      rect:
-        serializedVersion: 2
-        x: 2113
-        y: 483
-        width: 21
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 87da900e599158040800000000000000
-      internalID: 4649150321829457272
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_38
-      rect:
-        serializedVersion: 2
-        x: 2163
-        y: 463
-        width: 35
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3faf70ad013885450800000000000000
-      internalID: 6077751805537155827
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_39
-      rect:
-        serializedVersion: 2
-        x: 2487
-        y: 436
-        width: 52
-        height: 81
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2073
+        y: 287
+        width: 192
+        height: 282
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1158,15 +762,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_40
+      name: Yaksa_Death_6
       rect:
         serializedVersion: 2
-        x: 2570
-        y: 479
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2443
+        y: 288
+        width: 175
+        height: 238
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1179,341 +783,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Sprites_41
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 442
-        width: 153
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: da124e68da5dfd250800000000000000
-      internalID: 5971726572185723309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_42
-      rect:
-        serializedVersion: 2
-        x: 2107
-        y: 402
-        width: 48
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: baa41a4ff840bd450800000000000000
-      internalID: 6114485935416625835
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_43
-      rect:
-        serializedVersion: 2
-        x: 2176
-        y: 444
-        width: 12
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e1a6ab2fb9d058b10800000000000000
-      internalID: 1983006174369966622
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_44
-      rect:
-        serializedVersion: 2
-        x: 2196
-        y: 450
-        width: 28
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1c39b04eb2cc55c60800000000000000
-      internalID: 7806370017998246849
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_45
-      rect:
-        serializedVersion: 2
-        x: 2198
-        y: 437
-        width: 17
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ac771b38995703ab0800000000000000
-      internalID: -5030391481572952118
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_46
-      rect:
-        serializedVersion: 2
-        x: 2549
-        y: 431
-        width: 32
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7f65ca037145d71a0800000000000000
-      internalID: -6810194602936740105
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_47
-      rect:
-        serializedVersion: 2
-        x: 2073
-        y: 287
-        width: 192
-        height: 155
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2c411dc6095c24240800000000000000
-      internalID: 4774595779057751234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_48
-      rect:
-        serializedVersion: 2
-        x: 2491
-        y: 425
-        width: 12
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 38a2d49d8b60bc260800000000000000
-      internalID: 7118791026978663043
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_49
-      rect:
-        serializedVersion: 2
-        x: 2523
-        y: 433
-        width: 10
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4995a10d1008b9fc0800000000000000
-      internalID: -3487052741193606764
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_50
-      rect:
-        serializedVersion: 2
-        x: 2487
-        y: 408
-        width: 20
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 922961634699a97a0800000000000000
-      internalID: -6369610067278917079
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_51
-      rect:
-        serializedVersion: 2
-        x: 2522
-        y: 408
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a7bd099a1ebfd25a0800000000000000
-      internalID: -6544297736868406406
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_52
-      rect:
-        serializedVersion: 2
-        x: 2560
-        y: 419
-        width: 10
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0dec42b5664f1d930800000000000000
-      internalID: 4166379850747399888
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_53
-      rect:
-        serializedVersion: 2
-        x: 2443
-        y: 289
-        width: 176
-        height: 113
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 25e4e108f2f96dd20800000000000000
-      internalID: 3303002403084586578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_54
-      rect:
-        serializedVersion: 2
-        x: 2507
-        y: 402
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a1174f4f165b85100800000000000000
-      internalID: 97026824314581274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_55
-      rect:
-        serializedVersion: 2
-        x: 2568
-        y: 388
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e813b1ec503279c80800000000000000
-      internalID: -8316139679076634226
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b991fdbb1b449554cb30c7475546ca15
     internalID: 0
     vertices: []
     indices: 
@@ -1521,34 +795,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Sprites_0: 4773600122041589604
-      Sprites_1: -4789670105439411607
       Sprites_10: 7010537895803775351
       Sprites_11: 7792300033668422012
       Sprites_12: 7791742886103884341
       Sprites_13: 394738354570393740
       Sprites_14: -9046095728324299325
       Sprites_15: 7960299501354929935
-      Sprites_16: 1579531326687846966
-      Sprites_17: 7188930153578278880
-      Sprites_18: -263089634459758618
-      Sprites_19: 3455609540856221501
-      Sprites_2: 7061801754131594114
-      Sprites_20: -8877105270654902643
-      Sprites_21: -1059341289296395630
-      Sprites_22: 8097644648361003729
       Sprites_23: -5129541754429850415
       Sprites_24: 1571997993387287584
-      Sprites_25: -975749167277906879
-      Sprites_26: 6638901707931224523
-      Sprites_27: 2881394300597005124
       Sprites_28: -6030460287462463701
       Sprites_29: 888032219008879629
-      Sprites_3: -7377819553374844296
-      Sprites_30: 6174724510220392764
-      Sprites_31: 2530064579156712857
       Sprites_32: 4276025015923719601
       Sprites_33: 2981005580321115988
       Sprites_34: -8501138333136526401
@@ -1556,29 +816,32 @@ TextureImporter:
       Sprites_36: -8365750937214216071
       Sprites_37: 4649150321829457272
       Sprites_38: 6077751805537155827
-      Sprites_39: -6907802367980946021
-      Sprites_4: -638443171332479689
-      Sprites_40: -5245793276582378072
       Sprites_41: 5971726572185723309
       Sprites_42: 6114485935416625835
-      Sprites_43: 1983006174369966622
-      Sprites_44: 7806370017998246849
-      Sprites_45: -5030391481572952118
-      Sprites_46: -6810194602936740105
-      Sprites_47: 4774595779057751234
-      Sprites_48: 7118791026978663043
-      Sprites_49: -3487052741193606764
-      Sprites_5: -1428572451713796752
-      Sprites_50: -6369610067278917079
-      Sprites_51: -6544297736868406406
-      Sprites_52: 4166379850747399888
-      Sprites_53: 3303002403084586578
-      Sprites_54: 97026824314581274
-      Sprites_55: -8316139679076634226
-      Sprites_6: 7411919347176863388
-      Sprites_7: -8796573629370075563
-      Sprites_8: -8705658455517951556
       Sprites_9: 8279819551763339774
+      Yaksa_Arrow: 3455609540856221501
+      Yaksa_Death_0: -975749167277906879
+      Yaksa_Death_1: 6638901707931224523
+      Yaksa_Death_2: 6174724510220392764
+      Yaksa_Death_3: 2881394300597005124
+      Yaksa_Death_4: 2530064579156712857
+      Yaksa_Death_5: -6907802367980946021
+      Yaksa_Death_6: -5245793276582378072
+      Yaksa_Shoot_0: 1579531326687846966
+      Yaksa_Shoot_1: 7188930153578278880
+      Yaksa_Shoot_3: -263089634459758618
+      Yaksa_Shoot_4: -8877105270654902643
+      Yaksa_Shoot_5: -1059341289296395630
+      Yaksa_Shoot_6: 8097644648361003729
+      Yaksa_WalkBack_0: 7411919347176863388
+      Yaksa_WalkBack_1: -8796573629370075563
+      Yaksa_WalkBack_2: -8705658455517951556
+      Yaksa_WalkFront_0: -4789670105439411607
+      Yaksa_WalkFront_1: 4773600122041589604
+      Yaksa_WalkSide_0: 7061801754131594114
+      Yaksa_WalkSide_1: -7377819553374844296
+      Yaksa_WalkSide_2: -638443171332479689
+      Yaksa_WalkSide_3: -1428572451713796752
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

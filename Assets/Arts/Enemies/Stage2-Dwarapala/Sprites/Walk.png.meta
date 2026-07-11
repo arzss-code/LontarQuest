@@ -84,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 250
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -146,15 +146,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk_0
+      name: "\u200BWalkFront_0"
       rect:
         serializedVersion: 2
-        x: 7
-        y: 845
-        width: 240
-        height: 359
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 8
+        y: 846
+        width: 238
+        height: 357
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -168,15 +168,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_1
+      name: "\u200BWalkFront_1"
       rect:
         serializedVersion: 2
-        x: 319
-        y: 845
-        width: 242
-        height: 364
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 320
+        y: 846
+        width: 240
+        height: 362
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -190,15 +190,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_2
+      name: "\u200BWalkFront_2"
       rect:
         serializedVersion: 2
-        x: 628
-        y: 845
-        width: 247
-        height: 368
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 629
+        y: 846
+        width: 245
+        height: 366
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -212,15 +212,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_3
+      name: "\u200BWalkFront_3"
       rect:
         serializedVersion: 2
-        x: 944
-        y: 845
-        width: 242
-        height: 364
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 945
+        y: 846
+        width: 240
+        height: 362
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -234,15 +234,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_4
+      name: "\u200BWalkBack_0"
       rect:
         serializedVersion: 2
-        x: 11
-        y: 422
-        width: 233
-        height: 356
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 12
+        y: 423
+        width: 231
+        height: 354
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -256,15 +256,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_5
+      name: "\u200BWalkBack_1"
       rect:
         serializedVersion: 2
-        x: 336
-        y: 422
-        width: 236
-        height: 358
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 337
+        y: 424
+        width: 234
+        height: 356
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -278,15 +278,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_6
+      name: "\u200BWalkBack_2"
       rect:
         serializedVersion: 2
-        x: 658
-        y: 422
-        width: 233
-        height: 356
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 659
+        y: 423
+        width: 231
+        height: 354
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -300,15 +300,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_7
+      name: "\u200BWalkBack_3"
       rect:
         serializedVersion: 2
-        x: 977
-        y: 422
-        width: 237
-        height: 358
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 978
+        y: 423
+        width: 235
+        height: 356
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -322,15 +322,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_8
+      name: "\u200BWalkSide_0"
       rect:
         serializedVersion: 2
-        x: 15
-        y: 11
-        width: 223
-        height: 355
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 16
+        y: 12
+        width: 221
+        height: 353
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -344,15 +344,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_9
+      name: "\u200BWalkSide_1"
       rect:
         serializedVersion: 2
-        x: 347
+        x: 348
         y: 0
-        width: 215
-        height: 362
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 213
+        height: 361
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -366,15 +366,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_10
+      name: "\u200BWalkSide_2"
       rect:
         serializedVersion: 2
-        x: 650
-        y: 11
-        width: 204
-        height: 355
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 651
+        y: 12
+        width: 202
+        height: 353
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -388,15 +388,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk_11
+      name: "\u200BWalkSide_3"
       rect:
         serializedVersion: 2
-        x: 964
+        x: 965
         y: 0
-        width: 201
-        height: 350
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 199
+        height: 349
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -413,7 +413,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c7d009405e5cc9c4d89a11f790cb6e3b
     internalID: 0
     vertices: []
     indices: 
@@ -421,20 +421,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Walk_0: 4035959289877228764
-      Walk_1: -982904232830982447
-      Walk_10: 11406907883527339
-      Walk_11: 8030128826893041618
-      Walk_2: -350908408369970039
-      Walk_3: -5409570386352685021
-      Walk_4: 1553940418269799609
-      Walk_5: 2416434504916517810
-      Walk_6: -6428935122508569504
-      Walk_7: 7144598999076838305
-      Walk_8: 7500509103958437945
-      Walk_9: 1008816216748069464
+      "\u200BWalkBack_0": 1553940418269799609
+      "\u200BWalkBack_1": 2416434504916517810
+      "\u200BWalkBack_2": -6428935122508569504
+      "\u200BWalkBack_3": 7144598999076838305
+      "\u200BWalkFront_0": 4035959289877228764
+      "\u200BWalkFront_1": -982904232830982447
+      "\u200BWalkFront_2": -350908408369970039
+      "\u200BWalkFront_3": -5409570386352685021
+      "\u200BWalkSide_0": 7500509103958437945
+      "\u200BWalkSide_1": 1008816216748069464
+      "\u200BWalkSide_2": 11406907883527339
+      "\u200BWalkSide_3": 8030128826893041618
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

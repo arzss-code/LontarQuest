@@ -66,17 +66,20 @@ Spritesheet terbagi dalam 3 baris × 4 kolom, setiap baris merupakan 1 siklus wa
 
 Simpan di: `Assets/Arts/Enemies/Stage2-Dwarapala/Animations/`
 
-| Nama Clip | Loop | FPS | Frame |
-|---|---|---|---|
-| `Dwarapala_IdleFront` | ✅ | 1 | Idle_0 |
-| `Dwarapala_IdleBack` | ✅ | 1 | Idle_1 |
-| `Dwarapala_IdleSide` | ✅ | 1 | Idle_2 |
-| `Dwarapala_WalkFront` | ✅ | 8 | Walk_0 → Walk_3 |
-| `Dwarapala_WalkBack` | ✅ | 8 | Walk_4 → Walk_7 |
-| `Dwarapala_WalkSide` | ✅ | 8 | Walk_8 → Walk_11 |
-| `Dwarapala_AttackFront` | ❌ | 8 | AttackAndDeath_9 → _10 → _11 |
-| `Dwarapala_AttackSide` | ❌ | 8 | AttackAndDeath_12 → _13 → _17 |
-| `Dwarapala_Death` | ❌ | 6 | AttackAndDeath_0 → _1 → _2 → _3 |
+| Nama Clip | Loop | FPS | Frame | Keterangan |
+|---|---|---|---|---|
+| `Dwarapala_IdleFront` | ✅ | 1 | Idle_0 | menghadap depan |
+| `Dwarapala_IdleBack` | ✅ | 1 | Idle_1 | menghadap belakang |
+| `Dwarapala_IdleLeft` | ✅ | 1 | Idle_2 | side-view, flipX = ✅ |
+| `Dwarapala_IdleRight` | ✅ | 1 | Idle_2 | side-view, flipX = ❌ |
+| `Dwarapala_WalkFront` | ✅ | 8 | Walk_0 → Walk_3 | jalan depan |
+| `Dwarapala_WalkBack` | ✅ | 8 | Walk_4 → Walk_7 | jalan belakang |
+| `Dwarapala_WalkLeft` | ✅ | 8 | Walk_8 → Walk_11 | jalan samping, flipX = ✅ |
+| `Dwarapala_WalkRight` | ✅ | 8 | Walk_8 → Walk_11 | jalan samping, flipX = ❌ |
+| `Dwarapala_AttackFront`| ❌ | 8 | AtkFront_0 → _2 | hantam depan |
+| `Dwarapala_AttackLeft` | ❌ | 8 | AtkSide_0 → _2 | hantam samping, flipX = ✅ |
+| `Dwarapala_AttackRight`| ❌ | 8 | AtkSide_0 → _2 | hantam samping, flipX = ❌ |
+| `Dwarapala_Death` | ❌ | 6 | Death_0 → Death_3 | hancur |
 
 > FPS 8 memberikan nuansa berat dan lambat yang cocok untuk karakter tanker.
 
@@ -106,21 +109,23 @@ AnyState → Death     [kondisi: trigger "Die"]
 Idle:
   Direction == 0 → Dwarapala_IdleFront
   Direction == 1 → Dwarapala_IdleBack
-  Direction == 2 → Dwarapala_IdleSide (flipX = true)
-  Direction == 3 → Dwarapala_IdleSide (flipX = false)
+  Direction == 2 → Dwarapala_IdleLeft
+  Direction == 3 → Dwarapala_IdleRight
 
 Walk (Speed > 0.1):
   Direction == 0 → Dwarapala_WalkFront
   Direction == 1 → Dwarapala_WalkBack
-  Direction == 2 → Dwarapala_WalkSide (flipX = true)
-  Direction == 3 → Dwarapala_WalkSide (flipX = false)
+  Direction == 2 → Dwarapala_WalkLeft
+  Direction == 3 → Dwarapala_WalkRight
 ```
 
-**Attack State — Blend per Arah:**
+**Attack State — State per Arah:**
 
 ```
-Direction == 0 atau 1 → Dwarapala_AttackFront
-Direction == 2 atau 3 → Dwarapala_AttackSide
+Attack:
+  Direction == 0 atau 1 → Dwarapala_AttackFront
+  Direction == 2 → Dwarapala_AttackLeft
+  Direction == 3 → Dwarapala_AttackRight
 ```
 
 **Animation Events pada clip Attack:**
@@ -338,15 +343,17 @@ Roh alam setengah dewa/iblis yang melayang di udara. Yaksa memiliki sayap besar 
 
 Spritesheet berisi 3 baris:
 
-#### Baris 1 — Idle & Walk (8 frame)
+#### Baris 1 — Walk / Semua Arah (9 frame)
+
+Seluruh baris atas adalah animasi **walk** untuk 3 arah. Idle menggunakan sprite walk yang sama dengan FPS lebih lambat.
 
 | Sprite | Arah | Penggunaan |
 |---|---|---|
-| Frame 1–2 | **Front Idle** | Yaksa melayang menghadap kamera, sayap bergerak pelan |
-| Frame 3–6 | **Back/Side Walk** | Yaksa melayang dengan gerakan sayap lebih cepat, dilihat dari belakang/3/4 |
-| Frame 7–8 | **Side Idle** | Yaksa melayang dilihat dari samping |
+| Frame 1–2 | **Walk Front** | Yaksa jalan/melayang menghadap kamera (2 frame) |
+| Frame 3–6 | **Walk Side** | Yaksa jalan/melayang dilihat dari samping (4 frame) |
+| Frame 7–9 | **Walk Back** | Yaksa jalan/melayang membelakangi kamera (3 frame) |
 
-> Karena Yaksa **melayang**, tidak ada perbedaan signifikan antara idle dan walk — hanya kecepatan animasi sayap yang berbeda.
+> Karena Yaksa **melayang**, perbedaan idle dan walk hanya pada kecepatan FPS animasi (idle = 4 fps, walk = 10 fps).
 
 #### Baris 2 — Shoot / Attack (7 frame)
 
@@ -372,17 +379,18 @@ Spritesheet berisi 3 baris:
 
 Simpan di: `Assets/Arts/Enemies/Stage2-MakaraOrYaksa/Animations/`
 
-| Nama Clip | Loop | FPS | Frame |
-|---|---|---|---|
-| `Yaksa_IdleFront` | ✅ | 6 | Baris 1, frame 1–2 |
-| `Yaksa_IdleSide` | ✅ | 6 | Baris 1, frame 7–8 |
-| `Yaksa_WalkBack` | ✅ | 10 | Baris 1, frame 3–6 |
-| `Yaksa_WalkFront` | ✅ | 10 | Baris 1, frame 1–2 (reuse, kecepatan lebih cepat) |
-| `Yaksa_WalkSide` | ✅ | 10 | Baris 1, frame 7–8 (reuse, kecepatan lebih cepat) |
-| `Yaksa_Shoot` | ❌ | 10 | Baris 2, frame 1–7 |
-| `Yaksa_Death` | ❌ | 8 | Baris 3, frame 1–6 |
+| Nama Clip | Loop | FPS | Frame | Catatan |
+|---|---|---|---|---|
+| `Yaksa_WalkFront` | ✅ | 10 | Baris 1, frame 1–2 | Walk depan (2 frame) |
+| `Yaksa_WalkSide` | ✅ | 10 | Baris 1, frame 3–6 | Walk samping (4 frame, flipX untuk kiri) |
+| `Yaksa_WalkBack` | ✅ | 10 | Baris 1, frame 7–9 | Walk belakang (3 frame) |
+| `Yaksa_IdleFront` | ✅ | 4 | Baris 1, frame 1–2 | Reuse sprite WalkFront, FPS lambat |
+| `Yaksa_IdleSide` | ✅ | 4 | Baris 1, frame 3–6 | Reuse sprite WalkSide, FPS lambat |
+| `Yaksa_IdleBack` | ✅ | 4 | Baris 1, frame 7–9 | Reuse sprite WalkBack, FPS lambat |
+| `Yaksa_Shoot` | ❌ | 10 | Baris 2, frame 1–7 | Serangan jarak jauh |
+| `Yaksa_Death` | ❌ | 8 | Baris 3, frame 1–6 | Animasi mati |
 
-> FPS 10 pada Shoot memberikan feel cepat dan responsif untuk serangan ranged.
+> FPS 10 pada Walk/Shoot memberikan feel cepat. FPS 4 pada Idle memberikan kesan "diam melayang".
 
 #### Animator Controller: `YaksaController.controller`
 
@@ -409,15 +417,23 @@ AnyState → Death    [kondisi: trigger "Die"]
 ```
 Idle (Speed <= 0.1):
   Direction 0 → Yaksa_IdleFront
-  Direction 1 → Yaksa_WalkBack (frame 1 saja, sebagai idle back)
-  Direction 2 → Yaksa_IdleSide (flipX = true)
-  Direction 3 → Yaksa_IdleSide (flipX = false)
+  Direction 1 → Yaksa_IdleBack
+  Direction 2 → Yaksa_IdleLeft
+  Direction 3 → Yaksa_IdleRight
 
 Walk (Speed > 0.1):
   Direction 0 → Yaksa_WalkFront
   Direction 1 → Yaksa_WalkBack
-  Direction 2 → Yaksa_WalkSide (flipX = true)
-  Direction 3 → Yaksa_WalkSide (flipX = false)
+  Direction 2 → Yaksa_WalkLeft
+  Direction 3 → Yaksa_WalkRight
+```
+
+**Shoot State:**
+
+```
+Shoot:
+  Direction == 0, 2 (atau target di kiri) → Yaksa_ShootLeft
+  Direction == 1, 3 (atau target di kanan) → Yaksa_ShootRight
 ```
 
 **Animation Events pada clip Shoot:**
