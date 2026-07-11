@@ -94,46 +94,55 @@ Simpan di: `Assets/Arts/Enemies/Stage2-Dwarapala/Animations/`
 | `Attack` | Trigger | Memicu state Attack |
 | `Die` | Trigger | Memicu state Death (dari AnyState) |
 
-**State Machine:**
+**Arsitektur: Blend Tree**
+
+> Setiap kelompok gerakan (Idle, Walk, Attack) menggunakan **Blend Tree 1D** dengan parameter `Direction`. Blend Tree otomatis memilih clip berdasarkan nilai `Direction` tanpa perlu transition antar-arah. Karena `Direction` bertipe Integer (selalu bernilai tepat 0/1/2/3), tidak terjadi blending antar clip.
+
+**State Machine (5 transition saja):**
 
 ```
-Entry → Movement (Default)
-Movement → Attack    [kondisi: trigger "Attack"]
-Attack → Movement    [kondisi: Animation Event "OnAttackEnd"]
-AnyState → Death     [kondisi: trigger "Die"]
+Entry → Idle (Default, Blend Tree)
+
+Idle → Walk         [kondisi: Speed > 0.1, Has Exit Time: ❌, Duration: 0]
+Walk → Idle         [kondisi: Speed < 0.1, Has Exit Time: ❌, Duration: 0]
+AnyState → Attack   [kondisi: trigger "Attack", Can Transition To Self: ❌]
+Attack → Idle       [Has Exit Time: ✅, Exit Time: 1, Conditions: kosong]
+AnyState → Death    [kondisi: trigger "Die", Can Transition To Self: ❌]
 ```
 
-**Movement State — Sub-State Machine per Arah:**
+**Blend Tree — Idle (1D, parameter: Direction):**
 
-```
-Idle:
-  Direction == 0 → Dwarapala_IdleFront
-  Direction == 1 → Dwarapala_IdleBack
-  Direction == 2 → Dwarapala_IdleLeft
-  Direction == 3 → Dwarapala_IdleRight
+| Threshold | Motion |
+|---|---|
+| 0 | `Dwarapala_IdleFront.anim` |
+| 1 | `Dwarapala_IdleBack.anim` |
+| 2 | `Dwarapala_IdleLeft.anim` |
+| 3 | `Dwarapala_IdleRight.anim` |
 
-Walk (Speed > 0.1):
-  Direction == 0 → Dwarapala_WalkFront
-  Direction == 1 → Dwarapala_WalkBack
-  Direction == 2 → Dwarapala_WalkLeft
-  Direction == 3 → Dwarapala_WalkRight
-```
+**Blend Tree — Walk (1D, parameter: Direction):**
 
-**Attack State — State per Arah:**
+| Threshold | Motion |
+|---|---|
+| 0 | `Dwarapala_WalkFront.anim` |
+| 1 | `Dwarapala_WalkBack.anim` |
+| 2 | `Dwarapala_WalkLeft.anim` |
+| 3 | `Dwarapala_WalkRight.anim` |
 
-```
-Attack:
-  Direction == 0 atau 1 → Dwarapala_AttackFront
-  Direction == 2 → Dwarapala_AttackLeft
-  Direction == 3 → Dwarapala_AttackRight
-```
+**Blend Tree — Attack (1D, parameter: Direction):**
+
+| Threshold | Motion |
+|---|---|
+| 0 | `Dwarapala_AttackFront.anim` |
+| 1 | `Dwarapala_AttackFront.anim` ← reuse (tidak ada sprite attack belakang) |
+| 2 | `Dwarapala_AttackLeft.anim` |
+| 3 | `Dwarapala_AttackRight.anim` |
 
 **Animation Events pada clip Attack:**
 
 | Event | Frame | Method |
 |---|---|---|
 | `OnAttackHit` | Frame terakhir (saat gada menyentuh tanah) | Spawn AoE damage |
-| `OnAttackEnd` | Setelah frame terakhir | Reset state ke Movement |
+| `OnAttackEnd` | Setelah frame terakhir | Reset state ke Idle |
 
 ### 1.3 AI Behavior
 
@@ -403,45 +412,55 @@ Simpan di: `Assets/Arts/Enemies/Stage2-MakaraOrYaksa/Animations/`
 | `Shoot` | Trigger | Memicu state Shoot |
 | `Die` | Trigger | Memicu state Death (dari AnyState) |
 
-**State Machine:**
+**Arsitektur: Blend Tree** (sama seperti Dwarapala)
+
+**State Machine (6 transition):**
 
 ```
-Entry → Movement (Default)
-Movement → Shoot    [kondisi: trigger "Shoot"]
-Shoot → Movement    [kondisi: Animation Event "OnAttackEnd"]
-AnyState → Death    [kondisi: trigger "Die"]
+Entry → Idle (Default, Blend Tree)
+
+Idle → Walk          [kondisi: Speed > 0.1, Has Exit Time: ❌, Duration: 0]
+Walk → Idle          [kondisi: Speed < 0.1, Has Exit Time: ❌, Duration: 0]
+AnyState → Shoot_Left  [kondisi: trigger "Shoot" + Direction Equals 0 atau 2, Can Transition To Self: ❌]
+AnyState → Shoot_Right [kondisi: trigger "Shoot" + Direction Equals 1 atau 3, Can Transition To Self: ❌]
+Shoot_Left → Idle    [Has Exit Time: ✅, Exit Time: 1, Conditions: kosong]
+Shoot_Right → Idle   [Has Exit Time: ✅, Exit Time: 1, Conditions: kosong]
+AnyState → Death     [kondisi: trigger "Die", Can Transition To Self: ❌]
 ```
 
-**Movement State:**
+> Karena Shoot hanya ada 2 clip (Left/Right), tidak perlu Blend Tree — cukup 2 state biasa yang dipilih via `Direction`.
 
-```
-Idle (Speed <= 0.1):
-  Direction 0 → Yaksa_IdleFront
-  Direction 1 → Yaksa_IdleBack
-  Direction 2 → Yaksa_IdleLeft
-  Direction 3 → Yaksa_IdleRight
+**Blend Tree — Idle (1D, parameter: Direction):**
 
-Walk (Speed > 0.1):
-  Direction 0 → Yaksa_WalkFront
-  Direction 1 → Yaksa_WalkBack
-  Direction 2 → Yaksa_WalkLeft
-  Direction 3 → Yaksa_WalkRight
-```
+| Threshold | Motion |
+|---|---|
+| 0 | `Yaksa_IdleFront.anim` |
+| 1 | `Yaksa_IdleBack.anim` |
+| 2 | `Yaksa_IdleLeft.anim` |
+| 3 | `Yaksa_IdleRight.anim` |
 
-**Shoot State:**
+**Blend Tree — Walk (1D, parameter: Direction):**
 
-```
-Shoot:
-  Direction == 0, 2 (atau target di kiri) → Yaksa_ShootLeft
-  Direction == 1, 3 (atau target di kanan) → Yaksa_ShootRight
-```
+| Threshold | Motion |
+|---|---|
+| 0 | `Yaksa_WalkFront.anim` |
+| 1 | `Yaksa_WalkBack.anim` |
+| 2 | `Yaksa_WalkLeft.anim` |
+| 3 | `Yaksa_WalkRight.anim` |
+
+**State Shoot (non Blend Tree):**
+
+| State | Motion | Keterangan |
+|---|---|---|
+| `Shoot_Left` | `Yaksa_ShootLeft.anim` | Direction 0 (Down) atau 2 (Left) |
+| `Shoot_Right` | `Yaksa_ShootRight.anim` | Direction 1 (Up) atau 3 (Right) |
 
 **Animation Events pada clip Shoot:**
 
 | Event | Frame | Method |
 |---|---|---|
 | `OnShootProjectile` | Frame 4 (saat panah dilepas) | Spawn EnergyArrow projectile |
-| `OnAttackEnd` | Frame 7 (akhir recovery) | Reset state ke Movement |
+| `OnAttackEnd` | Frame 7 (akhir recovery) | Reset state ke Idle |
 
 ### 3.3 AI Behavior
 

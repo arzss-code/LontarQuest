@@ -600,141 +600,152 @@ Di jendela Animator, klik tab **Parameters** (pojok kiri):
 3. Klik **+** → **Trigger** → beri nama `Attack`
 4. Klik **+** → **Trigger** → beri nama `Die`
 
-### Langkah 23: Buat State — Idle per Arah
+### Langkah 23: Buat Blend Tree — Idle
 
-1. Klik kanan pada area kosong Animator → **Create State** → **Empty** → beri nama `Idle_Down`
-2. Klik state `Idle_Down`:
-   - Di Inspector, set **Motion** = drag `Dwarapala_IdleFront.anim` dari Project Window
-3. Klik kanan lagi → **Create State** → **Empty** → `Idle_Up`
-   - Motion = `Dwarapala_IdleBack.anim`
-4. Buat state `Idle_Left` → Motion = `Dwarapala_IdleSide.anim`
-5. Buat state `Idle_Right` → Motion = `Dwarapala_IdleSide.anim`
+1. Di area kosong Animator, klik kanan → **Create State** → **From New Blend Tree**
+2. Rename state menjadi `Idle` (klik state → di Inspector, ubah nama)
+3. **Klik kanan** state `Idle` → **Set as Layer Default State** (state menjadi oranye)
+4. **Double-click** state `Idle` untuk masuk ke dalam Blend Tree editor
+5. Di Inspector (panel kanan), atur:
+   - **Blend Type**: `1D`
+   - **Parameter**: pilih `Direction`
+   - **Uncheck** ☐ `Automate Thresholds` (penting! agar threshold tidak berubah otomatis)
+6. Klik tombol **+** → **Add Motion Field** (ulangi 4 kali sehingga ada 4 baris)
+7. Isi setiap baris:
 
-> `Idle_Left` dan `Idle_Right` menggunakan clip yang sama. Pembedaan kiri/kanan dilakukan via `flipX` di script `Stage2EnemyAnimator`.
+   | # | Threshold | Motion (drag .anim dari Project) |
+   |---|---|---|
+   | 1 | `0` | `Dwarapala_IdleFront.anim` |
+   | 2 | `1` | `Dwarapala_IdleBack.anim` |
+   | 3 | `2` | `Dwarapala_IdleLeft.anim` |
+   | 4 | `3` | `Dwarapala_IdleRight.anim` |
 
-### Langkah 24: Buat State — Walk per Arah
+8. Klik **← Base Layer** (di header Animator) untuk kembali ke tampilan utama
 
-6. **Create State** → `Walk_Down` → Motion = `Dwarapala_WalkFront.anim`
-7. **Create State** → `Walk_Up` → Motion = `Dwarapala_WalkBack.anim`
-8. **Create State** → `Walk_Left` → Motion = `Dwarapala_WalkSide.anim`
-9. **Create State** → `Walk_Right` → Motion = `Dwarapala_WalkSide.anim`
+### Langkah 24: Buat Blend Tree — Walk
 
-### Langkah 25: Buat State — Attack & Death
+1. Klik kanan area kosong → **Create State** → **From New Blend Tree** → rename `Walk`
+2. **Double-click** `Walk` untuk masuk ke Blend Tree editor
+3. Atur sama seperti Idle:
+   - **Blend Type**: `1D`
+   - **Parameter**: `Direction`
+   - **Uncheck** ☐ `Automate Thresholds`
+4. Tambah 4 Motion Field:
 
-10. **Create State** → `Attack_Front` → Motion = `Dwarapala_AttackFront.anim`
-11. **Create State** → `Attack_Side` → Motion = `Dwarapala_AttackSide.anim`
-12. **Create State** → `Death` → Motion = `Dwarapala_Death.anim`
+   | # | Threshold | Motion |
+   |---|---|---|
+   | 1 | `0` | `Dwarapala_WalkFront.anim` |
+   | 2 | `1` | `Dwarapala_WalkBack.anim` |
+   | 3 | `2` | `Dwarapala_WalkLeft.anim` |
+   | 4 | `3` | `Dwarapala_WalkRight.anim` |
 
-### Langkah 26: Set Default State
+5. Kembali ke **← Base Layer**
 
-1. Klik kanan pada state `Idle_Down` → **Set as Layer Default State**
-   - State ini akan berubah menjadi **oranye** (warna default)
+### Langkah 25: Buat Blend Tree — Attack
 
-### Langkah 27: Buat Transition — Idle ↔ Walk (per Arah)
+1. Klik kanan → **Create State** → **From New Blend Tree** → rename `Attack`
+2. **Double-click** `Attack`
+3. Atur:
+   - **Blend Type**: `1D`
+   - **Parameter**: `Direction`
+   - **Uncheck** ☐ `Automate Thresholds`
+4. Tambah 4 Motion Field:
 
-Untuk **setiap pasangan** Idle/Walk per arah, buat transition bolak-balik:
+   | # | Threshold | Motion | Catatan |
+   |---|---|---|---|
+   | 1 | `0` | `Dwarapala_AttackFront.anim` | Down |
+   | 2 | `1` | `Dwarapala_AttackFront.anim` | Up — reuse front (tidak ada sprite back) |
+   | 3 | `2` | `Dwarapala_AttackLeft.anim` | Left |
+   | 4 | `3` | `Dwarapala_AttackRight.anim` | Right |
 
-**Arah Down (Direction == 0):**
+5. Kembali ke **← Base Layer**
 
-1. Klik kanan state `Idle_Down` → **Make Transition** → tarik ke `Walk_Down`
+### Langkah 26: Buat State — Death
 
-   - Klik panah transition → di Inspector:
-     - **Has Exit Time**: ❌ (uncheck)
-     - **Transition Duration**: 0
-     - **Conditions**: `Speed` → `Greater` → `0.1`
-2. Klik kanan `Walk_Down` → **Make Transition** → tarik ke `Idle_Down`
+1. Klik kanan → **Create State** → **Empty** → rename `Death`
+2. Di Inspector, set **Motion** = drag `Dwarapala_Death.anim` dari Project Window
 
+> Death tidak perlu Blend Tree karena hanya 1 clip.
+
+### Langkah 27: Buat Transition — Idle ↔ Walk
+
+**Transition 1: Idle → Walk**
+
+1. Klik kanan state `Idle` → **Make Transition** → tarik ke `Walk`
+2. Klik panah transition → di Inspector:
+   - **Has Exit Time**: ❌ (uncheck)
+   - **Transition Duration**: `0`
+   - **Conditions**: klik **+** → `Speed` → `Greater` → `0.1`
+
+**Transition 2: Walk → Idle**
+
+3. Klik kanan `Walk` → **Make Transition** → tarik ke `Idle`
+4. Di Inspector:
    - **Has Exit Time**: ❌
-   - **Transition Duration**: 0
+   - **Transition Duration**: `0`
    - **Conditions**: `Speed` → `Less` → `0.1`
 
-**Ulangi untuk arah lain** (Up/Left/Right) dengan pola yang sama tetapi menambahkan condition `Direction`:
+> ✅ Hanya 2 transition! Blend Tree otomatis memilih clip arah berdasarkan parameter `Direction`. Tidak perlu transition antar-arah.
 
-**Arah Up (Direction == 1):**
+### Langkah 28: Buat Transition — Attack
 
-- `Idle_Up` → `Walk_Up`: Conditions: `Speed Greater 0.1` + `Direction Equals 1`
-- `Walk_Up` → `Idle_Up`: Conditions: `Speed Less 0.1`
+**Transition 3: AnyState → Attack**
 
-**Arah Left (Direction == 2):**
+1. Klik kanan **Any State** (state hijau) → **Make Transition** → tarik ke `Attack`
+2. Di Inspector:
+   - **Has Exit Time**: ❌
+   - **Transition Duration**: `0`
+   - **Conditions**: `Attack` (trigger)
+   - Buka bagian **Settings** (klik segitiga lipat) → **Can Transition To Self**: ❌ (uncheck)
 
-- `Idle_Left` → `Walk_Left`: Conditions: `Speed Greater 0.1` + `Direction Equals 2`
-- `Walk_Left` → `Idle_Left`: Conditions: `Speed Less 0.1`
+**Transition 4: Attack → Idle**
 
-**Arah Right (Direction == 3):**
+3. Klik kanan `Attack` → **Make Transition** → tarik ke `Idle`
+4. Di Inspector:
+   - **Has Exit Time**: ✅ (centang)
+   - **Exit Time**: `1` (tunggu sampai animasi selesai)
+   - **Transition Duration**: `0`
+   - **Conditions**: (kosong — biarkan tanpa condition)
 
-- `Idle_Right` → `Walk_Right`: Conditions: `Speed Greater 0.1` + `Direction Equals 3`
-- `Walk_Right` → `Idle_Right`: Conditions: `Speed Less 0.1`
+### Langkah 29: Buat Transition — Death
 
-### Langkah 28: Buat Transition — Antar Arah (Idle → Idle)
+**Transition 5: AnyState → Death**
 
-Saat enemy berubah arah tanpa bergerak, perlu transition antar idle state:
-
-| Dari           | Ke             | Condition              |
-| -------------- | -------------- | ---------------------- |
-| `Idle_Down`  | `Idle_Up`    | `Direction Equals 1` |
-| `Idle_Down`  | `Idle_Left`  | `Direction Equals 2` |
-| `Idle_Down`  | `Idle_Right` | `Direction Equals 3` |
-| `Idle_Up`    | `Idle_Down`  | `Direction Equals 0` |
-| `Idle_Up`    | `Idle_Left`  | `Direction Equals 2` |
-| `Idle_Up`    | `Idle_Right` | `Direction Equals 3` |
-| `Idle_Left`  | `Idle_Down`  | `Direction Equals 0` |
-| `Idle_Left`  | `Idle_Up`    | `Direction Equals 1` |
-| `Idle_Left`  | `Idle_Right` | `Direction Equals 3` |
-| `Idle_Right` | `Idle_Down`  | `Direction Equals 0` |
-| `Idle_Right` | `Idle_Up`    | `Direction Equals 1` |
-| `Idle_Right` | `Idle_Left`  | `Direction Equals 2` |
-
-Semua transition: **Has Exit Time** = ❌, **Transition Duration** = 0
-
-> **Tip**: Ini banyak transition. Cara cepat: pilih beberapa transition sekaligus dan set properties di Inspector batch.
-
-Ulangi pola serupa untuk transition antar Walk state (Walk_Down ↔ Walk_Up ↔ Walk_Left ↔ Walk_Right) jika ingin smooth. Atau biarkan — script `Stage2EnemyAnimator` akan handle perpindahan dengan mengatur Direction.
-
-### Langkah 29: Buat Transition — Attack
-
-**Dari Any State ke Attack:**
-
-1. Klik kanan pada **Any State** (state abu-abu) → **Make Transition** → `Attack_Front`
-
-   - Conditions: `Attack` (trigger) + `Direction Equals 0`
-   - Has Exit Time: ❌, Transition Duration: 0
-   - **Can Transition To Self**: ❌ (uncheck)
-2. **Any State** → `Attack_Front`:
-
-   - Conditions: `Attack` + `Direction Equals 1`
-3. **Any State** → `Attack_Side`:
-
-   - Conditions: `Attack` + `Direction Equals 2`
-4. **Any State** → `Attack_Side`:
-
-   - Conditions: `Attack` + `Direction Equals 3`
-
-**Dari Attack kembali ke Idle:**
-
-5. `Attack_Front` → `Idle_Down`:
-
-   - **Has Exit Time**: ✅ (centang), Exit Time: 1 (setelah animasi selesai)
-   - Transition Duration: 0
-   - Conditions: (kosong / atau tambahkan `Direction Equals 0`)
-6. `Attack_Side` → `Idle_Left`:
-
-   - Has Exit Time: ✅, Exit Time: 1
-   - Conditions: `Direction Equals 2`
-7. `Attack_Side` → `Idle_Right`:
-
-   - Has Exit Time: ✅, Exit Time: 1
-   - Conditions: `Direction Equals 3`
-
-> **Alternatif lebih simpel**: Buat return transition dari Attack langsung ke `Idle_Down` saja, lalu biarkan script handle perpindahan ke arah yang benar via set Direction.
-
-### Langkah 30: Buat Transition — Death
-
-1. **Any State** → `Death`:
-   - Conditions: `Die` (trigger)
-   - Has Exit Time: ❌, Transition Duration: 0
+1. **Any State** → **Make Transition** → tarik ke `Death`
+2. Di Inspector:
+   - **Has Exit Time**: ❌
+   - **Transition Duration**: `0`
+   - **Conditions**: `Die` (trigger)
    - **Can Transition To Self**: ❌
 
-> Death tidak perlu return transition — setelah animasi Death selesai, GameObject akan di-destroy oleh script.
+> Death tidak perlu return transition — setelah animasi selesai, GameObject di-destroy oleh script.
+
+### Langkah 30: Verifikasi Animator
+
+Setelah selesai, tampilan Animator seharusnya terlihat bersih:
+
+```
+┌──────────────┐     Speed>0.1     ┌──────────────┐
+│  Idle (BT)   │ ───────────────→  │  Walk (BT)   │
+│  [Default]   │ ←───────────────  │              │
+└──────────────┘     Speed<0.1     └──────────────┘
+
+┌──────────────┐   Attack trigger   ┌──────────────┐
+│  Any State   │ ───────────────→   │ Attack (BT)  │ ──→ Idle (Exit Time=1)
+└──────────────┘                    └──────────────┘
+
+┌──────────────┐    Die trigger     ┌──────────────┐
+│  Any State   │ ───────────────→   │    Death     │
+└──────────────┘                    └──────────────┘
+```
+
+**Total: 4 state (3 Blend Tree + 1 biasa), 5 transition.**
+
+Verifikasi:
+- ✅ 4 parameter muncul di tab Parameters
+- ✅ `Idle` adalah state default (oranye)
+- ✅ Setiap Blend Tree berisi 4 motion field dengan threshold 0/1/2/3
+- ✅ `Automate Thresholds` di-uncheck di setiap Blend Tree
 
 ---
 
@@ -756,44 +767,81 @@ Ulangi pola serupa untuk transition antar Walk state (Walk_Down ↔ Walk_Up ↔ 
 | `Shoot`     | Trigger |
 | `Die`       | Trigger |
 
-### Langkah 33: Buat State
+### Langkah 33: Buat Blend Tree — Idle & Walk
 
-Buat state sama seperti Dwarapala, tetapi dengan clip Yaksa:
+Ikuti pola yang sama dengan Dwarapala (Langkah 23-24), tetapi dengan clip Yaksa:
 
-**Idle:**
+**Blend Tree — Idle (1D, parameter: Direction):**
 
-- `Idle_Down` → `Yaksa_IdleFront.anim`
-- `Idle_Up` → `Yaksa_WalkBack.anim` *(frame pertama sebagai idle)*
-- `Idle_Left` → `Yaksa_IdleSide.anim`
-- `Idle_Right` → `Yaksa_IdleSide.anim`
+1. Klik kanan → **Create State** → **From New Blend Tree** → rename `Idle`
+2. Set sebagai **Default State** (klik kanan → Set as Layer Default State)
+3. Double-click → atur Blend Type: `1D`, Parameter: `Direction`, uncheck Automate Thresholds
+4. Tambah 4 Motion Field:
 
-**Walk:**
+   | Threshold | Motion |
+   |---|---|
+   | `0` | `Yaksa_IdleFront.anim` |
+   | `1` | `Yaksa_IdleBack.anim` |
+   | `2` | `Yaksa_IdleLeft.anim` |
+   | `3` | `Yaksa_IdleRight.anim` |
 
-- `Walk_Down` → `Yaksa_WalkFront.anim`
-- `Walk_Up` → `Yaksa_WalkBack.anim`
-- `Walk_Left` → `Yaksa_WalkSide.anim`
-- `Walk_Right` → `Yaksa_WalkSide.anim`
+5. Kembali ke **← Base Layer**
 
-**Shoot:**
+**Blend Tree — Walk (1D, parameter: Direction):**
 
-- `Shoot` → `Yaksa_Shoot.anim`
+1. Klik kanan → **Create State** → **From New Blend Tree** → rename `Walk`
+2. Double-click → atur Blend Type: `1D`, Parameter: `Direction`, uncheck Automate Thresholds
+3. Tambah 4 Motion Field:
 
-**Death:**
+   | Threshold | Motion |
+   |---|---|
+   | `0` | `Yaksa_WalkFront.anim` |
+   | `1` | `Yaksa_WalkBack.anim` |
+   | `2` | `Yaksa_WalkLeft.anim` |
+   | `3` | `Yaksa_WalkRight.anim` |
 
-- `Death` → `Yaksa_Death.anim`
+4. Kembali ke **← Base Layer**
 
-### Langkah 34: Buat Transition
+### Langkah 34: Buat State — Shoot & Death
 
-Ikuti pola yang sama dengan DwarapalaController (Langkah 27-30), dengan perbedaan:
+> Shoot tidak menggunakan Blend Tree karena hanya ada 2 clip (Left/Right). Cukup 2 state biasa.
 
-- Ganti trigger `Attack` menjadi `Shoot` pada transition ke state `Shoot`
-- Shoot tidak perlu split per arah (satu animasi untuk semua arah — Yaksa selalu menghadap pemain saat menembak)
-- Transition dari **Any State** → `Shoot`: Condition = `Shoot` trigger saja (tanpa Direction)
-- Transition dari `Shoot` → `Idle_Down`: Has Exit Time = ✅, Exit Time = 1
+1. Klik kanan → **Create State** → **Empty** → rename `Shoot_Left` → Motion: `Yaksa_ShootLeft.anim`
+2. Klik kanan → **Create State** → **Empty** → rename `Shoot_Right` → Motion: `Yaksa_ShootRight.anim`
+3. Klik kanan → **Create State** → **Empty** → rename `Death` → Motion: `Yaksa_Death.anim`
 
-### Langkah 35: Set Default State
+### Langkah 35: Buat Transition
 
-- Klik kanan `Idle_Down` → **Set as Layer Default State**
+**Transition 1-2: Idle ↔ Walk** (sama persis seperti Dwarapala Langkah 27):
+
+- `Idle` → `Walk`: Conditions: `Speed Greater 0.1`, Has Exit Time: ❌, Duration: 0
+- `Walk` → `Idle`: Conditions: `Speed Less 0.1`, Has Exit Time: ❌, Duration: 0
+
+**Transition 3-4: AnyState → Shoot (per arah):**
+
+- **Any State** → `Shoot_Left`:
+  - Conditions: `Shoot` (trigger) + `Direction Equals 0`
+  - Has Exit Time: ❌, Duration: 0, Can Transition To Self: ❌
+- **Any State** → `Shoot_Left`:
+  - Conditions: `Shoot` + `Direction Equals 2`
+  - Has Exit Time: ❌, Duration: 0, Can Transition To Self: ❌
+- **Any State** → `Shoot_Right`:
+  - Conditions: `Shoot` + `Direction Equals 1`
+  - Has Exit Time: ❌, Duration: 0, Can Transition To Self: ❌
+- **Any State** → `Shoot_Right`:
+  - Conditions: `Shoot` + `Direction Equals 3`
+  - Has Exit Time: ❌, Duration: 0, Can Transition To Self: ❌
+
+> Logika: Down(0) dan Left(2) → `Shoot_Left`, Up(1) dan Right(3) → `Shoot_Right`
+
+**Transition 5-6: Shoot → Idle (kembali setelah selesai):**
+
+- `Shoot_Left` → `Idle`: Has Exit Time: ✅, Exit Time: 1, Duration: 0, Conditions: kosong
+- `Shoot_Right` → `Idle`: Has Exit Time: ✅, Exit Time: 1, Duration: 0, Conditions: kosong
+
+**Transition 7: AnyState → Death:**
+
+- **Any State** → `Death`: Conditions: `Die` (trigger), Has Exit Time: ❌, Duration: 0, Can Transition To Self: ❌
 
 ---
 
@@ -876,8 +924,8 @@ Centang setiap item setelah selesai:
 
 ### Animator Controller
 
-- [ ] `DwarapalaController.controller` — 4 parameter, 13 state, transition lengkap
-- [ ] `YaksaController.controller` — 4 parameter, 11 state, transition lengkap
+- [ ] `DwarapalaController.controller` — 4 parameter, 4 state (3 Blend Tree + Death), 5 transition
+- [ ] `YaksaController.controller` — 4 parameter, 5 state (2 Blend Tree + Shoot_Left + Shoot_Right + Death), 7 transition
 
 ### Cleanup
 
