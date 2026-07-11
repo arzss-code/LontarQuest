@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd58de4dec052945a09c704fcb096c2, type: 3}
+  m_Name: Boon_RestoringGuard
+  m_EditorClassIdentifier: Assembly-CSharp::BuffData
+  cardPrefab: {fileID: 2379861094628573874, guid: f94845c1a93b8e642bf1bcef61a538e7, type: 3}
+  title: Restoring Guard
+  cardSprite: {fileID: -9215270179850364783, guid: cb38d2b66b02d014fac71903efe3d2c4, type: 3}
+  description: 
+  effects:
+  - buffType: 0
+    valueType: 2
+    value: 0
+  - buffType: 10
+    valueType: 1
+    value: 25

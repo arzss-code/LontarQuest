@@ -173,37 +173,37 @@ public class BossStats : MonoBehaviour
     }
 
     private void Die()
-{
-    Debug.Log("===== BAHTARA KALA DEAD =====");
+    {
+        Debug.Log("===== BAHTARA KALA DEAD =====");
 
-    StopAllCoroutines();
+        StopAllCoroutines();
 
-    BossAttack attack = GetComponent<BossAttack>();
-    if (attack != null)
-        attack.enabled = false;
+        BossAttack attack = GetComponent<BossAttack>();
+        if (attack != null)
+            attack.enabled = false;
 
-    BossMovement movement = GetComponent<BossMovement>();
-    if (movement != null)
-        movement.enabled = false;
+        BossMovement movement = GetComponent<BossMovement>();
+        if (movement != null)
+            movement.enabled = false;
 
-    BossController controller = GetComponent<BossController>();
-    if (controller != null)
-        controller.enabled = false;
+        BossController controller = GetComponent<BossController>();
+        if (controller != null)
+            controller.enabled = false;
 
-    //----------------------------------------
-    // Beritahu BossManager
-    //----------------------------------------
+        //----------------------------------------
+        // Beritahu BossManager
+        //----------------------------------------
 
-    BossManager manager =
-        FindFirstObjectByType<BossManager>();
+        BossManager manager =
+            FindFirstObjectByType<BossManager>();
 
-    if (manager != null)
-        manager.EndBossFight();
+        if (manager != null)
+            manager.EndBossFight();
 
-    //----------------------------------------
-    // Destroy setelah sebentar
-    //----------------------------------------
+        //----------------------------------------
+        // Destroy setelah sebentar
+        //----------------------------------------
 
-    Destroy(gameObject, 1f);
-}
+        Destroy(gameObject, 1f);
+    }
 }

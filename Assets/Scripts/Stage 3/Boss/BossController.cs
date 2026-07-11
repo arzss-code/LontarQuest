@@ -186,12 +186,12 @@ public class BossController : MonoBehaviour
         if (hit == null)
             return;
 
-        PlayerStats playerStats =
-            hit.GetComponentInParent<PlayerStats>();
+        IDamageable damageable =
+            hit.GetComponentInParent<IDamageable>();
 
-        if (playerStats != null)
+        if (damageable != null)
         {
-            playerStats.TakeDamage(slamDamage);
+            damageable.TakeDamage(slamDamage);
 
             Debug.Log("Player terkena Slam!");
         }

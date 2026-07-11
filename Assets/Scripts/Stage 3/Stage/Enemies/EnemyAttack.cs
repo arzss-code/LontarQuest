@@ -111,13 +111,8 @@ public class EnemyAttack : MonoBehaviour
             projectileSpawn.position,
             lockedPosition);
 
-        Collider2D owner =
-            GetComponent<Collider2D>();
-
-        if(owner != null)
-        {
-            shot.SetOwner(owner);
-        }
+        // Owner projectile adalah Enemy ini
+        shot.SetOwner(gameObject);
     }
 
     public void EndAttack()

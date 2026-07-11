@@ -117,8 +117,6 @@ public class EnemyMovement : MonoBehaviour
 
             destination = randomCenter;
 
-            Debug.Log($"Patrol -> {destination}");
-
             return true;
         }
 

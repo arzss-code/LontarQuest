@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.41864, y: -20.67649, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.09, y: 2.09, z: 2.09}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5876643192280563596}
   m_Father: {fileID: 0}
@@ -83,7 +83,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Animation02Relay
   indicator: {fileID: 1564274804854435356}
-  attack: {fileID: 0}
 --- !u!1 &6532917866556803042
 GameObject:
   m_ObjectHideFlags: 0

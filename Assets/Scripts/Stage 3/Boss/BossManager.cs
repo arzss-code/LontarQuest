@@ -29,6 +29,11 @@ public class BossManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private float hideUIAfter = 0.8f;
+    [Header("Boss FX")]
+    [SerializeField] private GameObject bossEffects;
+
+    [Header("Ending Cutscene")]
+    [SerializeField] private BossEndingCutscene endingCutscene;
 
     private BoxCollider2D entranceCollider;
     private SpriteRenderer entranceSprite;
@@ -75,28 +80,22 @@ public class BossManager : MonoBehaviour
     {
         Debug.Log("=== Boss Fight Finished ===");
 
-        //--------------------------------------------------
-        // Barrier dibuka kembali
-        //--------------------------------------------------
-
         if (entranceCollider != null)
             entranceCollider.enabled = false;
 
         if (entranceSprite != null)
             entranceSprite.enabled = false;
 
-        //--------------------------------------------------
-        // Hide Boss UI
-        //--------------------------------------------------
+        if (bossEffects != null)
+            Destroy(bossEffects);
 
         HideBossUI();
 
-        //--------------------------------------------------
-        // Hide Shield Break Text
-        //--------------------------------------------------
-
         if (shieldBreakUI != null)
             shieldBreakUI.Hide();
+
+        if (endingCutscene != null)
+            endingCutscene.Play();
     }
 
     private IEnumerator BossIntroSequence()
