@@ -873,14 +873,14 @@ Semua script baru disimpan di: `Assets/Scripts/Stage-2/`
 
 ### Tahap 2 — Coding Script (bisa paralel)
 
-- [ ] `Stage2EnemyStats.cs`
-- [ ] `Stage2EnemyAnimator.cs`
-- [ ] `Stage2AnimationRelay.cs`
-- [ ] `Stage2EnemyMovement.cs`
-- [ ] `Stage2EnemyAttack.cs`
-- [ ] `EnergyArrow.cs`
-- [ ] `Stage2BossArena.cs`
-- [ ] `Stage2EnemyHealthBar.cs`
+- [X] `Stage2EnemyStats.cs`
+- [X] `Stage2EnemyAnimator.cs`
+- [X] `Stage2AnimationRelay.cs`
+- [X] `Stage2EnemyMovement.cs`
+- [X] `Stage2EnemyAttack.cs`
+- [X] `EnergyArrow.cs`
+- [X] `Stage2BossArena.cs`
+- [X] `Stage2EnemyHealthBar.cs`
 
 ### Tahap 3 — Prefab Assembly (di Unity Editor)
 
