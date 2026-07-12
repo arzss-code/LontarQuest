@@ -6,11 +6,11 @@ Dokumen ini merincikan desain dan implementasi teknis untuk 3 tipe monster pada 
 
 ## Daftar Monster
 
-| Tipe | Nama | Peran | Serangan | Referensi Visual |
-|---|---|---|---|---|
-| **Kroco** | Dwarapala Kecil | Musuh reguler (Tanker) | Melee AoE — Palu Gada | `Assets/Arts/Enemies/Stage2-Dwarapala/` |
-| **Mini Boss** | Dwarapala Besar | Mini Boss per-ruangan | Melee AoE — Palu Gada (lebih kuat) | Sama, skala 1.5x + tint **ungu** |
-| **Boss Utama** | Yaksa | Boss akhir Stage 2 | Ranged — Panah Energi + Laser Trail | `Assets/Arts/Enemies/Stage2-MakaraOrYaksa/` |
+| Tipe                 | Nama            | Peran                  | Serangan                             | Referensi Visual                              |
+| -------------------- | --------------- | ---------------------- | ------------------------------------ | --------------------------------------------- |
+| **Kroco**      | Dwarapala Kecil | Musuh reguler (Tanker) | Melee AoE — Palu Gada               | `Assets/Arts/Enemies/Stage2-Dwarapala/`     |
+| **Mini Boss**  | Dwarapala Besar | Mini Boss per-ruangan  | Melee AoE — Palu Gada (lebih kuat)  | Sama, skala 1.5x + tint**ungu**         |
+| **Boss Utama** | Yaksa           | Boss akhir Stage 2     | Ranged — Panah Energi + Laser Trail | `Assets/Arts/Enemies/Stage2-MakaraOrYaksa/` |
 
 ---
 
@@ -26,21 +26,21 @@ Raksasa batu penjaga candi berwajah menyeramkan yang membawa Gada (palu besar). 
 
 #### Idle (3 frame — `Idle.png`)
 
-| Sprite | Arah | Penggunaan |
-|---|---|---|
-| `Idle_0` | Front (menghadap kamera) | Idle saat tidak bergerak, arah bawah |
-| `Idle_1` | Back (membelakangi kamera) | Idle arah atas |
-| `Idle_2` | Side Right | Idle arah kanan. Untuk arah kiri, gunakan `flipX = true` |
+| Sprite     | Arah                       | Penggunaan                                                |
+| ---------- | -------------------------- | --------------------------------------------------------- |
+| `Idle_0` | Front (menghadap kamera)   | Idle saat tidak bergerak, arah bawah                      |
+| `Idle_1` | Back (membelakangi kamera) | Idle arah atas                                            |
+| `Idle_2` | Side Right                 | Idle arah kanan. Untuk arah kiri, gunakan`flipX = true` |
 
 #### Walk (12 frame — `Walk.png`)
 
 Spritesheet terbagi dalam 3 baris × 4 kolom, setiap baris merupakan 1 siklus walk loop:
 
-| Baris | Sprite | Arah | Frame |
-|---|---|---|---|
-| Baris 1 (atas) | `Walk_0` → `Walk_3` | **Front Walk** | 4 frame jalan menghadap kamera |
-| Baris 2 (tengah) | `Walk_4` → `Walk_7` | **Back Walk** | 4 frame jalan membelakangi kamera |
-| Baris 3 (bawah) | `Walk_8` → `Walk_11` | **Side Walk** | 4 frame jalan ke samping. `flipX` untuk arah berlawanan |
+| Baris            | Sprite                    | Arah                 | Frame                                                    |
+| ---------------- | ------------------------- | -------------------- | -------------------------------------------------------- |
+| Baris 1 (atas)   | `Walk_0` → `Walk_3`  | **Front Walk** | 4 frame jalan menghadap kamera                           |
+| Baris 2 (tengah) | `Walk_4` → `Walk_7`  | **Back Walk**  | 4 frame jalan membelakangi kamera                        |
+| Baris 3 (bawah)  | `Walk_8` → `Walk_11` | **Side Walk**  | 4 frame jalan ke samping.`flipX` untuk arah berlawanan |
 
 #### Attack & Death (`AttackAndDeath.png`)
 
@@ -48,38 +48,38 @@ Spritesheet terbagi dalam 3 baris × 4 kolom, setiap baris merupakan 1 siklus wa
 
 **Attack (6 frame — 2 arah × 3 frame):**
 
-| Arah | Frame | Deskripsi Gerakan |
-|---|---|---|
-| **Front Attack** | `AttackAndDeath_9` → `_10` → `_11` | Angkat gada → ayunkan ke samping → hantam tanah (AoE) |
-| **Side Attack** | `AttackAndDeath_12` → `_13` → `_17` | Angkat gada ke atas → ayunkan ke depan → hantam tanah dengan efek impact |
+| Arah                   | Frame                                       | Deskripsi Gerakan                                                          |
+| ---------------------- | ------------------------------------------- | -------------------------------------------------------------------------- |
+| **Front Attack** | `AttackAndDeath_9` → `_10` → `_11`  | Angkat gada → ayunkan ke samping → hantam tanah (AoE)                    |
+| **Side Attack**  | `AttackAndDeath_12` → `_13` → `_17` | Angkat gada ke atas → ayunkan ke depan → hantam tanah dengan efek impact |
 
 **Death (4 frame):**
 
-| Frame | Deskripsi |
-|---|---|
+| Frame                | Deskripsi                        |
+| -------------------- | -------------------------------- |
 | `AttackAndDeath_0` | Dwarapala terhuyung, mulai retak |
 | `AttackAndDeath_1` | Jatuh berlutut, retakan membesar |
-| `AttackAndDeath_2` | Ambruk ke tanah, batu pecah |
+| `AttackAndDeath_2` | Ambruk ke tanah, batu pecah      |
 | `AttackAndDeath_3` | Hancur total, tersisa puing batu |
 
 #### Daftar Animation Clip (.anim)
 
 Simpan di: `Assets/Arts/Enemies/Stage2-Dwarapala/Animations/`
 
-| Nama Clip | Loop | FPS | Frame | Keterangan |
-|---|---|---|---|---|
-| `Dwarapala_IdleFront` | ✅ | 1 | Idle_0 | menghadap depan |
-| `Dwarapala_IdleBack` | ✅ | 1 | Idle_1 | menghadap belakang |
-| `Dwarapala_IdleLeft` | ✅ | 1 | Idle_2 | side-view, flipX = ✅ |
-| `Dwarapala_IdleRight` | ✅ | 1 | Idle_2 | side-view, flipX = ❌ |
-| `Dwarapala_WalkFront` | ✅ | 8 | Walk_0 → Walk_3 | jalan depan |
-| `Dwarapala_WalkBack` | ✅ | 8 | Walk_4 → Walk_7 | jalan belakang |
-| `Dwarapala_WalkLeft` | ✅ | 8 | Walk_8 → Walk_11 | jalan samping, flipX = ✅ |
-| `Dwarapala_WalkRight` | ✅ | 8 | Walk_8 → Walk_11 | jalan samping, flipX = ❌ |
-| `Dwarapala_AttackFront`| ❌ | 8 | AtkFront_0 → _2 | hantam depan |
-| `Dwarapala_AttackLeft` | ❌ | 8 | AtkSide_0 → _2 | hantam samping, flipX = ✅ |
-| `Dwarapala_AttackRight`| ❌ | 8 | AtkSide_0 → _2 | hantam samping, flipX = ❌ |
-| `Dwarapala_Death` | ❌ | 6 | Death_0 → Death_3 | hancur |
+| Nama Clip                 | Loop | FPS | Frame              | Keterangan                 |
+| ------------------------- | ---- | --- | ------------------ | -------------------------- |
+| `Dwarapala_IdleFront`   | ✅   | 1   | Idle_0             | menghadap depan            |
+| `Dwarapala_IdleBack`    | ✅   | 1   | Idle_1             | menghadap belakang         |
+| `Dwarapala_IdleLeft`    | ✅   | 1   | Idle_2             | side-view, flipX = ✅      |
+| `Dwarapala_IdleRight`   | ✅   | 1   | Idle_2             | side-view, flipX = ❌      |
+| `Dwarapala_WalkFront`   | ✅   | 8   | Walk_0 → Walk_3   | jalan depan                |
+| `Dwarapala_WalkBack`    | ✅   | 8   | Walk_4 → Walk_7   | jalan belakang             |
+| `Dwarapala_WalkLeft`    | ✅   | 8   | Walk_8 → Walk_11  | jalan samping, flipX = ✅  |
+| `Dwarapala_WalkRight`   | ✅   | 8   | Walk_8 → Walk_11  | jalan samping, flipX = ❌  |
+| `Dwarapala_AttackFront` | ❌   | 8   | AtkFront_0 → _2   | hantam depan               |
+| `Dwarapala_AttackLeft`  | ❌   | 8   | AtkSide_0 → _2    | hantam samping, flipX = ✅ |
+| `Dwarapala_AttackRight` | ❌   | 8   | AtkSide_0 → _2    | hantam samping, flipX = ❌ |
+| `Dwarapala_Death`       | ❌   | 6   | Death_0 → Death_3 | hancur                     |
 
 > FPS 8 memberikan nuansa berat dan lambat yang cocok untuk karakter tanker.
 
@@ -87,12 +87,12 @@ Simpan di: `Assets/Arts/Enemies/Stage2-Dwarapala/Animations/`
 
 **Parameter Animator:**
 
-| Parameter | Tipe | Keterangan |
-|---|---|---|
+| Parameter     | Tipe    | Keterangan                            |
+| ------------- | ------- | ------------------------------------- |
 | `Direction` | Integer | 0 = Down, 1 = Up, 2 = Left, 3 = Right |
-| `Speed` | Float | 0 = idle, > 0 = walking |
-| `Attack` | Trigger | Memicu state Attack |
-| `Die` | Trigger | Memicu state Death (dari AnyState) |
+| `Speed`     | Float   | 0 = idle, > 0 = walking               |
+| `Attack`    | Trigger | Memicu state Attack                   |
+| `Die`       | Trigger | Memicu state Death (dari AnyState)    |
 
 **Arsitektur: Blend Tree**
 
@@ -112,37 +112,37 @@ AnyState → Death    [kondisi: trigger "Die", Can Transition To Self: ❌]
 
 **Blend Tree — Idle (1D, parameter: Direction):**
 
-| Threshold | Motion |
-|---|---|
-| 0 | `Dwarapala_IdleFront.anim` |
-| 1 | `Dwarapala_IdleBack.anim` |
-| 2 | `Dwarapala_IdleLeft.anim` |
-| 3 | `Dwarapala_IdleRight.anim` |
+| Threshold | Motion                       |
+| --------- | ---------------------------- |
+| 0         | `Dwarapala_IdleFront.anim` |
+| 1         | `Dwarapala_IdleBack.anim`  |
+| 2         | `Dwarapala_IdleLeft.anim`  |
+| 3         | `Dwarapala_IdleRight.anim` |
 
 **Blend Tree — Walk (1D, parameter: Direction):**
 
-| Threshold | Motion |
-|---|---|
-| 0 | `Dwarapala_WalkFront.anim` |
-| 1 | `Dwarapala_WalkBack.anim` |
-| 2 | `Dwarapala_WalkLeft.anim` |
-| 3 | `Dwarapala_WalkRight.anim` |
+| Threshold | Motion                       |
+| --------- | ---------------------------- |
+| 0         | `Dwarapala_WalkFront.anim` |
+| 1         | `Dwarapala_WalkBack.anim`  |
+| 2         | `Dwarapala_WalkLeft.anim`  |
+| 3         | `Dwarapala_WalkRight.anim` |
 
 **Blend Tree — Attack (1D, parameter: Direction):**
 
-| Threshold | Motion |
-|---|---|
-| 0 | `Dwarapala_AttackFront.anim` |
-| 1 | `Dwarapala_AttackFront.anim` ← reuse (tidak ada sprite attack belakang) |
-| 2 | `Dwarapala_AttackLeft.anim` |
-| 3 | `Dwarapala_AttackRight.anim` |
+| Threshold | Motion                                                                     |
+| --------- | -------------------------------------------------------------------------- |
+| 0         | `Dwarapala_AttackFront.anim`                                             |
+| 1         | `Dwarapala_AttackFront.anim` ← reuse (tidak ada sprite attack belakang) |
+| 2         | `Dwarapala_AttackLeft.anim`                                              |
+| 3         | `Dwarapala_AttackRight.anim`                                             |
 
 **Animation Events pada clip Attack:**
 
-| Event | Frame | Method |
-|---|---|---|
-| `OnAttackHit` | Frame terakhir (saat gada menyentuh tanah) | Spawn AoE damage |
-| `OnAttackEnd` | Setelah frame terakhir | Reset state ke Idle |
+| Event           | Frame                                      | Method              |
+| --------------- | ------------------------------------------ | ------------------- |
+| `OnAttackHit` | Frame terakhir (saat gada menyentuh tanah) | Spawn AoE damage    |
+| `OnAttackEnd` | Setelah frame terakhir                     | Reset state ke Idle |
 
 ### 1.3 AI Behavior
 
@@ -160,15 +160,15 @@ State Machine:
 
 **Detail Behavior:**
 
-| Parameter | Nilai | Keterangan |
-|---|---|---|
-| `detectionRadius` | 7f | Jarak deteksi pemain |
-| `moveSpeed` | 2f | Lambat (karakter tanker) |
-| `stopDistance` | 1.2f | Berhenti saat cukup dekat untuk serang |
-| `attackDistance` | 1.5f | Jangkauan serangan melee |
-| `attackCooldown` | 2.5s | Jeda antar serangan |
-| `leashRadius` | 10f | Jarak maks dari titik spawn sebelum kembali |
-| `chargeTime` | 0.4s | Delay sebelum serangan (angkat gada) |
+| Parameter           | Nilai | Keterangan                                  |
+| ------------------- | ----- | ------------------------------------------- |
+| `detectionRadius` | 7f    | Jarak deteksi pemain                        |
+| `moveSpeed`       | 2f    | Lambat (karakter tanker)                    |
+| `stopDistance`    | 1.2f  | Berhenti saat cukup dekat untuk serang      |
+| `attackDistance`  | 1.5f  | Jangkauan serangan melee                    |
+| `attackCooldown`  | 2.5s  | Jeda antar serangan                         |
+| `leashRadius`     | 10f   | Jarak maks dari titik spawn sebelum kembali |
+| `chargeTime`      | 0.4s  | Delay sebelum serangan (angkat gada)        |
 
 **Mekanisme Serangan (Palu Gada AoE):**
 
@@ -183,15 +183,15 @@ State Machine:
 
 ### 1.4 Statistik
 
-| Stat | Nilai |
-|---|---|
-| Max HP | 80 |
-| Damage | 25 |
-| AoE Radius | 2f |
-| Move Speed | 2f |
-| Attack Cooldown | 2.5s |
-| Knockback Force | 5f |
-| Stun Duration | — |
+| Stat            | Nilai |
+| --------------- | ----- |
+| Max HP          | 80    |
+| Damage          | 25    |
+| AoE Radius      | 2f    |
+| Move Speed      | 2f    |
+| Attack Cooldown | 2.5s  |
+| Knockback Force | 5f    |
+| Stun Duration   | —    |
 
 ### 1.5 Prefab Setup
 
@@ -262,15 +262,16 @@ Versi lebih besar dan lebih berbahaya dari Dwarapala reguler. Tubuhnya berwarna 
 
 ### 2.2 Perbedaan Visual
 
-| Properti | Kroco | Mini Boss |
-|---|---|---|
-| `Transform.localScale` | (1, 1, 1) | **(1.5, 1.5, 1)** |
-| `SpriteRenderer.color` | (1, 1, 1, 1) White | **(0.6, 0.3, 0.8, 1) Ungu** |
-| Efek Tambahan | — | Particle System aura ungu (opsional) |
-| Health Bar | Tidak ada | **Ada** (UI Slider melayang di atas) |
-| Camera Shake saat Attack | Tidak | **Ya** (durasi 0.2s, intensitas 0.15f) |
+| Properti                 | Kroco              | Mini Boss                                    |
+| ------------------------ | ------------------ | -------------------------------------------- |
+| `Transform.localScale` | (1, 1, 1)          | **(1.5, 1.5, 1)**                      |
+| `SpriteRenderer.color` | (1, 1, 1, 1) White | **(0.6, 0.3, 0.8, 1) Ungu**            |
+| Efek Tambahan            | —                 | Particle System aura ungu (opsional)         |
+| Health Bar               | Tidak ada          | **Ada** (UI Slider melayang di atas)   |
+| Camera Shake saat Attack | Tidak              | **Ya** (durasi 0.2s, intensitas 0.15f) |
 
 **Nilai warna ungu yang disarankan (RGBA):**
+
 - Base tint: `(0.6, 0.3, 0.8, 1.0)` — Ungu medium
 - Alternatif gelap: `(0.45, 0.2, 0.65, 1.0)` — Ungu gelap misterius
 - Alternatif terang: `(0.7, 0.4, 0.9, 1.0)` — Ungu cerah mencolok
@@ -285,16 +286,16 @@ Sama dengan Dwarapala Kroco, tetapi dengan penambahan:
 
 ### 2.4 Statistik
 
-| Stat | Kroco | Mini Boss | Perubahan |
-|---|---|---|---|
-| Max HP | 80 | **200** | +150% |
-| Damage | 25 | **40** | +60% |
-| AoE Radius | 2f | **3f** | +50% |
-| Move Speed | 2f | **1.8f** | -10% (lebih lambat) |
-| Attack Cooldown | 2.5s | **3.0s** | +20% (lebih lama) |
-| Knockback Force | 5f | **8f** | +60% |
-| Stun Duration | 0s | **0.5s** | Baru |
-| Camera Shake | Tidak | **Ya** | Baru |
+| Stat            | Kroco | Mini Boss      | Perubahan           |
+| --------------- | ----- | -------------- | ------------------- |
+| Max HP          | 80    | **200**  | +150%               |
+| Damage          | 25    | **40**   | +60%                |
+| AoE Radius      | 2f    | **3f**   | +50%                |
+| Move Speed      | 2f    | **1.8f** | -10% (lebih lambat) |
+| Attack Cooldown | 2.5s  | **3.0s** | +20% (lebih lama)   |
+| Knockback Force | 5f    | **8f**   | +60%                |
+| Stun Duration   | 0s    | **0.5s** | Baru                |
+| Camera Shake    | Tidak | **Ya**   | Baru                |
 
 ### 2.5 Prefab Setup
 
@@ -356,48 +357,48 @@ Spritesheet berisi 3 baris:
 
 Seluruh baris atas adalah animasi **walk** untuk 3 arah. Idle menggunakan sprite walk yang sama dengan FPS lebih lambat.
 
-| Sprite | Arah | Penggunaan |
-|---|---|---|
-| Frame 1–2 | **Walk Front** | Yaksa jalan/melayang menghadap kamera (2 frame) |
-| Frame 3–6 | **Walk Side** | Yaksa jalan/melayang dilihat dari samping (4 frame) |
-| Frame 7–9 | **Walk Back** | Yaksa jalan/melayang membelakangi kamera (3 frame) |
+| Sprite     | Arah                 | Penggunaan                                          |
+| ---------- | -------------------- | --------------------------------------------------- |
+| Frame 1–2 | **Walk Front** | Yaksa jalan/melayang menghadap kamera (2 frame)     |
+| Frame 3–6 | **Walk Side**  | Yaksa jalan/melayang dilihat dari samping (4 frame) |
+| Frame 7–9 | **Walk Back**  | Yaksa jalan/melayang membelakangi kamera (3 frame)  |
 
 > Karena Yaksa **melayang**, perbedaan idle dan walk hanya pada kecepatan FPS animasi (idle = 4 fps, walk = 10 fps).
 
 #### Baris 2 — Shoot / Attack (7 frame)
 
-| Frame | Deskripsi |
-|---|---|
-| Frame 1 | Posisi siap, busur terangkat, panah energi mulai terbentuk |
-| Frame 2 | Tarik tali busur, energi mengumpul |
-| Frame 3 | Busur tertarik penuh, energi bersinar terang |
-| Frame 4 | Panah dilepas, laser trail terlihat memanjang |
-| Frame 5 | Follow-through, busur kembali |
-| Frame 6–7 | Recovery, kembali ke posisi idle |
+| Frame      | Deskripsi                                                  |
+| ---------- | ---------------------------------------------------------- |
+| Frame 1    | Posisi siap, busur terangkat, panah energi mulai terbentuk |
+| Frame 2    | Tarik tali busur, energi mengumpul                         |
+| Frame 3    | Busur tertarik penuh, energi bersinar terang               |
+| Frame 4    | Panah dilepas, laser trail terlihat memanjang              |
+| Frame 5    | Follow-through, busur kembali                              |
+| Frame 6–7 | Recovery, kembali ke posisi idle                           |
 
 #### Baris 3 — Death / Defeated (6 frame)
 
-| Frame | Deskripsi |
-|---|---|
-| Frame 1–2 | Yaksa terhuyung, kristal energi meredup |
-| Frame 3 | Tubuh mulai hancur/pecah dari bawah |
+| Frame      | Deskripsi                                      |
+| ---------- | ---------------------------------------------- |
+| Frame 1–2 | Yaksa terhuyung, kristal energi meredup        |
+| Frame 3    | Tubuh mulai hancur/pecah dari bawah            |
 | Frame 4–5 | Ledakan partikel energi biru, tubuh menghilang |
-| Frame 6 | Sisa energi menguap, hanya jejak cahaya biru |
+| Frame 6    | Sisa energi menguap, hanya jejak cahaya biru   |
 
 #### Daftar Animation Clip (.anim)
 
 Simpan di: `Assets/Arts/Enemies/Stage2-MakaraOrYaksa/Animations/`
 
-| Nama Clip | Loop | FPS | Frame | Catatan |
-|---|---|---|---|---|
-| `Yaksa_WalkFront` | ✅ | 10 | Baris 1, frame 1–2 | Walk depan (2 frame) |
-| `Yaksa_WalkSide` | ✅ | 10 | Baris 1, frame 3–6 | Walk samping (4 frame, flipX untuk kiri) |
-| `Yaksa_WalkBack` | ✅ | 10 | Baris 1, frame 7–9 | Walk belakang (3 frame) |
-| `Yaksa_IdleFront` | ✅ | 4 | Baris 1, frame 1–2 | Reuse sprite WalkFront, FPS lambat |
-| `Yaksa_IdleSide` | ✅ | 4 | Baris 1, frame 3–6 | Reuse sprite WalkSide, FPS lambat |
-| `Yaksa_IdleBack` | ✅ | 4 | Baris 1, frame 7–9 | Reuse sprite WalkBack, FPS lambat |
-| `Yaksa_Shoot` | ❌ | 10 | Baris 2, frame 1–7 | Serangan jarak jauh |
-| `Yaksa_Death` | ❌ | 8 | Baris 3, frame 1–6 | Animasi mati |
+| Nama Clip           | Loop | FPS | Frame               | Catatan                                  |
+| ------------------- | ---- | --- | ------------------- | ---------------------------------------- |
+| `Yaksa_WalkFront` | ✅   | 10  | Baris 1, frame 1–2 | Walk depan (2 frame)                     |
+| `Yaksa_WalkSide`  | ✅   | 10  | Baris 1, frame 3–6 | Walk samping (4 frame, flipX untuk kiri) |
+| `Yaksa_WalkBack`  | ✅   | 10  | Baris 1, frame 7–9 | Walk belakang (3 frame)                  |
+| `Yaksa_IdleFront` | ✅   | 4   | Baris 1, frame 1–2 | Reuse sprite WalkFront, FPS lambat       |
+| `Yaksa_IdleSide`  | ✅   | 4   | Baris 1, frame 3–6 | Reuse sprite WalkSide, FPS lambat        |
+| `Yaksa_IdleBack`  | ✅   | 4   | Baris 1, frame 7–9 | Reuse sprite WalkBack, FPS lambat        |
+| `Yaksa_Shoot`     | ❌   | 10  | Baris 2, frame 1–7 | Serangan jarak jauh                      |
+| `Yaksa_Death`     | ❌   | 8   | Baris 3, frame 1–6 | Animasi mati                             |
 
 > FPS 10 pada Walk/Shoot memberikan feel cepat. FPS 4 pada Idle memberikan kesan "diam melayang".
 
@@ -405,12 +406,12 @@ Simpan di: `Assets/Arts/Enemies/Stage2-MakaraOrYaksa/Animations/`
 
 **Parameter Animator:**
 
-| Parameter | Tipe | Keterangan |
-|---|---|---|
+| Parameter     | Tipe    | Keterangan                            |
+| ------------- | ------- | ------------------------------------- |
 | `Direction` | Integer | 0 = Down, 1 = Up, 2 = Left, 3 = Right |
-| `Speed` | Float | 0 = idle, > 0 = moving |
-| `Shoot` | Trigger | Memicu state Shoot |
-| `Die` | Trigger | Memicu state Death (dari AnyState) |
+| `Speed`     | Float   | 0 = idle, > 0 = moving                |
+| `Shoot`     | Trigger | Memicu state Shoot                    |
+| `Die`       | Trigger | Memicu state Death (dari AnyState)    |
 
 **Arsitektur: Blend Tree** (sama seperti Dwarapala)
 
@@ -432,35 +433,35 @@ AnyState → Death     [kondisi: trigger "Die", Can Transition To Self: ❌]
 
 **Blend Tree — Idle (1D, parameter: Direction):**
 
-| Threshold | Motion |
-|---|---|
-| 0 | `Yaksa_IdleFront.anim` |
-| 1 | `Yaksa_IdleBack.anim` |
-| 2 | `Yaksa_IdleLeft.anim` |
-| 3 | `Yaksa_IdleRight.anim` |
+| Threshold | Motion                   |
+| --------- | ------------------------ |
+| 0         | `Yaksa_IdleFront.anim` |
+| 1         | `Yaksa_IdleBack.anim`  |
+| 2         | `Yaksa_IdleLeft.anim`  |
+| 3         | `Yaksa_IdleRight.anim` |
 
 **Blend Tree — Walk (1D, parameter: Direction):**
 
-| Threshold | Motion |
-|---|---|
-| 0 | `Yaksa_WalkFront.anim` |
-| 1 | `Yaksa_WalkBack.anim` |
-| 2 | `Yaksa_WalkLeft.anim` |
-| 3 | `Yaksa_WalkRight.anim` |
+| Threshold | Motion                   |
+| --------- | ------------------------ |
+| 0         | `Yaksa_WalkFront.anim` |
+| 1         | `Yaksa_WalkBack.anim`  |
+| 2         | `Yaksa_WalkLeft.anim`  |
+| 3         | `Yaksa_WalkRight.anim` |
 
 **State Shoot (non Blend Tree):**
 
-| State | Motion | Keterangan |
-|---|---|---|
-| `Shoot_Left` | `Yaksa_ShootLeft.anim` | Direction 0 (Down) atau 2 (Left) |
-| `Shoot_Right` | `Yaksa_ShootRight.anim` | Direction 1 (Up) atau 3 (Right) |
+| State           | Motion                    | Keterangan                       |
+| --------------- | ------------------------- | -------------------------------- |
+| `Shoot_Left`  | `Yaksa_ShootLeft.anim`  | Direction 0 (Down) atau 2 (Left) |
+| `Shoot_Right` | `Yaksa_ShootRight.anim` | Direction 1 (Up) atau 3 (Right)  |
 
 **Animation Events pada clip Shoot:**
 
-| Event | Frame | Method |
-|---|---|---|
+| Event                 | Frame                        | Method                       |
+| --------------------- | ---------------------------- | ---------------------------- |
 | `OnShootProjectile` | Frame 4 (saat panah dilepas) | Spawn EnergyArrow projectile |
-| `OnAttackEnd` | Frame 7 (akhir recovery) | Reset state ke Idle |
+| `OnAttackEnd`       | Frame 7 (akhir recovery)     | Reset state ke Idle          |
 
 ### 3.3 AI Behavior
 
@@ -478,17 +479,17 @@ State Machine:
 
 **Detail Behavior:**
 
-| Parameter | Nilai | Keterangan |
-|---|---|---|
-| `detectionRadius` | 12f | Deteksi jauh (ranged boss) |
-| `moveSpeed` | 2.5f | Lebih cepat dari Dwarapala (perlu reposisi) |
-| `preferredDistance` | 6f | Jarak ideal untuk menembak |
-| `retreatDistance` | 3f | Jika pemain lebih dekat dari ini → mundur |
-| `retreatSpeed` | 3f | Kecepatan mundur (lebih cepat dari maju) |
-| `attackRange` | 8f | Jangkauan tembak maksimal |
-| `attackCooldown` | 1.8s | Jeda antar tembakan |
-| `aimDuration` | 0.3s | Lock-on ke pemain sebelum menembak |
-| `leashRadius` | 15f | Radius maks dari titik spawn |
+| Parameter             | Nilai | Keterangan                                  |
+| --------------------- | ----- | ------------------------------------------- |
+| `detectionRadius`   | 12f   | Deteksi jauh (ranged boss)                  |
+| `moveSpeed`         | 2.5f  | Lebih cepat dari Dwarapala (perlu reposisi) |
+| `preferredDistance` | 6f    | Jarak ideal untuk menembak                  |
+| `retreatDistance`   | 3f    | Jika pemain lebih dekat dari ini → mundur  |
+| `retreatSpeed`      | 3f    | Kecepatan mundur (lebih cepat dari maju)    |
+| `attackRange`       | 8f    | Jangkauan tembak maksimal                   |
+| `attackCooldown`    | 1.8s  | Jeda antar tembakan                         |
+| `aimDuration`       | 0.3s  | Lock-on ke pemain sebelum menembak          |
+| `leashRadius`       | 15f   | Radius maks dari titik spawn                |
 
 **Pola Gerakan:**
 
@@ -511,13 +512,13 @@ Panah Energi Yaksa bukan proyektil biasa — ia berupa **panah bercahaya yang me
 
 **Komponen Utama:**
 
-| Komponen | Fungsi |
-|---|---|
-| **Sprite** | Sprite panah energi biru dari spritesheet Yaksa |
-| **Trail Renderer** | Jejak cahaya biru yang mengikuti panah, fade out sepanjang jalur |
-| **Point Light 2D** | Cahaya biru kecil yang mengikuti panah (opsional, untuk URP 2D) |
-| **Particle System** | Partikel kecil di ujung panah (percikan energi) |
-| **Line Renderer** | Garis laser tipis dari titik tembak ke posisi panah (opsional, untuk efek "terhubung") |
+| Komponen                  | Fungsi                                                                                 |
+| ------------------------- | -------------------------------------------------------------------------------------- |
+| **Sprite**          | Sprite panah energi biru dari spritesheet Yaksa                                        |
+| **Trail Renderer**  | Jejak cahaya biru yang mengikuti panah, fade out sepanjang jalur                       |
+| **Point Light 2D**  | Cahaya biru kecil yang mengikuti panah (opsional, untuk URP 2D)                        |
+| **Particle System** | Partikel kecil di ujung panah (percikan energi)                                        |
+| **Line Renderer**   | Garis laser tipis dari titik tembak ke posisi panah (opsional, untuk efek "terhubung") |
 
 #### Detail Trail Renderer (Efek Laser)
 
@@ -616,18 +617,18 @@ EnergyArrow (GameObject)
 
 ### 3.5 Statistik
 
-| Stat | Nilai |
-|---|---|
-| Max HP | 350 |
-| Projectile Damage | 15 per panah |
-| Projectile Speed | 8f |
-| Attack Cooldown | 1.8s |
-| Move Speed | 2.5f |
-| Retreat Speed | 3f |
-| Preferred Distance | 6f |
-| Retreat Distance | 3f |
-| Detection Radius | 12f |
-| Homing Strength | 1.5f |
+| Stat               | Nilai        |
+| ------------------ | ------------ |
+| Max HP             | 350          |
+| Projectile Damage  | 15 per panah |
+| Projectile Speed   | 8f           |
+| Attack Cooldown    | 1.8s         |
+| Move Speed         | 2.5f         |
+| Retreat Speed      | 3f           |
+| Preferred Distance | 6f           |
+| Retreat Distance   | 3f           |
+| Detection Radius   | 12f          |
+| Homing Strength    | 1.5f         |
 
 ### 3.6 Prefab Setup
 
@@ -785,14 +786,14 @@ BossArena_Yaksa (Empty GameObject)
 
 ### 5.2 Jumlah Enemy per Room
 
-| Room | Dwarapala Kroco | MiniBoss Dwarapala | Yaksa |
-|---|---|---|---|
-| Room 1 | 3 | — | — |
-| Room 2 | 4 | — | — |
-| Room 3 | 2 | 1 | — |
-| Room 4 | 5 | — | — |
-| Boss Arena | — | — | 1 |
-| **Total** | **14** | **1** | **1** |
+| Room            | Dwarapala Kroco | MiniBoss Dwarapala | Yaksa       |
+| --------------- | --------------- | ------------------ | ----------- |
+| Room 1          | 3               | —                 | —          |
+| Room 2          | 4               | —                 | —          |
+| Room 3          | 2               | 1                  | —          |
+| Room 4          | 5               | —                 | —          |
+| Boss Arena      | —              | —                 | 1           |
+| **Total** | **14**    | **1**        | **1** |
 
 ---
 
@@ -800,16 +801,16 @@ BossArena_Yaksa (Empty GameObject)
 
 Semua script baru disimpan di: `Assets/Scripts/Stage-2/`
 
-| # | Nama File | Fungsi |
-|---|---|---|
-| 1 | `Stage2EnemyStats.cs` | HP, damage flash, death, health bar — implement `IDamageable` + `TakeDamage(int)` via SendMessage |
-| 2 | `Stage2EnemyMovement.cs` | AI movement: Chase (Dwarapala) dan KeepDistance (Yaksa), leash, direction update |
-| 3 | `Stage2EnemyAttack.cs` | Serangan: MeleeAoE (Dwarapala) dan RangedProjectile (Yaksa), cooldown, Animation Event handler |
-| 4 | `Stage2EnemyAnimator.cs` | Bridge AI ↔ Animator: set Direction (int 0-3), Speed (float), flipX, trigger Attack/Shoot/Die |
+| # | Nama File                   | Fungsi                                                                                                    |
+| - | --------------------------- | --------------------------------------------------------------------------------------------------------- |
+| 1 | `Stage2EnemyStats.cs`     | HP, damage flash, death, health bar — implement`IDamageable` + `TakeDamage(int)` via SendMessage     |
+| 2 | `Stage2EnemyMovement.cs`  | AI movement: Chase (Dwarapala) dan KeepDistance (Yaksa), leash, direction update                          |
+| 3 | `Stage2EnemyAttack.cs`    | Serangan: MeleeAoE (Dwarapala) dan RangedProjectile (Yaksa), cooldown, Animation Event handler            |
+| 4 | `Stage2EnemyAnimator.cs`  | Bridge AI ↔ Animator: set Direction (int 0-3), Speed (float), flipX, trigger Attack/Shoot/Die            |
 | 5 | `Stage2AnimationRelay.cs` | Animation Event relay: OnAttackHit, OnAttackEnd, OnShootProjectile → panggil method di Stage2EnemyAttack |
-| 6 | `EnergyArrow.cs` | Proyektil Yaksa: terbang + homing ringan + Trail Renderer laser + damage on hit + auto-destroy |
-| 7 | `Stage2BossArena.cs` | Arena boss Yaksa: lock/unlock arena, health bar UI, quest integration |
-| 8 | `Stage2EnemyHealthBar.cs` | Health bar melayang (World Space Canvas): smooth HP decrease, follow enemy position |
+| 6 | `EnergyArrow.cs`          | Proyektil Yaksa: terbang + homing ringan + Trail Renderer laser + damage on hit + auto-destroy            |
+| 7 | `Stage2BossArena.cs`      | Arena boss Yaksa: lock/unlock arena, health bar UI, quest integration                                     |
+| 8 | `Stage2EnemyHealthBar.cs` | Health bar melayang (World Space Canvas): smooth HP decrease, follow enemy position                       |
 
 ---
 
@@ -846,16 +847,16 @@ Semua script baru disimpan di: `Assets/Scripts/Stage-2/`
 
 ## 8. Kompatibilitas dengan Sistem yang Ada
 
-| Sistem | Cara Integrasi | Catatan |
-|---|---|---|
-| `PlayerAttackHitbox` | Enemy punya method `TakeDamage(int)` + tag `"Enemy"` | Kompatibel via `SendMessageUpwards` |
-| `ArrowProjectile` | Enemy di layer `Enemy` + punya `AimPoint` child | Homing arrow pemain cari `AimPoint` |
-| `BurnEffect` | `TakeDamage(int)` dipanggil berulang oleh DoT | Otomatis kompatibel |
-| `DamagePopupManager` | Panggil `DamagePopupManager.Create()` di `TakeDamage()` | Floating damage numbers |
-| `RoomManager` | Enemy di-list pada `enemiesInRoom`, di-poll null check | Destroy on death → auto-detected |
-| `QuestManager` | `Stage2BossArena` panggil `SetObjective()` / `CompleteCurrentObjective()` | Quest text update |
-| `JournalManager` | Lore ScriptableObject `Lore_Dwarapala` + `Lore_Yaksa` dipasang di Safe Room | Terpisah dari enemy script |
-| `PlayerController.ApplyKnockback()` | Dipanggil saat serangan Dwarapala mengenai pemain | Knockback direction dari enemy ke player |
+| Sistem                                | Cara Integrasi                                                                  | Catatan                                  |
+| ------------------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------- |
+| `PlayerAttackHitbox`                | Enemy punya method`TakeDamage(int)` + tag `"Enemy"`                         | Kompatibel via`SendMessageUpwards`     |
+| `ArrowProjectile`                   | Enemy di layer`Enemy` + punya `AimPoint` child                              | Homing arrow pemain cari`AimPoint`     |
+| `BurnEffect`                        | `TakeDamage(int)` dipanggil berulang oleh DoT                                 | Otomatis kompatibel                      |
+| `DamagePopupManager`                | Panggil`DamagePopupManager.Create()` di `TakeDamage()`                      | Floating damage numbers                  |
+| `RoomManager`                       | Enemy di-list pada`enemiesInRoom`, di-poll null check                         | Destroy on death → auto-detected        |
+| `QuestManager`                      | `Stage2BossArena` panggil `SetObjective()` / `CompleteCurrentObjective()` | Quest text update                        |
+| `JournalManager`                    | Lore ScriptableObject`Lore_Dwarapala` + `Lore_Yaksa` dipasang di Safe Room  | Terpisah dari enemy script               |
+| `PlayerController.ApplyKnockback()` | Dipanggil saat serangan Dwarapala mengenai pemain                               | Knockback direction dari enemy ke player |
 
 ---
 
@@ -863,12 +864,12 @@ Semua script baru disimpan di: `Assets/Scripts/Stage-2/`
 
 ### Tahap 1 — Sprite & Animasi (di Unity Editor)
 
-- [ ] Re-slice `Idle.png`, `Walk.png`, `AttackAndDeath.png` (Dwarapala)
-- [ ] Re-slice `Sprites.png` (Yaksa)
-- [ ] Buat semua Animation Clips (9 clip Dwarapala + 7 clip Yaksa)
-- [ ] Buat `DwarapalaController.controller` dengan state machine
-- [ ] Buat `YaksaController.controller` dengan state machine
-- [ ] Tambahkan Animation Events pada clip Attack/Shoot/Death
+- [X] Re-slice `Idle.png`, `Walk.png`, `AttackAndDeath.png` (Dwarapala)
+- [X] Re-slice `Sprites.png` (Yaksa)
+- [X] Buat semua Animation Clips (9 clip Dwarapala + 7 clip Yaksa)
+- [X] Buat `DwarapalaController.controller` dengan state machine
+- [X] Buat `YaksaController.controller` dengan state machine
+- [X] Tambahkan Animation Events pada clip Attack/Shoot/Death
 
 ### Tahap 2 — Coding Script (bisa paralel)
 

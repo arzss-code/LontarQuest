@@ -48,7 +48,7 @@ Assets/Arts/Enemies/
 | **Sprite Mode**     | **Multiple**                                                        |
 | **Pixels Per Unit** | **250** ← *disesuaikan agar ukuran sprite proporsional di scene* |
 | **Filter Mode**     | Point (no filter) ←*jika pixel art*; atau Bilinear                     |
-| **Compression**     | None*(untuk kualitas terbaik)*                                          |
+| **Compression**     | None*(untuk kualitas terbaik)*                                            |
 
 3. Klik **Apply** di bawah Inspector
 
@@ -180,17 +180,17 @@ Spritesheet ini lebih rumit karena mengandung **frame noise kecil** yang harus d
 
 Seluruh baris atas adalah animasi **walk** untuk 3 arah. Untuk **idle**, gunakan clip walk yang sama (frame pertama atau FPS lebih lambat).
 
-| Grup | Rect | Nama Baru | Deskripsi |
-|---|---|---|---|
-| **Grup Kiri** (2 frame) | #0 | `Yaksa_WalkFront_0` | Jalan menghadap depan, sayap terbuka, melayang |
-| | #1 | `Yaksa_WalkFront_1` | Jalan menghadap depan, variasi posisi |
-| **Grup Tengah** (4 frame) | #2 | `Yaksa_WalkSide_0` | Jalan menghadap samping, melayang |
-| | #3 | `Yaksa_WalkSide_1` | Jalan menghadap samping, variasi |
-| | #4 | `Yaksa_WalkSide_2` | Jalan menghadap samping, variasi |
-| | #5 | `Yaksa_WalkSide_3` | Jalan menghadap samping, variasi |
-| **Grup Kanan** (3 frame) | #6 | `Yaksa_WalkBack_0` | Jalan membelakangi kamera (tampak belakang) |
-| | #7 | `Yaksa_WalkBack_1` | Jalan membelakangi kamera, variasi |
-| | #8 | `Yaksa_WalkBack_2` | Jalan membelakangi kamera, variasi |
+| Grup                            | Rect | Nama Baru             | Deskripsi                                      |
+| ------------------------------- | ---- | --------------------- | ---------------------------------------------- |
+| **Grup Kiri** (2 frame)   | #0   | `Yaksa_WalkFront_0` | Jalan menghadap depan, sayap terbuka, melayang |
+|                                 | #1   | `Yaksa_WalkFront_1` | Jalan menghadap depan, variasi posisi          |
+| **Grup Tengah** (4 frame) | #2   | `Yaksa_WalkSide_0`  | Jalan menghadap samping, melayang              |
+|                                 | #3   | `Yaksa_WalkSide_1`  | Jalan menghadap samping, variasi               |
+|                                 | #4   | `Yaksa_WalkSide_2`  | Jalan menghadap samping, variasi               |
+|                                 | #5   | `Yaksa_WalkSide_3`  | Jalan menghadap samping, variasi               |
+| **Grup Kanan** (3 frame)  | #6   | `Yaksa_WalkBack_0`  | Jalan membelakangi kamera (tampak belakang)    |
+|                                 | #7   | `Yaksa_WalkBack_1`  | Jalan membelakangi kamera, variasi             |
+|                                 | #8   | `Yaksa_WalkBack_2`  | Jalan membelakangi kamera, variasi             |
 
 > **Catatan Idle**: Tidak ada sprite idle terpisah. Di Animator Controller, state Idle akan menggunakan clip Walk yang sama dengan **Speed parameter = 0** (script mengatur FPS lebih lambat atau hanya menampilkan frame pertama).
 
@@ -272,6 +272,7 @@ Seluruh baris atas adalah animasi **walk** untuk 3 arah. Untuk **idle**, gunakan
 Dwarapala default menghadap ke **Kanan** pada sprite `Idle_Side`. Kita akan membuat dua clip terpisah:
 
 **`Dwarapala_IdleRight.anim` (Arah Kanan):**
+
 1. **Create New Clip** → simpan `Dwarapala_IdleRight.anim`
 2. Set sprite = `Idle_Side` pada frame 0
 3. Samples = **1**, Loop Time = ✅
@@ -364,6 +365,7 @@ Ulangi Langkah 10 untuk:
 ### Langkah 13: Buat Clip `Dwarapala_AttackRight.anim` dan `Dwarapala_AttackLeft.anim`
 
 **`Dwarapala_AttackRight.anim`** (Samples: 8, Loop: ❌)
+
 1. **Create New Clip** → simpan `Dwarapala_AttackRight.anim`
 2. Masukkan keyframe:
 
@@ -383,8 +385,9 @@ Ulangi Langkah 10 untuk:
 6. Klik **Add Property** → **Sprite Renderer** → **Flip X**
 7. Pada frame `0:00`, centang/aktifkan ✅ **Flip X** di Inspector
 8. **Animation Events** (sama seperti AttackRight):
-   - Frame 2 → `OnAttackHit`
-   - Frame 2 (setelah hit) → `OnAttackEnd`
+
+- Frame 2 → `OnAttackHit`
+- Frame 2 (setelah hit) → `OnAttackEnd`
 
 ### Langkah 14: Buat Clip `Dwarapala_Death.anim`
 
@@ -410,20 +413,20 @@ Di Project Window, navigasi ke `Assets/Arts/Enemies/Stage2-Dwarapala/Animations/
 
 Pastikan Anda memiliki **12 file `.anim`**:
 
-| # | File | Loop | FPS | Keterangan |
-|---|---|---|---|---|
-| 1 | `Dwarapala_IdleFront.anim` | ✅ | 1 | |
-| 2 | `Dwarapala_IdleBack.anim` | ✅ | 1 | |
-| 3 | `Dwarapala_IdleLeft.anim` | ✅ | 1 | flipX = ✅ |
-| 4 | `Dwarapala_IdleRight.anim` | ✅ | 1 | flipX = ❌ |
-| 5 | `Dwarapala_WalkFront.anim` | ✅ | 8 | |
-| 6 | `Dwarapala_WalkBack.anim` | ✅ | 8 | |
-| 7 | `Dwarapala_WalkLeft.anim` | ✅ | 8 | flipX = ✅ |
-| 8 | `Dwarapala_WalkRight.anim` | ✅ | 8 | flipX = ❌ |
-| 9 | `Dwarapala_AttackFront.anim` | ❌ | 8 | event hit/end |
-| 10| `Dwarapala_AttackLeft.anim` | ❌ | 8 | flipX = ✅, event hit/end |
-| 11| `Dwarapala_AttackRight.anim`| ❌ | 8 | flipX = ❌, event hit/end |
-| 12| `Dwarapala_Death.anim` | ❌ | 6 | event death end |
+| #  | File                           | Loop | FPS | Keterangan                |
+| -- | ------------------------------ | ---- | --- | ------------------------- |
+| 1  | `Dwarapala_IdleFront.anim`   | ✅   | 1   |                           |
+| 2  | `Dwarapala_IdleBack.anim`    | ✅   | 1   |                           |
+| 3  | `Dwarapala_IdleLeft.anim`    | ✅   | 1   | flipX = ✅                |
+| 4  | `Dwarapala_IdleRight.anim`   | ✅   | 1   | flipX = ❌                |
+| 5  | `Dwarapala_WalkFront.anim`   | ✅   | 8   |                           |
+| 6  | `Dwarapala_WalkBack.anim`    | ✅   | 8   |                           |
+| 7  | `Dwarapala_WalkLeft.anim`    | ✅   | 8   | flipX = ✅                |
+| 8  | `Dwarapala_WalkRight.anim`   | ✅   | 8   | flipX = ❌                |
+| 9  | `Dwarapala_AttackFront.anim` | ❌   | 8   | event hit/end             |
+| 10 | `Dwarapala_AttackLeft.anim`  | ❌   | 8   | flipX = ✅, event hit/end |
+| 11 | `Dwarapala_AttackRight.anim` | ❌   | 8   | flipX = ❌, event hit/end |
+| 12 | `Dwarapala_Death.anim`       | ❌   | 6   | event death end           |
 
 **Untuk memverifikasi clip secara visual:**
 
@@ -472,6 +475,7 @@ Semua sprite baris atas adalah **walk**. Buat 4 clip walk:
 | 3     | `Yaksa_WalkSide_3` |
 
 **`Yaksa_WalkRight.anim`** (Samples: 10, Loop: ✅ — Menggunakan Flip X)
+
 1. Buat clip baru `Yaksa_WalkRight.anim`
 2. Drag sprite `Yaksa_WalkSide_0` sampai `_3` seperti WalkLeft
 3. Klik **Add Property** → **Sprite Renderer** → **Flip X**
@@ -508,6 +512,7 @@ Yaksa **tidak memiliki sprite idle terpisah**. Untuk idle, gunakan clip walk yan
 | 3     | `Yaksa_WalkSide_3` |
 
 **`Yaksa_IdleRight.anim`** (Samples: **4**, Loop: ✅ — Menggunakan Flip X)
+
 1. Buat clip baru `Yaksa_IdleRight.anim`
 2. Drag sprite `Yaksa_WalkSide_0` sampai `_3` seperti IdleLeft
 3. Klik **Add Property** → **Sprite Renderer** → **Flip X**
@@ -519,14 +524,14 @@ Yaksa default menghadap ke **Kiri** saat menembak. Kita buat dua clip terpisah:
 
 **`Yaksa_ShootLeft.anim`** (Samples: 10, Loop: ❌ — Default Kiri)
 
-| Frame | Sprite            | Keterangan |
-| ----- | ----------------- | ---------- |
-| 0     | `Yaksa_Shoot_0` | Angkat busur |
-| 1     | `Yaksa_Shoot_1` | Tarik busur |
+| Frame | Sprite            | Keterangan        |
+| ----- | ----------------- | ----------------- |
+| 0     | `Yaksa_Shoot_0` | Angkat busur      |
+| 1     | `Yaksa_Shoot_1` | Tarik busur       |
 | 2     | `Yaksa_Shoot_3` | Tarik busur penuh |
-| 3     | `Yaksa_Shoot_4` | Lepas panah |
-| 4     | `Yaksa_Shoot_5` | Recovery 1 |
-| 5     | `Yaksa_Shoot_6` | Recovery 2 |
+| 3     | `Yaksa_Shoot_4` | Lepas panah       |
+| 4     | `Yaksa_Shoot_5` | Recovery 1        |
+| 5     | `Yaksa_Shoot_6` | Recovery 2        |
 
 4. **Animation Events:**
    - **Frame 3** (saat panah dilepas) → Function: `OnShootProjectile`
@@ -538,8 +543,9 @@ Yaksa default menghadap ke **Kiri** saat menembak. Kita buat dua clip terpisah:
 7. Klik **Add Property** → **Sprite Renderer** → **Flip X**
 8. Di frame `0:00`, centang/aktifkan ✅ **Flip X** di Inspector
 9. **Animation Events** (sama seperti ShootLeft):
-   - **Frame 3** (saat panah dilepas) → Function: `OnShootProjectile`
-   - **Frame 5** (akhir recovery) → Function: `OnAttackEnd`
+
+- **Frame 3** (saat panah dilepas) → Function: `OnShootProjectile`
+- **Frame 5** (akhir recovery) → Function: `OnAttackEnd`
 
 ### Langkah 19: Buat Clip `Yaksa_Death.anim`
 
@@ -564,19 +570,19 @@ Di `Assets/Arts/Enemies/Stage2-MakaraOrYaksa/Animations/`:
 
 Pastikan Anda memiliki **11 file `.anim`**:
 
-| # | File | Loop | FPS | Keterangan |
-|---|---|---|---|---|
-| 1 | `Yaksa_WalkFront.anim` | ✅ | 10 | 2 frame |
-| 2 | `Yaksa_WalkBack.anim` | ✅ | 10 | 3 frame |
-| 3 | `Yaksa_WalkLeft.anim` | ✅ | 10 | 4 frame, flipX = ❌ |
-| 4 | `Yaksa_WalkRight.anim` | ✅ | 10 | 4 frame, flipX = ✅ |
-| 5 | `Yaksa_IdleFront.anim` | ✅ | 4 | Reuse WalkFront, FPS lambat |
-| 6 | `Yaksa_IdleBack.anim` | ✅ | 4 | Reuse WalkBack, FPS lambat |
-| 7 | `Yaksa_IdleLeft.anim` | ✅ | 4 | Reuse WalkSide, FPS lambat, flipX = ❌ |
-| 8 | `Yaksa_IdleRight.anim` | ✅ | 4 | Reuse WalkSide, FPS lambat, flipX = ✅ |
-| 9 | `Yaksa_ShootLeft.anim` | ❌ | 10 | event shoot/end, flipX = ❌ |
-| 10| `Yaksa_ShootRight.anim`| ❌ | 10 | event shoot/end, flipX = ✅ |
-| 11| `Yaksa_Death.anim` | ❌ | 8 | event death end |
+| #  | File                      | Loop | FPS | Keterangan                             |
+| -- | ------------------------- | ---- | --- | -------------------------------------- |
+| 1  | `Yaksa_WalkFront.anim`  | ✅   | 10  | 2 frame                                |
+| 2  | `Yaksa_WalkBack.anim`   | ✅   | 10  | 3 frame                                |
+| 3  | `Yaksa_WalkLeft.anim`   | ✅   | 10  | 4 frame, flipX = ❌                    |
+| 4  | `Yaksa_WalkRight.anim`  | ✅   | 10  | 4 frame, flipX = ✅                    |
+| 5  | `Yaksa_IdleFront.anim`  | ✅   | 4   | Reuse WalkFront, FPS lambat            |
+| 6  | `Yaksa_IdleBack.anim`   | ✅   | 4   | Reuse WalkBack, FPS lambat             |
+| 7  | `Yaksa_IdleLeft.anim`   | ✅   | 4   | Reuse WalkSide, FPS lambat, flipX = ❌ |
+| 8  | `Yaksa_IdleRight.anim`  | ✅   | 4   | Reuse WalkSide, FPS lambat, flipX = ✅ |
+| 9  | `Yaksa_ShootLeft.anim`  | ❌   | 10  | event shoot/end, flipX = ❌            |
+| 10 | `Yaksa_ShootRight.anim` | ❌   | 10  | event shoot/end, flipX = ✅            |
+| 11 | `Yaksa_Death.anim`      | ❌   | 8   | event death end                        |
 
 ---
 
@@ -607,6 +613,7 @@ Di jendela Animator, klik tab **Parameters** (pojok kiri):
 3. **Klik kanan** state `Idle` → **Set as Layer Default State** (state menjadi oranye)
 4. **Double-click** state `Idle` untuk masuk ke dalam Blend Tree editor
 5. Di Inspector (panel kanan), atur:
+
    - **Blend Type**: `1D`
    - **Parameter**: pilih `Direction`
    - **Uncheck** ☐ `Automate Thresholds` (penting! agar threshold tidak berubah otomatis)
@@ -614,12 +621,11 @@ Di jendela Animator, klik tab **Parameters** (pojok kiri):
 7. Isi setiap baris:
 
    | # | Threshold | Motion (drag .anim dari Project) |
-   |---|---|---|
-   | 1 | `0` | `Dwarapala_IdleFront.anim` |
-   | 2 | `1` | `Dwarapala_IdleBack.anim` |
-   | 3 | `2` | `Dwarapala_IdleLeft.anim` |
-   | 4 | `3` | `Dwarapala_IdleRight.anim` |
-
+   | - | --------- | -------------------------------- |
+   | 1 | `0`     | `Dwarapala_IdleFront.anim`     |
+   | 2 | `1`     | `Dwarapala_IdleBack.anim`      |
+   | 3 | `2`     | `Dwarapala_IdleLeft.anim`      |
+   | 4 | `3`     | `Dwarapala_IdleRight.anim`     |
 8. Klik **← Base Layer** (di header Animator) untuk kembali ke tampilan utama
 
 ### Langkah 24: Buat Blend Tree — Walk
@@ -627,18 +633,18 @@ Di jendela Animator, klik tab **Parameters** (pojok kiri):
 1. Klik kanan area kosong → **Create State** → **From New Blend Tree** → rename `Walk`
 2. **Double-click** `Walk` untuk masuk ke Blend Tree editor
 3. Atur sama seperti Idle:
+
    - **Blend Type**: `1D`
    - **Parameter**: `Direction`
    - **Uncheck** ☐ `Automate Thresholds`
 4. Tambah 4 Motion Field:
 
-   | # | Threshold | Motion |
-   |---|---|---|
-   | 1 | `0` | `Dwarapala_WalkFront.anim` |
-   | 2 | `1` | `Dwarapala_WalkBack.anim` |
-   | 3 | `2` | `Dwarapala_WalkLeft.anim` |
-   | 4 | `3` | `Dwarapala_WalkRight.anim` |
-
+   | # | Threshold | Motion                       |
+   | - | --------- | ---------------------------- |
+   | 1 | `0`     | `Dwarapala_WalkFront.anim` |
+   | 2 | `1`     | `Dwarapala_WalkBack.anim`  |
+   | 3 | `2`     | `Dwarapala_WalkLeft.anim`  |
+   | 4 | `3`     | `Dwarapala_WalkRight.anim` |
 5. Kembali ke **← Base Layer**
 
 ### Langkah 25: Buat Blend Tree — Attack
@@ -646,18 +652,18 @@ Di jendela Animator, klik tab **Parameters** (pojok kiri):
 1. Klik kanan → **Create State** → **From New Blend Tree** → rename `Attack`
 2. **Double-click** `Attack`
 3. Atur:
+
    - **Blend Type**: `1D`
    - **Parameter**: `Direction`
    - **Uncheck** ☐ `Automate Thresholds`
 4. Tambah 4 Motion Field:
 
-   | # | Threshold | Motion | Catatan |
-   |---|---|---|---|
-   | 1 | `0` | `Dwarapala_AttackFront.anim` | Down |
-   | 2 | `1` | `Dwarapala_AttackFront.anim` | Up — reuse front (tidak ada sprite back) |
-   | 3 | `2` | `Dwarapala_AttackLeft.anim` | Left |
-   | 4 | `3` | `Dwarapala_AttackRight.anim` | Right |
-
+   | # | Threshold | Motion                         | Catatan                                   |
+   | - | --------- | ------------------------------ | ----------------------------------------- |
+   | 1 | `0`     | `Dwarapala_AttackFront.anim` | Down                                      |
+   | 2 | `1`     | `Dwarapala_AttackFront.anim` | Up — reuse front (tidak ada sprite back) |
+   | 3 | `2`     | `Dwarapala_AttackLeft.anim`  | Left                                      |
+   | 4 | `3`     | `Dwarapala_AttackRight.anim` | Right                                     |
 5. Kembali ke **← Base Layer**
 
 ### Langkah 26: Buat State — Death
@@ -742,6 +748,7 @@ Setelah selesai, tampilan Animator seharusnya terlihat bersih:
 **Total: 4 state (3 Blend Tree + 1 biasa), 5 transition.**
 
 Verifikasi:
+
 - ✅ 4 parameter muncul di tab Parameters
 - ✅ `Idle` adalah state default (oranye)
 - ✅ Setiap Blend Tree berisi 4 motion field dengan threshold 0/1/2/3
@@ -777,14 +784,12 @@ Ikuti pola yang sama dengan Dwarapala (Langkah 23-24), tetapi dengan clip Yaksa:
 2. Set sebagai **Default State** (klik kanan → Set as Layer Default State)
 3. Double-click → atur Blend Type: `1D`, Parameter: `Direction`, uncheck Automate Thresholds
 4. Tambah 4 Motion Field:
-
-   | Threshold | Motion |
-   |---|---|
-   | `0` | `Yaksa_IdleFront.anim` |
-   | `1` | `Yaksa_IdleBack.anim` |
-   | `2` | `Yaksa_IdleLeft.anim` |
-   | `3` | `Yaksa_IdleRight.anim` |
-
+   | Threshold | Motion                   |
+   | --------- | ------------------------ |
+   | `0`     | `Yaksa_IdleFront.anim` |
+   | `1`     | `Yaksa_IdleBack.anim`  |
+   | `2`     | `Yaksa_IdleLeft.anim`  |
+   | `3`     | `Yaksa_IdleRight.anim` |
 5. Kembali ke **← Base Layer**
 
 **Blend Tree — Walk (1D, parameter: Direction):**
@@ -792,14 +797,12 @@ Ikuti pola yang sama dengan Dwarapala (Langkah 23-24), tetapi dengan clip Yaksa:
 1. Klik kanan → **Create State** → **From New Blend Tree** → rename `Walk`
 2. Double-click → atur Blend Type: `1D`, Parameter: `Direction`, uncheck Automate Thresholds
 3. Tambah 4 Motion Field:
-
-   | Threshold | Motion |
-   |---|---|
-   | `0` | `Yaksa_WalkFront.anim` |
-   | `1` | `Yaksa_WalkBack.anim` |
-   | `2` | `Yaksa_WalkLeft.anim` |
-   | `3` | `Yaksa_WalkRight.anim` |
-
+   | Threshold | Motion                   |
+   | --------- | ------------------------ |
+   | `0`     | `Yaksa_WalkFront.anim` |
+   | `1`     | `Yaksa_WalkBack.anim`  |
+   | `2`     | `Yaksa_WalkLeft.anim`  |
+   | `3`     | `Yaksa_WalkRight.anim` |
 4. Kembali ke **← Base Layer**
 
 ### Langkah 34: Buat State — Shoot & Death
@@ -866,10 +869,12 @@ Ikuti pola yang sama dengan Dwarapala (Langkah 23-24), tetapi dengan clip Yaksa:
 
 1. Pilih `DwarapalaTemp`, buka Animation window
 2. Dari dropdown clip, pilih masing-masing clip dan klik **Play**:
-  - ✅ IdleFront, IdleBack, IdleLeft, IdleRight — sprite berubah sesuai arah dan flip
-  - ✅ WalkFront/Back/Left/Right — sprite beranimasi jalan ke arah masing-masing
-  - ✅ AttackFront/Left/Right — gerakan hantam gada ke arah masing-masing
-  - ✅ Death — jatuh dan hancur
+
+- ✅ IdleFront, IdleBack, IdleLeft, IdleRight — sprite berubah sesuai arah dan flip
+- ✅ WalkFront/Back/Left/Right — sprite beranimasi jalan ke arah masing-masing
+- ✅ AttackFront/Left/Right — gerakan hantam gada ke arah masing-masing
+- ✅ Death — jatuh dan hancur
+
 3. Ulangi untuk `YaksaTemp`
 
 ### Langkah 38: Cleanup
@@ -888,52 +893,51 @@ Centang setiap item setelah selesai:
 
 ### Sprite Slice
 
-- [ ] `Idle.png` — 3 sprite (Front, Back, Side)
-- [ ] `Walk.png` — 12 sprite (4 per arah × 3 arah)
-- [ ] `AttackAndDeath.png` — 10 sprite utama (noise dihapus)
-- [ ] `Sprites.png` (Yaksa) — ~21 sprite + 1 sprite `Yaksa_Arrow`
+- [X] `Idle.png` — 3 sprite (Front, Back, Side)
+- [X] `Walk.png` — 12 sprite (4 per arah × 3 arah)
+- [X] `AttackAndDeath.png` — 10 sprite utama (noise dihapus)
+- [X] `Sprites.png` (Yaksa) — ~21 sprite + 1 sprite `Yaksa_Arrow`
 
 ### Animation Clips Dwarapala (12 clip)
 
-- [ ] `Dwarapala_IdleFront.anim` (loop, 1 fps)
-- [ ] `Dwarapala_IdleBack.anim` (loop, 1 fps)
-- [ ] `Dwarapala_IdleLeft.anim` (loop, 1 fps, flipX = ✅)
-- [ ] `Dwarapala_IdleRight.anim` (loop, 1 fps, flipX = ❌)
-- [ ] `Dwarapala_WalkFront.anim` (loop, 8 fps, 4 frame)
-- [ ] `Dwarapala_WalkBack.anim` (loop, 8 fps, 4 frame)
-- [ ] `Dwarapala_WalkLeft.anim` (loop, 8 fps, 4 frame, flipX = ✅)
-- [ ] `Dwarapala_WalkRight.anim` (loop, 8 fps, 4 frame, flipX = ❌)
-- [ ] `Dwarapala_AttackFront.anim` (no loop, 8 fps, 3 frame, events: OnAttackHit + OnAttackEnd)
-- [ ] `Dwarapala_AttackLeft.anim` (no loop, 8 fps, 3 frame, flipX = ✅, events: OnAttackHit + OnAttackEnd)
-- [ ] `Dwarapala_AttackRight.anim` (no loop, 8 fps, 3 frame, flipX = ❌, events: OnAttackHit + OnAttackEnd)
-- [ ] `Dwarapala_Death.anim` (no loop, 6 fps, 4 frame, event: OnDeathEnd)
+- [X] `Dwarapala_IdleFront.anim` (loop, 1 fps)
+- [X] `Dwarapala_IdleBack.anim` (loop, 1 fps)
+- [X] `Dwarapala_IdleLeft.anim` (loop, 1 fps, flipX = ✅)
+- [X] `Dwarapala_IdleRight.anim` (loop, 1 fps, flipX = ❌)
+- [X] `Dwarapala_WalkFront.anim` (loop, 8 fps, 4 frame)
+- [X] `Dwarapala_WalkBack.anim` (loop, 8 fps, 4 frame)
+- [X] `Dwarapala_WalkLeft.anim` (loop, 8 fps, 4 frame, flipX = ✅)
+- [X] `Dwarapala_WalkRight.anim` (loop, 8 fps, 4 frame, flipX = ❌)
+- [X] `Dwarapala_AttackFront.anim` (no loop, 8 fps, 3 frame, events: OnAttackHit + OnAttackEnd)
+- [X] `Dwarapala_AttackLeft.anim` (no loop, 8 fps, 3 frame, flipX = ✅, events: OnAttackHit + OnAttackEnd)
+- [X] `Dwarapala_AttackRight.anim` (no loop, 8 fps, 3 frame, flipX = ❌, events: OnAttackHit + OnAttackEnd)
+- [X] `Dwarapala_Death.anim` (no loop, 6 fps, 4 frame, event: OnDeathEnd)
 
 ### Animation Clips Yaksa (11 clip)
 
-- [ ] `Yaksa_WalkFront.anim` (loop, 10 fps, 2 frame)
-- [ ] `Yaksa_WalkBack.anim` (loop, 10 fps, 3 frame)
-- [ ] `Yaksa_WalkLeft.anim` (loop, 10 fps, 4 frame, flipX = ❌)
-- [ ] `Yaksa_WalkRight.anim` (loop, 10 fps, 4 frame, flipX = ✅)
-- [ ] `Yaksa_IdleFront.anim` (loop, 4 fps, reuse sprite WalkFront)
-- [ ] `Yaksa_IdleBack.anim` (loop, 4 fps, reuse sprite WalkBack)
-- [ ] `Yaksa_IdleLeft.anim` (loop, 4 fps, reuse sprite WalkSide, flipX = ❌)
-- [ ] `Yaksa_IdleRight.anim` (loop, 4 fps, reuse sprite WalkSide, flipX = ✅)
-- [ ] `Yaksa_ShootLeft.anim` (no loop, 10 fps, 6 frame, events: OnShootProjectile + OnAttackEnd, flipX = ❌)
-- [ ] `Yaksa_ShootRight.anim` (no loop, 10 fps, 6 frame, events: OnShootProjectile + OnAttackEnd, flipX = ✅)
-- [ ] `Yaksa_Death.anim` (no loop, 8 fps, 6 frame, event: OnDeathEnd)
+- [X] `Yaksa_WalkFront.anim` (loop, 10 fps, 2 frame)
+- [X] `Yaksa_WalkBack.anim` (loop, 10 fps, 3 frame)
+- [X] `Yaksa_WalkLeft.anim` (loop, 10 fps, 4 frame, flipX = ❌)
+- [X] `Yaksa_WalkRight.anim` (loop, 10 fps, 4 frame, flipX = ✅)
+- [X] `Yaksa_IdleFront.anim` (loop, 4 fps, reuse sprite WalkFront)
+- [X] `Yaksa_IdleBack.anim` (loop, 4 fps, reuse sprite WalkBack)
+- [X] `Yaksa_IdleLeft.anim` (loop, 4 fps, reuse sprite WalkSide, flipX = ❌)
+- [X] `Yaksa_IdleRight.anim` (loop, 4 fps, reuse sprite WalkSide, flipX = ✅)
+- [X] `Yaksa_ShootLeft.anim` (no loop, 10 fps, 6 frame, events: OnShootProjectile + OnAttackEnd, flipX = ❌)
+- [X] `Yaksa_ShootRight.anim` (no loop, 10 fps, 6 frame, events: OnShootProjectile + OnAttackEnd, flipX = ✅)
+- [X] `Yaksa_Death.anim` (no loop, 8 fps, 6 frame, event: OnDeathEnd)
 
 ### Animator Controller
 
-- [ ] `DwarapalaController.controller` — 4 parameter, 4 state (3 Blend Tree + Death), 5 transition
-- [ ] `YaksaController.controller` — 4 parameter, 5 state (2 Blend Tree + Shoot_Left + Shoot_Right + Death), 7 transition
+- [X] `DwarapalaController.controller` — 4 parameter, 4 state (3 Blend Tree + Death), 5 transition
+- [X] `YaksaController.controller` — 4 parameter, 5 state (2 Blend Tree + Shoot_Left + Shoot_Right + Death), 7 transition
 
 ### Cleanup
 
-- [ ] Hapus Animator Controller otomatis yang tidak terpakai
-- [ ] Hapus GameObject sementara (DwarapalaTemp, YaksaTemp)
-- [ ] Verifikasi semua clip bisa di-preview tanpa error
+- [X] Hapus Animator Controller otomatis yang tidak terpakai
+- [X] Hapus GameObject sementara (DwarapalaTemp, YaksaTemp)
+- [X] Verifikasi semua clip bisa di-preview tanpa error
 
 ---
 
 > **Setelah Tahap 1 selesai**, lanjutkan ke **Tahap 2: Coding Script C#** — lihat `docs/Stage2_Enemy_Design.md` bagian 6 untuk daftar script yang perlu dibuat.
-
