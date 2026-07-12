@@ -33,6 +33,8 @@ public class IntroDialogue : MonoBehaviour
 
     [SerializeField] private bool unfreezePlayerWhenFinished = true;
 
+    [SerializeField] private FlashbackPlayer flashbackPlayer;
+
     private PlayerController playerController;
 
     private bool isTyping;
@@ -43,6 +45,8 @@ public class IntroDialogue : MonoBehaviour
     {
         playerController = FindFirstObjectByType<PlayerController>();
 
+        flashbackPlayer = FindFirstObjectByType<FlashbackPlayer>();
+
         if (dialoguePanel != null)
             dialoguePanel.SetActive(false);
     }
@@ -51,6 +55,18 @@ public class IntroDialogue : MonoBehaviour
     {
         if (!IsPlaying)
             return;
+
+        //----------------------------------
+        // Lock Input Saat Video Diputar
+        //----------------------------------
+
+        if (flashbackPlayer != null &&
+            flashbackPlayer.IsPlaying)
+            return;
+
+        //----------------------------------
+        // Input
+        //----------------------------------
 
         if (Input.GetKeyDown(KeyCode.Space))
         {

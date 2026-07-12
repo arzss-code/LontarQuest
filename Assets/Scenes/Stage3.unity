@@ -7506,7 +7506,7 @@ Transform:
   m_GameObject: {fileID: 208984291}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 163.04, y: -24.71, z: -10}
+  m_LocalPosition: {x: -3.5, y: -0.21, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -14172,7 +14172,8 @@ MonoBehaviour:
     text: Aku Tidak bisa Berlama-lama Disini
   typingSpeed: 0.03
   freezePlayer: 1
-  unfreezePlayerWhenFinished: 1
+  unfreezePlayerWhenFinished: 0
+  flashbackPlayer: {fileID: 0}
 --- !u!4 &871449739
 Transform:
   m_ObjectHideFlags: 0
@@ -19419,7 +19420,7 @@ Transform:
   m_GameObject: {fileID: 943373434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 163.04, y: -24.71, z: 0}
+  m_LocalPosition: {x: -3.5, y: -0.21, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -19957,6 +19958,7 @@ MonoBehaviour:
   typingSpeed: 0.03
   freezePlayer: 0
   unfreezePlayerWhenFinished: 0
+  flashbackPlayer: {fileID: 0}
 --- !u!1 &987147813
 GameObject:
   m_ObjectHideFlags: 0
@@ -60197,6 +60199,7 @@ MonoBehaviour:
   typingSpeed: 0.03
   freezePlayer: 1
   unfreezePlayerWhenFinished: 1
+  flashbackPlayer: {fileID: 0}
 --- !u!4 &1233607243
 Transform:
   m_ObjectHideFlags: 0
@@ -63410,6 +63413,7 @@ MonoBehaviour:
   typingSpeed: 0.03
   freezePlayer: 0
   unfreezePlayerWhenFinished: 0
+  flashbackPlayer: {fileID: 0}
 --- !u!4 &1716857858 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8972161318335285615, guid: 450ce493227325945b1cf7f1399013ea, type: 3}
@@ -81054,7 +81058,7 @@ Transform:
   m_GameObject: {fileID: 1908547469}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 163.04, y: -24.71, z: -10}
+  m_LocalPosition: {x: -3.5, y: -0.21, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -82898,8 +82902,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31ae11a53d866c42998e823aab2893d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossStats
-  maxHP: 500
-  maxShield: 200
+  maxHP: 1000
+  maxShield: 500
   shieldRegenDelay: 2
   shieldRegenDuration: 6
   shieldAbsorption: 0.7
