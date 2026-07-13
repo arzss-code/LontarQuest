@@ -20,13 +20,18 @@ Buat proyektil laser homing Yaksa terlebih dahulu agar bisa dipasangkan di attac
    - **Collision Detection**: `Continuous` (mencegah peluru tembus dinding).
 4. Tambahkan komponen **CircleCollider2D**:
    - **Is Trigger**: centang ✅.
-   - **Radius**: atur agar pas dengan ujung kepala panah (sekitar `0.15` - `0.2`).
+   - **Offset**: `X: 0.99995, Y: 0.1538459`
+   - **Radius**: `0.15`
 5. Tambahkan komponen **Trail Renderer**:
    - **Time**: `0.3` (detik jejak bertahan).
-   - **Width**: Curve mengecil dari kiri ke kanan (Start: `0.15`, End: `0.02`).
-   - **Color**: Gradasi dari Biru Cyan (alfa 90%) memudar ke Biru Gelap (alfa 0%).
-   - **Material**: Gunakan material sprite default atau custom additive (seperti `Sprites-Default`).
    - **Min Vertex Distance**: `0.1`.
+   - **Width**: Set nilai input angka ke `0.15`. Buka Curve Editor (klik grafik) lalu tarik keyframe kanan (titik di ujung 1.0) ke bawah hingga bernilai `0.0` agar mengecil lancip.
+   - **Color**: Klik kolom warna untuk membuka Gradient Editor:
+     - Pin bawah kiri (warna awal): Biru Cyan terang (R: 128, G: 230, B: 255).
+     - Pin atas kanan (transparansi akhir): Set `Alpha` ke `0` agar memudar halus.
+   - **Material**: Gunakan `Sprites-Default` (default).
+   - **Cast Shadows** (di tab Lighting): Set ke `Off` (hemat performa).
+   - **Order in Layer** (di tab Additional Settings): Set ke `9` (satu tingkat di bawah sprite panah yang bernilai 10).
 6. Tambahkan komponen **EnergyArrow.cs**:
    - Drag komponen **Trail Renderer** yang baru dibuat ke slot `Trail Renderer` di script.
    - **Speed**: `8`.

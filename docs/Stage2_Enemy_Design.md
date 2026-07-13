@@ -89,53 +89,60 @@ Simpan di: `Assets/Arts/Enemies/Stage2-Dwarapala/Animations/`
 
 | Parameter     | Tipe    | Keterangan                            |
 | ------------- | ------- | ------------------------------------- |
-| `Direction` | Integer | 0 = Down, 1 = Up, 2 = Left, 3 = Right |
+| `MoveX`       | Float   | Arah pergerakan/hadapan sumbu X       |
+| `MoveY`       | Float   | Arah pergerakan/hadapan sumbu Y       |
 | `Speed`     | Float   | 0 = idle, > 0 = walking               |
 | `Attack`    | Trigger | Memicu state Attack                   |
 | `Die`       | Trigger | Memicu state Death (dari AnyState)    |
 
-**Arsitektur: Blend Tree**
+**Arsitektur: Hibrida (Blend Tree 2D + State Biasa)**
 
-> Setiap kelompok gerakan (Idle, Walk, Attack) menggunakan **Blend Tree 1D** dengan parameter `Direction`. Blend Tree otomatis memilih clip berdasarkan nilai `Direction` tanpa perlu transition antar-arah. Karena `Direction` bertipe Integer (selalu bernilai tepat 0/1/2/3), tidak terjadi blending antar clip.
+> **PENTING**: Gerakan dasar (`Idle` dan `Walk`) menggunakan **2D Simple Directional Blend Tree** dengan parameter `MoveX` dan `MoveY` untuk perpindahan arah 360 derajat yang instan dan bebas glitch. Aksi tempur (`Attack`) menggunakan **State terpisah per arah** agar *Animation Events* terpanggil secara stabil.
 
-**State Machine (5 transition saja):**
+**State Machine:**
 
 ```
-Entry → Idle (Default, Blend Tree)
+Entry → Idle (Default, 2D Blend Tree)
 
-Idle → Walk         [kondisi: Speed > 0.1, Has Exit Time: ❌, Duration: 0]
-Walk → Idle         [kondisi: Speed < 0.1, Has Exit Time: ❌, Duration: 0]
-AnyState → Attack   [kondisi: trigger "Attack", Can Transition To Self: ❌]
-Attack → Idle       [Has Exit Time: ✅, Exit Time: 1, Conditions: kosong]
-AnyState → Death    [kondisi: trigger "Die", Can Transition To Self: ❌]
+Idle → Walk             [kondisi: Speed > 0.1, Has Exit Time: ❌, Duration: 0]
+Walk → Idle             [kondisi: Speed < 0.1, Has Exit Time: ❌, Duration: 0]
+
+AnyState → Attack_Front [kondisi: trigger "Attack" + MoveX antara -0.5 s/d 0.5, Can Transition To Self: ❌]
+AnyState → Attack_Left  [kondisi: trigger "Attack" + MoveX < -0.5, Can Transition To Self: ❌]
+AnyState → Attack_Right [kondisi: trigger "Attack" + MoveX > 0.5, Can Transition To Self: ❌]
+
+Attack_Front → Idle     [Has Exit Time: ✅, Exit Time: 1, Duration: 0, Conditions: kosong]
+Attack_Left → Idle      [Has Exit Time: ✅, Exit Time: 1, Duration: 0, Conditions: kosong]
+Attack_Right → Idle     [Has Exit Time: ✅, Exit Time: 1, Duration: 0, Conditions: kosong]
+
+AnyState → Death        [kondisi: trigger "Die", Can Transition To Self: ❌]
 ```
 
-**Blend Tree — Idle (1D, parameter: Direction):**
+**Blend Tree — Idle (2D Simple Directional, parameter: MoveX, MoveY):**
 
-| Threshold | Motion                       |
-| --------- | ---------------------------- |
-| 0         | `Dwarapala_IdleFront.anim` |
-| 1         | `Dwarapala_IdleBack.anim`  |
-| 2         | `Dwarapala_IdleLeft.anim`  |
-| 3         | `Dwarapala_IdleRight.anim` |
+| Position (X, Y) | Motion                       | Keterangan |
+| --------------- | ---------------------------- | ---------- |
+| `(0, -1)`       | `Dwarapala_IdleFront.anim`   | Down       |
+| `(0, 1)`        | `Dwarapala_IdleBack.anim`    | Up         |
+| `(-1, 0)`       | `Dwarapala_IdleLeft.anim`    | Left       |
+| `(1, 0)`        | `Dwarapala_IdleRight.anim`   | Right      |
 
-**Blend Tree — Walk (1D, parameter: Direction):**
+**Blend Tree — Walk (2D Simple Directional, parameter: MoveX, MoveY):**
 
-| Threshold | Motion                       |
-| --------- | ---------------------------- |
-| 0         | `Dwarapala_WalkFront.anim` |
-| 1         | `Dwarapala_WalkBack.anim`  |
-| 2         | `Dwarapala_WalkLeft.anim`  |
-| 3         | `Dwarapala_WalkRight.anim` |
+| Position (X, Y) | Motion                       | Keterangan |
+| --------------- | ---------------------------- | ---------- |
+| `(0, -1)`       | `Dwarapala_WalkFront.anim`   | Down       |
+| `(0, 1)`        | `Dwarapala_WalkBack.anim`    | Up         |
+| `(-1, 0)`       | `Dwarapala_WalkLeft.anim`    | Left       |
+| `(1, 0)`        | `Dwarapala_WalkRight.anim`   | Right      |
 
-**Blend Tree — Attack (1D, parameter: Direction):**
+**State Attack (Non-Blend Tree, State Biasa):**
 
-| Threshold | Motion                                                                     |
-| --------- | -------------------------------------------------------------------------- |
-| 0         | `Dwarapala_AttackFront.anim`                                             |
-| 1         | `Dwarapala_AttackFront.anim` ← reuse (tidak ada sprite attack belakang) |
-| 2         | `Dwarapala_AttackLeft.anim`                                              |
-| 3         | `Dwarapala_AttackRight.anim`                                             |
+| State | Motion | Keterangan |
+|---|---|---|
+| `Attack_Front` | `Dwarapala_AttackFront.anim` | Dipicu jika MoveX berada di rentang [-0.5, 0.5] (arah vertikal dominan) |
+| `Attack_Left` | `Dwarapala_AttackLeft.anim` | Dipicu jika MoveX < -0.5 (arah kiri dominan) |
+| `Attack_Right` | `Dwarapala_AttackRight.anim` | Dipicu jika MoveX > 0.5 (arah kanan dominan) |
 
 **Animation Events pada clip Attack:**
 
@@ -408,53 +415,57 @@ Simpan di: `Assets/Arts/Enemies/Stage2-MakaraOrYaksa/Animations/`
 
 | Parameter     | Tipe    | Keterangan                            |
 | ------------- | ------- | ------------------------------------- |
-| `Direction` | Integer | 0 = Down, 1 = Up, 2 = Left, 3 = Right |
+| `MoveX`       | Float   | Arah pergerakan/hadapan sumbu X       |
+| `MoveY`       | Float   | Arah pergerakan/hadapan sumbu Y       |
 | `Speed`     | Float   | 0 = idle, > 0 = moving                |
 | `Shoot`     | Trigger | Memicu state Shoot                    |
 | `Die`       | Trigger | Memicu state Death (dari AnyState)    |
 
-**Arsitektur: Blend Tree** (sama seperti Dwarapala)
+**Arsitektur: Hibrida (Blend Tree 2D + State Biasa)**
 
-**State Machine (6 transition):**
+**State Machine (7 transition):**
 
 ```
-Entry → Idle (Default, Blend Tree)
+Entry → Idle (Default, 2D Blend Tree)
 
 Idle → Walk          [kondisi: Speed > 0.1, Has Exit Time: ❌, Duration: 0]
 Walk → Idle          [kondisi: Speed < 0.1, Has Exit Time: ❌, Duration: 0]
-AnyState → Shoot_Left  [kondisi: trigger "Shoot" + Direction Equals 0 atau 2, Can Transition To Self: ❌]
-AnyState → Shoot_Right [kondisi: trigger "Shoot" + Direction Equals 1 atau 3, Can Transition To Self: ❌]
+
+AnyState → Shoot_Left  [kondisi: trigger "Shoot" + MoveX < 0, Can Transition To Self: ❌]
+AnyState → Shoot_Right [kondisi: trigger "Shoot" + MoveX >= 0, Can Transition To Self: ❌]
+
 Shoot_Left → Idle    [Has Exit Time: ✅, Exit Time: 1, Conditions: kosong]
 Shoot_Right → Idle   [Has Exit Time: ✅, Exit Time: 1, Conditions: kosong]
+
 AnyState → Death     [kondisi: trigger "Die", Can Transition To Self: ❌]
 ```
 
-> Karena Shoot hanya ada 2 clip (Left/Right), tidak perlu Blend Tree — cukup 2 state biasa yang dipilih via `Direction`.
+> Karena Shoot hanya ada 2 clip (Left/Right), tidak perlu Blend Tree — cukup 2 state biasa yang dipilih via parameter `MoveX`.
 
-**Blend Tree — Idle (1D, parameter: Direction):**
+**Blend Tree — Idle (2D Simple Directional, parameter: MoveX, MoveY):**
 
-| Threshold | Motion                   |
-| --------- | ------------------------ |
-| 0         | `Yaksa_IdleFront.anim` |
-| 1         | `Yaksa_IdleBack.anim`  |
-| 2         | `Yaksa_IdleLeft.anim`  |
-| 3         | `Yaksa_IdleRight.anim` |
+| Position (X, Y) | Motion                   | Keterangan |
+| --------------- | ------------------------ | ---------- |
+| `(0, -1)`       | `Yaksa_IdleFront.anim`   | Down       |
+| `(0, 1)`        | `Yaksa_IdleBack.anim`    | Up         |
+| `(-1, 0)`       | `Yaksa_IdleLeft.anim`    | Left       |
+| `(1, 0)`        | `Yaksa_IdleRight.anim`   | Right      |
 
-**Blend Tree — Walk (1D, parameter: Direction):**
+**Blend Tree — Walk (2D Simple Directional, parameter: MoveX, MoveY):**
 
-| Threshold | Motion                   |
-| --------- | ------------------------ |
-| 0         | `Yaksa_WalkFront.anim` |
-| 1         | `Yaksa_WalkBack.anim`  |
-| 2         | `Yaksa_WalkLeft.anim`  |
-| 3         | `Yaksa_WalkRight.anim` |
+| Position (X, Y) | Motion                   | Keterangan |
+| --------------- | ------------------------ | ---------- |
+| `(0, -1)`       | `Yaksa_WalkFront.anim`   | Down       |
+| `(0, 1)`        | `Yaksa_WalkBack.anim`    | Up         |
+| `(-1, 0)`       | `Yaksa_WalkLeft.anim`    | Left       |
+| `(1, 0)`        | `Yaksa_WalkRight.anim`   | Right      |
 
 **State Shoot (non Blend Tree):**
 
 | State           | Motion                    | Keterangan                       |
 | --------------- | ------------------------- | -------------------------------- |
-| `Shoot_Left`  | `Yaksa_ShootLeft.anim`  | Direction 0 (Down) atau 2 (Left) |
-| `Shoot_Right` | `Yaksa_ShootRight.anim` | Direction 1 (Up) atau 3 (Right)  |
+| `Shoot_Left`  | `Yaksa_ShootLeft.anim`  | Dipicu jika MoveX < 0 (arah kiri dominan) |
+| `Shoot_Right` | `Yaksa_ShootRight.anim` | Dipicu jika MoveX >= 0 (arah kanan dominan) |
 
 **Animation Events pada clip Shoot:**
 
