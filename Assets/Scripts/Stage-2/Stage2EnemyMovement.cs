@@ -66,7 +66,22 @@ public class Stage2EnemyMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        myCollider = GetComponent<Collider2D>();
+        
+        // Cari collider non-trigger sebagai physical collider utama
+        Collider2D[] colliders = GetComponents<Collider2D>();
+        foreach (var col in colliders)
+        {
+            if (!col.isTrigger)
+            {
+                myCollider = col;
+                break;
+            }
+        }
+        if (myCollider == null)
+        {
+            myCollider = GetComponent<Collider2D>();
+        }
+
         animatorScript = GetComponent<Stage2EnemyAnimator>();
         attackScript = GetComponent<Stage2EnemyAttack>();
         statsScript = GetComponent<Stage2EnemyStats>();
@@ -75,8 +90,9 @@ public class Stage2EnemyMovement : MonoBehaviour
     private void Start()
     {
         // Konfigurasi Rigidbody2D agar sesuai kebutuhan top-down 2D
-        // Gunakan Kinematic agar musuh tidak dapat didorong (terlempar) secara fisika
-        rb.bodyType = RigidbodyType2D.Kinematic;
+        // Gunakan Dynamic sesuai panduan perakitan GDD agar mesin fisika Unity menangani solid boundary
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.mass = 1000f; // Massa tinggi agar kokoh dan tidak terdorong oleh player (Saka)
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
@@ -275,22 +291,39 @@ public class Stage2EnemyMovement : MonoBehaviour
     {
         if (desiredDirection.sqrMagnitude < 0.001f) return Vector2.zero;
 
-        // Ambil radius deteksi berdasarkan collider fisik musuh, tambahkan buffer agar tidak tembus
-        float castRadius = 0.5f;
-        if (myCollider is CircleCollider2D circleCol)
-        {
-            castRadius = (circleCol.radius * Mathf.Abs(transform.localScale.x)) + 0.15f;
-        }
-        else if (myCollider is BoxCollider2D boxCol)
-        {
-            castRadius = (Mathf.Max(boxCol.size.x, boxCol.size.y) * 0.5f * Mathf.Abs(transform.localScale.x)) + 0.15f;
-        }
+        // Ambil titik tengah dari collider (menggunakan offset jika ada) sebagai titik asal cast.
+        // Ini krusial agar deteksi selaras dengan fisik visual bos/musuh (bukan pivot kaki/bawah).
+        Vector2 castOrigin = myCollider != null ? (Vector2)transform.position + myCollider.offset : rb.position;
 
-        // Lakukan CircleCast ke arah pergerakan dengan jarak antisipasi kecepatan
+        // Jarak antisipasi berdasarkan kecepatan
         float distanceToPlayer = playerTransform != null ? Vector2.Distance(transform.position, playerTransform.position) : 999f;
         float speed = mode == MovementMode.KeepDistance && isReturning == false && distanceToPlayer < retreatDistance ? retreatSpeed : moveSpeed;
         float castDistance = 0.4f + (speed * Time.fixedDeltaTime);
-        RaycastHit2D hit = Physics2D.CircleCast(rb.position, castRadius, desiredDirection, castDistance, obstacleLayer);
+
+        RaycastHit2D hit;
+
+        // Gunakan BoxCast jika fisiknya BoxCollider2D (seperti Dwarapala) agar presisi di semua sisi (Atas, Bawah, Kiri, Kanan)
+        if (myCollider is BoxCollider2D boxCol)
+        {
+            Vector2 scaledSize = new Vector2(
+                boxCol.size.x * Mathf.Abs(transform.localScale.x),
+                boxCol.size.y * Mathf.Abs(transform.localScale.y)
+            );
+            // Tambahkan padding pengaman agar fisik tidak menempel terlalu rapat dan menyelinap masuk/tembus
+            scaledSize += new Vector2(0.15f, 0.15f);
+            float angle = transform.eulerAngles.z;
+
+            hit = Physics2D.BoxCast(castOrigin, scaledSize, angle, desiredDirection, castDistance, obstacleLayer);
+        }
+        else // Gunakan CircleCast jika CircleCollider2D (seperti Yaksa) atau fallback
+        {
+            float castRadius = 0.5f;
+            if (myCollider is CircleCollider2D circleCol)
+            {
+                castRadius = (circleCol.radius * Mathf.Abs(transform.localScale.x)) + 0.15f;
+            }
+            hit = Physics2D.CircleCast(castOrigin, castRadius, desiredDirection, castDistance, obstacleLayer);
+        }
 
         if (hit.collider != null)
         {
@@ -312,7 +345,27 @@ public class Stage2EnemyMovement : MonoBehaviour
             slideDir = slideDir.normalized;
 
             // Pastikan arah slide yang baru juga tidak menabrak rintangan lain (sudut/pojokan)
-            RaycastHit2D slideHit = Physics2D.CircleCast(rb.position, castRadius, slideDir, castDistance, obstacleLayer);
+            RaycastHit2D slideHit;
+            if (myCollider is BoxCollider2D boxCol2)
+            {
+                Vector2 scaledSize = new Vector2(
+                    boxCol2.size.x * Mathf.Abs(transform.localScale.x),
+                    boxCol2.size.y * Mathf.Abs(transform.localScale.y)
+                );
+                scaledSize += new Vector2(0.15f, 0.15f);
+                float angle = transform.eulerAngles.z;
+                slideHit = Physics2D.BoxCast(castOrigin, scaledSize, angle, slideDir, castDistance, obstacleLayer);
+            }
+            else
+            {
+                float castRadius = 0.5f;
+                if (myCollider is CircleCollider2D circleCol)
+                {
+                    castRadius = (circleCol.radius * Mathf.Abs(transform.localScale.x)) + 0.15f;
+                }
+                slideHit = Physics2D.CircleCast(castOrigin, castRadius, slideDir, castDistance, obstacleLayer);
+            }
+
             if (slideHit.collider == null)
             {
                 return slideDir;
@@ -321,7 +374,27 @@ public class Stage2EnemyMovement : MonoBehaviour
             {
                 // Jika terhalang pojok, coba arah sebaliknya (tangent yang berlawanan)
                 Vector2 altSlideDir = -slideDir;
-                RaycastHit2D altHit = Physics2D.CircleCast(rb.position, castRadius, altSlideDir, castDistance, obstacleLayer);
+                RaycastHit2D altHit;
+                if (myCollider is BoxCollider2D boxCol3)
+                {
+                    Vector2 scaledSize = new Vector2(
+                        boxCol3.size.x * Mathf.Abs(transform.localScale.x),
+                        boxCol3.size.y * Mathf.Abs(transform.localScale.y)
+                    );
+                    scaledSize += new Vector2(0.15f, 0.15f);
+                    float angle = transform.eulerAngles.z;
+                    altHit = Physics2D.BoxCast(castOrigin, scaledSize, angle, altSlideDir, castDistance, obstacleLayer);
+                }
+                else
+                {
+                    float castRadius = 0.5f;
+                    if (myCollider is CircleCollider2D circleCol)
+                    {
+                        castRadius = (circleCol.radius * Mathf.Abs(transform.localScale.x)) + 0.15f;
+                    }
+                    altHit = Physics2D.CircleCast(castOrigin, castRadius, altSlideDir, castDistance, obstacleLayer);
+                }
+
                 if (altHit.collider == null)
                 {
                     return altSlideDir;
