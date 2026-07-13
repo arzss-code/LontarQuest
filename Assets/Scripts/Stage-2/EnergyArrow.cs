@@ -17,6 +17,7 @@ public class EnergyArrow : MonoBehaviour
     private float spawnTime;
     private Rigidbody2D rb;
     private bool isInitialized = false;
+    private bool useHoming = true;
 
     private void Awake()
     {
@@ -31,21 +32,39 @@ public class EnergyArrow : MonoBehaviour
     }
 
     /// <summary>
-    /// Inisialisasi properti proyektil saat di-spawn oleh Yaksa
+    /// Inisialisasi properti proyektil saat di-spawn oleh Yaksa (Homing default)
     /// </summary>
     public void Init(Transform playerTarget, int arrowDamage)
     {
+        Init(playerTarget, arrowDamage, true, Vector2.zero);
+    }
+
+    /// <summary>
+    /// Inisialisasi properti proyektil dengan opsi custom homing dan arah tembak
+    /// </summary>
+    public void Init(Transform playerTarget, int arrowDamage, bool homing, Vector2 fixedDirection)
+    {
         damage = arrowDamage;
         spawnTime = Time.time;
+        useHoming = homing;
 
-        // Cari AimPoint di player untuk sasaran tembak yang lebih presisi
-        Transform aimPoint = playerTarget.Find("AimPoint");
-        target = aimPoint != null ? aimPoint : playerTarget;
+        Vector2 direction;
+        if (!useHoming && fixedDirection != Vector2.zero)
+        {
+            direction = fixedDirection.normalized;
+            target = null;
+        }
+        else
+        {
+            // Cari AimPoint di player untuk sasaran tembak yang lebih presisi
+            Transform aimPoint = playerTarget.Find("AimPoint");
+            target = aimPoint != null ? aimPoint : playerTarget;
+            direction = ((Vector2)target.position - (Vector2)transform.position).normalized;
+        }
 
-        Vector2 direction = ((Vector2)target.position - (Vector2)transform.position).normalized;
         rb.linearVelocity = direction * speed;
 
-        // Rotasi awal menghadap ke player
+        // Rotasi awal menghadap ke player/arah terbang
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
@@ -56,9 +75,9 @@ public class EnergyArrow : MonoBehaviour
     {
         if (!isInitialized) return;
 
-        if (target == null)
+        if (target == null || !useHoming)
         {
-            // Terbang lurus jika target hilang
+            // Terbang lurus jika target hilang atau homing dinonaktifkan
             rb.linearVelocity = transform.right * speed;
             return;
         }

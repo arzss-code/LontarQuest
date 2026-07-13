@@ -169,13 +169,13 @@ State Machine:
 
 | Parameter           | Nilai | Keterangan                                  |
 | ------------------- | ----- | ------------------------------------------- |
-| `detectionRadius` | 7f    | Jarak deteksi pemain                        |
-| `moveSpeed`       | 2f    | Lambat (karakter tanker)                    |
-| `stopDistance`    | 1.2f  | Berhenti saat cukup dekat untuk serang      |
-| `attackDistance`  | 1.5f  | Jangkauan serangan melee                    |
-| `attackCooldown`  | 2.5s  | Jeda antar serangan                         |
-| `leashRadius`     | 10f   | Jarak maks dari titik spawn sebelum kembali |
-| `chargeTime`      | 0.4s  | Delay sebelum serangan (angkat gada)        |
+| `detectionRadius`   | 7f    | Jarak deteksi pemain                        |
+| `moveSpeed`         | 2f    | Lambat (karakter tanker)                    |
+| `stopDistance`      | X: 1.2f, Y: 1.8f | Jarak berhenti (diatur per sumbu untuk mengatasi tabrakan fisik) |
+| `attackRange`       | X: 1.5f, Y: 2.0f | Jangkauan serangan melee (diatur per sumbu) |
+| `attackCooldown`    | 2.5s  | Jeda antar serangan                         |
+| `leashRadius`       | 10f   | Jarak maks dari titik spawn sebelum kembali |
+| `chargeTime`        | 0.4s  | Delay sebelum serangan (angkat gada)        |
 
 **Mekanisme Serangan (Palu Gada AoE):**
 
@@ -240,16 +240,17 @@ Enemy_Dwarapala (GameObject)
 │   │     mode: Chase
 │   │     moveSpeed: 2
 │   │     detectionRadius: 7
-│   │     stopDistance: 1.2
+│   │     stopDistance: X: 1.2, Y: 1.8
 │   │     leashRadius: 10
 │   │
 │   ├── Stage2EnemyAttack
 │   │     attackType: MeleeAoE
-│   │     meleeDamage: 25
-│   │     meleeRange: 1.5
-│   │     aoeDamageRadius: 2
+│   │     damage: 25
+│   │     attackRange: X: 1.5, Y: 2.0
 │   │     attackCooldown: 2.5
-│   │     knockbackForce: 5
+│   │     meleeRadius: 2.0
+│   │     meleeHitboxOffset: X: 0.8, Y: 0.5
+│   │     bodyCenterOffset: X: 0, Y: 0.7
 │   │
 │   ├── Stage2EnemyAnimator
 │   └── Stage2AnimationRelay

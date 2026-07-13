@@ -25,6 +25,7 @@ public class Stage2EnemyAttack : MonoBehaviour
     [SerializeField] private float heavyKnockbackDuration = 0.35f;
 
     [Header("Ranged Settings (Yaksa)")]
+    [SerializeField] private float aimDuration = 0.5f;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform firePoint;
 
@@ -37,8 +38,11 @@ public class Stage2EnemyAttack : MonoBehaviour
     private bool isAttacking = false;
     private float cooldownTimer = 0f;
     private Coroutine attackTimeoutCoroutine;
+    private LineRenderer aimLineRenderer;
+    private Vector2 lockedDirection;
 
     public bool IsAttacking => isAttacking;
+    public bool IsCooldownReady => cooldownTimer <= 0f && !isAttacking;
     public float AttackRange => attackRange.x;
     public float MaxEffectiveRange => GetMaxEffectiveRange(Vector2.right);
 
@@ -74,11 +78,48 @@ public class Stage2EnemyAttack : MonoBehaviour
         statsScript = GetComponent<Stage2EnemyStats>();
     }
 
+    private void Start()
+    {
+        SetupAimLine();
+    }
+
     private void Update()
     {
         if (cooldownTimer > 0f)
         {
             cooldownTimer -= Time.deltaTime;
+        }
+    }
+
+    private void SetupAimLine()
+    {
+        if (aimLineRenderer == null)
+        {
+            aimLineRenderer = GetComponent<LineRenderer>();
+            if (aimLineRenderer == null)
+            {
+                aimLineRenderer = gameObject.AddComponent<LineRenderer>();
+            }
+        }
+
+        if (aimLineRenderer != null)
+        {
+            aimLineRenderer.startWidth = 0.05f;
+            aimLineRenderer.endWidth = 0.05f;
+            aimLineRenderer.positionCount = 2;
+            aimLineRenderer.useWorldSpace = true;
+            aimLineRenderer.enabled = false;
+            
+            // Atur material default agar tidak berwarna magenta
+            aimLineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+            
+            // Warna biru semi transparan default
+            Color aimColor = new Color(0f, 0.5f, 1f, 0.4f);
+            aimLineRenderer.startColor = aimColor;
+            aimLineRenderer.endColor = aimColor;
+            
+            aimLineRenderer.sortingLayerName = "Default";
+            aimLineRenderer.sortingOrder = 10;
         }
     }
 
@@ -101,6 +142,18 @@ public class Stage2EnemyAttack : MonoBehaviour
 
     private void StartAttack()
     {
+        if (attackType == AttackType.RangedProjectile)
+        {
+            StartCoroutine(AimAndShootRoutine());
+        }
+        else
+        {
+            ExecuteMeleeAttack();
+        }
+    }
+
+    private void ExecuteMeleeAttack()
+    {
         isAttacking = true;
 
         // Update arah hadap ke player sesaat SEBELUM memicu trigger animasi serang
@@ -112,14 +165,7 @@ public class Stage2EnemyAttack : MonoBehaviour
 
         if (animatorScript != null)
         {
-            if (attackType == AttackType.MeleeAoE)
-            {
-                animatorScript.TriggerAttack();
-            }
-            else
-            {
-                animatorScript.TriggerShoot();
-            }
+            animatorScript.TriggerAttack();
 
             // Safety Timeout. Jika Unity Animation Event OnAttackEnd macet/gagal dipanggil
             // paksa reset status serang setelah jeda.
@@ -132,14 +178,117 @@ public class Stage2EnemyAttack : MonoBehaviour
         else
         {
             // Fallback jika Animator tidak ada
-            if (attackType == AttackType.MeleeAoE)
+            OnAttackHit();
+            OnAttackEnd();
+        }
+    }
+
+    private IEnumerator AimAndShootRoutine()
+    {
+        isAttacking = true;
+
+        if (aimLineRenderer != null)
+        {
+            aimLineRenderer.enabled = true;
+            Color aimColor = new Color(0f, 0.5f, 1f, 0.4f);
+            aimLineRenderer.startColor = aimColor;
+            aimLineRenderer.endColor = aimColor;
+        }
+
+        float trackingDuration = aimDuration * 0.7f;
+        float lockDuration = aimDuration * 0.3f;
+        float elapsed = 0f;
+
+        // FASE 1: Tracking (Mengikuti pergerakan player)
+        while (elapsed < trackingDuration)
+        {
+            if (statsScript != null && statsScript.IsDead)
             {
-                OnAttackHit();
+                if (aimLineRenderer != null) aimLineRenderer.enabled = false;
+                yield break;
             }
-            else
+
+            if (movementScript != null && movementScript.PlayerTransform != null)
             {
-                OnShootProjectile();
+                Vector3 startPos = firePoint != null ? firePoint.position : transform.position;
+                Vector3 playerPos = movementScript.PlayerTransform.position;
+                
+                Transform aimPoint = movementScript.PlayerTransform.Find("AimPoint");
+                if (aimPoint != null) playerPos = aimPoint.position;
+
+                lockedDirection = ((Vector2)playerPos - (Vector2)startPos).normalized;
+
+                if (animatorScript != null)
+                {
+                    animatorScript.SetDirection(lockedDirection);
+                }
+
+                if (aimLineRenderer != null)
+                {
+                    aimLineRenderer.SetPosition(0, startPos);
+                    aimLineRenderer.SetPosition(1, startPos + (Vector3)lockedDirection * 20f);
+                }
             }
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // FASE 2: Locked (Arah mengunci, lintasan memerah dan berkedip cepat)
+        if (aimLineRenderer != null)
+        {
+            Color lockColor = new Color(1f, 0f, 0f, 0.8f);
+            aimLineRenderer.startColor = lockColor;
+            aimLineRenderer.endColor = lockColor;
+        }
+
+        elapsed = 0f;
+        while (elapsed < lockDuration)
+        {
+            if (statsScript != null && statsScript.IsDead)
+            {
+                if (aimLineRenderer != null) aimLineRenderer.enabled = false;
+                yield break;
+            }
+
+            Vector3 startPos = firePoint != null ? firePoint.position : transform.position;
+            if (aimLineRenderer != null)
+            {
+                aimLineRenderer.SetPosition(0, startPos);
+                aimLineRenderer.SetPosition(1, startPos + (Vector3)lockedDirection * 20f);
+                
+                // Efek kedipan bahaya cepat
+                float blink = Mathf.PingPong(Time.time * 15f, 1f);
+                Color blinkColor = new Color(1f, 0.1f, 0.1f, 0.3f + blink * 0.6f);
+                aimLineRenderer.startColor = blinkColor;
+                aimLineRenderer.endColor = blinkColor;
+            }
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Matikan garis bidik sebelum benar-benar melepas tembakan
+        if (aimLineRenderer != null)
+        {
+            aimLineRenderer.enabled = false;
+        }
+
+        if (statsScript != null && statsScript.IsDead) yield break;
+
+        if (animatorScript != null)
+        {
+            animatorScript.TriggerShoot();
+
+            if (attackTimeoutCoroutine != null)
+            {
+                StopCoroutine(attackTimeoutCoroutine);
+            }
+            attackTimeoutCoroutine = StartCoroutine(AttackTimeoutSafety(1.5f));
+        }
+        else
+        {
+            OnShootProjectile();
             OnAttackEnd();
         }
     }
@@ -264,8 +413,15 @@ public class Stage2EnemyAttack : MonoBehaviour
 
         if (arrow != null)
         {
-            // Kirim target dan stat ke proyektil
-            arrow.Init(movementScript.PlayerTransform, damage);
+            // Tentukan arah terbang akhir
+            Vector2 finalDir = lockedDirection;
+            if (finalDir == Vector2.zero)
+            {
+                finalDir = ((Vector2)movementScript.PlayerTransform.position - (Vector2)firePoint.position).normalized;
+            }
+
+            // Kirim target, stat, dan arah bidikan yang terkunci ke proyektil (non-homing agar bisa dihindari)
+            arrow.Init(movementScript.PlayerTransform, damage, false, finalDir);
         }
     }
 
@@ -281,6 +437,7 @@ public class Stage2EnemyAttack : MonoBehaviour
         }
 
         isAttacking = false;
+        lockedDirection = Vector2.zero; // Reset arah bidikan
         cooldownTimer = attackCooldown; // Mulai cooldown setelah animasi selesai
     }
 

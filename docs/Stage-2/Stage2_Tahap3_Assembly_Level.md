@@ -77,15 +77,16 @@ Buat proyektil laser homing Yaksa terlebih dahulu agar bisa dipasangkan di attac
      - **Leash Radius**: `12` (jika menggunakan `Radius`).
      - **Leash Box Size**: `X: 10, Y: 10` (jika menggunakan `Box`).
      - **Leash Offset**: `X: 0, Y: 0` (untuk menggeser posisi pusat pembatas jika diperlukan).
-     - **Stop Distance**: `1.2`.
+     - **Stop Distance**: `X: 1.2, Y: 1.8` (jarak berhenti disesuaikan per sumbu untuk mengatasi hambatan fisik).
    - **Stage2EnemyAttack.cs**:
      - **Attack Type**: `MeleeAoE`.
      - **Damage**: `15`.
-     - **Attack Range**: `1.4`.
+     - **Attack Range**: `X: 1.5, Y: 2.0` (jangkauan serang per sumbu).
      - **Attack Cooldown**: `1.5`.
      - **Target Layer**: `Player` (layer tempat player berada).
      - **Melee Radius**: `1.5`.
-     - **Melee Hitbox Offset**: `X: 0.8, Y: 0`.
+     - **Melee Hitbox Offset**: `X: 0.8, Y: 0.5`.
+     - **Body Center Offset**: `X: 0, Y: 0.7` (pusat badan untuk perhitungan offset).
      - **Use Heavy Knockback**: centang ✅ (menggunakan knockback berat khusus).
      - **Heavy Knockback Force**: `22` (dorongan kuat).
      - **Heavy Knockback Duration**: `0.35` (durasi pentalan).
@@ -104,15 +105,17 @@ Buat proyektil laser homing Yaksa terlebih dahulu agar bisa dipasangkan di attac
    - **Max HP**: `300` (MiniBoss jauh lebih keras).
 4. Sesuaikan komponen **Stage2EnemyMovement.cs**:
    - **Move Speed**: `1.8` (sedikit lebih lambat karena ukurannya yang besar).
+   - **Stop Distance**: `X: 1.8, Y: 2.7` (di-scale 1.5x dari Dwarapala biasa).
    - **Leash Type**: Pilih tipe pembatas (`Radius` atau `Box`).
    - **Leash Radius**: `18` (jika menggunakan `Radius`).
    - **Leash Box Size**: `X: 15, Y: 15` (jika menggunakan `Box`).
    - **Leash Offset**: `X: 0, Y: 0`.
 5. Sesuaikan komponen di **Stage2EnemyAttack**:
    - **Damage**: `25` (hantaman gada MiniBoss sangat sakit!).
-   - **Attack Range**: `1.8` (jangkauan lebih jauh karena ukuran gada membesar).
+   - **Attack Range**: `X: 2.2, Y: 3.0` (di-scale 1.5x).
    - **Melee Radius**: `2.2`.
-   - **Melee Hitbox Offset**: `X: 1.2, Y: 0`.
+   - **Melee Hitbox Offset**: `X: 1.2, Y: 0.75` (di-scale 1.5x).
+   - **Body Center Offset**: `X: 0, Y: 1.05` (di-scale 1.5x).
    - **Heavy Knockback Force**: `28` (terpental sangat jauh).
    - **Heavy Knockback Duration**: `0.45` (durasi terpental lebih lama).
 6. Simpan sebagai prefab terpisah (`MiniBoss_Dwarapala.prefab`) dengan menyeretnya ke folder Project, lalu hapus kedua objek Dwarapala di scene Hierarchy agar scene tetap bersih.

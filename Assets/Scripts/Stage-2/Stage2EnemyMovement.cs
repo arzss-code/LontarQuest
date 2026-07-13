@@ -75,7 +75,8 @@ public class Stage2EnemyMovement : MonoBehaviour
     private void Start()
     {
         // Konfigurasi Rigidbody2D agar sesuai kebutuhan top-down 2D
-        rb.bodyType = RigidbodyType2D.Dynamic;
+        // Gunakan Kinematic agar musuh tidak dapat didorong (terlempar) secara fisika
+        rb.bodyType = RigidbodyType2D.Kinematic;
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
@@ -83,7 +84,8 @@ public class Stage2EnemyMovement : MonoBehaviour
         // Auto-assign layer rintangan ke "Wall" jika belum diatur di Inspector
         if (obstacleLayer.value == 0)
         {
-            obstacleLayer = LayerMask.GetMask("Wall");
+            obstacleLayer = LayerMask.GetMask("Wall", "Obstacles", "Environment");
+            if (obstacleLayer.value == 0) obstacleLayer = LayerMask.GetMask("Default"); // Fallback ekstrim
         }
 
         startPosition = transform.position;
@@ -116,18 +118,12 @@ public class Stage2EnemyMovement : MonoBehaviour
         {
             rb.linearVelocity = Vector2.zero;
             if (animatorScript != null) animatorScript.SetSpeed(0f);
-
-            // Selama menyerang, pastikan tetap menghadap ke player
-            if (playerTransform != null && animatorScript != null)
-            {
-                Vector2 lookDir = ((Vector2)playerTransform.position - rb.position).normalized;
-                animatorScript.SetDirection(lookDir);
-            }
             return;
         }
 
         if (playerTransform == null)
         {
+            FindPlayer();
             rb.linearVelocity = Vector2.zero;
             if (animatorScript != null) animatorScript.SetSpeed(0f);
             return;
@@ -197,8 +193,25 @@ public class Stage2EnemyMovement : MonoBehaviour
             }
             else if (mode == MovementMode.KeepDistance)
             {
-                // Mode Ranged: Menjaga jarak ideal
-                if (distanceToPlayer < retreatDistance)
+                // Mode Ranged: Menjaga jarak ideal & Prioritas Serang
+                bool tryShoot = false;
+                
+                // Jika cooldown siap dan player di dalam jangkauan serang, prioritas berhenti untuk serang
+                if (attackScript != null && attackScript.IsCooldownReady)
+                {
+                    Vector2 dirToPlayer = ((Vector2)playerTransform.position - rb.position).normalized;
+                    if (distanceToPlayer <= attackScript.GetMaxEffectiveRange(dirToPlayer))
+                    {
+                        tryShoot = true;
+                    }
+                }
+
+                if (tryShoot)
+                {
+                    movementVelocity = Vector2.zero;
+                    attackScript.TryAttack();
+                }
+                else if (distanceToPlayer < retreatDistance)
                 {
                     // Terlalu dekat -> Mundur lebih cepat
                     Vector2 retreatDir = (rb.position - (Vector2)playerTransform.position).normalized;
@@ -212,12 +225,8 @@ public class Stage2EnemyMovement : MonoBehaviour
                 }
                 else
                 {
-                    // Jarak ideal -> Berhenti dan Serang
+                    // Jarak ideal tetapi cooldown belum siap -> Berhenti memandang player
                     movementVelocity = Vector2.zero;
-                    if (attackScript != null)
-                    {
-                        attackScript.TryAttack();
-                    }
                 }
             }
         }
@@ -266,19 +275,21 @@ public class Stage2EnemyMovement : MonoBehaviour
     {
         if (desiredDirection.sqrMagnitude < 0.001f) return Vector2.zero;
 
-        // Ambil radius deteksi berdasarkan collider fisik musuh
-        float castRadius = 0.35f;
+        // Ambil radius deteksi berdasarkan collider fisik musuh, tambahkan buffer agar tidak tembus
+        float castRadius = 0.5f;
         if (myCollider is CircleCollider2D circleCol)
         {
-            castRadius = circleCol.radius * transform.localScale.x;
+            castRadius = (circleCol.radius * Mathf.Abs(transform.localScale.x)) + 0.15f;
         }
         else if (myCollider is BoxCollider2D boxCol)
         {
-            castRadius = Mathf.Min(boxCol.size.x, boxCol.size.y) * 0.5f * transform.localScale.x;
+            castRadius = (Mathf.Max(boxCol.size.x, boxCol.size.y) * 0.5f * Mathf.Abs(transform.localScale.x)) + 0.15f;
         }
 
-        // Lakukan CircleCast ke arah pergerakan
-        float castDistance = 0.4f;
+        // Lakukan CircleCast ke arah pergerakan dengan jarak antisipasi kecepatan
+        float distanceToPlayer = playerTransform != null ? Vector2.Distance(transform.position, playerTransform.position) : 999f;
+        float speed = mode == MovementMode.KeepDistance && isReturning == false && distanceToPlayer < retreatDistance ? retreatSpeed : moveSpeed;
+        float castDistance = 0.4f + (speed * Time.fixedDeltaTime);
         RaycastHit2D hit = Physics2D.CircleCast(rb.position, castRadius, desiredDirection, castDistance, obstacleLayer);
 
         if (hit.collider != null)

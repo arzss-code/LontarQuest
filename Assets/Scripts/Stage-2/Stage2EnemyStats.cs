@@ -57,7 +57,15 @@ public class Stage2EnemyStats : MonoBehaviour, IDamageable
     {
         currentHP = maxHP;
 
-        if (healthBar != null)
+        if (isBoss)
+        {
+            // Sembunyikan health bar lokal jika ini adalah Bos, bos menggunakan UI dari Arena
+            if (healthBar != null)
+            {
+                healthBar.gameObject.SetActive(false);
+            }
+        }
+        else if (healthBar != null)
         {
             healthBar.Initialize(maxHP);
         }
@@ -74,7 +82,7 @@ public class Stage2EnemyStats : MonoBehaviour, IDamageable
         DamagePopupManager.Create(transform.position, damage, false);
 
         // Update health bar if present
-        if (healthBar != null)
+        if (!isBoss && healthBar != null)
         {
             healthBar.SetHealth(currentHP);
         }
