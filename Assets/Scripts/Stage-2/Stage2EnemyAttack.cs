@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Stage2EnemyAttack : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Stage2EnemyAttack : MonoBehaviour
     // Internal State
     private bool isAttacking = false;
     private float cooldownTimer = 0f;
+    private Coroutine attackTimeoutCoroutine;
 
     public bool IsAttacking => isAttacking;
 
@@ -64,6 +66,13 @@ public class Stage2EnemyAttack : MonoBehaviour
     {
         isAttacking = true;
 
+        // PERBAIKAN 1: Update arah hadap ke player sesaat SEBELUM memicu trigger animasi serang
+        if (movementScript != null && movementScript.PlayerTransform != null && animatorScript != null)
+        {
+            Vector2 lookDir = ((Vector2)movementScript.PlayerTransform.position - (Vector2)transform.position).normalized;
+            animatorScript.SetDirection(lookDir);
+        }
+
         if (animatorScript != null)
         {
             if (attackType == AttackType.MeleeAoE)
@@ -74,6 +83,14 @@ public class Stage2EnemyAttack : MonoBehaviour
             {
                 animatorScript.TriggerShoot();
             }
+
+            // PERBAIKAN 2: Safety Timeout. Jika Unity Animation Event OnAttackEnd macet/gagal dipanggil
+            // (biasanya terjadi jika clip ditaruh di dalam Blend Tree), paksa reset status serang setelah jeda.
+            if (attackTimeoutCoroutine != null)
+            {
+                StopCoroutine(attackTimeoutCoroutine);
+            }
+            attackTimeoutCoroutine = StartCoroutine(AttackTimeoutSafety(1.5f));
         }
         else
         {
@@ -90,6 +107,16 @@ public class Stage2EnemyAttack : MonoBehaviour
         }
     }
 
+    private IEnumerator AttackTimeoutSafety(float timeout)
+    {
+        yield return new WaitForSeconds(timeout);
+        if (isAttacking)
+        {
+            Debug.LogWarning($"[Stage2EnemyAttack] Peringatan: Serangan di {gameObject.name} terkena Safety Timeout! OnAttackEnd tidak dipicu dari Animator. Melakukan pembersihan state secara paksa.");
+            OnAttackEnd();
+        }
+    }
+
     /// <summary>
     /// Eksekusi Hit Melee (Dipanggil oleh Animation Event OnAttackHit via Relay)
     /// </summary>
@@ -100,9 +127,10 @@ public class Stage2EnemyAttack : MonoBehaviour
         // Hitung arah hadap ke player saat hantaman terjadi
         Vector2 lookDir = ((Vector2)movementScript.PlayerTransform.position - (Vector2)transform.position).normalized;
 
-        // Proyeksikan hitbox melee melingkar di depan musuh
+        // Proyeksikan hitbox melee melingkar di depan musuh (mulai dari pusat tubuh Y=0.7)
+        Vector2 bodyCenter = (Vector2)transform.position + new Vector2(0f, 0.7f);
         Vector2 actualOffset = lookDir * Mathf.Abs(meleeHitboxOffset.x);
-        Vector2 smashCenter = (Vector2)transform.position + actualOffset;
+        Vector2 smashCenter = bodyCenter + actualOffset;
 
         // Spawn visual effect hantaman jika di-assign
         if (attackVFXPrefab != null)
@@ -113,8 +141,18 @@ public class Stage2EnemyAttack : MonoBehaviour
             Destroy(vfx, vfxLifetime);
         }
 
-        // Deteksi tabrakan
-        Collider2D[] hits = Physics2D.OverlapCircleAll(smashCenter, meleeRadius, targetLayer);
+        // PERBAIKAN 3: Fallback LayerMask. Jika targetLayer di Inspector kosong (Nothing / 0),
+        // cari di semua layer lalu filter menggunakan Tag "Player" agar serangan tetap mendeteksi Saka.
+        Collider2D[] hits;
+        if (targetLayer.value != 0)
+        {
+            hits = Physics2D.OverlapCircleAll(smashCenter, meleeRadius, targetLayer);
+        }
+        else
+        {
+            hits = Physics2D.OverlapCircleAll(smashCenter, meleeRadius);
+        }
+
         foreach (Collider2D hit in hits)
         {
             if (hit.CompareTag("Player"))
@@ -161,27 +199,36 @@ public class Stage2EnemyAttack : MonoBehaviour
     /// </summary>
     public void OnAttackEnd()
     {
+        if (attackTimeoutCoroutine != null)
+        {
+            StopCoroutine(attackTimeoutCoroutine);
+            attackTimeoutCoroutine = null;
+        }
+
         isAttacking = false;
         cooldownTimer = attackCooldown; // Mulai cooldown setelah animasi selesai
     }
 
     private void OnDrawGizmosSelected()
     {
+        Vector3 center = transform.position + new Vector3(0, 0.7f, 0);
+
         // Visualisasi jarak jangkauan serang (Cyan)
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(center, attackRange);
 
         if (attackType == AttackType.MeleeAoE)
         {
             // Tampilkan visualisasi area hitbox melee di Inspector
             Gizmos.color = Color.magenta;
+            Vector2 bodyCenter = (Vector2)transform.position + new Vector2(0f, 0.7f);
             Vector2 actualOffset = Vector2.right * meleeHitboxOffset.x;
             if (Application.isPlaying && movementScript != null && movementScript.PlayerTransform != null)
             {
                 Vector2 lookDir = ((Vector2)movementScript.PlayerTransform.position - (Vector2)transform.position).normalized;
                 actualOffset = lookDir * Mathf.Abs(meleeHitboxOffset.x);
             }
-            Gizmos.DrawWireSphere((Vector2)transform.position + actualOffset, meleeRadius);
+            Gizmos.DrawWireSphere(bodyCenter + actualOffset, meleeRadius);
         }
     }
 }

@@ -685,16 +685,21 @@ Di jendela Animator, klik tab **Parameters** (pojok kiri):
 **Transition dari Any State ke Attack (per Arah):**
 
 1. Klik kanan **Any State** (kotak hijau) → **Make Transition** → tarik ke `Attack_Front`
-   - Di Inspector, set **Conditions**: `Attack` (trigger) + `Direction Equals 0`
+   - Di Inspector, tambahkan 3 kondisi di **Conditions**:
+     - `Attack`
+     - `MoveX` → `Greater` → `-0.5`
+     - `MoveX` → `Less` → `0.5`
    - Buka **Settings** → uncheck ☐ **Can Transition To Self**, set **Transition Duration** = `0`, **Has Exit Time** = ❌.
-2. Buat transisi kedua dari **Any State** → `Attack_Front`
-   - Set **Conditions**: `Attack` + `Direction Equals 1` (reuse front untuk arah belakang)
+   *(Catatan: Ini berarti jika arah X berada di tengah-tengah antara kiri dan kanan, musuh menyerang depan/belakang)*
+2. Klik kanan **Any State** → **Make Transition** → tarik ke `Attack_Left`
+   - Di Inspector, tambahkan 2 kondisi di **Conditions**:
+     - `Attack`
+     - `MoveX` → `Less` → `-0.5`
    - **Can Transition To Self** = ❌, **Transition Duration** = `0`, **Has Exit Time** = ❌.
-3. Klik kanan **Any State** → **Make Transition** → tarik ke `Attack_Left`
-   - Set **Conditions**: `Attack` + `Direction Equals 2`
-   - **Can Transition To Self** = ❌, **Transition Duration** = `0`, **Has Exit Time** = ❌.
-4. Klik kanan **Any State** → **Make Transition** → tarik ke `Attack_Right`
-   - Set **Conditions**: `Attack` + `Direction Equals 3`
+3. Klik kanan **Any State** → **Make Transition** → tarik ke `Attack_Right`
+   - Di Inspector, tambahkan 2 kondisi di **Conditions**:
+     - `Attack`
+     - `MoveX` → `Greater` → `0.5`
    - **Can Transition To Self** = ❌, **Transition Duration** = `0`, **Has Exit Time** = ❌.
 
 **Transition dari Attack kembali ke Idle (Default):**
