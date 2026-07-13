@@ -24,6 +24,7 @@ public class Stage2EnemyStats : MonoBehaviour, IDamageable
     private Rigidbody2D rb;
     private Collider2D[] colliders;
     private Animator animator;
+    private Stage2EnemyAnimator animScript;
 
     public int MaxHP => maxHP;
     public int CurrentHP => currentHP;
@@ -36,6 +37,7 @@ public class Stage2EnemyStats : MonoBehaviour, IDamageable
         colliders = GetComponents<Collider2D>();
         animator = GetComponentInChildren<Animator>();
         if (animator == null) animator = GetComponent<Animator>();
+        animScript = GetComponent<Stage2EnemyAnimator>();
 
         if (spriteRenderer == null)
         {
@@ -127,17 +129,20 @@ public class Stage2EnemyStats : MonoBehaviour, IDamageable
             }
         }
 
-        // Trigger Death animation
-        if (animator != null)
+        // Trigger Death animation melalui abstraksi animator yang konsisten
+        if (animScript != null)
         {
+            animScript.TriggerDie();
+            StartCoroutine(DeathTimeoutSafety(2.5f));
+        }
+        else if (animator != null)
+        {
+            // Fallback langsung ke Animator jika Stage2EnemyAnimator tidak tersedia
             animator.SetTrigger("Die");
-            // Safety timeout: jika event OnDeathEnd dari animator macet atau tidak terpasang,
-            // tetap hancurkan objek setelah 2.5 detik agar permainan tidak softlock.
             StartCoroutine(DeathTimeoutSafety(2.5f));
         }
         else
         {
-            // Fallback if animator is not found
             OnDeathEnd();
         }
     }
