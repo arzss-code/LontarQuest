@@ -1,0 +1,168 @@
+using UnityEngine;
+using System.Collections.Generic;
+
+[RequireComponent(typeof(BoxCollider2D))]
+public class Stage2RoomManager : MonoBehaviour
+{
+    [Header("Door Configuration")]
+    [SerializeField] private GameObject entryDoor;
+    [SerializeField] private GameObject[] exitDoors;
+    [SerializeField] private GameObject[] nextRoomBlockades;
+
+    [Header("Visual Direction Guide")]
+    [SerializeField] private GameObject guideParticlePrefab;
+
+    [Header("Enemies in Room")]
+    [SerializeField] private List<GameObject> enemiesInRoom = new List<GameObject>();
+
+    [Header("Quest Setup")]
+    [SerializeField] private string questOnEnter = "Bersihkan Ruangan";
+    [SerializeField] private string questOnClear = "Temukan Jalan Keluar";
+
+    private bool isRoomActive = false;
+    private bool isRoomCleared = false;
+    private int initialEnemyCount = 0;
+    private int lastDeadCount = -1;
+
+    private void Start()
+    {
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.isTrigger = true;
+
+        foreach (GameObject door in exitDoors)
+        {
+            if (door != null) door.SetActive(false);
+        }
+
+        if (nextRoomBlockades != null)
+        {
+            foreach (GameObject blockade in nextRoomBlockades)
+            {
+                if (blockade != null) blockade.SetActive(true);
+            }
+        }
+
+        foreach (GameObject enemy in enemiesInRoom)
+        {
+            if (enemy != null) enemy.SetActive(false);
+        }
+
+        initialEnemyCount = enemiesInRoom.Count;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && !isRoomActive && !isRoomCleared)
+        {
+            ActivateRoom();
+        }
+    }
+
+    private void ActivateRoom()
+    {
+        isRoomActive = true;
+        if (entryDoor != null) entryDoor.SetActive(true);
+
+        foreach (GameObject enemy in enemiesInRoom)
+        {
+            if (enemy != null) enemy.SetActive(true);
+        }
+
+        // Jalankan UI Counter Misi jika QuestManager adalah tipe Stage2
+        if (QuestManager.Instance is Stage2QuestManager s2Quest && initialEnemyCount > 0)
+        {
+            s2Quest.StartProgressObjective(questOnEnter, initialEnemyCount);
+        }
+        else if (QuestManager.Instance != null)
+        {
+            QuestManager.Instance.SetObjective(questOnEnter);
+        }
+    }
+
+    private void Update()
+    {
+        if (isRoomActive && !isRoomCleared)
+        {
+            // Hitung jumlah musuh yang masih hidup
+            int currentAlive = 0;
+            for (int i = enemiesInRoom.Count - 1; i >= 0; i--)
+            {
+                if (enemiesInRoom[i] != null) currentAlive++;
+            }
+
+            int deadCount = initialEnemyCount - currentAlive;
+
+            // Update UI progress hanya saat ada perubahan angka
+            if (deadCount != lastDeadCount)
+            {
+                lastDeadCount = deadCount;
+                if (QuestManager.Instance is Stage2QuestManager s2Quest)
+                {
+                    s2Quest.SetProgress(deadCount);
+                }
+            }
+
+            if (currentAlive == 0)
+            {
+                RoomCleared();
+            }
+        }
+    }
+
+    private void RoomCleared()
+    {
+        isRoomCleared = true;
+        isRoomActive = false;
+
+        if (entryDoor != null) entryDoor.SetActive(false);
+
+        foreach (GameObject door in exitDoors)
+        {
+            if (door != null) door.SetActive(true);
+        }
+
+        if (nextRoomBlockades != null)
+        {
+            foreach (GameObject blockade in nextRoomBlockades)
+            {
+                if (blockade != null) blockade.SetActive(false);
+            }
+        }
+
+        if (guideParticlePrefab != null)
+        {
+            SpawnGuideParticle();
+        }
+
+        if (QuestManager.Instance != null)
+        {
+            QuestManager.Instance.SetObjective(questOnClear);
+        }
+    }
+
+    private void SpawnGuideParticle()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null) return;
+
+        Transform targetDoor = null;
+        if (exitDoors != null && exitDoors.Length > 0 && exitDoors[0] != null)
+        {
+            targetDoor = exitDoors[0].transform;
+        }
+        else if (nextRoomBlockades != null && nextRoomBlockades.Length > 0 && nextRoomBlockades[0] != null)
+        {
+            targetDoor = nextRoomBlockades[0].transform;
+        }
+
+        if (targetDoor != null)
+        {
+            GameObject guide = Instantiate(guideParticlePrefab, player.transform.position, Quaternion.identity);
+            GuideParticle script = guide.GetComponent<GuideParticle>();
+            if (script != null)
+            {
+                script.Init(targetDoor);
+            }
+        }
+    }
+}

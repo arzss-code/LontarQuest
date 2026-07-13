@@ -8,10 +8,17 @@ public class Stage2EnemyMovement : MonoBehaviour
     [Header("Movement Mode")]
     [SerializeField] private MovementMode mode = MovementMode.Chase;
 
+    public enum LeashConstraintType { Radius, Box }
+
     [Header("General Settings")]
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float detectionRadius = 8f;
+
+    [Header("Leash Settings (Batas Pergerakan)")]
+    [SerializeField] private LeashConstraintType leashType = LeashConstraintType.Radius;
     [SerializeField] private float leashRadius = 12f;
+    [SerializeField] private Vector2 leashBoxSize = new Vector2(10f, 10f);
+    [SerializeField] private Vector2 leashOffset = Vector2.zero;
 
     [Header("Physics & Obstacle Avoidance")]
     [SerializeField] private LayerMask obstacleLayer;
@@ -116,11 +123,25 @@ public class Stage2EnemyMovement : MonoBehaviour
 
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
         float distanceFromStart = Vector2.Distance(transform.position, startPosition);
+        Vector2 leashCenter = startPosition + leashOffset;
 
         Vector2 movementVelocity = Vector2.zero;
 
-        // Logika Batas Leash (Kembali ke Spawn jika terlalu jauh mengejar)
-        if (distanceFromStart > leashRadius)
+        // Logika Batas Leash (Kembali ke Spawn jika melampaui batas pergerakan)
+        bool outOfLeash = false;
+        if (leashType == LeashConstraintType.Radius)
+        {
+            float distanceFromLeashCenter = Vector2.Distance(transform.position, leashCenter);
+            outOfLeash = distanceFromLeashCenter > leashRadius;
+        }
+        else if (leashType == LeashConstraintType.Box)
+        {
+            float diffX = Mathf.Abs(transform.position.x - leashCenter.x);
+            float diffY = Mathf.Abs(transform.position.y - leashCenter.y);
+            outOfLeash = diffX > leashBoxSize.x / 2f || diffY > leashBoxSize.y / 2f;
+        }
+
+        if (outOfLeash)
         {
             isReturning = true;
         }
@@ -143,8 +164,11 @@ public class Stage2EnemyMovement : MonoBehaviour
             // Player terdeteksi
             if (mode == MovementMode.Chase)
             {
-                // Mode Melee: Kejar sampai batas stopDistance
-                if (distanceToPlayer > stopDistance)
+                // Jangkauan serang dinamis berdasarkan script attack, fallback ke stopDistance jika null
+                float effectiveStopDistance = (attackScript != null) ? attackScript.MaxEffectiveRange : stopDistance;
+
+                // Mode Melee: Kejar sampai batas effectiveStopDistance
+                if (distanceToPlayer > effectiveStopDistance)
                 {
                     Vector2 chaseDir = ((Vector2)playerTransform.position - rb.position).normalized;
                     movementVelocity = AvoidObstacles(chaseDir) * moveSpeed;
@@ -304,9 +328,18 @@ public class Stage2EnemyMovement : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(center, detectionRadius);
 
-        // Visualisasi radius leash (Hijau)
+        // Visualisasi batas leash (Hijau)
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(Application.isPlaying ? (Vector3)startPosition + new Vector3(0, 0.7f, 0) : center, leashRadius);
+        Vector3 baseCenter = Application.isPlaying ? (Vector3)startPosition : transform.position;
+        Vector3 leashCenter = baseCenter + new Vector3(leashOffset.x, leashOffset.y + 0.7f, 0f);
+        if (leashType == LeashConstraintType.Radius)
+        {
+            Gizmos.DrawWireSphere(leashCenter, leashRadius);
+        }
+        else if (leashType == LeashConstraintType.Box)
+        {
+            Gizmos.DrawWireCube(leashCenter, new Vector3(leashBoxSize.x, leashBoxSize.y, 0f));
+        }
 
         if (mode == MovementMode.KeepDistance)
         {
@@ -322,7 +355,8 @@ public class Stage2EnemyMovement : MonoBehaviour
         {
             // Visualisasi jarak stop melee
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(center, stopDistance);
+            float effectiveStop = (attackScript != null) ? attackScript.MaxEffectiveRange : stopDistance;
+            Gizmos.DrawWireSphere(center, effectiveStop);
         }
     }
 }

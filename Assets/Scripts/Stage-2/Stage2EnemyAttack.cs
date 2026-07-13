@@ -18,6 +18,11 @@ public class Stage2EnemyAttack : MonoBehaviour
     [SerializeField] private GameObject attackVFXPrefab;
     [SerializeField] private float vfxLifetime = 0.5f;
 
+    [Header("Knockback Settings (Khusus Dwarapala)")]
+    [SerializeField] private bool useHeavyKnockback = true;
+    [SerializeField] private float heavyKnockbackForce = 22f;
+    [SerializeField] private float heavyKnockbackDuration = 0.35f;
+
     [Header("Ranged Settings (Yaksa)")]
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform firePoint;
@@ -25,6 +30,7 @@ public class Stage2EnemyAttack : MonoBehaviour
     // Components
     private Stage2EnemyAnimator animatorScript;
     private Stage2EnemyMovement movementScript;
+    private Stage2EnemyStats statsScript;
 
     // Internal State
     private bool isAttacking = false;
@@ -32,11 +38,26 @@ public class Stage2EnemyAttack : MonoBehaviour
     private Coroutine attackTimeoutCoroutine;
 
     public bool IsAttacking => isAttacking;
+    public float AttackRange => attackRange;
+    public float MaxEffectiveRange
+    {
+        get
+        {
+            if (attackType == AttackType.MeleeAoE)
+            {
+                // Jangkauan fisik melee tidak boleh melebihi total jangkauan hitbox (offset + radius)
+                float physicalReach = Mathf.Abs(meleeHitboxOffset.x) + meleeRadius;
+                return Mathf.Min(attackRange, physicalReach);
+            }
+            return attackRange;
+        }
+    }
 
     private void Awake()
     {
         animatorScript = GetComponent<Stage2EnemyAnimator>();
         movementScript = GetComponent<Stage2EnemyMovement>();
+        statsScript = GetComponent<Stage2EnemyStats>();
     }
 
     private void Update()
@@ -52,11 +73,12 @@ public class Stage2EnemyAttack : MonoBehaviour
     /// </summary>
     public void TryAttack()
     {
+        if (statsScript != null && statsScript.IsDead) return;
         if (isAttacking || cooldownTimer > 0f) return;
         if (movementScript == null || movementScript.PlayerTransform == null) return;
 
         float distanceToPlayer = Vector2.Distance(transform.position, movementScript.PlayerTransform.position);
-        if (distanceToPlayer <= attackRange)
+        if (distanceToPlayer <= MaxEffectiveRange)
         {
             StartAttack();
         }
@@ -66,7 +88,7 @@ public class Stage2EnemyAttack : MonoBehaviour
     {
         isAttacking = true;
 
-        // PERBAIKAN 1: Update arah hadap ke player sesaat SEBELUM memicu trigger animasi serang
+        // Update arah hadap ke player sesaat SEBELUM memicu trigger animasi serang
         if (movementScript != null && movementScript.PlayerTransform != null && animatorScript != null)
         {
             Vector2 lookDir = ((Vector2)movementScript.PlayerTransform.position - (Vector2)transform.position).normalized;
@@ -84,8 +106,8 @@ public class Stage2EnemyAttack : MonoBehaviour
                 animatorScript.TriggerShoot();
             }
 
-            // PERBAIKAN 2: Safety Timeout. Jika Unity Animation Event OnAttackEnd macet/gagal dipanggil
-            // (biasanya terjadi jika clip ditaruh di dalam Blend Tree), paksa reset status serang setelah jeda.
+            // Safety Timeout. Jika Unity Animation Event OnAttackEnd macet/gagal dipanggil
+            // paksa reset status serang setelah jeda.
             if (attackTimeoutCoroutine != null)
             {
                 StopCoroutine(attackTimeoutCoroutine);
@@ -122,6 +144,7 @@ public class Stage2EnemyAttack : MonoBehaviour
     /// </summary>
     public void OnAttackHit()
     {
+        if (statsScript != null && statsScript.IsDead) return;
         if (movementScript == null || movementScript.PlayerTransform == null) return;
 
         // Hitung arah hadap ke player saat hantaman terjadi
@@ -141,7 +164,7 @@ public class Stage2EnemyAttack : MonoBehaviour
             Destroy(vfx, vfxLifetime);
         }
 
-        // PERBAIKAN 3: Fallback LayerMask. Jika targetLayer di Inspector kosong (Nothing / 0),
+        // Fallback LayerMask. Jika targetLayer di Inspector kosong (Nothing / 0),
         // cari di semua layer lalu filter menggunakan Tag "Player" agar serangan tetap mendeteksi Saka.
         Collider2D[] hits;
         if (targetLayer.value != 0)
@@ -164,14 +187,50 @@ public class Stage2EnemyAttack : MonoBehaviour
                     pStats.TakeDamage(damage);
                 }
 
-                // Berikan efek Knockback ke pemain menjauh dari arah serangan
+                // Berikan efek Knockback ke pemain
                 PlayerController pController = hit.GetComponent<PlayerController>();
-                if (pController != null)
+                Rigidbody2D pRb = hit.GetComponent<Rigidbody2D>();
+                if (pController != null && pRb != null)
                 {
-                    pController.ApplyKnockback(lookDir);
+                    if (useHeavyKnockback)
+                    {
+                        // Jalankan coroutine di player (pController) agar tidak terputus jika musuh dihancurkan (Destroy) saat mati
+                        pController.StartCoroutine(ApplyCustomKnockback(pController, pRb, lookDir, heavyKnockbackForce, heavyKnockbackDuration));
+                    }
+                    else
+                    {
+                        // Gunakan knockback default bawaan player
+                        pController.ApplyKnockback(lookDir);
+                    }
                 }
                 break; // Melee hanya melukai player sekali per smash
             }
+        }
+    }
+
+    /// <summary>
+    /// Coroutine knockback custom (Mengontrol gerakan Rigidbody player secara langsung tanpa menyentuh script global)
+    /// </summary>
+    private IEnumerator ApplyCustomKnockback(PlayerController player, Rigidbody2D playerRb, Vector2 direction, float force, float duration)
+    {
+        // Nonaktifkan komponen pergerakan player agar tidak menimpa linearVelocity
+        player.enabled = false;
+
+        Vector2 knockbackVel = direction.normalized * force;
+        float timer = duration;
+
+        while (timer > 0f)
+        {
+            if (playerRb == null) break;
+            playerRb.linearVelocity = knockbackVel;
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+
+        if (player != null && playerRb != null)
+        {
+            playerRb.linearVelocity = Vector2.zero;
+            player.enabled = true; // Aktifkan kembali kontrol player setelah durasi selesai
         }
     }
 
@@ -180,6 +239,7 @@ public class Stage2EnemyAttack : MonoBehaviour
     /// </summary>
     public void OnShootProjectile()
     {
+        if (statsScript != null && statsScript.IsDead) return;
         if (projectilePrefab == null || firePoint == null) return;
         if (movementScript == null || movementScript.PlayerTransform == null) return;
 
@@ -216,6 +276,14 @@ public class Stage2EnemyAttack : MonoBehaviour
         // Visualisasi jarak jangkauan serang (Cyan)
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(center, attackRange);
+
+        // Visualisasi batas jangkauan efektif (Kuning) jika berbeda dengan jangkauan dasar
+        float maxRange = MaxEffectiveRange;
+        if (Mathf.Abs(maxRange - attackRange) > 0.01f)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(center, maxRange);
+        }
 
         if (attackType == AttackType.MeleeAoE)
         {

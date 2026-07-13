@@ -73,7 +73,10 @@ Buat proyektil laser homing Yaksa terlebih dahulu agar bisa dipasangkan di attac
      - **Mode**: `Chase`.
      - **Move Speed**: `2.2`.
      - **Detection Radius**: `8`.
-     - **Leash Radius**: `12`.
+     - **Leash Type**: Pilih tipe pembatas (`Radius` atau `Box`).
+     - **Leash Radius**: `12` (jika menggunakan `Radius`).
+     - **Leash Box Size**: `X: 10, Y: 10` (jika menggunakan `Box`).
+     - **Leash Offset**: `X: 0, Y: 0` (untuk menggeser posisi pusat pembatas jika diperlukan).
      - **Stop Distance**: `1.2`.
    - **Stage2EnemyAttack.cs**:
      - **Attack Type**: `MeleeAoE`.
@@ -99,9 +102,12 @@ Buat proyektil laser homing Yaksa terlebih dahulu agar bisa dipasangkan di attac
 2. Di Inspector, atur **Scale** transform musuh menjadi `1.5` kali lipat di sumbu X dan Y (skala `1.5, 1.5, 1`).
 3. Sesuaikan komponen di **Stage2EnemyStats**:
    - **Max HP**: `300` (MiniBoss jauh lebih keras).
-4. Sesuaikan komponen di **Stage2EnemyMovement**:
+4. Sesuaikan komponen **Stage2EnemyMovement.cs**:
    - **Move Speed**: `1.8` (sedikit lebih lambat karena ukurannya yang besar).
-   - **Leash Radius**: `18`.
+   - **Leash Type**: Pilih tipe pembatas (`Radius` atau `Box`).
+   - **Leash Radius**: `18` (jika menggunakan `Radius`).
+   - **Leash Box Size**: `X: 15, Y: 15` (jika menggunakan `Box`).
+   - **Leash Offset**: `X: 0, Y: 0`.
 5. Sesuaikan komponen di **Stage2EnemyAttack**:
    - **Damage**: `25` (hantaman gada MiniBoss sangat sakit!).
    - **Attack Range**: `1.8` (jangkauan lebih jauh karena ukuran gada membesar).
@@ -110,6 +116,15 @@ Buat proyektil laser homing Yaksa terlebih dahulu agar bisa dipasangkan di attac
    - **Heavy Knockback Force**: `28` (terpental sangat jauh).
    - **Heavy Knockback Duration**: `0.45` (durasi terpental lebih lama).
 6. Simpan sebagai prefab terpisah (`MiniBoss_Dwarapala.prefab`) dengan menyeretnya ke folder Project, lalu hapus kedua objek Dwarapala di scene Hierarchy agar scene tetap bersih.
+
+### Langkah 3a: Pengaturan Batas Pergerakan (Leash Boundary & Offset) di Inspector
+Anda dapat mengatur bagaimana musuh membatasi area pengejaran/patrolinya untuk mencegah musuh keluar terlalu jauh:
+1. Cari parameter **Leash Settings (Batas Pergerakan)** di komponen **Stage2EnemyMovement.cs**.
+2. Atur opsi pada **Leash Type**:
+   - **Radius**: Musuh dibatasi oleh lingkaran imajiner dengan radius **Leash Radius**. Pilihan ini sangat cocok untuk ruangan terbuka luas.
+   - **Box**: Musuh dibatasi oleh kotak imajiner dengan ukuran **Leash Box Size** (lebar X, tinggi Y). Sangat cocok untuk ruangan kamar tertutup agar musuh tidak tembus/keluar dari koridor atau pintu ruangan.
+3. Atur nilai **Leash Offset** (Vector2) jika pusat area batas pergerakan musuh tidak berada tepat pada posisi spawn awal musuh (misal: jika musuh spawn di pojok kamar tapi harus menjaga seluruh ruangan).
+4. Di Scene View Unity, saat objek musuh dipilih, batas pergerakan visual berwarna **Hijau** akan ditampilkan secara otomatis (lingkaran jika memilih Radius, kotak jika memilih Box) dan bergeser secara akurat mengikuti nilai **Leash Offset** untuk memudahkan penyesuaian.
 
 ---
 
@@ -144,7 +159,10 @@ Buat proyektil laser homing Yaksa terlebih dahulu agar bisa dipasangkan di attac
      - **Mode**: `KeepDistance`.
      - **Move Speed**: `2.5`.
      - **Detection Radius**: `12`.
-     - **Leash Radius**: `15`.
+     - **Leash Type**: Pilih tipe pembatas (`Radius` atau `Box`).
+     - **Leash Radius**: `15` (jika menggunakan `Radius`).
+     - **Leash Box Size**: `X: 12, Y: 12` (jika menggunakan `Box`).
+     - **Leash Offset**: `X: 0, Y: 0`.
      - **Preferred Distance**: `6`.
      - **Retreat Distance**: `3`.
      - **Retreat Speed**: `3.0`.

@@ -128,12 +128,22 @@ public class Stage2EnemyStats : MonoBehaviour, IDamageable
         if (animator != null)
         {
             animator.SetTrigger("Die");
+            // Safety timeout: jika event OnDeathEnd dari animator macet atau tidak terpasang,
+            // tetap hancurkan objek setelah 2.5 detik agar permainan tidak softlock.
+            StartCoroutine(DeathTimeoutSafety(2.5f));
         }
         else
         {
             // Fallback if animator is not found
             OnDeathEnd();
         }
+    }
+
+    private IEnumerator DeathTimeoutSafety(float timeout)
+    {
+        yield return new WaitForSeconds(timeout);
+        Debug.LogWarning($"[Stage2EnemyStats] Safety Timeout dipicu untuk {gameObject.name}. Menghancurkan objek secara paksa.");
+        OnDeathEnd();
     }
 
     // Called by Stage2AnimationRelay when the Die animation finishes playing
