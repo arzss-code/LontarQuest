@@ -40,6 +40,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4175042735274492420}
+  - {fileID: 7584573603889548015}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8823714165942680516
@@ -249,7 +250,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 8823714165942680516}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.15
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 4750029099269923026}
 --- !u!114 &7630922844098801426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,7 +266,13 @@ MonoBehaviour:
   mode: 0
   moveSpeed: 1.2
   detectionRadius: 8
+  leashType: 0
   leashRadius: 12
+  leashBoxSize: {x: 10, y: 10}
+  leashOffset: {x: 0, y: 0}
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
   stopDistance: 1.2
   preferredDistance: 6
   retreatDistance: 3
@@ -296,6 +303,9 @@ MonoBehaviour:
   meleeHitboxOffset: {x: 0, y: 0}
   attackVFXPrefab: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
   vfxLifetime: 0.5
+  useHeavyKnockback: 1
+  heavyKnockbackForce: 22
+  heavyKnockbackDuration: 0.35
   projectilePrefab: {fileID: 0}
   firePoint: {fileID: 0}
 --- !u!114 &6428906342898671819
@@ -353,3 +363,84 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5223348359041207060}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4849006257960264301
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5223348359041207060}
+    m_Modifications:
+    - target: {fileID: 3029497591142951042, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0000021643937
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029497591142951042, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029497591142951042, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029497591142951042, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029497591142951042, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029497591142951042, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029497591142951042, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029497591142951042, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029497591142951042, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029497591142951042, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849036217239938091, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+      propertyPath: m_Name
+      value: HealthBarAnchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559355647841931811, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559355647841931811, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+--- !u!114 &4750029099269923026 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 189256516570612415, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+  m_PrefabInstance: {fileID: 4849006257960264301}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63d551052e357d4f8b9db39e7ca1ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthBar
+--- !u!4 &7584573603889548015 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3029497591142951042, guid: 8f5c9dd5971bf754c8acd517e2cbfeb0, type: 3}
+  m_PrefabInstance: {fileID: 4849006257960264301}
+  m_PrefabAsset: {fileID: 0}

@@ -10,6 +10,7 @@ public class Stage2EnemyHealthBar : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float smoothSpeed = 5f;
     [SerializeField] private bool hideWhenFull = true;
+    [SerializeField] private bool billboard = true;
 
     private float targetValue;
     private int maxHP;
@@ -68,6 +69,30 @@ public class Stage2EnemyHealthBar : MonoBehaviour
             if (slider.value <= 0.05f)
             {
                 visualContainer.SetActive(false);
+            }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        // Billboard: Menjaga UI selalu menghadap kamera (tidak terpengaruh rotasi musuh)
+        if (billboard && Camera.main != null)
+        {
+            transform.rotation = Camera.main.transform.rotation;
+        }
+
+        // Anti-Mirror: Mencegah UI terbalik jika parent di-flip menggunakan scale negatif
+        if (transform.parent != null)
+        {
+            Vector3 localScale = transform.localScale;
+            float parentScaleX = transform.parent.lossyScale.x;
+
+            // Jika scale global parent negatif tapi scale lokal UI positif (atau sebaliknya),
+            // balikkan scale lokal UI agar visual teks/bar tidak terbalik (mirror).
+            if ((parentScaleX < 0f && localScale.x > 0f) || (parentScaleX > 0f && localScale.x < 0f))
+            {
+                localScale.x *= -1f;
+                transform.localScale = localScale;
             }
         }
     }

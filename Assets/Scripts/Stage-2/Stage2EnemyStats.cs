@@ -13,7 +13,7 @@ public class Stage2EnemyStats : MonoBehaviour, IDamageable
     [SerializeField] private float flashDuration = 0.15f;
 
     [Header("UI Health Bar")]
-    [SerializeField] private Stage2EnemyHealthBar healthBar;
+    [SerializeField] private EnemyHealthBar healthBar;
 
     private int currentHP;
     private Color originalColor = Color.white;
@@ -46,6 +46,9 @@ public class Stage2EnemyStats : MonoBehaviour, IDamageable
         {
             originalColor = spriteRenderer.color;
         }
+
+        // Auto-detect health bar di child (seperti di HealthBarAnchor) jika kosong
+        if (healthBar == null) healthBar = GetComponentInChildren<EnemyHealthBar>();
     }
 
     private void Start()
