@@ -329,10 +329,22 @@ MonoBehaviour:
   dialogueH01: {fileID: 674555162}
   dialogueH02: {fileID: 2126432083}
   dialogueH03: {fileID: 127905447}
+  dialogueI01: {fileID: 344810366}
+  dialogueI02: {fileID: 287693171}
+  dialogueI03: {fileID: 1113022212}
+  dialogueI04: {fileID: 991191849}
+  dialogueI05: {fileID: 624777942}
+  dialogueI06: {fileID: 991264880}
+  dialogueI07: {fileID: 2066760009}
   flashbackPlayer: {fileID: 52204344}
   videoClip1: {fileID: 32900000, guid: 11a4c13a99dc2f6428635f4c10e72d86, type: 3}
   videoClip2: {fileID: 32900000, guid: 3c42fa208b17fa34084770fffbe6dde7, type: 3}
   videoClip3: {fileID: 32900000, guid: 37385febb08921543986df60c89a79e0, type: 3}
+  fireflyController: {fileID: 1484639331}
+  fatherWaypointIndex: 6
+  cmPlayer: {fileID: 1553000917}
+  zoomOutSize: 14.5
+  zoomDuration: 1
 --- !u!1 &61435675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,6 +1444,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireflyTrigger
   fireflyGuide: {fileID: 1484639330}
+--- !u!1 &287693170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 287693172}
+  - component: {fileID: 287693171}
+  m_Layer: 0
+  m_Name: Dialogue_I02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &287693171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287693170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee3062132dfaaf4cb11490cda12613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntroDialogue
+  dialoguePanel: {fileID: 343192684}
+  nameText: {fileID: 1873647301}
+  dialogueText: {fileID: 749120335}
+  dialogues:
+  - speaker: Prof. Arya
+    text: Tapi tugas saya hanya memerintahkan untuk Memantau..
+  - speaker: Prof. Arya
+    text: Sisa nya itu Kelakuan Si Pathfinder itu sendiri
+  typingSpeed: 0.03
+  freezePlayer: 1
+  unfreezePlayerWhenFinished: 1
+  flashbackPlayer: {fileID: 52204344}
+--- !u!4 &287693172
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287693170}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 47.20216, y: 15.02481, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &319020420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,6 +1613,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343192684}
   m_CullTransparentMesh: 1
+--- !u!1 &344810365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 344810367}
+  - component: {fileID: 344810366}
+  m_Layer: 0
+  m_Name: Dialogue_I01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &344810366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344810365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee3062132dfaaf4cb11490cda12613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntroDialogue
+  dialoguePanel: {fileID: 343192684}
+  nameText: {fileID: 1873647301}
+  dialogueText: {fileID: 749120335}
+  dialogues:
+  - speaker: Prof. Arya
+    text: Yap.. Kau tidak Salah..
+  typingSpeed: 0.03
+  freezePlayer: 1
+  unfreezePlayerWhenFinished: 1
+  flashbackPlayer: {fileID: 52204344}
+--- !u!4 &344810367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344810365}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 47.20216, y: 15.02481, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &355050694
 GameObject:
   m_ObjectHideFlags: 0
@@ -26248,6 +26370,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 164.31, y: 2.499246}
   m_EdgeRadius: 0
+--- !u!114 &422383478 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9094340472893824530, guid: 2483b7fd49af72b40a862141f2cb7fcc, type: 3}
+  m_PrefabInstance: {fileID: 612242848}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
 --- !u!1 &429672921
 GameObject:
   m_ObjectHideFlags: 0
@@ -26707,6 +26840,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &503131287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 503131288}
+  m_Layer: 0
+  m_Name: Path_07
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &503131288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503131287}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.43, y: -3.54, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1550327226}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &612242848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26768,6 +26932,60 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2483b7fd49af72b40a862141f2cb7fcc, type: 3}
+--- !u!1 &624777941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 624777943}
+  - component: {fileID: 624777942}
+  m_Layer: 0
+  m_Name: Dialogue_I05
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &624777942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624777941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee3062132dfaaf4cb11490cda12613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntroDialogue
+  dialoguePanel: {fileID: 343192684}
+  nameText: {fileID: 1873647301}
+  dialogueText: {fileID: 749120335}
+  dialogues:
+  - speaker: Saka
+    text: Kau tau, Wahai Pathfinder?
+  typingSpeed: 0.03
+  freezePlayer: 1
+  unfreezePlayerWhenFinished: 1
+  flashbackPlayer: {fileID: 52204344}
+--- !u!4 &624777943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624777941}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 47.20216, y: 15.02481, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &627793404
 GameObject:
   m_ObjectHideFlags: 0
@@ -27628,6 +27846,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749120333}
   m_CullTransparentMesh: 1
+--- !u!1 &776866323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 776866324}
+  m_Layer: 0
+  m_Name: wp_Altar03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &776866324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776866323}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.93, y: -10.92, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1550327226}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &818971038
 GameObject:
   m_ObjectHideFlags: 0
@@ -27699,6 +27948,37 @@ RectTransform:
   m_AnchoredPosition: {x: 1.1257019, y: 0}
   m_SizeDelta: {x: -2.2515, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &853777368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 853777369}
+  m_Layer: 0
+  m_Name: wp_Altar05
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &853777369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853777368}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.18, y: -0.05, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1550327226}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &865063052 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 278200513839998644, guid: 2483b7fd49af72b40a862141f2cb7fcc, type: 3}
@@ -28243,6 +28523,118 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &991191848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 991191850}
+  - component: {fileID: 991191849}
+  m_Layer: 0
+  m_Name: Dialogue_I04
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &991191849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991191848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee3062132dfaaf4cb11490cda12613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntroDialogue
+  dialoguePanel: {fileID: 343192684}
+  nameText: {fileID: 1873647301}
+  dialogueText: {fileID: 749120335}
+  dialogues:
+  - speaker: Prof. Arya
+    text: ...
+  - speaker: Prof. Arya
+    text: Jangan Tanya Saya-
+  typingSpeed: 0.03
+  freezePlayer: 1
+  unfreezePlayerWhenFinished: 1
+  flashbackPlayer: {fileID: 52204344}
+--- !u!4 &991191850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991191848}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 47.20216, y: 15.02481, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &991264879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 991264881}
+  - component: {fileID: 991264880}
+  m_Layer: 0
+  m_Name: Dialogue_I06
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &991264880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991264879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee3062132dfaaf4cb11490cda12613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntroDialogue
+  dialoguePanel: {fileID: 343192684}
+  nameText: {fileID: 1873647301}
+  dialogueText: {fileID: 749120335}
+  dialogues:
+  - speaker: Saka
+    text: Bagaimana?
+  - speaker: Saka
+    text: Dilihat lihat disini ada 5 Batu Altar.
+  typingSpeed: 0.03
+  freezePlayer: 1
+  unfreezePlayerWhenFinished: 1
+  flashbackPlayer: {fileID: 52204344}
+--- !u!4 &991264881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991264879}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 47.20216, y: 15.02481, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1012515868
 GameObject:
   m_ObjectHideFlags: 0
@@ -28561,6 +28953,64 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1550327226}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1113022211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1113022213}
+  - component: {fileID: 1113022212}
+  m_Layer: 0
+  m_Name: Dialogue_I03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1113022212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113022211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee3062132dfaaf4cb11490cda12613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntroDialogue
+  dialoguePanel: {fileID: 343192684}
+  nameText: {fileID: 1873647301}
+  dialogueText: {fileID: 749120335}
+  dialogues:
+  - speaker: Saka
+    text: Ahh Jadi Begitu..
+  - speaker: Saka
+    text: Ngomong-ngomong...
+  - speaker: Saka
+    text: Bagaimana cara Keluar dari Dimensi ini?
+  typingSpeed: 0.03
+  freezePlayer: 1
+  unfreezePlayerWhenFinished: 1
+  flashbackPlayer: {fileID: 52204344}
+--- !u!4 &1113022213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113022211}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 47.20216, y: 15.02481, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1148498354
 GameObject:
@@ -29467,6 +29917,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1484639329}
   - component: {fileID: 1484639330}
+  - component: {fileID: 1484639331}
   m_Layer: 0
   m_Name: Firefly
   m_TagString: Untagged
@@ -29510,8 +29961,64 @@ MonoBehaviour:
   - {fileID: 1268191578}
   - {fileID: 1561190591}
   - {fileID: 1062020616}
+  - {fileID: 503131288}
+  - {fileID: 1990991744}
+  - {fileID: 1488937708}
+  - {fileID: 776866324}
+  - {fileID: 1912947474}
+  - {fileID: 853777369}
   moveSpeed: 5
   stopDistance: 0.05
+  enableHover: 0
+  hoverHeight: 0.17
+  hoverSpeed: 2
+--- !u!114 &1484639331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484639328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e95d54e860707d498c2b1279e0b33ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireflyController
+  fireflyObject: {fileID: 1484639328}
+  particleSystem: {fileID: 865063052}
+  fireflyLight: {fileID: 422383478}
+  fireflyGuide: {fileID: 1484639330}
+--- !u!1 &1488937707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1488937708}
+  m_Layer: 0
+  m_Name: wp_Altar02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1488937708
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488937707}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.93, y: 7.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1550327226}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1492770621
 GameObject:
   m_ObjectHideFlags: 0
@@ -29595,6 +30102,12 @@ Transform:
   - {fileID: 1268191578}
   - {fileID: 1561190591}
   - {fileID: 1062020616}
+  - {fileID: 503131288}
+  - {fileID: 1990991744}
+  - {fileID: 1488937708}
+  - {fileID: 776866324}
+  - {fileID: 1912947474}
+  - {fileID: 853777369}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1553000915
@@ -32467,6 +32980,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1912947473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1912947474}
+  m_Layer: 0
+  m_Name: wp_Altar04
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1912947474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912947473}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.83, y: -0.05, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1550327226}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1939382773
 GameObject:
   m_ObjectHideFlags: 0
@@ -32936,6 +33480,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.4304898, y: 1.9289044}
   m_EdgeRadius: 0
+--- !u!1 &1990991743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1990991744}
+  m_Layer: 0
+  m_Name: wp_Altar01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1990991744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990991743}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.94, y: -11.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1550327226}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2021954169
 GameObject:
   m_ObjectHideFlags: 0
@@ -33297,6 +33872,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2066760008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2066760010}
+  - component: {fileID: 2066760009}
+  m_Layer: 0
+  m_Name: Dialogue_I07
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2066760009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066760008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee3062132dfaaf4cb11490cda12613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntroDialogue
+  dialoguePanel: {fileID: 343192684}
+  nameText: {fileID: 1873647301}
+  dialogueText: {fileID: 749120335}
+  dialogues:
+  - speaker: Saka
+    text: Cukup mengaktifkan nya kembali?
+  - speaker: Saka
+    text: Bagaimana Urutannya?
+  typingSpeed: 0.03
+  freezePlayer: 1
+  unfreezePlayerWhenFinished: 1
+  flashbackPlayer: {fileID: 52204344}
+--- !u!4 &2066760010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066760008}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 47.20216, y: 15.02481, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2126432082
 GameObject:
   m_ObjectHideFlags: 0
@@ -33377,6 +34008,13 @@ SceneRoots:
   - {fileID: 674555163}
   - {fileID: 2126432084}
   - {fileID: 127905448}
+  - {fileID: 344810367}
+  - {fileID: 287693172}
+  - {fileID: 1113022213}
+  - {fileID: 991191850}
+  - {fileID: 624777943}
+  - {fileID: 991264881}
+  - {fileID: 2066760010}
   - {fileID: 52204341}
   - {fileID: 1484639329}
   - {fileID: 1550327226}
