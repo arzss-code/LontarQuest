@@ -22,15 +22,17 @@ Silakan baca dan ikuti dokumen-dokumen berikut sesuai urutan tahap kerja Anda:
 
 ---
 
-### 3. 📦 Langkah Kerja Editor: Perakitan Prefab & Level (Tahap 3)
+### 3. 📦 Langkah Kerja Editor: Perakitan Prefab (Tahap 3)
 * **[Stage2_Tahap3_Assembly_Level.md](file:///d:/Unity/Unity%20Project/LontarQuest/docs/Stage-2/Stage2_Tahap3_Assembly_Level.md)**
-  * **Deskripsi**: Langkah merakit GameObject musuh di scene menjadi prefab. Panduan memasang rigidbody, collider trigger, offset hitbox, serta script logika stats dan AI movement (termasuk setting *Heavy Knockback*).
+  * **Deskripsi**: Langkah merakit GameObject musuh di scene menjadi prefab. Panduan memasang rigidbody, collider trigger, offset hitbox, serta script logika stats, projectile, dan AI movement (termasuk setting *Heavy Knockback*).
 
 ---
 
-### 4. 🔗 Langkah Kerja Editor: Integrasi Misi & UI
+### 4. 🔗 Langkah Kerja Editor: Integrasi Scene & Misi (Tahap 4)
+* **[Stage2_Tahap4_Scene_Integration.md](file:///d:/Unity/Unity%20Project/LontarQuest/docs/Stage-2/Stage2_Tahap4_Scene_Integration.md)**
+  * **Deskripsi**: Langkah akhir untuk mengintegrasikan room manager di tiap kamar dungeon, menempatkan prefab musuh Dwarapala/MiniBoss, merakit Boss Arena Yaksa, meletakkan prasasti lore interaktif, serta memasang portal transisi scene.
 * **[Stage2_Unity_Integration_Steps.md](file:///d:/Unity/Unity%20Project/LontarQuest/docs/Stage-2/Stage2_Unity_Integration_Steps.md)**
-  * **Deskripsi**: Langkah akhir untuk menyusun alur kamar dungeon menggunakan `Stage2RoomManager` baru, menghubungkan `Canvas.prefab` ke `Stage2QuestManager`, merakit arena bos Yaksa, meletakkan peti harta, prasasti lore, dan portal keluar.
+  * **Deskripsi**: (Referensi Opsional) Panduan tambahan mengenai setup HUD Canvas dan integrasi misi hibrida menggunakan `Stage2QuestManager` dan `Stage2RoomManager`.
 
 ---
 

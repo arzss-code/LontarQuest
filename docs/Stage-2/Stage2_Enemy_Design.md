@@ -167,15 +167,15 @@ State Machine:
 
 **Detail Behavior:**
 
-| Parameter           | Nilai | Keterangan                                  |
-| ------------------- | ----- | ------------------------------------------- |
-| `detectionRadius`   | 7f    | Jarak deteksi pemain                        |
-| `moveSpeed`         | 2f    | Lambat (karakter tanker)                    |
-| `stopDistance`      | X: 1.2f, Y: 1.8f | Jarak berhenti (diatur per sumbu untuk mengatasi tabrakan fisik) |
-| `attackRange`       | X: 1.5f, Y: 2.0f | Jangkauan serangan melee (diatur per sumbu) |
-| `attackCooldown`    | 2.5s  | Jeda antar serangan                         |
-| `leashRadius`       | 10f   | Jarak maks dari titik spawn sebelum kembali |
-| `chargeTime`        | 0.4s  | Delay sebelum serangan (angkat gada)        |
+| Parameter           | Nilai            | Keterangan                                                       |
+| ------------------- | ---------------- | ---------------------------------------------------------------- |
+| `detectionRadius` | 7f               | Jarak deteksi pemain                                             |
+| `moveSpeed`       | 2f               | Lambat (karakter tanker)                                         |
+| `stopDistance`    | X: 1.2f, Y: 1.8f | Jarak berhenti (diatur per sumbu untuk mengatasi tabrakan fisik) |
+| `attackRange`     | X: 1.5f, Y: 2.0f | Jangkauan serangan melee (diatur per sumbu)                      |
+| `attackCooldown`  | 2.5s             | Jeda antar serangan                                              |
+| `leashRadius`     | 10f              | Jarak maks dari titik spawn sebelum kembali                      |
+| `chargeTime`      | 0.4s             | Delay sebelum serangan (angkat gada)                             |
 
 **Mekanisme Serangan (Palu Gada AoE):**
 
@@ -897,13 +897,15 @@ Semua script baru disimpan di: `Assets/Scripts/Stage-2/`
 ## 5. Checklist Progress Tracking (Enemy Design & Setup)
 
 ### Tahap 3 — Prefab Assembly (di Unity Editor)
+*(Panduan langkah lengkap: [Stage2_Tahap3_Assembly_Level.md](file:///d:/Unity/Unity%20Project/LontarQuest/docs/Stage-2/Stage2_Tahap3_Assembly_Level.md))*
 
 - [X] Buat prefab `Enemy_Dwarapala` + assign semua komponen (termasuk Heavy Knockback)
 - [X] Buat prefab `MiniBoss_Dwarapala` (duplikat + modifikasi)
 - [X] Buat prefab `EnergyArrow` + Trail Renderer + Circle Collider Offset
-- [ ] Buat prefab `Boss_Yaksa` + assign semua komponen (dengan VisualParent melayang)
+- [X] Buat prefab `Boss_Yaksa` + assign semua komponen (dengan VisualParent melayang)
 
 ### Tahap 4 — Scene Integration
+*(Panduan langkah lengkap: [Stage2_Tahap4_Scene_Integration.md](file:///d:/Unity/Unity%20Project/LontarQuest/docs/Stage-2/Stage2_Tahap4_Scene_Integration.md))*
 
 - [ ] Setup RoomManager pada setiap room di `Stage2.unity`
 - [ ] Tempatkan enemy prefab di tiap room (disabled)

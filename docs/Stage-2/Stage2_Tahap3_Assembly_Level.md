@@ -1,6 +1,6 @@
-# Panduan Stage 2 — Tahap 3: Prefab Assembly & Level Setup
+# Panduan Stage 2 — Tahap 3: Prefab Assembly
 
-Dokumen ini memandu Anda langkah-demi-langkah di Unity Editor untuk merakit Prefab musuh Dwarapala, MiniBoss, proyektil Panah Energi, Bos Yaksa, serta menyusun layout ruangan dan Boss Arena Stage 2 menggunakan script C# yang telah dibuat pada Tahap 2.
+Dokumen ini memandu Anda langkah-demi-langkah di Unity Editor untuk merakit Prefab musuh Dwarapala, MiniBoss, proyektil Panah Energi, dan Bos Yaksa menggunakan script C# yang telah dibuat pada Tahap 2.
 
 ---
 
@@ -9,6 +9,7 @@ Dokumen ini memandu Anda langkah-demi-langkah di Unity Editor untuk merakit Pref
 Buat proyektil laser homing Yaksa terlebih dahulu agar bisa dipasangkan di attack component Yaksa nanti.
 
 ### Langkah 1: Buat GameObject Panah
+
 1. Di Hierarchy, klik kanan → **Create Empty** → beri nama `EnergyArrow`.
 2. Di Inspector, tambahkan komponen **Sprite Renderer**:
    - **Sprite**: pilih `Yaksa_Arrow` (dari spritesheet Yaksa).
@@ -38,13 +39,14 @@ Buat proyektil laser homing Yaksa terlebih dahulu agar bisa dipasangkan di attac
    - **Lifetime**: `4`.
    - **Homing Strength**: `1.5`.
    - **Max Homing Angle**: `30`.
-7. Seret GameObject `EnergyArrow` dari Hierarchy ke folder Project Anda (misal `Assets/Prefabs/`) untuk menjadikannya **Prefab**, lalu hapus objek tersebut dari Hierarchy.
+7. Seret GameObject `EnergyArrow` dari Hierarchy ke folder Project Anda (misal `Assets/Prefab/`) untuk menjadikannya **Prefab**, lalu hapus objek tersebut dari Hierarchy.
 
 ---
 
 ## Bagian B: Merakit Prefab Dwarapala (Musuh Kroco & Mini-Boss)
 
 ### Langkah 2: Rakit Dwarapala Biasa (Kroco)
+
 1. Drag sprite default Dwarapala (`Dwarapala_IdleFront_0`) ke dalam scene Hierarchy → beri nama `Enemy_Dwarapala`.
 2. Atur **Tag** = `"Enemy"` dan **Layer** = `Enemy`.
 3. Tambahkan komponen **Sprite Renderer**:
@@ -99,6 +101,7 @@ Buat proyektil laser homing Yaksa terlebih dahulu agar bisa dipasangkan di attac
 10. Seret `Enemy_Dwarapala` dari Hierarchy ke folder Project Anda untuk menjadikannya **Prefab**.
 
 ### Langkah 3: Buat Prefab MiniBoss Dwarapala
+
 1. Drag prefab `Enemy_Dwarapala` yang baru dibuat ke scene Hierarchy → rename menjadi `MiniBoss_Dwarapala`.
 2. Di Inspector, atur **Scale** transform musuh menjadi `1.5` kali lipat di sumbu X dan Y (skala `1.5, 1.5, 1`).
 3. Sesuaikan komponen di **Stage2EnemyStats**:
@@ -121,7 +124,9 @@ Buat proyektil laser homing Yaksa terlebih dahulu agar bisa dipasangkan di attac
 6. Simpan sebagai prefab terpisah (`MiniBoss_Dwarapala.prefab`) dengan menyeretnya ke folder Project, lalu hapus kedua objek Dwarapala di scene Hierarchy agar scene tetap bersih.
 
 ### Langkah 3a: Pengaturan Batas Pergerakan (Leash Boundary & Offset) di Inspector
+
 Anda dapat mengatur bagaimana musuh membatasi area pengejaran/patrolinya untuk mencegah musuh keluar terlalu jauh:
+
 1. Cari parameter **Leash Settings (Batas Pergerakan)** di komponen **Stage2EnemyMovement.cs**.
 2. Atur opsi pada **Leash Type**:
    - **Radius**: Musuh dibatasi oleh lingkaran imajiner dengan radius **Leash Radius**. Pilihan ini sangat cocok untuk ruangan terbuka luas.
@@ -134,6 +139,7 @@ Anda dapat mengatur bagaimana musuh membatasi area pengejaran/patrolinya untuk m
 ## Bagian C: Merakit Prefab Bos Yaksa (Leak)
 
 ### Langkah 4: Perakitan Objek Bos
+
 1. Drag sprite default Yaksa (`Yaksa_IdleFront_0` / sesuai sheet) ke scene → beri nama `Boss_Yaksa`.
 2. Atur **Tag** = `"Enemy"` dan **Layer** = `Enemy`.
 3. Tambahkan komponen **Animator**:
@@ -162,7 +168,7 @@ Anda dapat mengatur bagaimana musuh membatasi area pengejaran/patrolinya untuk m
      - **Mode**: `KeepDistance`.
      - **Move Speed**: `2.5`.
      - **Detection Radius**: `12`.
-     - **Leash Type**: Pilih tipe pembatas (`Radius` atau `Box`).
+     - **Leash Type**: Pilih tipe pembatas (`Radius` or `Box`).
      - **Leash Radius**: `15` (jika menggunakan `Radius`).
      - **Leash Box Size**: `X: 12, Y: 12` (jika menggunakan `Box`).
      - **Leash Offset**: `X: 0, Y: 0`.
@@ -186,38 +192,11 @@ Anda dapat mengatur bagaimana musuh membatasi area pengejaran/patrolinya untuk m
 
 ---
 
-## Bagian D: Setup Level & Layout Ruangan Stage 2
+## Bagian D: Checklist Progress Tracking (Prefab Assembly)
 
-### Langkah 5: Susun Kamar & Terapkan RoomManager
-1. Buka scene Stage 2 Anda.
-2. Di setiap ruangan arena pertarungan musuh biasa, pastikan terdapat objek pemicu **RoomManager**:
-3. Tempatkan prefab musuh biasa di dalam ruangan tersebut:
-   - Spawn beberapa `Enemy_Dwarapala` di titik-titik strategis (sesuai tabel sebaran musuh: Room 1 = 3 Dwarapala, Room 2 = 4 Dwarapala, Room 3 = 1 MiniBoss + 2 Dwarapala, dst).
-4. Nonaktifkan musuh secara manual di Inspector (set checklist active GameObject ke ❌) agar mereka mati/nonaktif saat permainan dimulai.
-5. Pada komponen **RoomManager** di ruangan tersebut:
-   - Drag musuh-musuh yang dinonaktifkan tadi ke dalam list **Enemies In Room**.
-   - Konfigurasikan pintu masuk (`entryDoor`), Boon Doors (`exitDoors`), blockade jalan (`nextRoomBlockades`), dan teks quest.
-   - Saat Saka masuk ke dalam area trigger ruangan, musuh akan otomatis bangun (`SetActive(true)`) dan pintu terkunci.
+Gunakan checklist ini untuk melacak penyelesaian perakitan prefab di Unity Editor:
 
----
-
-## Bagian E: Setup Boss Arena Yaksa
-
-### Langkah 6: Konfigurasi Stage2BossArena
-1. Di scene Stage 2, temukan area terdalam yang menjadi ruangan Boss Arena.
-2. Buat GameObject baru di area tersebut, beri nama `BossArena_Yaksa`.
-3. Tambahkan komponen **BoxCollider2D**:
-   - **Is Trigger**: centang ✅.
-   - Atur ukurannya agar menutupi seluruh gerbang masuk arena.
-4. Tambahkan script **Stage2BossArena.cs**:
-   - **Entry Door**: Tarik pintu gerbang masuk arena ke slot ini (tembok/jeruji yang menutup jalan masuk).
-   - **Next Room Blockades**: Tarik portal keluar / rute jalan ke Stage 3 ke dalam list ini.
-   - **Boss Object**: Tarik prefab instance `Boss_Yaksa` yang diletakkan di dalam arena ke slot ini.
-   - **Boss AI**: Tarik komponen `Stage2EnemyMovement` yang ada pada instance `Boss_Yaksa` tadi ke slot ini (agar AI bangun saat Saka masuk).
-   - **Boss Health UI**: Tarik panel health bar bos (Canvas slider) di layar game ke slot ini.
-   - **Boss Health Slider**: Tarik Slider UI-nya ke slot ini.
-   - **Lontar Reward Prefab**: Tarik prefab Lontar Boss Drop ke slot ini.
-   - **Lontar Spawn Point**: Pasang penanda posisi jatuhnya lontar setelah Yaksa kalah.
-   - **Guide Particle Prefab**: Tarik prefab kunang-kunang penunjuk rute jalan.
-5. Pastikan instance `Boss_Yaksa` di dalam arena di-set nonaktif (`SetActive(false)`) secara default di Inspector.
-6. Simpan scene. Lakukan uji coba tekan **Play**!
+- [X] Prefab `EnergyArrow` berhasil dirakit dengan SpriteRenderer, Rigidbody2D, CircleCollider2D, TrailRenderer, dan script `EnergyArrow.cs` terhubung.
+- [X] Prefab `Enemy_Dwarapala` berhasil dirakit dengan SpriteRenderer, Animator, Rigidbody2D, BoxCollider2D, CircleCollider2D, AimPoint child, dan stats/movement/attack/animator/relay script terhubung.
+- [X] Prefab `MiniBoss_Dwarapala` berhasil dibuat dari duplikasi `Enemy_Dwarapala` dengan skala 1.5x, HP 300, dan stats yang disesuaikan.
+- [X] Prefab `Boss_Yaksa` berhasil dirakit dengan visual terpisah pada `VisualParent`, Animator, Rigidbody2D, colliders, AimPoint & FirePoint child, serta script status melayang/stats/attack terhubung.
