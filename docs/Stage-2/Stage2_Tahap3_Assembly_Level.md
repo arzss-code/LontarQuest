@@ -83,6 +83,9 @@ Buat proyektil laser homing Yaksa terlebih dahulu agar bisa dipasangkan di attac
      - **Target Layer**: `Player` (layer tempat player berada).
      - **Melee Radius**: `1.5`.
      - **Melee Hitbox Offset**: `X: 0.8, Y: 0`.
+     - **Use Heavy Knockback**: centang ✅ (menggunakan knockback berat khusus).
+     - **Heavy Knockback Force**: `22` (dorongan kuat).
+     - **Heavy Knockback Duration**: `0.35` (durasi pentalan).
      - **Attack VFX Prefab**: Pasang visual efek hantaman (debu/slash jika ada, opsional).
    - **Stage2EnemyAnimator.cs**
    - **Stage2AnimationRelay.cs**
@@ -104,6 +107,8 @@ Buat proyektil laser homing Yaksa terlebih dahulu agar bisa dipasangkan di attac
    - **Attack Range**: `1.8` (jangkauan lebih jauh karena ukuran gada membesar).
    - **Melee Radius**: `2.2`.
    - **Melee Hitbox Offset**: `X: 1.2, Y: 0`.
+   - **Heavy Knockback Force**: `28` (terpental sangat jauh).
+   - **Heavy Knockback Duration**: `0.45` (durasi terpental lebih lama).
 6. Simpan sebagai prefab terpisah (`MiniBoss_Dwarapala.prefab`) dengan menyeretnya ke folder Project, lalu hapus kedua objek Dwarapala di scene Hierarchy agar scene tetap bersih.
 
 ---

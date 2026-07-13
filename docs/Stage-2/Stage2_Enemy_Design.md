@@ -87,13 +87,13 @@ Simpan di: `Assets/Arts/Enemies/Stage2-Dwarapala/Animations/`
 
 **Parameter Animator:**
 
-| Parameter     | Tipe    | Keterangan                            |
-| ------------- | ------- | ------------------------------------- |
-| `MoveX`       | Float   | Arah pergerakan/hadapan sumbu X       |
-| `MoveY`       | Float   | Arah pergerakan/hadapan sumbu Y       |
-| `Speed`     | Float   | 0 = idle, > 0 = walking               |
-| `Attack`    | Trigger | Memicu state Attack                   |
-| `Die`       | Trigger | Memicu state Death (dari AnyState)    |
+| Parameter  | Tipe    | Keterangan                         |
+| ---------- | ------- | ---------------------------------- |
+| `MoveX`  | Float   | Arah pergerakan/hadapan sumbu X    |
+| `MoveY`  | Float   | Arah pergerakan/hadapan sumbu Y    |
+| `Speed`  | Float   | 0 = idle, > 0 = walking            |
+| `Attack` | Trigger | Memicu state Attack                |
+| `Die`    | Trigger | Memicu state Death (dari AnyState) |
 
 **Arsitektur: Hibrida (Blend Tree 2D + State Biasa)**
 
@@ -122,27 +122,27 @@ AnyState → Death        [kondisi: trigger "Die", Can Transition To Self: ❌]
 
 | Position (X, Y) | Motion                       | Keterangan |
 | --------------- | ---------------------------- | ---------- |
-| `(0, -1)`       | `Dwarapala_IdleFront.anim`   | Down       |
-| `(0, 1)`        | `Dwarapala_IdleBack.anim`    | Up         |
-| `(-1, 0)`       | `Dwarapala_IdleLeft.anim`    | Left       |
-| `(1, 0)`        | `Dwarapala_IdleRight.anim`   | Right      |
+| `(0, -1)`     | `Dwarapala_IdleFront.anim` | Down       |
+| `(0, 1)`      | `Dwarapala_IdleBack.anim`  | Up         |
+| `(-1, 0)`     | `Dwarapala_IdleLeft.anim`  | Left       |
+| `(1, 0)`      | `Dwarapala_IdleRight.anim` | Right      |
 
 **Blend Tree — Walk (2D Simple Directional, parameter: MoveX, MoveY):**
 
 | Position (X, Y) | Motion                       | Keterangan |
 | --------------- | ---------------------------- | ---------- |
-| `(0, -1)`       | `Dwarapala_WalkFront.anim`   | Down       |
-| `(0, 1)`        | `Dwarapala_WalkBack.anim`    | Up         |
-| `(-1, 0)`       | `Dwarapala_WalkLeft.anim`    | Left       |
-| `(1, 0)`        | `Dwarapala_WalkRight.anim`   | Right      |
+| `(0, -1)`     | `Dwarapala_WalkFront.anim` | Down       |
+| `(0, 1)`      | `Dwarapala_WalkBack.anim`  | Up         |
+| `(-1, 0)`     | `Dwarapala_WalkLeft.anim`  | Left       |
+| `(1, 0)`      | `Dwarapala_WalkRight.anim` | Right      |
 
 **State Attack (Non-Blend Tree, State Biasa):**
 
-| State | Motion | Keterangan |
-|---|---|---|
+| State            | Motion                         | Keterangan                                                              |
+| ---------------- | ------------------------------ | ----------------------------------------------------------------------- |
 | `Attack_Front` | `Dwarapala_AttackFront.anim` | Dipicu jika MoveX berada di rentang [-0.5, 0.5] (arah vertikal dominan) |
-| `Attack_Left` | `Dwarapala_AttackLeft.anim` | Dipicu jika MoveX < -0.5 (arah kiri dominan) |
-| `Attack_Right` | `Dwarapala_AttackRight.anim` | Dipicu jika MoveX > 0.5 (arah kanan dominan) |
+| `Attack_Left`  | `Dwarapala_AttackLeft.anim`  | Dipicu jika MoveX < -0.5 (arah kiri dominan)                            |
+| `Attack_Right` | `Dwarapala_AttackRight.anim` | Dipicu jika MoveX > 0.5 (arah kanan dominan)                            |
 
 **Animation Events pada clip Attack:**
 
@@ -413,13 +413,13 @@ Simpan di: `Assets/Arts/Enemies/Stage2-MakaraOrYaksa/Animations/`
 
 **Parameter Animator:**
 
-| Parameter     | Tipe    | Keterangan                            |
-| ------------- | ------- | ------------------------------------- |
-| `MoveX`       | Float   | Arah pergerakan/hadapan sumbu X       |
-| `MoveY`       | Float   | Arah pergerakan/hadapan sumbu Y       |
-| `Speed`     | Float   | 0 = idle, > 0 = moving                |
-| `Shoot`     | Trigger | Memicu state Shoot                    |
-| `Die`       | Trigger | Memicu state Death (dari AnyState)    |
+| Parameter | Tipe    | Keterangan                         |
+| --------- | ------- | ---------------------------------- |
+| `MoveX` | Float   | Arah pergerakan/hadapan sumbu X    |
+| `MoveY` | Float   | Arah pergerakan/hadapan sumbu Y    |
+| `Speed` | Float   | 0 = idle, > 0 = moving             |
+| `Shoot` | Trigger | Memicu state Shoot                 |
+| `Die`   | Trigger | Memicu state Death (dari AnyState) |
 
 **Arsitektur: Hibrida (Blend Tree 2D + State Biasa)**
 
@@ -446,25 +446,25 @@ AnyState → Death     [kondisi: trigger "Die", Can Transition To Self: ❌]
 
 | Position (X, Y) | Motion                   | Keterangan |
 | --------------- | ------------------------ | ---------- |
-| `(0, -1)`       | `Yaksa_IdleFront.anim`   | Down       |
-| `(0, 1)`        | `Yaksa_IdleBack.anim`    | Up         |
-| `(-1, 0)`       | `Yaksa_IdleLeft.anim`    | Left       |
-| `(1, 0)`        | `Yaksa_IdleRight.anim`   | Right      |
+| `(0, -1)`     | `Yaksa_IdleFront.anim` | Down       |
+| `(0, 1)`      | `Yaksa_IdleBack.anim`  | Up         |
+| `(-1, 0)`     | `Yaksa_IdleLeft.anim`  | Left       |
+| `(1, 0)`      | `Yaksa_IdleRight.anim` | Right      |
 
 **Blend Tree — Walk (2D Simple Directional, parameter: MoveX, MoveY):**
 
 | Position (X, Y) | Motion                   | Keterangan |
 | --------------- | ------------------------ | ---------- |
-| `(0, -1)`       | `Yaksa_WalkFront.anim`   | Down       |
-| `(0, 1)`        | `Yaksa_WalkBack.anim`    | Up         |
-| `(-1, 0)`       | `Yaksa_WalkLeft.anim`    | Left       |
-| `(1, 0)`        | `Yaksa_WalkRight.anim`   | Right      |
+| `(0, -1)`     | `Yaksa_WalkFront.anim` | Down       |
+| `(0, 1)`      | `Yaksa_WalkBack.anim`  | Up         |
+| `(-1, 0)`     | `Yaksa_WalkLeft.anim`  | Left       |
+| `(1, 0)`      | `Yaksa_WalkRight.anim` | Right      |
 
 **State Shoot (non Blend Tree):**
 
-| State           | Motion                    | Keterangan                       |
-| --------------- | ------------------------- | -------------------------------- |
-| `Shoot_Left`  | `Yaksa_ShootLeft.anim`  | Dipicu jika MoveX < 0 (arah kiri dominan) |
+| State           | Motion                    | Keterangan                                  |
+| --------------- | ------------------------- | ------------------------------------------- |
+| `Shoot_Left`  | `Yaksa_ShootLeft.anim`  | Dipicu jika MoveX < 0 (arah kiri dominan)   |
 | `Shoot_Right` | `Yaksa_ShootRight.anim` | Dipicu jika MoveX >= 0 (arah kanan dominan) |
 
 **Animation Events pada clip Shoot:**
@@ -893,12 +893,14 @@ Semua script baru disimpan di: `Assets/Scripts/Stage-2/`
 - [X] `Stage2BossArena.cs`
 - [X] `Stage2EnemyHealthBar.cs`
 
+## 5. Checklist Progress Tracking (Enemy Design & Setup)
+
 ### Tahap 3 — Prefab Assembly (di Unity Editor)
 
-- [ ] Buat prefab `Enemy_Dwarapala` + assign semua komponen
+- [X] Buat prefab `Enemy_Dwarapala` + assign semua komponen (termasuk Heavy Knockback)
 - [ ] Buat prefab `MiniBoss_Dwarapala` (duplikat + modifikasi)
-- [ ] Buat prefab `EnergyArrow` + Trail Renderer + Particle
-- [ ] Buat prefab `Boss_Yaksa` + assign semua komponen
+- [ ] Buat prefab `EnergyArrow` + Trail Renderer + Circle Collider Offset
+- [ ] Buat prefab `Boss_Yaksa` + assign semua komponen (dengan VisualParent melayang)
 
 ### Tahap 4 — Scene Integration
 
