@@ -8,9 +8,10 @@ public class Stage2EnemyAttack : MonoBehaviour
     [Header("Attack Configuration")]
     [SerializeField] private AttackType attackType = AttackType.MeleeAoE;
     [SerializeField] private int damage = 15;
-    [SerializeField] private float attackRange = 1.5f;
+    [SerializeField] private Vector2 attackRange = new Vector2(1.5f, 1.5f);
     [SerializeField] private float attackCooldown = 1.5f;
     [SerializeField] private LayerMask targetLayer;
+    [SerializeField] private Vector2 bodyCenterOffset = new Vector2(0f, 0.7f);
 
     [Header("Melee AoE Settings (Dwarapala)")]
     [SerializeField] private float meleeRadius = 1.5f;
@@ -38,19 +39,32 @@ public class Stage2EnemyAttack : MonoBehaviour
     private Coroutine attackTimeoutCoroutine;
 
     public bool IsAttacking => isAttacking;
-    public float AttackRange => attackRange;
-    public float MaxEffectiveRange
+    public float AttackRange => attackRange.x;
+    public float MaxEffectiveRange => GetMaxEffectiveRange(Vector2.right);
+
+    public float GetAttackRange(Vector2 direction)
     {
-        get
+        float xProj = Mathf.Abs(direction.x);
+        float yProj = Mathf.Abs(direction.y);
+        if (xProj < 0.001f && yProj < 0.001f) return attackRange.x;
+
+        float a = attackRange.x;
+        float b = attackRange.y;
+        float denom = (xProj / a) * (xProj / a) + (yProj / b) * (yProj / b);
+        return denom > 0.001f ? 1f / Mathf.Sqrt(denom) : a;
+    }
+
+    public float GetMaxEffectiveRange(Vector2 direction)
+    {
+        if (attackType == AttackType.MeleeAoE)
         {
-            if (attackType == AttackType.MeleeAoE)
-            {
-                // Jangkauan fisik melee tidak boleh melebihi total jangkauan hitbox (offset + radius)
-                float physicalReach = Mathf.Abs(meleeHitboxOffset.x) + meleeRadius;
-                return Mathf.Min(attackRange, physicalReach);
-            }
-            return attackRange;
+            // Jangkauan fisik melee tidak boleh melebihi total jangkauan hitbox (offset + radius)
+            float targetOffsetX = direction.x * meleeHitboxOffset.x;
+            float targetOffsetY = direction.y * meleeHitboxOffset.y;
+            float physicalReach = Mathf.Sqrt(targetOffsetX * targetOffsetX + targetOffsetY * targetOffsetY) + meleeRadius;
+            return Mathf.Min(GetAttackRange(direction), physicalReach);
         }
+        return GetAttackRange(direction);
     }
 
     private void Awake()
@@ -77,8 +91,9 @@ public class Stage2EnemyAttack : MonoBehaviour
         if (isAttacking || cooldownTimer > 0f) return;
         if (movementScript == null || movementScript.PlayerTransform == null) return;
 
+        Vector2 dirToPlayer = ((Vector2)movementScript.PlayerTransform.position - (Vector2)transform.position).normalized;
         float distanceToPlayer = Vector2.Distance(transform.position, movementScript.PlayerTransform.position);
-        if (distanceToPlayer <= MaxEffectiveRange)
+        if (distanceToPlayer <= GetMaxEffectiveRange(dirToPlayer))
         {
             StartAttack();
         }
@@ -151,8 +166,8 @@ public class Stage2EnemyAttack : MonoBehaviour
         Vector2 lookDir = ((Vector2)movementScript.PlayerTransform.position - (Vector2)transform.position).normalized;
 
         // Proyeksikan hitbox melee melingkar di depan musuh (mulai dari pusat tubuh Y=0.7)
-        Vector2 bodyCenter = (Vector2)transform.position + new Vector2(0f, 0.7f);
-        Vector2 actualOffset = lookDir * Mathf.Abs(meleeHitboxOffset.x);
+        Vector2 bodyCenter = (Vector2)transform.position + bodyCenterOffset;
+        Vector2 actualOffset = new Vector2(lookDir.x * meleeHitboxOffset.x, lookDir.y * meleeHitboxOffset.y);
         Vector2 smashCenter = bodyCenter + actualOffset;
 
         // Spawn visual effect hantaman jika di-assign
@@ -271,32 +286,42 @@ public class Stage2EnemyAttack : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Vector3 center = transform.position + new Vector3(0, 0.7f, 0);
+        Vector3 center = transform.position + new Vector3(bodyCenterOffset.x, bodyCenterOffset.y, 0f);
 
         // Visualisasi jarak jangkauan serang (Cyan)
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(center, attackRange);
+        DrawGizmosEllipse(center, attackRange);
 
         // Visualisasi batas jangkauan efektif (Kuning) jika berbeda dengan jangkauan dasar
-        float maxRange = MaxEffectiveRange;
-        if (Mathf.Abs(maxRange - attackRange) > 0.01f)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(center, maxRange);
-        }
+        Gizmos.color = Color.yellow;
+        Vector2 effectiveRangeVector = new Vector2(GetMaxEffectiveRange(Vector2.right), GetMaxEffectiveRange(Vector2.up));
+        DrawGizmosEllipse(center, effectiveRangeVector);
 
         if (attackType == AttackType.MeleeAoE)
         {
             // Tampilkan visualisasi area hitbox melee di Inspector
             Gizmos.color = Color.magenta;
-            Vector2 bodyCenter = (Vector2)transform.position + new Vector2(0f, 0.7f);
+            Vector2 bodyCenter = (Vector2)transform.position + bodyCenterOffset;
             Vector2 actualOffset = Vector2.right * meleeHitboxOffset.x;
             if (Application.isPlaying && movementScript != null && movementScript.PlayerTransform != null)
             {
                 Vector2 lookDir = ((Vector2)movementScript.PlayerTransform.position - (Vector2)transform.position).normalized;
-                actualOffset = lookDir * Mathf.Abs(meleeHitboxOffset.x);
+                actualOffset = new Vector2(lookDir.x * meleeHitboxOffset.x, lookDir.y * meleeHitboxOffset.y);
             }
             Gizmos.DrawWireSphere(bodyCenter + actualOffset, meleeRadius);
+        }
+    }
+
+    private void DrawGizmosEllipse(Vector3 center, Vector2 radius)
+    {
+        Vector3 prevPoint = center + new Vector3(radius.x, 0f, 0f);
+        int segments = 36;
+        for (int i = 1; i <= segments; i++)
+        {
+            float angle = i * 2 * Mathf.PI / segments;
+            Vector3 nextPoint = center + new Vector3(Mathf.Cos(angle) * radius.x, Mathf.Sin(angle) * radius.y, 0f);
+            Gizmos.DrawLine(prevPoint, nextPoint);
+            prevPoint = nextPoint;
         }
     }
 }

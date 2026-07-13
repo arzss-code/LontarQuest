@@ -24,7 +24,19 @@ public class Stage2EnemyMovement : MonoBehaviour
     [SerializeField] private LayerMask obstacleLayer;
 
     [Header("Chase Settings (Melee)")]
-    [SerializeField] private float stopDistance = 1.2f;
+    [SerializeField] private Vector2 stopDistance = new Vector2(1.2f, 1.2f);
+
+    public float GetStopDistance(Vector2 direction)
+    {
+        float xProj = Mathf.Abs(direction.x);
+        float yProj = Mathf.Abs(direction.y);
+        if (xProj < 0.001f && yProj < 0.001f) return stopDistance.x;
+
+        float a = stopDistance.x;
+        float b = stopDistance.y;
+        float denom = (xProj / a) * (xProj / a) + (yProj / b) * (yProj / b);
+        return denom > 0.001f ? 1f / Mathf.Sqrt(denom) : a;
+    }
 
     [Header("KeepDistance Settings (Ranged)")]
     [SerializeField] private float preferredDistance = 6f;
@@ -165,7 +177,8 @@ public class Stage2EnemyMovement : MonoBehaviour
             if (mode == MovementMode.Chase)
             {
                 // Jangkauan serang dinamis berdasarkan script attack, fallback ke stopDistance jika null
-                float effectiveStopDistance = (attackScript != null) ? attackScript.MaxEffectiveRange : stopDistance;
+                Vector2 dirToPlayer = ((Vector2)playerTransform.position - rb.position).normalized;
+                float effectiveStopDistance = (attackScript != null) ? attackScript.GetMaxEffectiveRange(dirToPlayer) : GetStopDistance(dirToPlayer);
 
                 // Mode Melee: Kejar sampai batas effectiveStopDistance
                 if (distanceToPlayer > effectiveStopDistance)
@@ -355,8 +368,28 @@ public class Stage2EnemyMovement : MonoBehaviour
         {
             // Visualisasi jarak stop melee
             Gizmos.color = Color.blue;
-            float effectiveStop = (attackScript != null) ? attackScript.MaxEffectiveRange : stopDistance;
-            Gizmos.DrawWireSphere(center, effectiveStop);
+            if (attackScript != null)
+            {
+                Vector2 effectiveRangeVector = new Vector2(attackScript.GetMaxEffectiveRange(Vector2.right), attackScript.GetMaxEffectiveRange(Vector2.up));
+                DrawGizmosEllipse(center, effectiveRangeVector);
+            }
+            else
+            {
+                DrawGizmosEllipse(center, stopDistance);
+            }
+        }
+    }
+
+    private void DrawGizmosEllipse(Vector3 center, Vector2 radius)
+    {
+        Vector3 prevPoint = center + new Vector3(radius.x, 0f, 0f);
+        int segments = 36;
+        for (int i = 1; i <= segments; i++)
+        {
+            float angle = i * 2 * Mathf.PI / segments;
+            Vector3 nextPoint = center + new Vector3(Mathf.Cos(angle) * radius.x, Mathf.Sin(angle) * radius.y, 0f);
+            Gizmos.DrawLine(prevPoint, nextPoint);
+            prevPoint = nextPoint;
         }
     }
 }

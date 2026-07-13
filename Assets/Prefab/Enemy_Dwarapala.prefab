@@ -185,7 +185,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.6879757}
+  m_Offset: {x: 0, y: 0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5560108, y: 0.0014668893}
@@ -195,7 +195,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8, y: 1.38}
+  m_Size: {x: 0.8, y: 0.4}
   m_EdgeRadius: 0
 --- !u!58 &6553438725398951047
 CircleCollider2D:
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73cd690b28cd304e9dc89e34b40653a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stage2EnemyStats
-  maxHP: 120
+  maxHP: 60
   isBoss: 0
   spriteRenderer: {fileID: 8823714165942680516}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
@@ -273,7 +273,7 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
-  stopDistance: 1.2
+  stopDistance: {x: 1, y: 1.5}
   preferredDistance: 6
   retreatDistance: 3
   retreatSpeed: 3.5
@@ -294,11 +294,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Stage2EnemyAttack
   attackType: 0
   damage: 15
-  attackRange: 1.5
+  attackRange: {x: 1, y: 1.5}
   attackCooldown: 1.5
   targetLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
+  bodyCenterOffset: {x: 0, y: 0.7}
   meleeRadius: 1.5
   meleeHitboxOffset: {x: 0, y: 0}
   attackVFXPrefab: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
