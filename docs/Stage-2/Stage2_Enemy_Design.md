@@ -898,8 +898,8 @@ Semua script baru disimpan di: `Assets/Scripts/Stage-2/`
 ### Tahap 3 — Prefab Assembly (di Unity Editor)
 
 - [X] Buat prefab `Enemy_Dwarapala` + assign semua komponen (termasuk Heavy Knockback)
-- [ ] Buat prefab `MiniBoss_Dwarapala` (duplikat + modifikasi)
-- [ ] Buat prefab `EnergyArrow` + Trail Renderer + Circle Collider Offset
+- [X] Buat prefab `MiniBoss_Dwarapala` (duplikat + modifikasi)
+- [X] Buat prefab `EnergyArrow` + Trail Renderer + Circle Collider Offset
 - [ ] Buat prefab `Boss_Yaksa` + assign semua komponen (dengan VisualParent melayang)
 
 ### Tahap 4 — Scene Integration
