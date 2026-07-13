@@ -295,17 +295,17 @@ MonoBehaviour:
   attackType: 0
   damage: 15
   attackRange: {x: 1, y: 1.5}
-  attackCooldown: 1.5
+  attackCooldown: 2
   targetLayer:
     serializedVersion: 2
     m_Bits: 8
   bodyCenterOffset: {x: 0, y: 0.7}
-  meleeRadius: 1.5
-  meleeHitboxOffset: {x: 0, y: 0}
+  meleeRadius: 1.2
+  meleeHitboxOffset: {x: 0, y: 2}
   attackVFXPrefab: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
   vfxLifetime: 0.5
-  useHeavyKnockback: 1
-  heavyKnockbackForce: 22
+  useHeavyKnockback: 0
+  heavyKnockbackForce: 1
   heavyKnockbackDuration: 0.35
   projectilePrefab: {fileID: 0}
   firePoint: {fileID: 0}
