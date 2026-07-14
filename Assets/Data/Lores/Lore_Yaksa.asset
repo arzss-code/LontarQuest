@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d4122f3d5325dd4d811ab632713f700, type: 3}
+  m_Name: Lore_Yaksa
+  m_EditorClassIdentifier: Assembly-CSharp::LoreData
+  loreID: lore_yaksa
+  monsterName: Yaksa
+  monsterSprite: {fileID: -4789670105439411607, guid: ded64d1c185bda54395098d86d42341a, type: 3}
+  mythologyDescription: Makhluk gaib pelindung perpustakaan kuno yang melayang di
+    udara. Memiliki sayap kristal energi biru yang memancarkan aura magis. Yaksa
+    menyerang menggunakan busur mistis yang menembakkan panah energi pencari sasaran.
+  weaknessHint: Yaksa akan selalu terbang mundur untuk menjaga jarak. Gunakan pilar
+    perpustakaan untuk menghalangi tembakan panah energinya, lalu serang dengan cepat
+    saat ia melakukan jeda cooldown serangan.

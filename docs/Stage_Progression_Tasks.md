@@ -39,11 +39,14 @@ _Tema Lingkungan: Rak buku kayu melayang di ruang hampa, lontar beterbangan, aur
 
 ### 2. Implementasi Musuh (Stage 2)
 
-- [ ] **Musuh: Yaksa (Leak - Ranged)**
-  - [ ] Buat Prefab `Enemy_Yaksa` dengan serangan proyektil dan _teleport_.
-- [ ] **Mini-Boss: Dwarapala (Buta Ijo - Tanker)**
-  - [ ] Buat Prefab `MiniBoss_Dwarapala`. Lambat tapi sangat mematikan (menghancurkan lantai/AoE).
-  - [ ] Tempatkan Dwarapala sebagai Mini-Boss penutup Stage 2.
+- [x] **Coding Script C# (Selesai)**
+  - [x] Buat script status `Stage2EnemyStats.cs`, pergerakan AI `Stage2EnemyMovement.cs`, serangan `Stage2EnemyAttack.cs`, jembatan animator `Stage2EnemyAnimator.cs`, proyektil `EnergyArrow.cs`, dan controller arena `Stage2BossArena.cs`.
+- [ ] **Prefab Assembly (Tahap Berikutnya)**
+  - [ ] Buat Prefab `Enemy_Dwarapala` (Kroco / Melee)
+  - [ ] Buat Prefab `MiniBoss_Dwarapala` (Skala 1.5x)
+  - [ ] Buat Prefab `EnergyArrow` (Proyektil Laser Homing)
+  - [ ] Buat Prefab `Boss_Yaksa` (Ranged Boss)
+  - [ ] Tempatkan musuh di ruangan-ruangan Stage 2 dan konfigurasikan `Stage2BossArena`.
 
 ### 3. Lore & Jurnal (Stage 2)
 

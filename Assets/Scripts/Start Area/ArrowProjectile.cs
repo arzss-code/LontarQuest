@@ -86,12 +86,18 @@ public class ArrowProjectile : MonoBehaviour
         );
     }
 
+    private bool hasHit = false;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (hasHit) return;
+
         if(other.gameObject.layer != LayerMask.NameToLayer("Enemy"))
         {
             return;
         }
+
+        hasHit = true;
 
         // Otomatis mencari fungsi TakeDamage di semua musuh (Kala, Gana, dll)
         other.SendMessageUpwards("TakeDamage", currentDamage, SendMessageOptions.DontRequireReceiver);

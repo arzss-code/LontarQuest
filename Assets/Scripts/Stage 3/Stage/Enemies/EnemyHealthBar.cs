@@ -9,6 +9,9 @@ public class EnemyHealthBar : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private float smoothSpeed = 6f;
 
+    [Header("Settings")]
+    [SerializeField] private bool billboard = true;
+
     //------------------------------------------------
 
     private float targetValue;
@@ -38,5 +41,29 @@ public class EnemyHealthBar : MonoBehaviour
             slider.value,
             targetValue,
             smoothSpeed * Time.deltaTime * slider.maxValue);
+    }
+
+    private void LateUpdate()
+    {
+        // Billboard: Menjaga UI selalu menghadap kamera (tidak terpengaruh rotasi musuh)
+        if (billboard && Camera.main != null)
+        {
+            transform.rotation = Camera.main.transform.rotation;
+        }
+
+        // Anti-Mirror: Mencegah UI terbalik jika parent di-flip menggunakan scale negatif
+        if (transform.parent != null)
+        {
+            Vector3 localScale = transform.localScale;
+            float parentScaleX = transform.parent.lossyScale.x;
+
+            // Jika scale global parent negatif tapi scale lokal UI positif (atau sebaliknya),
+            // balikkan scale lokal UI agar visual teks/bar tidak terbalik (mirror).
+            if ((parentScaleX < 0f && localScale.x > 0f) || (parentScaleX > 0f && localScale.x < 0f))
+            {
+                localScale.x *= -1f;
+                transform.localScale = localScale;
+            }
+        }
     }
 }
