@@ -28,6 +28,7 @@ public class Stage2EnemyAttack : MonoBehaviour
     [SerializeField] private float aimDuration = 0.5f;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private float projectileSpeed = 7f;
 
     // Components
     private Stage2EnemyAnimator animatorScript;
@@ -342,18 +343,15 @@ public class Stage2EnemyAttack : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
-            if (hit.CompareTag("Player"))
+            PlayerStats pStats = hit.GetComponentInParent<PlayerStats>();
+            if (pStats != null && (hit.CompareTag("Player") || pStats.CompareTag("Player")))
             {
                 // Kurangi darah pemain
-                PlayerStats pStats = hit.GetComponent<PlayerStats>();
-                if (pStats != null)
-                {
-                    pStats.TakeDamage(damage);
-                }
+                pStats.TakeDamage(damage);
 
-                // Berikan efek Knockback ke pemain
-                PlayerController pController = hit.GetComponent<PlayerController>();
-                Rigidbody2D pRb = hit.GetComponent<Rigidbody2D>();
+                // Berikan efek Knockback ke pemain (diambil dari root player object)
+                PlayerController pController = pStats.GetComponent<PlayerController>();
+                Rigidbody2D pRb = pStats.GetComponent<Rigidbody2D>();
                 if (pController != null && pRb != null)
                 {
                     if (useHeavyKnockback)
@@ -420,8 +418,8 @@ public class Stage2EnemyAttack : MonoBehaviour
                 finalDir = ((Vector2)movementScript.PlayerTransform.position - (Vector2)firePoint.position).normalized;
             }
 
-            // Kirim target, stat, dan arah bidikan yang terkunci ke proyektil (non-homing agar bisa dihindari)
-            arrow.Init(movementScript.PlayerTransform, damage, false, finalDir);
+            // Kirim target, stat, arah bidikan yang terkunci, dan aktifkan homing ringan sesuai GDD
+            arrow.Init(movementScript.PlayerTransform, damage, projectileSpeed, true, finalDir);
         }
     }
 
