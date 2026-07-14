@@ -17,6 +17,33 @@ public class StageIntroManager : MonoBehaviour
     [Header("Shake")]
     [SerializeField] private CameraShake cameraShake;
 
+    [Header("BGM")]
+    [SerializeField] private AudioSource bgmSource;
+
+    [SerializeField] private AudioClip stage3BGM;
+
+    [SerializeField] private float bgmTargetVolume = 0.15f;
+
+    [SerializeField] private float bgmFadeDuration = 2f;
+
+
+    private void Awake()
+    {
+        if (bgmSource == null)
+            return;
+
+        if (stage3BGM == null)
+            return;
+
+        bgmSource.clip = stage3BGM;
+        bgmSource.loop = true;
+        bgmSource.volume = 0f;
+        bgmSource.Play();
+
+        StartCoroutine(FadeInBGM());
+    }
+
+
     private void OnEnable()
     {
         if (introDialogueA != null)
@@ -102,5 +129,24 @@ public class StageIntroManager : MonoBehaviour
         {
             introDialogueB.StartDialogue();
         }
+    }
+
+    private IEnumerator FadeInBGM()
+    {
+        float timer = 0f;
+
+        while (timer < bgmFadeDuration)
+        {
+            timer += Time.deltaTime;
+
+            bgmSource.volume = Mathf.Lerp(
+                0f,
+                bgmTargetVolume,
+                timer / bgmFadeDuration);
+
+            yield return null;
+        }
+
+        bgmSource.volume = bgmTargetVolume;
     }
 }
