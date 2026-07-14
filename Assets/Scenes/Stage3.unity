@@ -7481,7 +7481,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 2.8125
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -19378,6 +19378,7 @@ MonoBehaviour:
   knockbackForce: 15
   knockbackDuration: 0.2
   canMove: 1
+  isAutoWalking: 0
   animator: {fileID: 764323103}
   footstepSound: {fileID: 8300000, guid: 6319a3006982d144d9ec871abc0c942b, type: 3}
   meleeSound: {fileID: 8300000, guid: bd1ea3ba35d51eb498feaef26e7d081f, type: 3}
@@ -19515,6 +19516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2638b433fec1a54e99caae725bb79a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stage3PlayerStats
+  respawnSceneName: SafeHub
   maxHP: 200
   maxMana: 100
   maxStamina: 100
@@ -19641,6 +19643,51 @@ Transform:
   - {fileID: 1738939039}
   - {fileID: 96868765}
   m_Father: {fileID: 119262007}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &952297796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 952297798}
+  - component: {fileID: 952297797}
+  m_Layer: 0
+  m_Name: ProgressTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &952297797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952297796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e74e63ed85be56229a8b5316365e291a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageProgressTracker
+  stageNumber: 3
+--- !u!4 &952297798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952297796}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.73976, y: -0.7006, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &968849298
 PrefabInstance:
@@ -83287,3 +83334,4 @@ SceneRoots:
   - {fileID: 1233607243}
   - {fileID: 132838610}
   - {fileID: 119262007}
+  - {fileID: 952297798}

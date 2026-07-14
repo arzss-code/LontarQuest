@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour, IDamageable
 {
+    [Header("Respawn")]
+    [Tooltip("Scene tujuan saat player mati. Kosongkan untuk reload scene saat ini.")]
+    [SerializeField]
+    string respawnSceneName = "SafeHub";
+
     [Header("HP")]
     [SerializeField]
     int maxHP = 200;
@@ -310,8 +315,15 @@ public class PlayerStats : MonoBehaviour, IDamageable
             yield return null;
         }
         
-        // Memuat ulang scene
-        int currentSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(currentSceneIndex);
+        // Pindah ke SafeHub (atau reload scene jika respawnSceneName kosong)
+        if (string.IsNullOrEmpty(respawnSceneName))
+        {
+            int currentSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(currentSceneIndex);
+        }
+        else
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(respawnSceneName);
+        }
     }
 }
