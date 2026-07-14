@@ -34,6 +34,9 @@ public class CutsceneManager : MonoBehaviour
 
         if (doorMarker != null)
             doorMarker.SetActive(false);
+        
+        if (FadeManager.Instance != null)
+            StartCoroutine(FadeManager.Instance.FadeIn());
     }
 
     private void Update()

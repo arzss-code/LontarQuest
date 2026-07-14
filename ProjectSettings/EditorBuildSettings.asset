@@ -27,11 +27,14 @@ EditorBuildSettings:
     path: Assets/Scenes/TempleScene.unity
     guid: 028678115b7a61bc09b00d4a05bb27ac
   - enabled: 1
+    path: Assets/Scenes/SafeHub.unity
+    guid: f110c0479ffb0b86eb22bc5d7f745c37
+  - enabled: 1
     path: Assets/Scenes/Stage1.unity
     guid: b4084729798e00b429cf538818dac741
   - enabled: 1
     path: Assets/Scenes/Stage2.unity
-    guid: 2886a027582d5844d9a50f88986b2ebb
+    guid: b8f527cedb405a2589d75c78ba7e187c
   - enabled: 1
     path: Assets/Scenes/Stage3.unity
     guid: e648721d19f6443448ac14eac2ba99a6

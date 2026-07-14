@@ -10,6 +10,7 @@ public class SaveManager : MonoBehaviour
     public class GameSaveData
     {
         public bool hasSeenMechanicTips = false;
+        public int lastStageReached = 1; // Stage terakhir yang dimasuki player (1/2/3)
         // Tambahkan data lain di sini nanti jika dibutuhkan
     }
 
@@ -70,5 +71,18 @@ public class SaveManager : MonoBehaviour
     public bool HasSeenMechanicTips()
     {
         return SaveData.hasSeenMechanicTips;
+    }
+
+    // Catat stage yang sedang dimasuki player. Cukup pakai nilai terbaru
+    // supaya portal yang terbuka = stage terakhir yang dilalui.
+    public void SetLastStageReached(int stage)
+    {
+        SaveData.lastStageReached = stage;
+        SaveGame();
+    }
+
+    public int GetLastStageReached()
+    {
+        return SaveData.lastStageReached;
     }
 }
