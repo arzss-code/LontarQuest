@@ -66,26 +66,29 @@ Sebelum menempatkan prasasti di scene, kita harus membuat aset data pendukungnya
 
 ## Bagian B: Setup Intro Sequence & Dialog Masuk Stage 2
 
+> [!TIP]
+> **Cara Cepat (Otomatis):** Anda dapat mengonfigurasi seluruh **Bagian B** dan monolog pasca-boss secara otomatis dengan membuka scene `Stage2` di Unity Editor, lalu mengeklik menu **`LontarQuest` -> `Setup Stage 2 (Bagian B)`** (atau klik tombol Setup di menu `Window > LontarQuest Setup`). Setup tool akan otomatis mengaktifkan GameObject, memasang script, dan mengisi seluruh monolog Saka secara presisi.
+
+Jika Anda ingin melakukannya secara manual, ikuti langkah-langkah berikut:
+
 ### Langkah 2: Pasang Script Intro (`Stage2IntroStarter`)
 
 Script `Stage2IntroStarter.cs` mengatur urutan intro ketika scene `Stage2` pertama kali dimuat: layar fade-in dari hitam, Saka berjalan otomatis (opsional), lalu monolog dialog Saka dimainkan.
 
-1. Buat GameObject kosong di awal scene (area spawn player) → beri nama **`Stage2_IntroManager`**.
-2. Tambahkan komponen **`Stage2IntroStarter`** pada `Stage2_IntroManager`.
-3. Di Inspector `Stage2IntroStarter`:
+1. Di Hierarchy scene `Stage2`, cari GameObject **`IntroManager`** di bawah parent **`Managers`** (pastikan dicentang **Active** ✅).
+2. Jika ada komponen `Stage1IntroStarter` lama pada `IntroManager`, klik kanan komponen tersebut lalu pilih **Remove Component**.
+3. Tambahkan komponen **`Stage2IntroStarter`** pada `IntroManager`.
+4. Di Inspector `Stage2IntroStarter`:
    * **Start Delay**: `0.5` (jeda sebelum cutscene mulai)
    * **Walk Speed**: `3` (kecepatan auto-walk, jika digunakan)
-   * **Portal Spawn Point**: (Opsional) Buat child Transform bernama `SpawnPoint` jika ingin teleport Saka ke posisi awal tertentu.
-   * **Walk Destination**: (Opsional) Buat child Transform bernama `WalkTarget` jika ingin Saka berjalan otomatis ke suatu titik sebelum dialog.
+   * **Portal Spawn Point**: Seret GameObject **`IntroStart`** (di bawah `Managers`).
+   * **Walk Destination**: Seret GameObject **`IntroWalk`** (di bawah `Managers`).
    * **Initial Quest**: `"Jelajahi Perpustakaan Melayang"`
 
 ### Langkah 3: Konfigurasi Dialog Intro (Monolog Saka)
 
-1. Pada GameObject **`Stage2_IntroManager`**, tambahkan komponen **`IntroDialogue`**.
-2. Di Inspector `IntroDialogue`:
-   * **Dialogue Panel**: Seret panel UI dialog dari Canvas (panel yang sama yang dipakai untuk semua dialog di game).
-   * **Name Text**: Seret komponen TMP nama speaker.
-   * **Dialogue Text**: Seret komponen TMP isi dialog.
+1. Di Hierarchy scene `Stage2`, cari GameObject **`IntroDialogueManager`** di bawah parent **`Managers`** (pastikan dicentang **Active** ✅). GameObject ini sudah memiliki komponen **`IntroDialogue`** dengan referensi UI Canvas terpasang.
+2. Di Inspector komponen **`IntroDialogue`** pada `IntroDialogueManager`:
    * **Freeze Player**: ✅ (centang)
    * **Unfreeze Player When Finished**: ✅ (centang)
    * **Dialogues** (Array, 3 elemen):
@@ -96,7 +99,7 @@ Script `Stage2IntroStarter.cs` mengatur urutan intro ketika scene `Stage2` perta
      | 1 | `Saka` | `"Lontar-lontar berterbangan di udara... Pasti ada sesuatu yang penting tersembunyi di sini."` |
      | 2 | `Saka` | `"Tapi batu-batu penjaga itu masih bergerak. Aku harus tetap waspada."` |
 
-3. Kembali ke komponen `Stage2IntroStarter`, seret komponen `IntroDialogue` yang baru ditambahkan ke slot **Intro Dialogue**.
+3. Kembali ke komponen `Stage2IntroStarter` pada `IntroManager`, seret GameObject **`IntroDialogueManager`** ke slot **Intro Dialogue**.
 
 **Catatan:** Setelah dialog selesai, quest otomatis diset ke `"Jelajahi Perpustakaan Melayang"` dan kontrol Saka dilepas.
 
@@ -195,11 +198,8 @@ Area di luar perpustakaan tempat Boss Yaksa menunggu. Saka **tidak bisa mundur**
 
 Setelah Yaksa dikalahkan, monolog Saka akan dimainkan sebelum Lontar jatuh (konsisten dengan pola Stage 1 `BossArenaController.postBossDialogue`).
 
-1. Pada GameObject **`BossArena_Yaksa`**, tambahkan komponen **`IntroDialogue`**.
-2. Di Inspector `IntroDialogue`:
-   * **Dialogue Panel**: Seret panel UI dialog yang sama dari Canvas.
-   * **Name Text**: Seret komponen TMP nama speaker.
-   * **Dialogue Text**: Seret komponen TMP isi dialog.
+1. Di Hierarchy scene `Stage2`, cari GameObject **`PostBossDialogueManager`** di bawah parent **`Managers`** (pastikan dicentang **Active** ✅). GameObject ini sudah memiliki komponen **`IntroDialogue`** dengan referensi UI Canvas terpasang.
+2. Di Inspector komponen **`IntroDialogue`** pada `PostBossDialogueManager`:
    * **Freeze Player**: ✅ (centang)
    * **Unfreeze Player When Finished**: ✅ (centang)
    * **Dialogues** (Array, 3 elemen):
@@ -210,7 +210,7 @@ Setelah Yaksa dikalahkan, monolog Saka akan dimainkan sebelum Lontar jatuh (kons
      | 1 | `Saka` | `"Perpustakaan ini menyimpan sesuatu. Kenapa ada roh penjaga sekuat ini di tempat yang seharusnya sudah lama mati?"` |
      | 2 | `Saka` | `"Lontar itu bersinar... Sepertinya ada kekuatan kuno lagi yang bisa kuserap. Aku harus mengambilnya."` |
 
-3. Kembali ke komponen `Stage2BossArena`, seret komponen `IntroDialogue` yang baru ditambahkan ke slot **Post Boss Dialogue**.
+3. Kembali ke komponen `Stage2BossArena` pada GameObject **`BossArena_Yaksa`**, seret GameObject **`PostBossDialogueManager`** ke slot **Post Boss Dialogue**.
 
 **Alur otomatis setelah Yaksa mati:**
 1. UI HP bos disembunyikan
@@ -299,9 +299,9 @@ Gunakan checklist di bawah ini untuk memantau progress pengerjaan di Unity Edito
 - [ ] Buat `Lore_Yaksa.asset` di folder `Assets/Data/Lores/` (ID = `lore_yaksa`)
 
 ### Intro Sequence
-- [ ] Buat GameObject `Stage2_IntroManager` dengan komponen `Stage2IntroStarter`
-- [ ] Tambahkan komponen `IntroDialogue` pada `Stage2_IntroManager` dan isi 3 baris monolog intro Saka
-- [ ] Hubungkan `IntroDialogue` ke slot `Intro Dialogue` di `Stage2IntroStarter`
+- [ ] Pastikan GameObject `IntroManager` aktif dan terpasang komponen `Stage2IntroStarter`
+- [ ] Pastikan GameObject `IntroDialogueManager` aktif dan isi 3 baris monolog intro Saka
+- [ ] Hubungkan `IntroDialogue` (pada `IntroDialogueManager`) ke slot `Intro Dialogue` di `Stage2IntroStarter`
 - [ ] Set field `Initial Quest` = `"Jelajahi Perpustakaan Melayang"`
 
 ### HUD Integration
@@ -316,8 +316,8 @@ Gunakan checklist di bawah ini untuk memantau progress pengerjaan di Unity Edito
 - [ ] Konfigurasi trigger `BossArena_Yaksa` dengan script `Stage2BossArena` dan hubungkan `Boss_Yaksa` (nonaktif default)
 - [ ] Hubungkan `BossHealthPanel` dan `BossHealthSlider` ke `Stage2BossArena`
 - [ ] Assign prefab `LontarBossDrop` dan `LontarSpawnPoint` di `Stage2BossArena`
-- [ ] Tambahkan komponen `IntroDialogue` pada `BossArena_Yaksa` dan isi 3 baris monolog pasca-boss Saka
-- [ ] Hubungkan `IntroDialogue` ke slot `Post Boss Dialogue` di `Stage2BossArena`
+- [ ] Pastikan GameObject `PostBossDialogueManager` aktif dan isi 3 baris monolog pasca-boss Saka
+- [ ] Hubungkan `IntroDialogue` (pada `PostBossDialogueManager`) ke slot `Post Boss Dialogue` di `Stage2BossArena`
 
 ### Lore & Portal
 - [ ] Tempatkan `Prasasti_Dwarapala` di area aman setelah Library dengan `LoreInteractable` → `Lore_Dwarapala`
