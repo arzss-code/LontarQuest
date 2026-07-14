@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoonData
   boonName: Langkah Angin Lontara
   type: 0
+  slot: 0
+  level: 1
+  nextLevelBoon: {fileID: 0}
   description: Langkahmu menjadi seringan angin laut. Meningkatkan kecepatan lari
     dan ayunan senjata.
-  icon: {fileID: 7493057393885255529, guid: 072ff80bfff20844b9301f2ca2579a8b, type: 3}
+  icon: {fileID: -3298287231336791485, guid: ca338bd8e81601d4db95cd3271ed2862, type: 3}
   attackSpeedBonus: 0.15
   movementSpeedBonus: 0.2
   damageReduction: 0

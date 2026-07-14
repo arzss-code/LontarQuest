@@ -37,6 +37,7 @@ public class Stage2BossArena : MonoBehaviour
 
     private Stage2EnemyStats bossStats;
     private bool isArenaLocked = false;
+    private Vector3 lastBossPosition;
 
     private void Start()
     {
@@ -77,6 +78,7 @@ public class Stage2BossArena : MonoBehaviour
         {
             if (bossObject != null && bossStats != null)
             {
+                lastBossPosition = bossObject.transform.position;
                 // Update nilai HP slider secara smooth
                 bossHealthSlider.value = Mathf.MoveTowards(
                     bossHealthSlider.value, 
@@ -167,7 +169,7 @@ public class Stage2BossArena : MonoBehaviour
         // Spawn Lontar drop
         if (lontarRewardPrefab != null)
         {
-            Vector3 spawnPos = lontarSpawnPoint != null ? lontarSpawnPoint.position : transform.position;
+            Vector3 spawnPos = lontarSpawnPoint != null ? lontarSpawnPoint.position : lastBossPosition;
             Instantiate(lontarRewardPrefab, spawnPos, Quaternion.identity);
 
             if (QuestManager.Instance != null)

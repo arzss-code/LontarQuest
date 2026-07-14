@@ -39,6 +39,7 @@ public class BossArenaController : MonoBehaviour
     public Transform lontarSpawnPoint;
 
     private bool isArenaLocked = false;
+    private Vector3 lastBossPosition;
 
     void Start()
     {
@@ -74,7 +75,11 @@ public class BossArenaController : MonoBehaviour
         // 3. FASE KEMENANGAN: Jika arena sedang terkunci, pantau terus objek Bos
         if (isArenaLocked)
         {
-            if (bossObject == null) // Jika objek bos dihancurkan (Destroy)
+            if (bossObject != null)
+            {
+                lastBossPosition = bossObject.transform.position;
+            }
+            else // Jika objek bos dihancurkan (Destroy)
             {
                 isArenaLocked = false; // Set false langsung agar coroutine tidak terpanggil dobel
                 StartCoroutine(UnlockArenaSequence());
@@ -143,7 +148,7 @@ public class BossArenaController : MonoBehaviour
         // Spawn Lontar Item
         if (lontarRewardPrefab != null)
         {
-            Vector3 spawnPos = lontarSpawnPoint != null ? lontarSpawnPoint.position : transform.position;
+            Vector3 spawnPos = lontarSpawnPoint != null ? lontarSpawnPoint.position : lastBossPosition;
             Instantiate(lontarRewardPrefab, spawnPos, Quaternion.identity);
 
             if (QuestManager.Instance != null)

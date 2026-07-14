@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoonData
   boonName: Nyala Api Kawi
   type: 2
+  slot: 0
+  level: 1
+  nextLevelBoon: {fileID: 0}
   description: Kekuatan kuno dari prasasti yang memberikan ekstra stamina dan membakar
     musuh yang terkena serangan.
-  icon: {fileID: -1240149337706566557, guid: 072ff80bfff20844b9301f2ca2579a8b, type: 3}
+  icon: {fileID: 5551469425518434246, guid: ca338bd8e81601d4db95cd3271ed2862, type: 3}
   attackSpeedBonus: 0
   movementSpeedBonus: 0
   damageReduction: 0

@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class BoonUIElement : MonoBehaviour
+public class BoonUIElement : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
 {
     [Header("UI References")]
     [SerializeField] private TMP_Text nameText;
@@ -76,9 +77,28 @@ public class BoonUIElement : MonoBehaviour
     /// </summary>
     private void OnBoonSelected()
     {
+        Debug.Log($"[DEBUG UI] OnBoonSelected dipanggil di kartu: {gameObject.name}");
+        
+        if (currentBoon == null) Debug.LogError($"[DEBUG UI] GAGAL! currentBoon kosong di {gameObject.name}");
+        if (BoonUIManager.Instance == null) Debug.LogError($"[DEBUG UI] GAGAL! BoonUIManager.Instance hilang!");
+
         if (currentBoon != null && BoonUIManager.Instance != null)
         {
             BoonUIManager.Instance.SelectBoon(currentBoon);
         }
+    }
+
+    // ==========================================
+    // RAW EVENT SYSTEM DETECTOR (Bypass Button)
+    // ==========================================
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log($"<color=cyan>[DEBUG UI] MOUSE HOVER MENDETEKSI KARTU: {gameObject.name}</color>");
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log($"<color=yellow>[DEBUG UI] RAW CLICK TERDETEKSI DI KARTU: {gameObject.name}!</color>");
+        OnBoonSelected(); // Paksa jalankan fungsi meskipun komponen Button error
     }
 }

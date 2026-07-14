@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoonData
   boonName: Perisai Gorga Batak
   type: 1
+  slot: 0
+  level: 1
+  nextLevelBoon: {fileID: 0}
   description: Ketangguhan ukiran Gorga melindungi tubuhmu, mengurangi rasa sakit
     dan perlahan menyembuhkan luka.
-  icon: {fileID: -2626376687607900404, guid: 072ff80bfff20844b9301f2ca2579a8b, type: 3}
+  icon: {fileID: 6990620842990733560, guid: ca338bd8e81601d4db95cd3271ed2862, type: 3}
   attackSpeedBonus: 0
   movementSpeedBonus: 0
   damageReduction: 0.2
-  healthRegen: 1
+  healthRegen: 5
   hasElementalEffect: 0
   extraStamina: 0
