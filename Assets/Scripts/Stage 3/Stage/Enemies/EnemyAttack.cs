@@ -15,7 +15,11 @@ public class EnemyAttack : MonoBehaviour
     [Header("Combat")]
     [SerializeField] private float attackRange = 7f;
     [SerializeField] private float attackCooldown = 3f;
+    
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
 
+    [SerializeField] private AudioClip projectileShootSFX;
     //------------------------------------------------
 
     private bool isAttacking;
@@ -25,6 +29,13 @@ public class EnemyAttack : MonoBehaviour
     public bool IsAttacking => isAttacking;
 
 
+
+
+    private void Awake()
+    {
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+    }
     public void TryAttack()
     {
         if (isAttacking)
@@ -94,6 +105,11 @@ public class EnemyAttack : MonoBehaviour
             return;
         }
 
+        if (audioSource != null && projectileShootSFX != null)
+        {
+            audioSource.PlayOneShot(projectileShootSFX);
+        }
+        
         GameObject projectile = Instantiate(
             projectilePrefab,
             projectileSpawn.position,

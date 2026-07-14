@@ -15,7 +15,11 @@ public class DialogueLine
 public class IntroDialogue : MonoBehaviour
 {
     public bool IsPlaying { get; private set; }
+
     public event Action OnDialogueFinished;
+
+    // BARU
+    public event Action<int> OnLineChanged;
 
     [Header("UI")]
     [SerializeField] private GameObject dialoguePanel;
@@ -98,15 +102,19 @@ public class IntroDialogue : MonoBehaviour
 
         dialoguePanel.SetActive(true);
 
-        foreach (DialogueLine dialogue in dialogues)
+        for (int i = 0; i < dialogues.Length; i++)
         {
+            DialogueLine dialogue = dialogues[i];
+
+            // BARU
+            OnLineChanged?.Invoke(i);
+
             nameText.text = dialogue.speaker;
 
             yield return StartCoroutine(TypeText(dialogue.text));
 
             nextDialogue = false;
 
-            // Tunggu SPACE untuk lanjut
             yield return new WaitUntil(() => nextDialogue);
         }
 

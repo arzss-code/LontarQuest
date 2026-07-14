@@ -14,71 +14,47 @@ public class FlashbackPlayer : MonoBehaviour
 
     public bool IsPlaying { get; private set; }
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+
+    [SerializeField] private AudioClip flashSFX;
+
     //----------------------------------------------------
 
     private void Awake()
     {
         flashbackCanvas.SetActive(false);
         whiteFlash.alpha = 0;
+
+        if(audioSource == null)
+        audioSource = GetComponent<AudioSource>();
     }
 
     //----------------------------------------------------
 
-    public IEnumerator PlayFlashback()
+    IEnumerator FlashBack()
     {
-        IsPlaying = true;
+        if (audioSource != null && flashSFX != null)
+        {
+            audioSource.PlayOneShot(flashSFX);
+        }
 
-        //----------------------------------
-        // White Fade In
-        //----------------------------------
+        float timer = 0;
 
-        yield return FadeWhite(0, 1);
+        while (timer < flashDuration)
+        {
+            timer += Time.deltaTime;
 
-        //----------------------------------
-        // Tampilkan Video
-        //----------------------------------
+            whiteFlash.alpha =
+                Mathf.Lerp(
+                    1,
+                    0,
+                    timer / flashDuration);
 
-        flashbackCanvas.SetActive(true);
-
-        videoPlayer.Stop();
-
-        videoPlayer.time = 0;
-
-        videoPlayer.Prepare();
-
-        while (!videoPlayer.isPrepared)
             yield return null;
+        }
 
-        videoPlayer.Play();
-
-        //----------------------------------
-        // White Fade Out
-        //----------------------------------
-
-        yield return FadeWhite(1, 0);
-
-        //----------------------------------
-        // Tunggu Video Selesai
-        //----------------------------------
-
-        while (videoPlayer.isPlaying)
-            yield return null;
-
-        //----------------------------------
-        // White Fade In Lagi
-        //----------------------------------
-
-        yield return FadeWhite(0, 1);
-
-        flashbackCanvas.SetActive(false);
-
-        //----------------------------------
-        // White Fade Out
-        //----------------------------------
-
-        yield return FadeWhite(1, 0);
-
-        IsPlaying = false;
+        whiteFlash.alpha = 0;
     }
 
 
@@ -240,6 +216,8 @@ public class FlashbackPlayer : MonoBehaviour
 
     IEnumerator FadeWhite(float from, float to)
     {
+        PlayFlashSFX();
+
         float timer = 0;
 
         while (timer < flashDuration)
@@ -256,5 +234,16 @@ public class FlashbackPlayer : MonoBehaviour
         }
 
         whiteFlash.alpha = to;
+    }
+
+    private void PlayFlashSFX()
+    {
+        if(audioSource == null)
+            return;
+
+        if(flashSFX == null)
+            return;
+
+        audioSource.PlayOneShot(flashSFX);
     }
 }

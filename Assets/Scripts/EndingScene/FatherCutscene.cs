@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Video;
 
 public class FatherCutscene : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class FatherCutscene : MonoBehaviour
     [SerializeField] private float stopDistance = 0.05f;
 
     [SerializeField] private FlashbackPlayer flashbackPlayer;
+    [Header("Flashback")]
+    [SerializeField] private VideoClip videoClip1;
 
 
 
@@ -114,7 +117,7 @@ public class FatherCutscene : MonoBehaviour
         //----------------------------------
 
         yield return StartCoroutine(
-            flashbackPlayer.PlayFlashback());
+            flashbackPlayer.PlayVideo(videoClip1));
 
         //----------------------------------
         // Dialogue F
