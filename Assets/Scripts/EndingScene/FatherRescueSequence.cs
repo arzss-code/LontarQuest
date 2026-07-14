@@ -7,6 +7,15 @@ public class FatherRescueSequence : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] private PlayerController player;
+    [Header("Arya")]
+    [SerializeField] private AryaCutsceneController arya;
+    [SerializeField] private Transform aryaWaitPoint;
+
+    [Header("Colliders")]
+    [SerializeField] private Collider2D trapCollider;
+
+    [SerializeField] private GameObject aryaCollider;
+
 
     [Header("Fade")]
     [SerializeField] private CanvasGroup blackFade;
@@ -21,6 +30,12 @@ public class FatherRescueSequence : MonoBehaviour
     [SerializeField] private float fatherCollapseDuration = 1.5f;
     [SerializeField] private float secondFadeDelay = 0.3f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+
+    [SerializeField] private AudioClip shatteredIceSFX;
+    
+
     [Header("Dialogue")]
     [SerializeField] private IntroDialogue dialogueG;
 
@@ -34,6 +49,12 @@ public class FatherRescueSequence : MonoBehaviour
     [SerializeField] private IntroDialogue dialogueI05;
     [SerializeField] private IntroDialogue dialogueI06;
     [SerializeField] private IntroDialogue dialogueI07;
+    [SerializeField] private IntroDialogue dialogueJ01;
+    [SerializeField] private IntroDialogue dialogueJ02;
+    [SerializeField] private IntroDialogue dialogueJ03;
+
+    [Header("Puzzle")]
+    [SerializeField] private AltarPuzzleManager puzzleManager;
     
 
     [Header("Flashback")]
@@ -68,8 +89,14 @@ public class FatherRescueSequence : MonoBehaviour
 
     private void Awake()
     {
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+
         defaultCameraSize =
             cmPlayer.Lens.OrthographicSize;
+
+         if (aryaCollider != null)
+            aryaCollider.SetActive(false);
     }
 
     //--------------------------------------------------
@@ -98,9 +125,22 @@ public class FatherRescueSequence : MonoBehaviour
 
         trapAnimator.SetTrigger("Break");
 
+        // Mainkan suara es pecah
+        PlayShatteredIce();
+
         Debug.Log("Trap Break");
 
         yield return new WaitForSeconds(trapBreakDuration);
+
+        //----------------------------------
+        // Tukar Collider
+        //----------------------------------
+
+        if (trapCollider != null)
+            trapCollider.enabled = false;
+
+        if (aryaCollider != null)
+            aryaCollider.SetActive(true);
 
         //----------------------------------
         // Father Collapse
@@ -144,12 +184,13 @@ public class FatherRescueSequence : MonoBehaviour
 
 
         //----------------------------------
-        // Ayah Bangkit
+        // Tunggu Arya selesai berdiri
         //----------------------------------
 
-        fatherAnimator.SetTrigger("Idle");
-
         yield return new WaitForSeconds(0.3f);
+
+        // Menghadap ke Saka
+        arya.Face(Vector2.down);
 
 
         //----------------------------------
@@ -313,6 +354,8 @@ public class FatherRescueSequence : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
+        player.SetCanMove(false);
+
 
         //----------------------------------
         // Zoom Out
@@ -329,14 +372,83 @@ public class FatherRescueSequence : MonoBehaviour
         yield return StartCoroutine(
             fireflyController.ShowAltarOrder());
 
+        
+
 
         //----------------------------------
-        // Zoom In
+        // Zoom Normal
         //----------------------------------
 
         yield return StartCoroutine(
             ZoomCamera(defaultCameraSize));
 
+        player.SetCanMove(true);
+
+
+        //----------------------------------
+        // Dialogue J01
+        //----------------------------------
+
+        dialogueJ01.StartDialogue();
+
+        yield return new WaitUntil(() =>
+            dialogueJ01.HasFinished());
+
+
+        //----------------------------------
+        // Firefly Nod
+        //----------------------------------
+
+        yield return StartCoroutine(
+            fireflyController.Nod());
+
+
+        //----------------------------------
+        // Dialogue J02
+        //----------------------------------
+
+        dialogueJ02.StartDialogue();
+
+        yield return new WaitUntil(() =>
+            dialogueJ02.HasFinished());
+
+
+        //----------------------------------
+        // Firefly Nod
+        //----------------------------------
+
+        yield return StartCoroutine(
+            fireflyController.Nod());
+
+
+        //----------------------------------
+        // Dialogue J03
+        //----------------------------------
+
+        dialogueJ03.StartDialogue();
+
+        yield return new WaitUntil(() =>
+            dialogueJ03.HasFinished());
+
+
+        //----------------------------------
+        // Arya Walk
+        //----------------------------------
+
+        yield return new WaitForSeconds(0.5f);
+
+        yield return StartCoroutine(
+            arya.MoveTo(aryaWaitPoint));
+
+        arya.Face(Vector2.up);
+
+        //----------------------------------
+        // Begin Puzzle
+        //----------------------------------
+
+        puzzleManager.BeginPuzzle();
+
+        player.SetCanMove(true);
 
         //----------------------------------
         // Player bebas bergerak
@@ -407,5 +519,16 @@ public class FatherRescueSequence : MonoBehaviour
         finalLens.OrthographicSize = targetSize;
 
         cmPlayer.Lens = finalLens;
+    }
+
+    private void PlayShatteredIce()
+    {
+        if (audioSource == null)
+            return;
+
+        if (shatteredIceSFX == null)
+            return;
+
+        audioSource.PlayOneShot(shatteredIceSFX);
     }
 }

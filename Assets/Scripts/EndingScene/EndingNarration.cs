@@ -32,11 +32,27 @@ public class EndingNarration : MonoBehaviour
 
     [SerializeField] private Animator playerAnimator;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource bgmSource;
+
+    [SerializeField] private AudioClip endingBGM;
+
+    [SerializeField] private float bgmFadeDuration = 3f;
+    [SerializeField]
+    [Range(0f, 1f)]
+    private float bgmTargetVolume = 0.15f;
+
 
     
 
     public bool Finished { get; private set; }
 
+
+    private void Awake()
+    {
+        if (bgmSource == null)
+            bgmSource = GetComponent<AudioSource>();
+    }
     private void Start()
     {
         whiteFlash.alpha = 0;
@@ -136,7 +152,11 @@ public class EndingNarration : MonoBehaviour
         // Tahan layar putih sebentar
         //----------------------------------------
 
-        // yield return new WaitForSeconds(0.5f);
+        if (blackScreen != null)
+            blackScreen.SetActive(false);
+
+        // Mulai BGM
+        StartCoroutine(FadeInBGM());
 
         //----------------------------------------
         // Black Screen tidak diperlukan lagi
@@ -170,5 +190,34 @@ public class EndingNarration : MonoBehaviour
         }
 
         whiteFlash.alpha = 0f;
+    }
+
+    private IEnumerator FadeInBGM()
+    {
+        if (bgmSource == null || endingBGM == null)
+            yield break;
+
+        bgmSource.clip = endingBGM;
+        bgmSource.loop = true;
+
+        bgmSource.volume = 0f;
+        bgmSource.Play();
+
+        float timer = 0f;
+
+        while (timer < bgmFadeDuration)
+        {
+            timer += Time.deltaTime;
+
+            bgmSource.volume =
+                Mathf.Lerp(
+                    0f,
+                    bgmTargetVolume,
+                    timer / bgmFadeDuration);
+
+            yield return null;
+        }
+
+        bgmSource.volume = bgmTargetVolume;
     }
 }
