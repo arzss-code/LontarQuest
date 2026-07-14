@@ -1,6 +1,30 @@
 # Panduan Stage 2 — Tahap 4: Scene Integration
 
-Dokumen ini memandu Anda langkah-demi-langkah di Unity Editor untuk melakukan integrasi level pada scene `Stage2.unity`. Tahap ini melanjutkan **Tahap 3: Prefab Assembly** dengan merakit Room Manager, penempatan musuh (Dwarapala & MiniBoss), Boss Arena (Yaksa), pembuatan data Lore (ScriptableObjects), penempatan Prasasti Lore, serta Portal Transisi.
+Dokumen ini memandu Anda langkah-demi-langkah di Unity Editor untuk melakukan integrasi level pada scene `Stage2.unity`. Tahap ini melanjutkan **Tahap 3: Prefab Assembly** dengan merakit Room Manager, penempatan musuh (Dwarapala & MiniBoss), Boss Arena (Yaksa), sistem Quest, Dialog Intro & Pasca-Boss, pembuatan data Lore, penempatan Prasasti Lore, serta Portal Transisi.
+
+## Struktur Room Stage 2
+
+Berdasarkan hierarki scene yang sudah disusun, alur Stage 2 adalah:
+
+```
+[Intro Spawn] → [Library_Enemies] → [MiniBoss_Room] → [Coridor_Enemies] → [Boss_Room] → [EndPortal → Stage3]
+```
+
+| # | Hierarchy Name | Isi | Peran Naratif |
+|---|---|---|---|
+| 1 | `Library_Enemies` | 11× Enemy_Dwarapala | **Perpustakaan** — ruang utama bertarung. Semua spawn langsung. |
+| 2 | `MiniBoss_Room` | 1× MiniBos_Dwarapala + 3× Enemy_Dwarapala | **Area Mini Boss** — ditemukan saat menjelajahi perpustakaan. Harus dikalahkan untuk membuka jalan ke koridor. |
+| 3 | `Coridor_Enemies` | 3× Enemy_Dwarapala | **Lorong menuju Bos** — semua musuh harus dikalahkan untuk membuka area boss. |
+| 4 | `Boss_Room` | 1× Boss_Yaksa | **Arena Boss Yaksa** — pintu masuk terkunci saat player masuk (tidak bisa mundur). Kalahkan Yaksa untuk membuka gerbang keluar. |
+
+**Alur Gameplay:**
+1. Saka memasuki Perpustakaan Melayang, melihat monolog intro
+2. Diberi quest untuk **menjelajahi perpustakaan** dan mencari jalan keluar
+3. Saat menjelajah, Saka memasuki area perpustakaan (`Library_Enemies`) — harus membersihkan 11 Dwarapala
+4. Setelah bersih, Saka menemukan jalan ke **area Mini Boss** (`MiniBoss_Room`) — harus mengalahkan MiniBoss + 3 Dwarapala untuk membuka lorong
+5. Saka memasuki **Koridor** (`Coridor_Enemies`) — 3 Dwarapala terakhir menghalangi pintu area boss
+6. Setelah koridor bersih, pintu menuju **Boss Room** terbuka
+7. Saka memasuki arena Yaksa — pintu di belakang tertutup (tidak bisa mundur). Kalahkan Yaksa → monolog pasca-boss → Lontar jatuh → gerbang keluar terbuka → portal ke Stage 3
 
 ---
 
@@ -9,156 +33,293 @@ Dokumen ini memandu Anda langkah-demi-langkah di Unity Editor untuk melakukan in
 Sebelum menempatkan prasasti di scene, kita harus membuat aset data pendukungnya terlebih dahulu.
 
 ### Langkah 1: Buat Aset LoreData Baru
+
 1. Buka Unity Editor, arahkan fokus ke Project Window di folder `Assets/Data/Lores/`.
 2. Klik kanan di folder kosong tersebut → **Create** → **LontarQuest** → **Lore Data**.
 3. Beri nama file baru tersebut **`Lore_Dwarapala.asset`**.
 4. Di Inspector, isi field berikut:
+
    * **Lore ID**: `lore_dwarapala` (ID unik sistem jurnal/save).
    * **Monster Name**: `Dwarapala`
    * **Monster Sprite**: Pilih sprite `Dwarapala_IdleFront_0` (dari folder `Assets/Arts/Enemies/Stage2-Dwarapala/Sprites/`).
-   * **Mythology Description**: 
+   * **Mythology Description**:
      > *"Penjaga pintu gerbang candi dalam mitologi kuno Nusantara. Berwujud raksasa batu berwajah menyeramkan dengan taring mencuat, membawa senjata gada besi besar untuk menghantam penyusup berkeping-keping. Bersifat sangat protektif terhadap wilayahnya."*
-   * **Weakness Hint**: 
+     >
+   * **Weakness Hint**:
      > *"Gerakan Dwarapala sangat lambat dan dapat dibaca. Saka dapat memancing serangannya, melakukan dash untuk menghindar dari area hantaman (AoE), lalu menyerang balik saat gada musuh tertancap di tanah."*
-
+     >
 5. Klik kanan lagi di folder `Assets/Data/Lores/` → **Create** → **LontarQuest** → **Lore Data**.
 6. Beri nama file baru tersebut **`Lore_Yaksa.asset`**.
 7. Di Inspector, isi field berikut:
+
    * **Lore ID**: `lore_yaksa`
    * **Monster Name**: `Yaksa`
    * **Monster Sprite**: Pilih sprite `Yaksa_IdleFront_0` (dari folder `Assets/Arts/Enemies/Stage2-MakaraOrYaksa/Sprites/`).
    * **Mythology Description**:
      > *"Makhluk gaib pelindung perpustakaan kuno yang melayang di udara. Memiliki sayap kristal energi biru yang memancarkan aura magis. Yaksa menyerang menggunakan busur mistis yang menembakkan panah energi pencari sasaran."*
+     >
    * **Weakness Hint**:
      > *"Yaksa akan selalu terbang mundur untuk menjaga jarak. Gunakan pilar perpustakaan untuk menghalangi tembakan panah energinya, lalu serang dengan cepat saat ia melakukan jeda cooldown serangan."*
+     >
 
 ---
 
-## Bagian B: Setup Room 1 s/d Room 4 di Scene `Stage2.unity`
+## Bagian B: Setup Intro Sequence & Dialog Masuk Stage 2
 
-Kita akan menyusun logika ruangan bertarung dan menempatkan musuh Dwarapala secara dinamis.
+### Langkah 2: Pasang Script Intro (`Stage2IntroStarter`)
 
-### Langkah 2: Setup Room 1 (Dungeon Tutorial)
-1. Buka scene `Stage2` di Hierarchy.
-2. Cari area **Room 1** (pintu masuk pertama). Buat GameObject kosong baru → beri nama `Room_1_Manager`.
-3. Tambahkan komponen **BoxCollider2D** pada `Room_1_Manager`:
+Script `Stage2IntroStarter.cs` mengatur urutan intro ketika scene `Stage2` pertama kali dimuat: layar fade-in dari hitam, Saka berjalan otomatis (opsional), lalu monolog dialog Saka dimainkan.
+
+1. Buat GameObject kosong di awal scene (area spawn player) → beri nama **`Stage2_IntroManager`**.
+2. Tambahkan komponen **`Stage2IntroStarter`** pada `Stage2_IntroManager`.
+3. Di Inspector `Stage2IntroStarter`:
+   * **Start Delay**: `0.5` (jeda sebelum cutscene mulai)
+   * **Walk Speed**: `3` (kecepatan auto-walk, jika digunakan)
+   * **Portal Spawn Point**: (Opsional) Buat child Transform bernama `SpawnPoint` jika ingin teleport Saka ke posisi awal tertentu.
+   * **Walk Destination**: (Opsional) Buat child Transform bernama `WalkTarget` jika ingin Saka berjalan otomatis ke suatu titik sebelum dialog.
+   * **Initial Quest**: `"Jelajahi Perpustakaan Melayang"`
+
+### Langkah 3: Konfigurasi Dialog Intro (Monolog Saka)
+
+1. Pada GameObject **`Stage2_IntroManager`**, tambahkan komponen **`IntroDialogue`**.
+2. Di Inspector `IntroDialogue`:
+   * **Dialogue Panel**: Seret panel UI dialog dari Canvas (panel yang sama yang dipakai untuk semua dialog di game).
+   * **Name Text**: Seret komponen TMP nama speaker.
+   * **Dialogue Text**: Seret komponen TMP isi dialog.
+   * **Freeze Player**: ✅ (centang)
+   * **Unfreeze Player When Finished**: ✅ (centang)
+   * **Dialogues** (Array, 3 elemen):
+
+     | Index | Speaker | Text |
+     |-------|---------|------|
+     | 0 | `Saka` | `"Tempat apa ini...? Rak-rak buku melayang di tengah kekosongan. Seperti perpustakaan yang ditinggalkan oleh waktu."` |
+     | 1 | `Saka` | `"Lontar-lontar berterbangan di udara... Pasti ada sesuatu yang penting tersembunyi di sini."` |
+     | 2 | `Saka` | `"Tapi batu-batu penjaga itu masih bergerak. Aku harus tetap waspada."` |
+
+3. Kembali ke komponen `Stage2IntroStarter`, seret komponen `IntroDialogue` yang baru ditambahkan ke slot **Intro Dialogue**.
+
+**Catatan:** Setelah dialog selesai, quest otomatis diset ke `"Jelajahi Perpustakaan Melayang"` dan kontrol Saka dilepas.
+
+---
+
+## Bagian C: Setup Room Bertarung di Scene `Stage2.unity`
+
+Kita akan menyusun logika ruangan bertarung untuk ketiga area menggunakan `Stage2RoomManager`. Pastikan komponen `Stage2QuestManager` sudah terpasang di Canvas scene (menggantikan `QuestManager` biasa) agar progress counter `(X/Y)` otomatis tampil.
+
+### Langkah 4: Setup Library_Enemies (Perpustakaan Utama)
+
+Area pertempuran utama pertama. 11 Dwarapala sudah diposisikan di dalam perpustakaan.
+
+1. Buat GameObject kosong di area perpustakaan → beri nama `Library_RoomManager`.
+2. Tambahkan komponen **BoxCollider2D**:
    * Centang **Is Trigger** = ✅.
-   * Atur posisi dan ukurannya (Size) agar mencakup seluruh lantai area pertempuran Room 1.
-4. Tambahkan komponen **`Stage2RoomManager.cs`**:
-   * **Entry Door**: Seret objek pintu batu penutup pintu masuk ke slot ini.
-   * **Exit Doors**: Seret objek `BoonDoor` (pintu keluar Room 1) ke list ini.
-   * **Next Room Blockades**: Seret jeruji/tembok pembatas jalan ke Room 2 ke list ini.
+   * Atur posisi dan ukurannya agar mencakup seluruh area lantai perpustakaan.
+3. Tambahkan komponen **`Stage2RoomManager.cs`**:
+   * **Entry Door**: Seret objek pintu masuk perpustakaan yang akan menutup saat player masuk.
+   * **Exit Doors**: (Kosongkan jika tidak ada BoonDoor)
+   * **Next Room Blockades**: Seret penghalang/jeruji yang menutup jalan menuju `MiniBoss_Room`. Ini akan terbuka otomatis saat semua musuh di perpustakaan mati.
    * **Guide Particle Prefab**: Tarik prefab `Guide.prefab` dari `Assets/Prefabs/Stage1/`.
-   * **Quest On Enter**: `"Bersihkan Koridor Candi"`
-   * **Quest On Clear**: `"Selidiki Lebih Dalam"`
-5. Drag prefab **`Enemy_Dwarapala`** (yang dibuat pada Tahap 3) sebanyak **3 buah** ke dalam area Room 1 di scene. Posisikan di koordinat yang menyebar secara taktis.
-6. Pilih ketiga objek `Enemy_Dwarapala` tersebut, lalu **Nonaktifkan** (uncheck kotak aktif GameObject di pojok kiri atas Inspector) agar musuh tersembunyi secara default.
-7. Pilih kembali `Room_1_Manager`, lalu seret ketiga objek `Enemy_Dwarapala` (yang nonaktif tadi) ke dalam list **Enemies in Room**.
+   * **Quest On Enter**: `"Bersihkan Perpustakaan dari Penjaga"`
+   * **Quest On Clear**: `"Cari Jalan Keluar Perpustakaan"`
+4. Pilih **semua 11 objek** `Enemy_Dwarapala` yang ada di bawah `Library_Enemies` di Hierarchy.
+5. Pastikan semua 11 objek diset **Nonaktif** (uncheck kotak aktif di Inspector).
+6. Pilih `Library_RoomManager`, lalu seret ke-11 objek `Enemy_Dwarapala` ke list **Enemies in Room**.
 
-### Langkah 3: Setup Room 2 (Dungeon Escalate)
-1. Buat GameObject kosong baru di area Room 2 → beri nama `Room_2_Manager`.
-2. Terapkan langkah collider trigger yang sama seperti Room 1 (Is Trigger = ✅).
-3. Tambahkan komponen **`Stage2RoomManager.cs`**:
-   * Hubungkan pintu masuk (`Entry Door`), pintu keluar/hadiah (`Exit Doors`), dan blockade jalan (`Next Room Blockades`).
-   * **Guide Particle Prefab**: Tarik prefab `Guide.prefab`.
-   * **Quest On Enter**: `"Kalahkan Dwarapala Penjaga"`
-   * **Quest On Clear**: `"Telusuri Ruang Buku"`
-4. Drag prefab **`Enemy_Dwarapala`** sebanyak **4 buah** ke dalam area Room 2.
-5. Nonaktifkan keempat objek musuh tersebut di Inspector.
-6. Daftarkan keempat objek musuh tersebut ke list **Enemies in Room** pada `Room_2_Manager`.
+> **Progress UI**: Saat Saka masuk perpustakaan, quest akan menampilkan `"Bersihkan Perpustakaan dari Penjaga (0/11)"` dan terupdate otomatis saat musuh mati.
 
-### Langkah 4: Setup Room 3 (Mini Boss Room)
-1. Buat GameObject kosong baru di area Room 3 → beri nama `Room_3_Manager`.
-2. Tambahkan komponen **BoxCollider2D** (Is Trigger = ✅) menutupi area bertarung Room 3.
+### Langkah 5: Setup MiniBoss_Room (Area Mini Boss)
+
+Area mini boss ditemukan saat Saka menjelajahi perpustakaan. Harus mengalahkan semua musuh untuk membuka lorong ke koridor.
+
+1. Buat GameObject kosong di area mini boss → beri nama `MiniBoss_RoomManager`.
+2. Tambahkan komponen **BoxCollider2D** (Is Trigger = ✅) menutupi area pertempuran mini boss.
 3. Tambahkan komponen **`Stage2RoomManager.cs`**:
-   * Hubungkan pintu dan blockade yang sesuai untuk Room 3.
+   * **Entry Door**: Seret pintu masuk area mini boss.
+   * **Exit Doors**: (Kosongkan jika tidak ada BoonDoor)
+   * **Next Room Blockades**: Seret penghalang/jeruji yang menutup jalan menuju `Coridor_Enemies`.
    * **Guide Particle Prefab**: Tarik prefab `Guide.prefab`.
    * **Quest On Enter**: `"Kalahkan Dwarapala Raksasa!"`
-   * **Quest On Clear**: `"Akses Koridor Utama Terbuka"`
-4. Drag **1 buah** prefab **`MiniBoss_Dwarapala`** (skala 1.5x) dan **2 buah** prefab **`Enemy_Dwarapala`** biasa ke dalam Room 3.
-5. Nonaktifkan ketiga objek musuh tersebut di Inspector.
-6. Daftarkan ketiga objek musuh tersebut ke list **Enemies in Room** pada `Room_3_Manager`.
+   * **Quest On Clear**: `"Lorong Menuju Area Baru Terbuka"`
+4. Pilih **1 objek** `MiniBos_Dwarapala` dan **3 objek** `Enemy_Dwarapala` di bawah `MiniBoss_Room`.
+5. Pastikan keempat objek diset **Nonaktif** di Inspector.
+6. Daftarkan keempat objek ke list **Enemies in Room** pada `MiniBoss_RoomManager`.
 
-### Langkah 5: Setup Room 4 (Gauntlet Room)
-1. Buat GameObject kosong baru di area Room 4 → beri nama `Room_4_Manager`.
-2. Tambahkan komponen **BoxCollider2D** (Is Trigger = ✅) menutupi area bertarung Room 4.
+> **Progress UI**: `"Kalahkan Dwarapala Raksasa! (0/4)"`
+
+### Langkah 6: Setup Coridor_Enemies (Lorong Menuju Boss)
+
+Lorong transisi pendek sebelum arena boss. Semua musuh harus mati agar pintu arena boss terbuka.
+
+1. Buat GameObject kosong di area koridor → beri nama `Coridor_RoomManager`.
+2. Tambahkan komponen **BoxCollider2D** (Is Trigger = ✅) menutupi area koridor.
 3. Tambahkan komponen **`Stage2RoomManager.cs`**:
-   * Hubungkan pintu dan blockade yang sesuai untuk Room 4.
+   * **Entry Door**: Seret pintu masuk koridor.
+   * **Exit Doors**: (Kosongkan jika tidak ada BoonDoor)
+   * **Next Room Blockades**: Seret penghalang/jeruji yang menutup jalan menuju `Boss_Room`. Ini akan terbuka otomatis saat semua musuh di koridor mati.
    * **Guide Particle Prefab**: Tarik prefab `Guide.prefab`.
-   * **Quest On Enter**: `"Bersihkan Rintangan Terakhir"`
-   * **Quest On Clear**: `"Mendekati Ruang Boss"`
-4. Drag prefab **`Enemy_Dwarapala`** sebanyak **5 buah** ke dalam area Room 4.
-5. Nonaktifkan kelima objek musuh tersebut di Inspector.
-6. Daftarkan kelima objek musuh tersebut ke list **Enemies in Room** pada `Room_4_Manager`.
+   * **Quest On Enter**: `"Terobos Penjaga Lorong"`
+   * **Quest On Clear**: `"Mendekati Ruang Sang Yaksa"`
+4. Pilih **3 objek** `Enemy_Dwarapala` di bawah `Coridor_Enemies`.
+5. Pastikan ketiga objek diset **Nonaktif** di Inspector.
+6. Daftarkan ketiga objek ke list **Enemies in Room** pada `Coridor_RoomManager`.
+
+> **Progress UI**: `"Terobos Penjaga Lorong (0/3)"`
 
 ---
 
-## Bagian C: Integrasi Boss Arena & Yaksa
+## Bagian D: Integrasi Boss Arena & Yaksa
 
-Setup ini mengintegrasikan bos Yaksa agar pertarungan Boss Fight dapat terpicu secara otomatis.
+### Langkah 7: Konfigurasi Stage2BossArena
 
-### Langkah 6: Konfigurasi Stage2BossArena
+Area di luar perpustakaan tempat Boss Yaksa menunggu. Saka **tidak bisa mundur** begitu masuk — pintu entry terkunci.
+
 1. Di Hierarchy scene `Stage2`, buat GameObject kosong di gerbang masuk arena bos → beri nama `BossArena_Yaksa`.
 2. Tambahkan komponen **BoxCollider2D**:
    * Centang **Is Trigger** = ✅.
-   * Sesuaikan ukuran collider agar melintangi jalan masuk arena (sehingga player pasti memicu trigger ini saat masuk).
+   * Sesuaikan ukuran collider agar melintangi pintu masuk arena (sehingga player pasti memicu trigger ini saat masuk).
 3. Tambahkan komponen **`Stage2BossArena.cs`**:
-   * **Entry Door**: Seret pintu masuk arena yang akan menutup saat bos aktif.
-   * **Next Room Blockades**: Seret portal transisi/pembatas jalan keluar di belakang bos ke list ini.
+   * **Entry Door**: Seret pintu/dinding masuk arena yang akan **menutup dan mengunci** saat Saka masuk (pemain tidak bisa mundur ke koridor).
+   * **Next Room Blockades**: Seret `ExitWall_Boss` (dinding di belakang arena yang menghalangi portal keluar). Ini terbuka otomatis saat Yaksa mati.
    * **Guide Particle Prefab**: Tarik prefab `Guide.prefab`.
-   * **Boss Object**: Drag prefab instance **`Boss_Yaksa`** yang diletakkan di tengah arena ke slot ini. Pastikan prefab instance di scene diset **Nonaktif (disabled)** secara default.
-   * **Boss AI**: Tarik script `Stage2EnemyMovement` yang menempel pada objek `Boss_Yaksa` ke slot ini.
-   * **Boss Health UI**: Seret panel UI **`BossHealthPanel`** dari Canvas prefab ke slot ini.
-   * **Boss Health Slider**: Seret slider HP bos yang ada di dalam panel tersebut ke slot ini.
-   * **Lontar Reward Prefab**: Tarik prefab **`LontarBossDrop.prefab`** dari folder `Assets/Prefab/` ke slot ini.
-   * **Lontar Spawn Point**: Buat child object kosong di tengah arena bos (beri nama `LontarSpawnPoint`), lalu seret objek ini ke slot `Lontar Spawn Point` di script.
+   * **Boss Object**: Drag objek `Boss_Yaksa` dari `Boss_Room` di Hierarchy ke slot ini. Pastikan `Boss_Yaksa` diset **Nonaktif (disabled)** secara default.
+   * **Boss AI**: Tarik script `Stage2EnemyMovement` yang menempel pada `Boss_Yaksa` ke slot ini.
+   * **Boss Health UI**: Seret panel UI **`BossHealthPanel`** dari Canvas.
+   * **Boss Health Slider**: Seret slider HP bos dari panel tersebut.
+   * **Lontar Reward Prefab**: Tarik prefab **`LontarBossDrop.prefab`** dari folder `Assets/Prefab/`.
+   * **Lontar Spawn Point**: Buat child object kosong di tengah arena bos (beri nama `LontarSpawnPoint`), seret ke slot ini.
+   * **Post Boss Delay**: `1.5` (detik)
    * **Quest On Boss**: `"Kalahkan Yaksa"`
    * **Quest On Clear**: `"Ambil Kitab Lontar"`
 
+### Langkah 8: Konfigurasi Dialog Pasca-Boss (Monolog Saka setelah Yaksa kalah)
+
+Setelah Yaksa dikalahkan, monolog Saka akan dimainkan sebelum Lontar jatuh (konsisten dengan pola Stage 1 `BossArenaController.postBossDialogue`).
+
+1. Pada GameObject **`BossArena_Yaksa`**, tambahkan komponen **`IntroDialogue`**.
+2. Di Inspector `IntroDialogue`:
+   * **Dialogue Panel**: Seret panel UI dialog yang sama dari Canvas.
+   * **Name Text**: Seret komponen TMP nama speaker.
+   * **Dialogue Text**: Seret komponen TMP isi dialog.
+   * **Freeze Player**: ✅ (centang)
+   * **Unfreeze Player When Finished**: ✅ (centang)
+   * **Dialogues** (Array, 3 elemen):
+
+     | Index | Speaker | Text |
+     |-------|---------|------|
+     | 0 | `Saka` | `"Makhluk itu... panah energinya bisa membunuhku kalau aku lengah sedikit saja."` |
+     | 1 | `Saka` | `"Perpustakaan ini menyimpan sesuatu. Kenapa ada roh penjaga sekuat ini di tempat yang seharusnya sudah lama mati?"` |
+     | 2 | `Saka` | `"Lontar itu bersinar... Sepertinya ada kekuatan kuno lagi yang bisa kuserap. Aku harus mengambilnya."` |
+
+3. Kembali ke komponen `Stage2BossArena`, seret komponen `IntroDialogue` yang baru ditambahkan ke slot **Post Boss Dialogue**.
+
+**Alur otomatis setelah Yaksa mati:**
+1. UI HP bos disembunyikan
+2. Quest `"Kalahkan Yaksa"` selesai
+3. Jeda 1.5 detik (animasi kematian bos)
+4. **Monolog Saka dimainkan** (3 baris dialog di atas)
+5. Lontar drop muncul → Quest `"Ambil Lontar Kuno yang Terjatuh"`
+6. Dinding `ExitWall_Boss` terbuka → Portal keluar terlihat
+7. Setelah Lontar diambil → Boon selection → Portal ke `Stage3`
+
 ---
 
-## Bagian D: Penempatan Prasasti Lore & Portal Akhir
+## Bagian E: Setup Portal Akhir & Prasasti Lore
 
-Untuk melengkapi eksplorasi roguelite, kita menempatkan Prasasti Lore di area aman dan Portal Keluar di belakang arena bos.
+### Langkah 9: Pasang Portal Transisi Level (`EndPortal`)
 
-### Langkah 7: Pasang Prasasti Kuno (`LoreInteractable`)
-Kita akan meletakkan dua buah prasasti di ruangan aman untuk memberikan lore dan hint kelemahan musuh.
+Agar konsisten dengan arsitektur Stage 1 (Kepala Kala) dan menghindari bug portal tidak bisa dipicu:
 
-1. **Prasasti Dwarapala (Safe Room 1 - Setelah Room 2)**:
-   * Drag prefab **`Prasasti_KepalaKala`** dari `Assets/Prefabs/Stage1/` ke ruangan aman pertama di Stage 2. Rename menjadi `Prasasti_Dwarapala`.
-   * Hapus/ganti komponen interactable jika masih mengarah ke data lama. Pastikan memiliki komponen **`LoreInteractable.cs`**.
-   * Di Inspector komponen `LoreInteractable`:
-     * **Lore Data To Unlock**: Seret aset ScriptableObject **`Lore_Dwarapala`** yang dibuat di Bagian A ke slot ini.
-     * **Interact Key**: `E`
-2. **Prasasti Yaksa (Safe Room 2 - Setelah Room 4)**:
-   * Drag prefab **`Prasasti_KepalaKala`** ke ruangan aman kedua (sebelum Boss Arena). Rename menjadi `Prasasti_Yaksa`.
-   * Di Inspector komponen `LoreInteractable`:
-     * **Lore Data To Unlock**: Seret aset ScriptableObject **`Lore_Yaksa`** yang dibuat di Bagian A ke slot ini.
-     * **Interact Key**: `E`
-
-### Langkah 8: Pasang Portal Transisi Level (`EndPortal`)
-1. Drag prefab **`EndPortal.prefab`** (dari folder `Assets/Prefab/`) ke area di belakang arena Boss Yaksa (dekat dengan Lontar Spawn Point).
-2. Di Inspector komponen **`EndPortal`**:
+1. Buat GameObject dinding/geruji penghalang jalan keluar di belakang arena boss Yaksa, beri nama **`ExitWall_Boss`**.
+2. Seret `ExitWall_Boss` ke dalam list **`Next Room Blockades`** pada komponen `Stage2BossArena` di GameObject `BossArena_Yaksa`. Dengan begitu, gerbang ini akan otomatis menghalangi jalan saat permainan dimulai dan terbuka saat Yaksa dikalahkan.
+3. Drag prefab **`EndPortal.prefab`** (dari folder `Assets/Prefab/`) dan posisikan **di belakang** `ExitWall_Boss`.
+4. Di Inspector komponen **`EndPortal`**:
+   * Pastikan GameObject tetap **Aktif** (`m_IsActive = true`) ✅ agar bisa mendeteksi trigger pemain setelah gerbang blockade terbuka.
    * Pastikan **Is Trigger** pada BoxCollider2D tercentang ✅.
-   * **Target Scene Name**: Isi dengan nama scene berikutnya, yaitu **`Stage3`** (atau scene tujuan selanjutnya sesuai Build Settings).
-3. Secara default di Inspector, klik centang aktif pada GameObject `EndPortal` agar **Nonaktif (disabled)** saat permainan dimulai. Portal ini akan diaktifkan secara otomatis setelah Lontar jatuh dan diambil oleh Saka.
+   * **Target Scene Name**: Isi dengan **`Stage3`**.
+
+### Langkah 10: Pasang Prasasti Kuno (`LoreInteractable`)
+
+Tempatkan dua prasasti di area aman untuk memberikan lore dan hint kelemahan musuh.
+
+1. **Prasasti Dwarapala (Area Aman Setelah Perpustakaan)**:
+   * Drag prefab **`Prasasti_KepalaKala`** dari `Assets/Prefabs/Stage1/` ke area aman setelah Library bersih. Rename menjadi `Prasasti_Dwarapala`.
+   * Pastikan memiliki komponen **`LoreInteractable.cs`**.
+   * Di Inspector:
+     * **Lore Data To Unlock**: Seret `Lore_Dwarapala.asset`.
+     * **Interact Key**: `E`
+2. **Prasasti Yaksa (Area Aman Setelah MiniBoss)**:
+   * Drag prefab **`Prasasti_KepalaKala`** ke area aman setelah MiniBoss Room. Rename menjadi `Prasasti_Yaksa`.
+   * Di Inspector:
+     * **Lore Data To Unlock**: Seret `Lore_Yaksa.asset`.
+     * **Interact Key**: `E`
 
 ---
 
-## Bagian E: Progress Tracking Checklist (Stage 2 Scene Integration)
+## Bagian F: Ringkasan Quest Flow
+
+```
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  INTRO                                                                       │
+│  [Monolog Saka — 3 baris]                                                    │
+│  Quest: "Jelajahi Perpustakaan Melayang"                                     │
+├──────────────────────────────────────────────────────────────────────────────┤
+│  LIBRARY_ENEMIES (11 Dwarapala)                                              │
+│  Enter → "Bersihkan Perpustakaan dari Penjaga (0/11)"                        │
+│  Clear → "Cari Jalan Keluar Perpustakaan"                                    │
+│          → Blockade ke MiniBoss_Room terbuka                                 │
+├──────────────────────────────────────────────────────────────────────────────┤
+│  MINIBOSS_ROOM (1 MiniBoss + 3 Dwarapala)                                    │
+│  Enter → "Kalahkan Dwarapala Raksasa! (0/4)"                                │
+│  Clear → "Lorong Menuju Area Baru Terbuka"                                   │
+│          → Blockade ke Coridor terbuka                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│  CORIDOR_ENEMIES (3 Dwarapala)                                               │
+│  Enter → "Terobos Penjaga Lorong (0/3)"                                      │
+│  Clear → "Mendekati Ruang Sang Yaksa"                                        │
+│          → Blockade ke Boss_Room terbuka                                     │
+├──────────────────────────────────────────────────────────────────────────────┤
+│  BOSS_ROOM (Boss Yaksa)                                                      │
+│  Enter → Pintu belakang TERKUNCI (tidak bisa mundur)                         │
+│          Quest: "Kalahkan Yaksa"                                             │
+│  Clear → [Monolog Saka — 3 baris]                                            │
+│          Lontar drop → "Ambil Lontar Kuno yang Terjatuh"                     │
+│          ExitWall terbuka → EndPortal terlihat                               │
+│          → Boon Selection → "Masuki Portal" → Stage3                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Bagian G: Progress Tracking Checklist
 
 Gunakan checklist di bawah ini untuk memantau progress pengerjaan di Unity Editor. Beri tanda centang `[x]` pada langkah-langkah yang telah selesai disiapkan.
 
-- [ ] **Data Setup**: Buat `Lore_Dwarapala.asset` di folder `Assets/Data/Lores/` (Pastikan ID = `lore_dwarapala`)
-- [ ] **Data Setup**: Buat `Lore_Yaksa.asset` di folder `Assets/Data/Lores/` (Pastikan ID = `lore_yaksa`)
-- [ ] **HUD Integration**: Ganti `QuestManager` lama di Canvas `Stage2` dengan script `Stage2QuestManager` dan hubungkan referensi UI-nya
-- [ ] **Room 1 Setup**: Konfigurasi `Room_1_Manager` dengan trigger collider dan daftarkan 3 prefab `Enemy_Dwarapala` (dinonaktifkan secara default)
-- [ ] **Room 2 Setup**: Konfigurasi `Room_2_Manager` dengan trigger collider dan daftarkan 4 prefab `Enemy_Dwarapala` (dinonaktifkan secara default)
-- [ ] **Room 3 Setup**: Konfigurasi `Room_3_Manager` dengan trigger collider dan daftarkan 1 prefab `MiniBoss_Dwarapala` + 2 prefab `Enemy_Dwarapala` (dinonaktifkan secara default)
-- [ ] **Room 4 Setup**: Konfigurasi `Room_4_Manager` dengan trigger collider dan daftarkan 5 prefab `Enemy_Dwarapala` (dinonaktifkan secara default)
-- [ ] **Boss Arena Setup**: Konfigurasi trigger `BossArena_Yaksa` dengan script `Stage2BossArena` dan hubungkan prefab instance `Boss_Yaksa` (dinonaktifkan secara default)
-- [ ] **Boss UI Setup**: Hubungkan panel Canvas `BossHealthPanel` dan `BossHealthSlider` ke komponen `Stage2BossArena`
-- [ ] **Boss Reward**: Assign prefab `LontarBossDrop` dan spawn point di komponen `Stage2BossArena`
-- [ ] **Lore Interaction**: Tempatkan `Prasasti_Dwarapala` di Safe Room 1 dengan script `LoreInteractable` terhubung ke `Lore_Dwarapala`
-- [ ] **Lore Interaction**: Tempatkan `Prasasti_Yaksa` di Safe Room 2 dengan script `LoreInteractable` terhubung ke `Lore_Yaksa`
-- [ ] **End Transition**: Pasang `EndPortal` di belakang arena bos (dinonaktifkan secara default) dengan target scene `Stage3`
+### Data & Assets
+- [ ] Buat `Lore_Dwarapala.asset` di folder `Assets/Data/Lores/` (ID = `lore_dwarapala`)
+- [ ] Buat `Lore_Yaksa.asset` di folder `Assets/Data/Lores/` (ID = `lore_yaksa`)
+
+### Intro Sequence
+- [ ] Buat GameObject `Stage2_IntroManager` dengan komponen `Stage2IntroStarter`
+- [ ] Tambahkan komponen `IntroDialogue` pada `Stage2_IntroManager` dan isi 3 baris monolog intro Saka
+- [ ] Hubungkan `IntroDialogue` ke slot `Intro Dialogue` di `Stage2IntroStarter`
+- [ ] Set field `Initial Quest` = `"Jelajahi Perpustakaan Melayang"`
+
+### HUD Integration
+- [ ] Ganti `QuestManager` lama di Canvas `Stage2` dengan script `Stage2QuestManager` dan hubungkan referensi UI-nya
+
+### Room Setup
+- [ ] **Library**: Konfigurasi `Library_RoomManager` dengan trigger collider dan daftarkan 11 `Enemy_Dwarapala` (nonaktif default). Quest: `"Bersihkan Perpustakaan dari Penjaga"` / `"Cari Jalan Keluar Perpustakaan"`
+- [ ] **MiniBoss**: Konfigurasi `MiniBoss_RoomManager` dengan trigger collider dan daftarkan 1 `MiniBos_Dwarapala` + 3 `Enemy_Dwarapala` (nonaktif default). Quest: `"Kalahkan Dwarapala Raksasa!"` / `"Lorong Menuju Area Baru Terbuka"`
+- [ ] **Coridor**: Konfigurasi `Coridor_RoomManager` dengan trigger collider dan daftarkan 3 `Enemy_Dwarapala` (nonaktif default). Quest: `"Terobos Penjaga Lorong"` / `"Mendekati Ruang Sang Yaksa"`
+
+### Boss Arena
+- [ ] Konfigurasi trigger `BossArena_Yaksa` dengan script `Stage2BossArena` dan hubungkan `Boss_Yaksa` (nonaktif default)
+- [ ] Hubungkan `BossHealthPanel` dan `BossHealthSlider` ke `Stage2BossArena`
+- [ ] Assign prefab `LontarBossDrop` dan `LontarSpawnPoint` di `Stage2BossArena`
+- [ ] Tambahkan komponen `IntroDialogue` pada `BossArena_Yaksa` dan isi 3 baris monolog pasca-boss Saka
+- [ ] Hubungkan `IntroDialogue` ke slot `Post Boss Dialogue` di `Stage2BossArena`
+
+### Lore & Portal
+- [ ] Tempatkan `Prasasti_Dwarapala` di area aman setelah Library dengan `LoreInteractable` → `Lore_Dwarapala`
+- [ ] Tempatkan `Prasasti_Yaksa` di area aman setelah MiniBoss Room dengan `LoreInteractable` → `Lore_Yaksa`
+- [ ] Buat `ExitWall_Boss` sebagai blockade, lalu pasang `EndPortal` (selalu aktif) di belakangnya dengan target scene `Stage3`

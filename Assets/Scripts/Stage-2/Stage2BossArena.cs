@@ -27,6 +27,10 @@ public class Stage2BossArena : MonoBehaviour
     [SerializeField] private GameObject lontarRewardPrefab;
     [SerializeField] private Transform lontarSpawnPoint;
 
+    [Header("Post-Boss Dialogue")]
+    [Tooltip("Dialog/monolog Saka yang akan muncul setelah Yaksa dikalahkan (opsional)")]
+    [SerializeField] private IntroDialogue postBossDialogue;
+
     [Header("Quest Configuration")]
     [SerializeField] private string questOnBoss = "Kalahkan Yaksa";
     [SerializeField] private string questOnClear = "Lanjutkan ke Ruang Inti";
@@ -150,6 +154,15 @@ public class Stage2BossArena : MonoBehaviour
 
         // Tunggu boss mati berkeping-keping
         yield return new WaitForSeconds(postBossDelay);
+
+        // Jalankan dialog pasca-boss jika di-assign (monolog Saka)
+        if (postBossDialogue != null)
+        {
+            postBossDialogue.StartDialogue();
+
+            // Tunggu hingga dialog selesai dimainkan
+            yield return new WaitUntil(() => !postBossDialogue.IsPlaying);
+        }
 
         // Spawn Lontar drop
         if (lontarRewardPrefab != null)

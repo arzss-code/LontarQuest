@@ -907,11 +907,15 @@ Semua script baru disimpan di: `Assets/Scripts/Stage-2/`
 ### Tahap 4 — Scene Integration
 *(Panduan langkah lengkap: [Stage2_Tahap4_Scene_Integration.md](file:///d:/Unity/Unity%20Project/LontarQuest/docs/Stage-2/Stage2_Tahap4_Scene_Integration.md))*
 
-- [ ] Setup RoomManager pada setiap room di `Stage2.unity`
-- [ ] Tempatkan enemy prefab di tiap room (disabled)
-- [ ] Setup `Stage2BossArena` pada boss room
-- [ ] Setup Boon Doors + reward antar room
-- [ ] Buat Lore ScriptableObjects (`Lore_Dwarapala`, `Lore_Yaksa`)
+- [ ] Buat `Lore_Dwarapala.asset` dan `Lore_Yaksa.asset` di `Assets/Data/Lores/`
+- [ ] Setup `Stage2IntroStarter` + `IntroDialogue` (monolog intro Saka)
+- [ ] Ganti `QuestManager` dengan `Stage2QuestManager` di Canvas
+- [ ] Setup `Library_RoomManager` — 11 Enemy_Dwarapala (perpustakaan utama)
+- [ ] Setup `MiniBoss_RoomManager` — 1 MiniBos + 3 Enemy (area mini boss)
+- [ ] Setup `Coridor_RoomManager` — 3 Enemy_Dwarapala (lorong menuju boss)
+- [ ] Setup `BossArena_Yaksa` dengan `Stage2BossArena` + `IntroDialogue` (monolog pasca-boss)
+- [ ] Pasang Prasasti Lore (`Dwarapala` & `Yaksa`)
+- [ ] Pasang `ExitWall_Boss` + `EndPortal` (target: `Stage3`)
 
 ### Tahap 5 — Polish & Testing
 
