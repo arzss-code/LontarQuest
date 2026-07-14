@@ -50,12 +50,30 @@ public class Stage2RoomManager : MonoBehaviour
         initialEnemyCount = enemiesInRoom.Count;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !isRoomActive && !isRoomCleared)
         {
-            ActivateRoom();
+            if (IsPlayerFullyInside(other))
+            {
+                ActivateRoom();
+            }
         }
+    }
+
+    private bool IsPlayerFullyInside(Collider2D playerCol)
+    {
+        Collider2D roomCol = GetComponent<Collider2D>();
+        if (roomCol == null || playerCol == null) return false;
+
+        Bounds roomBounds = roomCol.bounds;
+        Bounds playerBounds = playerCol.bounds;
+
+        // Cek apakah seluruh area bounds player berada di dalam bounds ruangan
+        return playerBounds.min.x >= roomBounds.min.x &&
+               playerBounds.max.x <= roomBounds.max.x &&
+               playerBounds.min.y >= roomBounds.min.y &&
+               playerBounds.max.y <= roomBounds.max.y;
     }
 
     private void ActivateRoom()
@@ -68,14 +86,24 @@ public class Stage2RoomManager : MonoBehaviour
             if (enemy != null) enemy.SetActive(true);
         }
 
-        // Jalankan UI Counter Misi jika QuestManager adalah tipe Stage2
-        if (QuestManager.Instance is Stage2QuestManager s2Quest && initialEnemyCount > 0)
+        // Jalankan UI Counter Misi jika QuestManager adalah tipe Stage2, atau gunakan fallback string format
+        if (QuestManager.Instance != null)
         {
-            s2Quest.StartProgressObjective(questOnEnter, initialEnemyCount);
-        }
-        else if (QuestManager.Instance != null)
-        {
-            QuestManager.Instance.SetObjective(questOnEnter);
+            if (initialEnemyCount > 0)
+            {
+                if (QuestManager.Instance is Stage2QuestManager s2Quest)
+                {
+                    s2Quest.StartProgressObjective(questOnEnter, initialEnemyCount);
+                }
+                else
+                {
+                    QuestManager.Instance.SetObjective($"{questOnEnter} (0/{initialEnemyCount})");
+                }
+            }
+            else
+            {
+                QuestManager.Instance.SetObjective(questOnEnter);
+            }
         }
     }
 
@@ -96,9 +124,16 @@ public class Stage2RoomManager : MonoBehaviour
             if (deadCount != lastDeadCount)
             {
                 lastDeadCount = deadCount;
-                if (QuestManager.Instance is Stage2QuestManager s2Quest)
+                if (QuestManager.Instance != null)
                 {
-                    s2Quest.SetProgress(deadCount);
+                    if (QuestManager.Instance is Stage2QuestManager s2Quest)
+                    {
+                        s2Quest.SetProgress(deadCount);
+                    }
+                    else if (initialEnemyCount > 0)
+                    {
+                        QuestManager.Instance.SetObjective($"{questOnEnter} ({deadCount}/{initialEnemyCount})");
+                    }
                 }
             }
 

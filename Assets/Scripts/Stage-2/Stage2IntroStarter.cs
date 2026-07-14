@@ -80,9 +80,6 @@ public class Stage2IntroStarter : MonoBehaviour
         {
             introDialogue.OnDialogueFinished -= OnIntroFinished;
         }
-
-        // Set quest awal setelah dialog selesai
-        SetInitialQuest();
     }
 
     private void SetInitialQuest()
@@ -211,5 +208,9 @@ public class Stage2IntroStarter : MonoBehaviour
         // 4. Mulai dialog intro
         Debug.Log("[Stage2IntroStarter] Memulai dialog monolog intro...");
         introDialogue.StartDialogue();
+
+        // Set quest awal saat dialog dimulai (mengikuti pola Stage 1)
+        // agar tidak menimpa quest dari room manager yang mungkin aktif saat auto-walk
+        SetInitialQuest();
     }
 }
