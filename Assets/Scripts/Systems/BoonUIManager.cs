@@ -95,9 +95,9 @@ public class BoonUIManager : MonoBehaviour
         {
             if (boon == null) continue; // Antisipasi jika ada element null di Inspector list
 
-            if (playerModifier != null && playerModifier.HasBoonInSlot(boon.slot, out BoonData currentBoon))
+            if (playerModifier != null && playerModifier.HasBoonOfType(boon.type, out BoonData currentBoon))
             {
-                // Jika slot sudah terisi oleh boon yang SAMA persis
+                // Jika sudah punya boon tipe yang SAMA
                 if (currentBoon.boonName == boon.boonName)
                 {
                     // Tawarkan upgrade jika ada next level
@@ -110,15 +110,16 @@ public class BoonUIManager : MonoBehaviour
                 }
                 else
                 {
-                    // Slot sudah terisi tapi dengan boon yang BERBEDA (opsi Replace)
+                    // Tipe ini sudah terisi, tapi boonnya beda? (Secara logika tidak mungkin karena HasBoonOfType cek tipe)
+                    // Tapi sebagai fallback:
                     if (!validBoons.Contains(boon))
                         validBoons.Add(boon);
                 }
             }
             else
             {
-                // Slot masih kosong
-                if (!validBoons.Contains(boon))
+                // Belum punya elemen ini, jadi tawarkan (Level 1 biasanya)
+                if (boon.level == 1 && !validBoons.Contains(boon))
                     validBoons.Add(boon);
             }
         }
@@ -189,6 +190,18 @@ public class BoonUIManager : MonoBehaviour
         {
             Debug.LogError("[BoonUIManager] PlayerModifier tidak ditemukan! Pastikan objek Saka memiliki tag 'Player' dan komponen PlayerModifier.");
         }
+        
+        // Tutup UI dan Lanjut Main
+        if (boonSelectionPanel != null)
+            boonSelectionPanel.SetActive(false);
+            
+        Time.timeScale = 1f;
+    }
+
+    // Fungsi ini dipanggil dari Tombol UI "Batal" atau "Skip"
+    public void SkipBoonSelection()
+    {
+        Debug.Log("[BoonUIManager] Pemain memilih untuk Batal/Skip Boon.");
         
         // Tutup UI dan Lanjut Main
         if (boonSelectionPanel != null)

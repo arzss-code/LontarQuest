@@ -7481,7 +7481,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 2.8125
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -19338,6 +19338,7 @@ GameObject:
   - component: {fileID: 943373442}
   - component: {fileID: 943373445}
   - component: {fileID: 943373444}
+  - component: {fileID: 943373446}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -19531,6 +19532,20 @@ MonoBehaviour:
   invincibilityDuration: 0.6
   takeDamageSound: {fileID: 8300000, guid: 219a5f52edc8d7648883e3fea6016b11, type: 3}
   deathSound: {fileID: 8300000, guid: 68c32f3f3eca9f344a980d4a6cdc5d36, type: 3}
+--- !u!114 &943373446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943373434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb13e0afe858d7d45ba84e38fd7df376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerModifier
+  boonPickupVFXPrefab: {fileID: 0}
+  boonPickupSound: {fileID: 0}
 --- !u!114 &944462140 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5843177126611051517, guid: ed31e3c606087ed489ee96392d71b45c, type: 3}
