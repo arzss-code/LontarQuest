@@ -36,30 +36,54 @@ public class EnergyArrow : MonoBehaviour
     /// </summary>
     public void Init(Transform playerTarget, int arrowDamage)
     {
-        Init(playerTarget, arrowDamage, true, Vector2.zero);
+        Init(playerTarget, arrowDamage, speed, true, Vector2.zero);
     }
 
     /// <summary>
-    /// Inisialisasi properti proyektil dengan opsi custom homing dan arah tembak
+    /// Inisialisasi properti proyektil dengan opsi custom homing dan arah tembak (backward compatibility)
     /// </summary>
     public void Init(Transform playerTarget, int arrowDamage, bool homing, Vector2 fixedDirection)
+    {
+        Init(playerTarget, arrowDamage, speed, homing, fixedDirection);
+    }
+
+    /// <summary>
+    /// Inisialisasi properti proyektil dengan opsi custom speed, homing, dan arah tembak
+    /// </summary>
+    public void Init(Transform playerTarget, int arrowDamage, float arrowSpeed, bool homing, Vector2 fixedDirection)
     {
         damage = arrowDamage;
         spawnTime = Time.time;
         useHoming = homing;
 
-        Vector2 direction;
-        if (!useHoming && fixedDirection != Vector2.zero)
+        if (arrowSpeed > 0f)
         {
-            direction = fixedDirection.normalized;
-            target = null;
+            speed = arrowSpeed;
         }
-        else
+
+        if (useHoming)
         {
             // Cari AimPoint di player untuk sasaran tembak yang lebih presisi
             Transform aimPoint = playerTarget.Find("AimPoint");
             target = aimPoint != null ? aimPoint : playerTarget;
+        }
+        else
+        {
+            target = null;
+        }
+
+        Vector2 direction;
+        if (fixedDirection != Vector2.zero)
+        {
+            direction = fixedDirection.normalized;
+        }
+        else if (target != null)
+        {
             direction = ((Vector2)target.position - (Vector2)transform.position).normalized;
+        }
+        else
+        {
+            direction = ((Vector2)playerTarget.position - (Vector2)transform.position).normalized;
         }
 
         rb.linearVelocity = direction * speed;
@@ -118,14 +142,11 @@ public class EnergyArrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Hit Player
-        if (other.CompareTag("Player"))
+        // Hit Player (mendukung jika collider berada pada child dengan SpriteRenderer)
+        PlayerStats pStats = other.GetComponentInParent<PlayerStats>();
+        if (pStats != null && (other.CompareTag("Player") || pStats.CompareTag("Player")))
         {
-            PlayerStats pStats = other.GetComponent<PlayerStats>();
-            if (pStats != null)
-            {
-                pStats.TakeDamage(damage);
-            }
+            pStats.TakeDamage(damage);
             Destroy(gameObject);
         }
         // Hit Tembok / Obstacle
