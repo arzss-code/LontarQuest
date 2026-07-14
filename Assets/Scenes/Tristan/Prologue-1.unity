@@ -5731,7 +5731,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 2.8125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10086,7 +10086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfddbf2601e580c48a588197df8c3721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 5
+  moveSpeed: 3
   attackUp: {fileID: 581970452}
   attackDown: {fileID: 1359654670}
   attackLeft: {fileID: 1012236155}

@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EndingEpilogue : MonoBehaviour
 {
@@ -53,6 +54,12 @@ public class EndingEpilogue : MonoBehaviour
     [SerializeField] private float bgmFadeDuration = 2f;
 
     [SerializeField] private float bgmVolume = 0.15f;
+
+    [Header("Scene")]
+
+    [SerializeField] private string mainMenuScene = "StartMenu";
+
+    [SerializeField] private float endingDelay = 3f;
  
     private bool nextDialogue;
 
@@ -68,7 +75,7 @@ public class EndingEpilogue : MonoBehaviour
         "Entah bertahun-tahun.\n\nAtaupun berabad-abad.",
 
         "Namun...",
-        
+
         "Saka tidak pernah menyesali keputusannya."
     };
 
@@ -314,19 +321,23 @@ public class EndingEpilogue : MonoBehaviour
     private IEnumerator PlayTheEnd()
     {
         //----------------------------------
-        // Tampilkan Text
+        // Text ON
         //----------------------------------
 
         endText.gameObject.SetActive(true);
 
-        endText.text = "- THE END -";
+        //----------------------------------
+        // Pertama
+        //----------------------------------
 
-        //----------------------------------
-        // Alpha 0
-        //----------------------------------
+        endText.text =
+    @"Perjalanan Saka
+    Berakhir Di Sini";
 
         Color color = endText.color;
+
         color.a = 0;
+
         endText.color = color;
 
         //----------------------------------
@@ -343,7 +354,61 @@ public class EndingEpilogue : MonoBehaviour
                 Mathf.Lerp(
                     0,
                     1,
-                    timer/fadeDuration);
+                    timer / fadeDuration);
+
+            endText.color = color;
+
+            yield return null;
+        }
+
+        //----------------------------------
+        // Diam
+        //----------------------------------
+
+        yield return new WaitForSeconds(endingDelay);
+
+        //----------------------------------
+        // Fade Out
+        //----------------------------------
+
+        timer = 0;
+
+        while(timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+
+            color.a =
+                Mathf.Lerp(
+                    1,
+                    0,
+                    timer / fadeDuration);
+
+            endText.color = color;
+
+            yield return null;
+        }
+
+        //----------------------------------
+        // Ganti Text
+        //----------------------------------
+
+        endText.text = "- THE END -";
+
+        //----------------------------------
+        // Fade In Lagi
+        //----------------------------------
+
+        timer = 0;
+
+        while(timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+
+            color.a =
+                Mathf.Lerp(
+                    0,
+                    1,
+                    timer / fadeDuration);
 
             endText.color = color;
 
@@ -355,6 +420,19 @@ public class EndingEpilogue : MonoBehaviour
         //----------------------------------
 
         yield return new WaitForSeconds(5f);
+
+        //----------------------------------
+        // Fade Out Music
+        //----------------------------------
+
+        yield return StartCoroutine(
+            FadeOutBGM());
+
+        //----------------------------------
+        // Kembali ke Menu
+        //----------------------------------
+
+        SceneManager.LoadScene(mainMenuScene);
     }
 
     public IEnumerator Play()
@@ -583,5 +661,32 @@ public class EndingEpilogue : MonoBehaviour
         color.a = to;
 
         narrationText.color = color;
+    }
+
+    private IEnumerator FadeOutBGM()
+    {
+        if (bgmSource == null)
+            yield break;
+
+        float startVolume = bgmSource.volume;
+
+        float timer = 0;
+
+        while (timer < bgmFadeDuration)
+        {
+            timer += Time.deltaTime;
+
+            bgmSource.volume =
+                Mathf.Lerp(
+                    startVolume,
+                    0,
+                    timer / bgmFadeDuration);
+
+            yield return null;
+        }
+
+        bgmSource.Stop();
+
+        bgmSource.volume = bgmVolume;
     }
 }
