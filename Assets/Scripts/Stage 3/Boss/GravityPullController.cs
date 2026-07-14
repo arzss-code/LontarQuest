@@ -5,7 +5,7 @@ public class GravityPullController : MonoBehaviour
     [Header("Gravity")]
     [SerializeField] private Transform gravityCenter;
     [SerializeField] private float pullRadius = 3.5f;
-    [SerializeField] private float pullForce = 50f;
+    [SerializeField] private float pullForce = 45f;
 
     private Transform player;
     private PlayerController playerController;

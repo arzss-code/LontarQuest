@@ -4,10 +4,10 @@ using UnityEngine;
 public class EnergyArrow : MonoBehaviour
 {
     [Header("Projectile Settings")]
-    [SerializeField] private float speed = 8f;
-    [SerializeField] private float lifetime = 4f;
-    [SerializeField] private float homingStrength = 1.5f;
-    [SerializeField] private float maxHomingAngle = 30f; // Batas belokan per detik (dalam derajat)
+    [SerializeField] private float speed = 7f;
+    [SerializeField] private float lifetime = 3.5f;
+    [SerializeField] private float homingStrength = 1.2f;
+    [SerializeField] private float maxHomingAngle = 25f; // Batas belokan per detik (dalam derajat)
 
     [Header("Visual References")]
     [SerializeField] private TrailRenderer trailRenderer;

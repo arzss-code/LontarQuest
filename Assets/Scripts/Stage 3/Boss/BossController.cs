@@ -24,7 +24,7 @@ public class BossController : MonoBehaviour
 
     [Header("Slam Attack")]
     [SerializeField] private float slamRadius = 2.5f;
-    [SerializeField] private int slamDamage = 25;
+    [SerializeField] private int slamDamage = 38;
     [SerializeField] private LayerMask playerLayer;
     [Header("Shockwave")]
     [SerializeField] private float shockwaveRadius = 3.5f;

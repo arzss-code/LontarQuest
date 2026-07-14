@@ -13,8 +13,8 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
 
     [Header("Combat")]
-    [SerializeField] private float attackRange = 8f;
-    [SerializeField] private float attackCooldown = 2f;
+    [SerializeField] private float attackRange = 7f;
+    [SerializeField] private float attackCooldown = 3f;
 
     //------------------------------------------------
 
@@ -52,7 +52,7 @@ public class EnemyAttack : MonoBehaviour
         isAttacking = true;
 
         nextAttackTime =
-            Time.time + attackCooldown;
+            Time.time + attackCooldown + Random.Range(-0.75f, 1.25f);
 
         animator.SetTrigger("Attack");
     }

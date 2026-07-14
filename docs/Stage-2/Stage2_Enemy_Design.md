@@ -296,13 +296,13 @@ Sama dengan Dwarapala Kroco, tetapi dengan penambahan:
 
 | Stat            | Kroco | Mini Boss      | Perubahan           |
 | --------------- | ----- | -------------- | ------------------- |
-| Max HP          | 80    | **200**  | +150%               |
-| Damage          | 25    | **40**   | +60%                |
-| AoE Radius      | 2f    | **3f**   | +50%                |
+| Max HP          | 80    | **180**  | +125%               |
+| Damage          | 25    | **35**   | +40%                |
+| AoE Radius      | 2f    | **2.8f** | +40%                |
 | Move Speed      | 2f    | **1.8f** | -10% (lebih lambat) |
 | Attack Cooldown | 2.5s  | **3.0s** | +20% (lebih lama)   |
-| Knockback Force | 5f    | **8f**   | +60%                |
-| Stun Duration   | 0s    | **0.5s** | Baru                |
+| Knockback Force | 5f    | **7f**   | +40%                |
+| Stun Duration   | 0s    | **0.4s** | Baru                |
 | Camera Shake    | Tidak | **Ya**   | Baru                |
 
 ### 2.5 Prefab Setup
@@ -323,18 +323,18 @@ MiniBoss_Dwarapala (GameObject)
 │   │     Color: (0.6, 0.3, 0.8, 1.0)     ← BEDA (ungu)
 │   │
 │   ├── Stage2EnemyStats
-│   │     maxHP: 200                        ← BEDA
+│   │     maxHP: 180                        ← BEDA
 │   │     isBoss: false
 │   │
 │   ├── Stage2EnemyMovement
 │   │     moveSpeed: 1.8                    ← BEDA
 │   │
 │   ├── Stage2EnemyAttack
-│   │     meleeDamage: 40                   ← BEDA
-│   │     aoeDamageRadius: 3                ← BEDA
+│   │     meleeDamage: 35                   ← BEDA
+│   │     aoeDamageRadius: 2.8              ← BEDA
 │   │     attackCooldown: 3.0               ← BEDA
-│   │     knockbackForce: 8                 ← BEDA
-│   │     stunDuration: 0.5                 ← BARU
+│   │     knockbackForce: 7                 ← BEDA
+│   │     stunDuration: 0.4                 ← BARU
 │   │     cameraShakeOnHit: true            ← BARU
 │   │
 │   ├── Stage2EnemyHealthBar              ← BARU
@@ -631,16 +631,16 @@ EnergyArrow (GameObject)
 
 | Stat               | Nilai        |
 | ------------------ | ------------ |
-| Max HP             | 350          |
-| Projectile Damage  | 15 per panah |
-| Projectile Speed   | 8f           |
-| Attack Cooldown    | 1.8s         |
+| Max HP             | 450          |
+| Projectile Damage  | 26 per panah |
+| Projectile Speed   | 7f           |
+| Attack Cooldown    | 2.0s         |
 | Move Speed         | 2.5f         |
-| Retreat Speed      | 3f           |
+| Retreat Speed      | 3.5f         |
 | Preferred Distance | 6f           |
 | Retreat Distance   | 3f           |
 | Detection Radius   | 12f          |
-| Homing Strength    | 1.5f         |
+| Homing Strength    | 1.2f         |
 
 ### 3.6 Prefab Setup
 
@@ -673,7 +673,7 @@ Boss_Yaksa (GameObject)
 │   │     Radius: 0.6
 │   │
 │   ├── Stage2EnemyStats
-│   │     maxHP: 350
+│   │     maxHP: 450
 │   │     isBoss: true
 │   │
 │   ├── Stage2EnemyMovement
@@ -682,14 +682,14 @@ Boss_Yaksa (GameObject)
 │   │     detectionRadius: 12
 │   │     preferredDistance: 6
 │   │     retreatDistance: 3
-│   │     retreatSpeed: 3
+│   │     retreatSpeed: 3.5
 │   │     leashRadius: 15
 │   │
 │   ├── Stage2EnemyAttack
 │   │     attackType: RangedProjectile
-│   │     rangedDamage: 15
+│   │     rangedDamage: 26
 │   │     rangedRange: 8
-│   │     attackCooldown: 1.8
+│   │     attackCooldown: 2.0
 │   │     projectilePrefab: EnergyArrow
 │   │     firePoint: ref → FirePoint child
 │   │
@@ -897,7 +897,8 @@ Semua script baru disimpan di: `Assets/Scripts/Stage-2/`
 ## 5. Checklist Progress Tracking (Enemy Design & Setup)
 
 ### Tahap 3 — Prefab Assembly (di Unity Editor)
-*(Panduan langkah lengkap: [Stage2_Tahap3_Assembly_Level.md](file:///d:/Unity/Unity%20Project/LontarQuest/docs/Stage-2/Stage2_Tahap3_Assembly_Level.md))*
+
+*(Panduan langkah lengkap: [Stage2_Tahap3_Assembly_Level.md](<file:///d:/Unity/Unity%20Project/LontarQuest/docs/Stage-2/Stage2_Tahap3_Assembly_Level.md>))*
 
 - [X] Buat prefab `Enemy_Dwarapala` + assign semua komponen (termasuk Heavy Knockback)
 - [X] Buat prefab `MiniBoss_Dwarapala` (duplikat + modifikasi)
@@ -905,24 +906,25 @@ Semua script baru disimpan di: `Assets/Scripts/Stage-2/`
 - [X] Buat prefab `Boss_Yaksa` + assign semua komponen (dengan VisualParent melayang)
 
 ### Tahap 4 — Scene Integration
-*(Panduan langkah lengkap: [Stage2_Tahap4_Scene_Integration.md](file:///d:/Unity/Unity%20Project/LontarQuest/docs/Stage-2/Stage2_Tahap4_Scene_Integration.md))*
 
-- [ ] Buat `Lore_Dwarapala.asset` dan `Lore_Yaksa.asset` di `Assets/Data/Lores/`
-- [ ] Setup `Stage2IntroStarter` + `IntroDialogue` (monolog intro Saka)
-- [ ] Ganti `QuestManager` dengan `Stage2QuestManager` di Canvas
-- [ ] Setup `Library_RoomManager` — 11 Enemy_Dwarapala (perpustakaan utama)
-- [ ] Setup `MiniBoss_RoomManager` — 1 MiniBos + 3 Enemy (area mini boss)
-- [ ] Setup `Coridor_RoomManager` — 3 Enemy_Dwarapala (lorong menuju boss)
-- [ ] Setup `BossArena_Yaksa` dengan `Stage2BossArena` + `IntroDialogue` (monolog pasca-boss)
-- [ ] Pasang Prasasti Lore (`Dwarapala` & `Yaksa`)
-- [ ] Pasang `ExitWall_Boss` + `EndPortal` (target: `Stage3`)
+*(Panduan langkah lengkap: [Stage2_Tahap4_Scene_Integration.md](<file:///d:/Unity/Unity%20Project/LontarQuest/docs/Stage-2/Stage2_Tahap4_Scene_Integration.md>))*
+
+- [X] Buat `Lore_Dwarapala.asset` dan `Lore_Yaksa.asset` di `Assets/Data/Lores/`
+- [X] Setup `Stage2IntroStarter` + `IntroDialogue` (monolog intro Saka)
+- [X] Ganti `QuestManager` dengan `Stage2QuestManager` di Canvas
+- [X] Setup `Library_RoomManager` — 11 Enemy_Dwarapala (perpustakaan utama)
+- [X] Setup `MiniBoss_RoomManager` — 1 MiniBos + 3 Enemy (area mini boss)
+- [X] Setup `Coridor_RoomManager` — 3 Enemy_Dwarapala (lorong menuju boss)
+- [X] Setup `BossArena_Yaksa` dengan `Stage2BossArena` + `IntroDialogue` (monolog pasca-boss)
+- [X] Pasang Prasasti Lore (`Dwarapala` & `Yaksa`)
+- [X] Pasang `ExitWall_Boss` + `EndPortal` (target: `Stage3`)
 
 ### Tahap 5 — Polish & Testing
 
-- [ ] Test semua animasi arah (4 arah + flipX)
-- [ ] Test damage pemain → enemy dan enemy → pemain
-- [ ] Test boss fight flow (lock arena → fight → unlock)
-- [ ] Tuning stat balancing (HP, damage, cooldown)
-- [ ] Tambahkan SFX (hit, death, shoot, impact)
-- [ ] Tambahkan VFX (camera shake, AoE indicator, death particles)
-- [ ] Tambahkan health bar Mini Boss dan Boss
+- [X] Test semua animasi arah (4 arah + flipX)
+- [X] Test damage pemain → enemy dan enemy → pemain
+- [X] Test boss fight flow (lock arena → fight → unlock)
+- [X] Tuning stat balancing (HP, damage, cooldown)
+- [X] Tambahkan SFX (hit, death, shoot, impact)
+- [X] Tambahkan VFX (camera shake, AoE indicator, death particles)
+- [X] Tambahkan health bar Mini Boss dan Boss

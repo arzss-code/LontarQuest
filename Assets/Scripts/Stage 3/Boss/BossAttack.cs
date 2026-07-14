@@ -19,7 +19,7 @@ public class BossAttack : MonoBehaviour
     }
 
     [Header("Attack")]
-    [SerializeField] private float attackRange = 2f;
+    [SerializeField] private float attackRange = 2.5f;
     [SerializeField] private float cooldownDuration = 2f;
 
     [Header("References")]
@@ -35,7 +35,7 @@ public class BossAttack : MonoBehaviour
     [SerializeField] private ParticleSystem gravityParticles;
 
     [Header("Long Range")]
-    [SerializeField] private float longRangeDelay = 3f;
+    [SerializeField] private float longRangeDelay = 3.5f;
 
     private float longRangeTimer;
     private int gravityAttackCount = 0;

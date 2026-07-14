@@ -17,16 +17,16 @@ public class BossStats : MonoBehaviour
     public event System.Action OnShieldRecovered;
 
     [Header("Health")]
-    [SerializeField] private float maxHP = 1000f;
+    [SerializeField] private float maxHP = 600f;
     private float currentHP;
 
     [Header("Shield")]
-    [SerializeField] private float maxShield = 500f;
+    [SerializeField] private float maxShield = 250f;
     private float currentShield;
 
     [Header("Shield Regen")]
-    [SerializeField] private float shieldRegenDelay = 2f;
-    [SerializeField] private float shieldRegenDuration = 5f;
+    [SerializeField] private float shieldRegenDelay = 3f;
+    [SerializeField] private float shieldRegenDuration = 6f;
 
     private Coroutine regenRoutine;
 

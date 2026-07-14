@@ -4,11 +4,11 @@ using UnityEngine;
 public class VoidShot : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float moveSpeed = 10f;
-    [SerializeField] private float maxLifeTime = 5f;
+    [SerializeField] private float moveSpeed = 7.5f;
+    [SerializeField] private float maxLifeTime = 3.5f;
 
     [Header("Combat")]
-    [SerializeField] private int damage = 20;
+    [SerializeField] private int damage = 24;
 
     [Header("Collision")]
     [SerializeField] private LayerMask wallLayer;

@@ -47,7 +47,7 @@ Bagian ini mendefinisikan interaksi timbal-balik antara parameter Saka (termasuk
 ---
 
 ### 🟡 STAGE 2: Perpustakaan Melayang
-* **Status Saka:** HP Efektif: **~250** (Asumsi Boon DR ~20%) | Melee DPS: **~42** (Asumsi Boon Atk Spd) | Ranged Damage: **15** | Asumsi Boon: **1–2 Boon**
+* **Status Saka:** HP Efektif: **~250** (Asumsi Boon DR ~ 20%) | Melee DPS: **~42** (Asumsi Boon Atk Spd) | Ranged Damage: **15** | Asumsi Boon: **1–2 Boon**
 
 | Entitas | HP | Damage | Hits to Kill Player (TTD Saka) | Hits to Kill Monster (TTK Musuh) | Analisis Keseimbangan |
 | :--- | :---: | :---: | :---: | :---: | :--- |

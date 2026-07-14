@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyStats : MonoBehaviour, IDamageable
 {
     [Header("HP")]
-    [SerializeField] private int maxHP = 100;
+    [SerializeField] private int maxHP = 85;
 
     private int currentHP;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 public class BossMovement : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float moveSpeed = 2.2f;
     [SerializeField] private float stoppingDistance = 2f;
 
     private Rigidbody2D rb;

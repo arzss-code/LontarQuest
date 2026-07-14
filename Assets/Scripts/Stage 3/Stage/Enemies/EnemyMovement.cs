@@ -28,8 +28,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float arriveDistance = 0.15f;
 
     [Header("Combat")]
-    [SerializeField] private float retreatDistance = 3f;
-    [SerializeField] private float safeDistance = 6f;
+    [SerializeField] private float retreatDistance = 2.5f;
+    [SerializeField] private float safeDistance = 5f;
     [SerializeField] private float retreatDistanceMove = 4f;
     [SerializeField] private float retreatRandomOffset = 1.5f;
 
