@@ -37,6 +37,9 @@ public class GanaAI : MonoBehaviour
     [SerializeField] private int maxHealth = 30;
     private int currentHealth;
 
+    [Header("UI")]
+    [SerializeField] private EnemyHealthBar healthBar;
+
     [Header("Visual Flash")]
     [SerializeField] private float flashDuration = 0.15f;
 
@@ -79,6 +82,12 @@ public class GanaAI : MonoBehaviour
         
         startPosition = transform.position;
         currentHealth = maxHealth;
+        
+        if (healthBar != null)
+        {
+            healthBar.Initialize(maxHealth);
+        }
+
         if (spriteRenderer != null)
         {
             originalColor = spriteRenderer.color;
@@ -271,6 +280,11 @@ public class GanaAI : MonoBehaviour
         // Memunculkan angka damage putih (false = musuh)
         DamagePopupManager.Create(transform.position, damageAmount, false);
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        if (healthBar != null)
+        {
+            healthBar.SetHealth(currentHealth);
+        }
 
         if (spriteRenderer != null)
         {
