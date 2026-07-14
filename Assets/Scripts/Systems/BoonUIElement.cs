@@ -99,6 +99,10 @@ public class BoonUIElement : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log($"<color=yellow>[DEBUG UI] RAW CLICK TERDETEKSI DI KARTU: {gameObject.name}!</color>");
-        OnBoonSelected(); // Paksa jalankan fungsi meskipun komponen Button error
+        // Hanya panggil OnBoonSelected jika selectButton tidak ada atau tidak aktif/interactable
+        if (selectButton == null || !selectButton.gameObject.activeInHierarchy || !selectButton.interactable)
+        {
+            OnBoonSelected();
+        }
     }
 }

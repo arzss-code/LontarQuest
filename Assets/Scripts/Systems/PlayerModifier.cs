@@ -1,11 +1,20 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(PlayerStats))]
 public class PlayerModifier : MonoBehaviour
 {
     private PlayerStats playerStats;
+    private Stage3PlayerStats stage3PlayerStats;
     private Dictionary<BoonSlot, BoonData> activeBoons = new Dictionary<BoonSlot, BoonData>();
+
+    // Penyimpanan data boon secara global di RAM sepanjang game berjalan
+    private static Dictionary<BoonSlot, BoonData> globalActiveBoons = new Dictionary<BoonSlot, BoonData>();
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void InitStatic()
+    {
+        globalActiveBoons.Clear();
+    }
 
     // Variabel penampung buff sementara
     public float TotalAttackSpeedBonus { get; private set; } = 0f;
@@ -20,6 +29,11 @@ public class PlayerModifier : MonoBehaviour
     private void Start()
     {
         playerStats = GetComponent<PlayerStats>();
+        stage3PlayerStats = GetComponent<Stage3PlayerStats>();
+
+        // Load boons dari global storage
+        activeBoons = new Dictionary<BoonSlot, BoonData>(globalActiveBoons);
+        RecalculateModifiers();
     }
 
     private void Update()
@@ -30,7 +44,14 @@ public class PlayerModifier : MonoBehaviour
             healthRegenTimer += Time.deltaTime;
             if (healthRegenTimer >= 1f)
             {
-                playerStats.Heal(Mathf.RoundToInt(totalHealthRegenPerSec));
+                if (playerStats != null)
+                {
+                    playerStats.Heal(Mathf.RoundToInt(totalHealthRegenPerSec));
+                }
+                else if (stage3PlayerStats != null)
+                {
+                    stage3PlayerStats.Heal(Mathf.RoundToInt(totalHealthRegenPerSec));
+                }
                 healthRegenTimer -= 1f;
             }
         }
@@ -47,10 +68,12 @@ public class PlayerModifier : MonoBehaviour
         if (activeBoons.ContainsKey(newBoon.slot))
         {
             activeBoons[newBoon.slot] = newBoon;
+            globalActiveBoons[newBoon.slot] = newBoon;
         }
         else
         {
             activeBoons.Add(newBoon.slot, newBoon);
+            globalActiveBoons.Add(newBoon.slot, newBoon);
         }
 
         RecalculateModifiers();
@@ -107,6 +130,7 @@ public class PlayerModifier : MonoBehaviour
     public void ResetAllBoons()
     {
         activeBoons.Clear();
+        globalActiveBoons.Clear();
         RecalculateModifiers();
     }
 }

@@ -265,6 +265,13 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
         Debug.Log("Player Died");
 
+        // Roguelike Reset: Bersihkan semua boons
+        PlayerModifier modifier = GetComponent<PlayerModifier>();
+        if (modifier != null)
+        {
+            modifier.ResetAllBoons();
+        }
+
         if (deathSound != null)
         {
             AudioSource.PlayClipAtPoint(deathSound, transform.position);

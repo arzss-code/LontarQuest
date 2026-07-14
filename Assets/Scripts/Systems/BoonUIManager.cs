@@ -28,18 +28,41 @@ public class BoonUIManager : MonoBehaviour
         }
     }
 
+    private bool AreUIElementsDestroyed()
+    {
+        if (boonSelectionPanel == null) return true;
+        if (boonUIElements == null || boonUIElements.Count == 0) return true;
+        
+        foreach (var element in boonUIElements)
+        {
+            if (element == null) return true;
+        }
+        return false;
+    }
+
+    private void RebindUI()
+    {
+        BoonUIElement[] foundElements = FindObjectsOfType<BoonUIElement>(true); // true = cari yang non-aktif juga
+        if (foundElements.Length > 0)
+        {
+            boonUIElements = new List<BoonUIElement>(foundElements);
+            boonSelectionPanel = foundElements[0].transform.parent.gameObject;
+            Debug.Log("[BoonUIManager] UI Canvas berhasil ditemukan dan diikat secara otomatis.");
+        }
+        else
+        {
+            boonUIElements = new List<BoonUIElement>();
+            boonSelectionPanel = null;
+            Debug.LogWarning("[BoonUIManager] Tidak menemukan BoonUIElement di scene aktif ini.");
+        }
+    }
+
     private void Start()
     {
         // Auto-Binding: Cari UI Canvas secara otomatis agar user tidak perlu drag-and-drop manual
-        if (boonSelectionPanel == null || boonUIElements == null || boonUIElements.Count == 0)
+        if (boonSelectionPanel == null || boonUIElements == null || boonUIElements.Count == 0 || AreUIElementsDestroyed())
         {
-            BoonUIElement[] foundElements = FindObjectsOfType<BoonUIElement>(true); // true = cari yang non-aktif juga
-            if (foundElements.Length > 0)
-            {
-                boonUIElements = new List<BoonUIElement>(foundElements);
-                boonSelectionPanel = foundElements[0].transform.parent.gameObject;
-                Debug.Log("[BoonUIManager] UI Canvas berhasil ditemukan dan diikat secara otomatis.");
-            }
+            RebindUI();
         }
 
         if (boonSelectionPanel != null)
@@ -48,20 +71,21 @@ public class BoonUIManager : MonoBehaviour
         }
 
         // Cari PlayerModifier di arena
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            playerModifier = player.GetComponent<PlayerModifier>();
-        }
+        playerModifier = FindFirstObjectByType<PlayerModifier>();
     }
 
     public void ShowBoonSelection()
     {
+        // Selalu re-bind UI jika referensi saat ini hilang, rusak, atau dari scene sebelumnya
+        if (boonSelectionPanel == null || boonUIElements == null || boonUIElements.Count == 0 || AreUIElementsDestroyed())
+        {
+            RebindUI();
+        }
+
         // Pastikan kita punya referensi ke PlayerModifier sebelum menyaring
         if (playerModifier == null)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null) playerModifier = player.GetComponent<PlayerModifier>();
+            playerModifier = FindFirstObjectByType<PlayerModifier>();
         }
 
         // 1. Saring BOON berdasarkan Slot dan Level
@@ -69,6 +93,8 @@ public class BoonUIManager : MonoBehaviour
 
         foreach (BoonData boon in allAvailableBoons)
         {
+            if (boon == null) continue; // Antisipasi jika ada element null di Inspector list
+
             if (playerModifier != null && playerModifier.HasBoonInSlot(boon.slot, out BoonData currentBoon))
             {
                 // Jika slot sudah terisi oleh boon yang SAMA persis
@@ -144,8 +170,7 @@ public class BoonUIManager : MonoBehaviour
         // Pastikan kita punya referensi ke PlayerModifier
         if (playerModifier == null)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null) playerModifier = player.GetComponent<PlayerModifier>();
+            playerModifier = FindFirstObjectByType<PlayerModifier>();
         }
 
         if (playerModifier != null)
