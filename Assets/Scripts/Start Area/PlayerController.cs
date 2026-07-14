@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     Vector2 knockbackDirection;
 
     public bool canMove = true;
+    public bool isAutoWalking = false;
 
     bool isDashing = false;
     float dashTimer;
@@ -256,6 +257,11 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isAutoWalking)
+        {
+            return;
+        }
+
         if (!canMove)
         {
             rb.linearVelocity = Vector2.zero;

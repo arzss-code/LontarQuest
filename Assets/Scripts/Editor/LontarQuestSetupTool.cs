@@ -36,12 +36,22 @@ public class LontarQuestSetupTool : EditorWindow
         }
 
         EditorGUILayout.Space();
+        EditorGUILayout.Space();
         GUILayout.Label("UI Helpers", EditorStyles.boldLabel);
         EditorGUILayout.HelpBox("Alat untuk membuat UI otomatis agar tidak perlu setup manual yang rumit.", MessageType.Info);
         
         if (GUILayout.Button("Generate Boon UI Prefab"))
         {
             GenerateBoonUIPrefab();
+        }
+
+        EditorGUILayout.Space();
+        GUILayout.Label("Stage 2 Helpers", EditorStyles.boldLabel);
+        EditorGUILayout.HelpBox("Alat untuk mengotomatiskan setup Intro & Dialog Stage 2 (Bagian B).", MessageType.Info);
+        
+        if (GUILayout.Button("Setup Stage 2 (Bagian B)"))
+        {
+            SetupStage2PartB();
         }
     }
 
@@ -319,6 +329,155 @@ public class LontarQuestSetupTool : EditorWindow
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         Debug.Log($"✅ Boon UI Prefab Generated at {path}!");
+    }
+
+    [MenuItem("LontarQuest/Setup Stage 2 (Bagian B)")]
+    public static void SetupStage2PartB()
+    {
+        // 1. Verifikasi scene
+        if (UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene().name != "Stage2")
+        {
+            EditorUtility.DisplayDialog("Error", "Buka scene 'Stage2' terlebih dahulu sebelum menjalankan setup ini!", "OK");
+            return;
+        }
+
+        // 2. Cari GameObjects
+        GameObject introManager = GameObject.Find("IntroManager");
+        GameObject introDialogueManager = GameObject.Find("IntroDialogueManager");
+        GameObject postBossDialogueManager = GameObject.Find("PostBossDialogueManager");
+        GameObject introStart = GameObject.Find("IntroStart");
+        GameObject introWalk = GameObject.Find("IntroWalk");
+
+        if (introManager == null)
+        {
+            Debug.LogError("[Stage2 Setup] GameObject 'IntroManager' tidak ditemukan!");
+            EditorUtility.DisplayDialog("Error", "GameObject 'IntroManager' tidak ditemukan!", "OK");
+            return;
+        }
+
+        // Aktifkan GameObjects
+        introManager.SetActive(true);
+        if (introDialogueManager != null) introDialogueManager.SetActive(true);
+        if (postBossDialogueManager != null) postBossDialogueManager.SetActive(true);
+        if (introStart != null) introStart.SetActive(true);
+        if (introWalk != null) introWalk.SetActive(true);
+
+        // 3. Konfigurasi IntroManager
+        // Hapus Stage1IntroStarter lama jika ada
+        Stage1IntroStarter oldStarter = introManager.GetComponent<Stage1IntroStarter>();
+        if (oldStarter != null)
+        {
+            DestroyImmediate(oldStarter);
+            Debug.Log("[Stage2 Setup] Menghapus Stage1IntroStarter lama dari IntroManager.");
+        }
+
+        // Tambah Stage2IntroStarter baru
+        Stage2IntroStarter newStarter = introManager.GetComponent<Stage2IntroStarter>();
+        if (newStarter == null)
+        {
+            newStarter = introManager.AddComponent<Stage2IntroStarter>();
+            Debug.Log("[Stage2 Setup] Menambahkan Stage2IntroStarter ke IntroManager.");
+        }
+
+        // Konfigurasi field Stage2IntroStarter via SerializedObject
+        SerializedObject soStarter = new SerializedObject(newStarter);
+        soStarter.Update();
+
+        if (introDialogueManager != null)
+        {
+            IntroDialogue introDialogue = introDialogueManager.GetComponent<IntroDialogue>();
+            soStarter.FindProperty("introDialogue").objectReferenceValue = introDialogue;
+        }
+        if (introStart != null)
+        {
+            soStarter.FindProperty("portalSpawnPoint").objectReferenceValue = introStart.transform;
+        }
+        if (introWalk != null)
+        {
+            soStarter.FindProperty("walkDestination").objectReferenceValue = introWalk.transform;
+        }
+        soStarter.FindProperty("walkSpeed").floatValue = 3f;
+        soStarter.FindProperty("startDelay").floatValue = 0.5f;
+        soStarter.FindProperty("initialQuest").stringValue = "Jelajahi Perpustakaan Melayang";
+        soStarter.ApplyModifiedProperties();
+
+        // 4. Konfigurasi Dialog Intro (IntroDialogueManager)
+        if (introDialogueManager != null)
+        {
+            IntroDialogue introDialogue = introDialogueManager.GetComponent<IntroDialogue>();
+            if (introDialogue != null)
+            {
+                SerializedObject soDiag = new SerializedObject(introDialogue);
+                soDiag.Update();
+                soDiag.FindProperty("freezePlayer").boolValue = true;
+                soDiag.FindProperty("unfreezePlayerWhenFinished").boolValue = true;
+
+                SerializedProperty dialoguesProp = soDiag.FindProperty("dialogues");
+                dialoguesProp.ClearArray();
+
+                // Dialog 1
+                dialoguesProp.InsertArrayElementAtIndex(0);
+                SerializedProperty diag0 = dialoguesProp.GetArrayElementAtIndex(0);
+                diag0.FindPropertyRelative("speaker").stringValue = "Saka";
+                diag0.FindPropertyRelative("text").stringValue = "Tempat apa ini...? Rak-rak buku melayang di tengah kekosongan. Seperti perpustakaan yang ditinggalkan oleh waktu.";
+
+                // Dialog 2
+                dialoguesProp.InsertArrayElementAtIndex(1);
+                SerializedProperty diag1 = dialoguesProp.GetArrayElementAtIndex(1);
+                diag1.FindPropertyRelative("speaker").stringValue = "Saka";
+                diag1.FindPropertyRelative("text").stringValue = "Lontar-lontar berterbangan di udara... Pasti ada sesuatu yang penting tersembunyi di sini.";
+
+                // Dialog 3
+                dialoguesProp.InsertArrayElementAtIndex(2);
+                SerializedProperty diag2 = dialoguesProp.GetArrayElementAtIndex(2);
+                diag2.FindPropertyRelative("speaker").stringValue = "Saka";
+                diag2.FindPropertyRelative("text").stringValue = "Tapi batu-batu penjaga itu masih bergerak. Aku harus tetap waspada.";
+
+                soDiag.ApplyModifiedProperties();
+                Debug.Log("[Stage2 Setup] Konfigurasi monolog pembuka Saka selesai.");
+            }
+        }
+
+        // 5. Konfigurasi Dialog Pasca-Boss (PostBossDialogueManager)
+        if (postBossDialogueManager != null)
+        {
+            IntroDialogue postBossDialogue = postBossDialogueManager.GetComponent<IntroDialogue>();
+            if (postBossDialogue != null)
+            {
+                SerializedObject soDiag = new SerializedObject(postBossDialogue);
+                soDiag.Update();
+                soDiag.FindProperty("freezePlayer").boolValue = true;
+                soDiag.FindProperty("unfreezePlayerWhenFinished").boolValue = true;
+
+                SerializedProperty dialoguesProp = soDiag.FindProperty("dialogues");
+                dialoguesProp.ClearArray();
+
+                // Dialog 1
+                dialoguesProp.InsertArrayElementAtIndex(0);
+                SerializedProperty diag0 = dialoguesProp.GetArrayElementAtIndex(0);
+                diag0.FindPropertyRelative("speaker").stringValue = "Saka";
+                diag0.FindPropertyRelative("text").stringValue = "Makhluk itu... panah energinya bisa membunuhku kalau aku lengah sedikit saja.";
+
+                // Dialog 2
+                dialoguesProp.InsertArrayElementAtIndex(1);
+                SerializedProperty diag1 = dialoguesProp.GetArrayElementAtIndex(1);
+                diag1.FindPropertyRelative("speaker").stringValue = "Saka";
+                diag1.FindPropertyRelative("text").stringValue = "Perpustakaan ini menyimpan sesuatu. Kenapa ada roh penjaga sekuat ini di tempat yang seharusnya sudah lama mati?";
+
+                // Dialog 3
+                dialoguesProp.InsertArrayElementAtIndex(2);
+                SerializedProperty diag2 = dialoguesProp.GetArrayElementAtIndex(2);
+                diag2.FindPropertyRelative("speaker").stringValue = "Saka";
+                diag2.FindPropertyRelative("text").stringValue = "Lontar itu bersinar... Sepertinya ada kekuatan kuno lagi yang bisa kuserap. Aku harus mengambilnya.";
+
+                soDiag.ApplyModifiedProperties();
+                Debug.Log("[Stage2 Setup] Konfigurasi monolog pasca-boss Saka selesai.");
+            }
+        }
+
+        // Tandai scene kotor agar Unity menyimpannya
+        UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene());
+        EditorUtility.DisplayDialog("Success", "Setup Stage 2 Bagian B selesai dikonfigurasi! Silakan save scene (Ctrl+S).", "OK");
     }
 }
 #endif

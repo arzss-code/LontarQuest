@@ -30,11 +30,11 @@ public class Stage1IntroStarter : MonoBehaviour
 
     private void Start()
     {
-        // Cari Player di scene
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
+        // Cari Player di scene dengan mencari component PlayerController
+        playerController = FindFirstObjectByType<PlayerController>();
+        if (playerController != null)
         {
-            playerController = playerObj.GetComponent<PlayerController>();
+            GameObject playerObj = playerController.gameObject;
             
             // Cari Animator yang memiliki controller (menghindari error jika ada animator kosong)
             Animator[] animators = playerObj.GetComponentsInChildren<Animator>();
@@ -136,6 +136,7 @@ public class Stage1IntroStarter : MonoBehaviour
         {
             // Kunci kontrol pemain
             playerController.SetCanMove(false);
+            playerController.isAutoWalking = true;
             
             // Dapatkan Rigidbody2D player karena Player adalah objek fisika (Dynamic)
             Rigidbody2D rb = playerController.GetComponent<Rigidbody2D>();
@@ -197,6 +198,7 @@ public class Stage1IntroStarter : MonoBehaviour
 
             // Pastikan SetCanMove(false) agar tidak bisa digerakkan saat dialog
             playerController.SetCanMove(false);
+            playerController.isAutoWalking = false;
         }
 
         Debug.Log("STAGE 1 CUTSCENE MULAI");

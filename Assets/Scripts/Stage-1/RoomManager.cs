@@ -68,13 +68,31 @@ public class RoomManager : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         // Jika Saka menginjak lantai ruangan, dan ruangan belum aktif
         if (other.CompareTag("Player") && !isRoomActive && !isRoomCleared)
         {
-            ActivateRoom();
+            if (IsPlayerFullyInside(other))
+            {
+                ActivateRoom();
+            }
         }
+    }
+
+    private bool IsPlayerFullyInside(Collider2D playerCol)
+    {
+        Collider2D roomCol = GetComponent<Collider2D>();
+        if (roomCol == null || playerCol == null) return false;
+
+        Bounds roomBounds = roomCol.bounds;
+        Bounds playerBounds = playerCol.bounds;
+
+        // Cek apakah seluruh area bounds player berada di dalam bounds ruangan
+        return playerBounds.min.x >= roomBounds.min.x &&
+               playerBounds.max.x <= roomBounds.max.x &&
+               playerBounds.min.y >= roomBounds.min.y &&
+               playerBounds.max.y <= roomBounds.max.y;
     }
 
     private void ActivateRoom()
