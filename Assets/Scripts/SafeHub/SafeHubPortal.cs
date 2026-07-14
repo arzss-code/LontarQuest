@@ -18,6 +18,9 @@ public class SafeHubPortal : MonoBehaviour
     [SerializeField] private Sprite lockedSprite;
     [SerializeField] private Sprite unlockedSprite;
 
+    [Tooltip("Object berisi Light 2D (dan efek lain) yang menyala hanya saat portal terbuka")]
+    [SerializeField] private GameObject portalLight;
+
     [Header("UI")]
     [Tooltip("Prompt 'Tekan E' yang muncul saat player dekat (opsional)")]
     [SerializeField] private GameObject ePrompt;
@@ -49,6 +52,10 @@ public class SafeHubPortal : MonoBehaviour
 
         // Ganti sprite sesuai status kunci
         spriteRenderer.sprite = isUnlocked ? unlockedSprite : lockedSprite;
+
+        // Light hanya menyala saat portal terbuka
+        if (portalLight != null)
+            portalLight.SetActive(isUnlocked);
     }
 
     private void Update()
