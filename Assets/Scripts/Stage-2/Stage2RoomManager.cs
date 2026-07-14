@@ -19,10 +19,19 @@ public class Stage2RoomManager : MonoBehaviour
     [SerializeField] private string questOnEnter = "Bersihkan Ruangan";
     [SerializeField] private string questOnClear = "Temukan Jalan Keluar";
 
+    [Header("Split Enemies Configuration (Optional)")]
+    [SerializeField] private bool splitEnemiesTracking = false;
+    [SerializeField] private List<GameObject> miniBossEnemies = new List<GameObject>();
+    [SerializeField] private string miniBossQuestLabel = "Kalahkan Dwarapala Raksasa";
+    [SerializeField] private string normalQuestLabel = "Kalahkan Dwarapala Biasa";
+
     private bool isRoomActive = false;
     private bool isRoomCleared = false;
     private int initialEnemyCount = 0;
     private int lastDeadCount = -1;
+
+    private int initialMiniBossCount = 0;
+    private int lastMiniBossDeadCount = -1;
 
     private void Start()
     {
@@ -48,6 +57,15 @@ public class Stage2RoomManager : MonoBehaviour
         }
 
         initialEnemyCount = enemiesInRoom.Count;
+
+        if (splitEnemiesTracking)
+        {
+            foreach (GameObject enemy in miniBossEnemies)
+            {
+                if (enemy != null) enemy.SetActive(false);
+            }
+            initialMiniBossCount = miniBossEnemies.Count;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -86,23 +104,39 @@ public class Stage2RoomManager : MonoBehaviour
             if (enemy != null) enemy.SetActive(true);
         }
 
+        if (splitEnemiesTracking)
+        {
+            foreach (GameObject enemy in miniBossEnemies)
+            {
+                if (enemy != null) enemy.SetActive(true);
+            }
+        }
+
         // Jalankan UI Counter Misi jika QuestManager adalah tipe Stage2, atau gunakan fallback string format
         if (QuestManager.Instance != null)
         {
-            if (initialEnemyCount > 0)
+            if (splitEnemiesTracking)
             {
-                if (QuestManager.Instance is Stage2QuestManager s2Quest)
-                {
-                    s2Quest.StartProgressObjective(questOnEnter, initialEnemyCount);
-                }
-                else
-                {
-                    QuestManager.Instance.SetObjective($"{questOnEnter} (0/{initialEnemyCount})");
-                }
+                string progressText = $"{miniBossQuestLabel} (0/{initialMiniBossCount}) | {normalQuestLabel} (0/{initialEnemyCount})";
+                QuestManager.Instance.SetObjective(progressText);
             }
             else
             {
-                QuestManager.Instance.SetObjective(questOnEnter);
+                if (initialEnemyCount > 0)
+                {
+                    if (QuestManager.Instance is Stage2QuestManager s2Quest)
+                    {
+                        s2Quest.StartProgressObjective(questOnEnter, initialEnemyCount);
+                    }
+                    else
+                    {
+                        QuestManager.Instance.SetObjective($"{questOnEnter} (0/{initialEnemyCount})");
+                    }
+                }
+                else
+                {
+                    QuestManager.Instance.SetObjective(questOnEnter);
+                }
             }
         }
     }
@@ -120,26 +154,57 @@ public class Stage2RoomManager : MonoBehaviour
 
             int deadCount = initialEnemyCount - currentAlive;
 
-            // Update UI progress hanya saat ada perubahan angka
-            if (deadCount != lastDeadCount)
+            if (splitEnemiesTracking)
             {
-                lastDeadCount = deadCount;
-                if (QuestManager.Instance != null)
+                int currentMiniBossAlive = 0;
+                for (int i = miniBossEnemies.Count - 1; i >= 0; i--)
                 {
-                    if (QuestManager.Instance is Stage2QuestManager s2Quest)
+                    if (miniBossEnemies[i] != null) currentMiniBossAlive++;
+                }
+
+                int deadMiniBoss = initialMiniBossCount - currentMiniBossAlive;
+
+                // Update UI progress hanya saat ada perubahan angka
+                if (deadCount != lastDeadCount || deadMiniBoss != lastMiniBossDeadCount)
+                {
+                    lastDeadCount = deadCount;
+                    lastMiniBossDeadCount = deadMiniBoss;
+
+                    if (QuestManager.Instance != null)
                     {
-                        s2Quest.SetProgress(deadCount);
-                    }
-                    else if (initialEnemyCount > 0)
-                    {
-                        QuestManager.Instance.SetObjective($"{questOnEnter} ({deadCount}/{initialEnemyCount})");
+                        string progressText = $"{miniBossQuestLabel} ({deadMiniBoss}/{initialMiniBossCount}) | {normalQuestLabel} ({deadCount}/{initialEnemyCount})";
+                        QuestManager.Instance.SetObjective(progressText);
                     }
                 }
-            }
 
-            if (currentAlive == 0)
+                if (currentAlive == 0 && currentMiniBossAlive == 0)
+                {
+                    RoomCleared();
+                }
+            }
+            else
             {
-                RoomCleared();
+                // Update UI progress hanya saat ada perubahan angka
+                if (deadCount != lastDeadCount)
+                {
+                    lastDeadCount = deadCount;
+                    if (QuestManager.Instance != null)
+                    {
+                        if (QuestManager.Instance is Stage2QuestManager s2Quest)
+                        {
+                            s2Quest.SetProgress(deadCount);
+                        }
+                        else if (initialEnemyCount > 0)
+                        {
+                            QuestManager.Instance.SetObjective($"{questOnEnter} ({deadCount}/{initialEnemyCount})");
+                        }
+                    }
+                }
+
+                if (currentAlive == 0)
+                {
+                    RoomCleared();
+                }
             }
         }
     }
