@@ -19649,7 +19649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
   respawnSceneName: SafeHub
-  maxHP: 200
+  maxHP: 250
   maxMana: 100
   maxStamina: 100
   meleeDamage: 35
