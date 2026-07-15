@@ -60,6 +60,22 @@ public class EndingEpilogue : MonoBehaviour
     [SerializeField] private string mainMenuScene = "StartMenu";
 
     [SerializeField] private float endingDelay = 3f;
+
+    [Header("Credits Settings")]
+    [SerializeField] private float creditsStayTime = 2.5f;
+    [SerializeField] private string[] creditsCards = {
+        "LONTAR QUEST",
+        "Sebuah Game Oleh\n\nTRISTAN\nFADHIKA\nWARSENO\nARYA",
+        "--- TIM PENGEMBANG ---\n\nStory Designer\nTristan\n\nGame Designer & Level Designer\nArya\nWarseno\n\nAssets Sprites Generator\nFadhika",
+        "--- ASET PIHAK KETIGA ---\n\n2D Art & Environment\nRafaelMatos\n\nVisual Effects & Audio\nJMO Assets, Travis Game Assets",
+        "TERIMA KASIH TELAH BERMAIN"
+    };
+
+    [Header("Post Credits Settings")]
+    [SerializeField] private Sprite postCreditIllustration;
+    [SerializeField] private float postCreditDelay = 2.0f;
+    [SerializeField] private string postCreditNarrationStart = "Beberapa bulan setelah hilangnya Saka...";
+    [SerializeField] private string postCreditTextEnd = "Kisah Saka akan berlanjut.";
  
     private bool nextDialogue;
 
@@ -90,6 +106,11 @@ public class EndingEpilogue : MonoBehaviour
         narrationText.gameObject.SetActive(false);
 
         endText.gameObject.SetActive(false);
+
+        if (postCreditIllustration == null)
+        {
+            postCreditIllustration = Resources.Load<Sprite>("EndingScene/PostCreditIllustration");
+        }
     }
 
     private void Update()
@@ -422,17 +443,223 @@ public class EndingEpilogue : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         //----------------------------------
-        // Fade Out Music
+        // Fade Out - THE END -
         //----------------------------------
 
-        yield return StartCoroutine(
-            FadeOutBGM());
+        timer = 0;
 
-        //----------------------------------
-        // Kembali ke Menu
-        //----------------------------------
+        while(timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
 
-        SceneManager.LoadScene(mainMenuScene);
+            color.a =
+                Mathf.Lerp(
+                    1,
+                    0,
+                    timer / fadeDuration);
+
+            endText.color = color;
+
+            yield return null;
+        }
+
+        color.a = 0;
+        endText.color = color;
+        endText.gameObject.SetActive(false);
+    }
+
+    private IEnumerator PlayCredits()
+    {
+        // Pastikan blackPanel aktif dan menutupi layar
+        blackPanel.gameObject.SetActive(true);
+        Color black = blackPanel.color;
+        black.a = 1;
+        blackPanel.color = black;
+
+        // Gunakan narrationText untuk menampilkan slide kredit
+        narrationText.gameObject.SetActive(true);
+
+        foreach (string creditCard in creditsCards)
+        {
+            narrationText.text = creditCard;
+
+            // Fade In
+            Color color = narrationText.color;
+            color.a = 0;
+            narrationText.color = color;
+
+            float timer = 0;
+            while (timer < fadeDuration)
+            {
+                timer += Time.deltaTime;
+                color.a = Mathf.Lerp(0, 1, timer / fadeDuration);
+                narrationText.color = color;
+                yield return null;
+            }
+            color.a = 1;
+            narrationText.color = color;
+
+            // Diam
+            yield return new WaitForSeconds(creditsStayTime);
+
+            // Fade Out
+            timer = 0;
+            while (timer < fadeDuration)
+            {
+                timer += Time.deltaTime;
+                color.a = Mathf.Lerp(1, 0, timer / fadeDuration);
+                narrationText.color = color;
+                yield return null;
+            }
+            color.a = 0;
+            narrationText.color = color;
+            narrationText.text = "";
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        narrationText.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1.5f);
+    }
+
+    private IEnumerator PlayPostCreditScene()
+    {
+        // 1. Tampilkan Narrasi Awal ("Beberapa bulan setelah hilangnya Saka...")
+        narrationText.gameObject.SetActive(true);
+        narrationText.text = postCreditNarrationStart;
+        Color narrColor = narrationText.color;
+        narrColor.a = 0;
+        narrationText.color = narrColor;
+
+        // Fade In Narasi
+        float timer = 0;
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            narrColor.a = Mathf.Lerp(0, 1, timer / fadeDuration);
+            narrationText.color = narrColor;
+            yield return null;
+        }
+        narrColor.a = 1;
+        narrationText.color = narrColor;
+
+        yield return new WaitForSeconds(3.0f);
+
+        // Fade Out Narasi
+        timer = 0;
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            narrColor.a = Mathf.Lerp(1, 0, timer / fadeDuration);
+            narrationText.color = narrColor;
+            yield return null;
+        }
+        narrColor.a = 0;
+        narrationText.color = narrColor;
+        narrationText.text = "";
+        narrationText.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(1.0f);
+
+        // 2. Tampilkan ilustrasi pasca-kredit
+        if (postCreditIllustration != null)
+        {
+            illustrationImage.sprite = postCreditIllustration;
+        }
+        illustrationPanel.gameObject.SetActive(true);
+        illustrationPanel.alpha = 0;
+
+        // Fade In Ilustrasi
+        timer = 0;
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            illustrationPanel.alpha = Mathf.Lerp(0, 1, timer / fadeDuration);
+            yield return null;
+        }
+        illustrationPanel.alpha = 1;
+
+        yield return new WaitForSeconds(0.5f);
+
+        // 3. Jalankan dialog pasca-kredit
+        nameText.text = "Prof. Arya";
+        yield return StartCoroutine(TypeText("Saka... portal itu memang sudah tertutup."));
+        nextDialogue = false;
+        yield return new WaitUntil(() => nextDialogue);
+
+        yield return StartCoroutine(TypeText("Tapi detak energi Dimensi Lontar masih terekam di sini."));
+        nextDialogue = false;
+        yield return new WaitUntil(() => nextDialogue);
+
+        yield return StartCoroutine(TypeText("Ayah tidak akan membiarkanmu terjebak di sana selamanya."));
+        nextDialogue = false;
+        yield return new WaitUntil(() => nextDialogue);
+
+        yield return StartCoroutine(TypeText("Pasti ada cara untuk membuka kembali jalan masuk..."));
+        nextDialogue = false;
+        yield return new WaitUntil(() => nextDialogue);
+
+        nameText.text = "???";
+        yield return StartCoroutine(TypeText("...Ayah..."));
+        nextDialogue = false;
+        yield return new WaitUntil(() => nextDialogue);
+
+        nameText.text = "Prof. Arya";
+        yield return StartCoroutine(TypeText("(terkejut) Saka?! Apakah itu suaramu?!"));
+        nextDialogue = false;
+        yield return new WaitUntil(() => nextDialogue);
+
+        // 4. Fade Out Ilustrasi & Dialog
+        timer = 0;
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            illustrationPanel.alpha = Mathf.Lerp(1, 0, timer / fadeDuration);
+            yield return null;
+        }
+        illustrationPanel.alpha = 0;
+        illustrationPanel.gameObject.SetActive(false);
+
+        // Pastikan layar tetap hitam
+        blackPanel.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(1.0f);
+
+        // 5. Tampilkan teks penutup ("Kisah Saka akan berlanjut.")
+        endText.gameObject.SetActive(true);
+        endText.text = postCreditTextEnd;
+        Color endTextColor = endText.color;
+        endTextColor.a = 0;
+        endText.color = endTextColor;
+
+        // Fade In
+        timer = 0;
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            endTextColor.a = Mathf.Lerp(0, 1, timer / fadeDuration);
+            endText.color = endTextColor;
+            yield return null;
+        }
+        endTextColor.a = 1;
+        endText.color = endTextColor;
+
+        yield return new WaitForSeconds(4.0f);
+
+        // Fade Out
+        timer = 0;
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            endTextColor.a = Mathf.Lerp(1, 0, timer / fadeDuration);
+            endText.color = endTextColor;
+            yield return null;
+        }
+        endTextColor.a = 0;
+        endText.color = endTextColor;
+        endText.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(1.0f);
     }
 
     public IEnumerator Play()
@@ -473,6 +700,33 @@ public class EndingEpilogue : MonoBehaviour
 
         yield return StartCoroutine(
             PlayTheEnd());
+
+        //----------------------------------
+        // Credits Roll
+        //----------------------------------
+
+        yield return StartCoroutine(
+            PlayCredits());
+
+        //----------------------------------
+        // Post Credits Scene
+        //----------------------------------
+
+        yield return StartCoroutine(
+            PlayPostCreditScene());
+
+        //----------------------------------
+        // Fade Out Music
+        //----------------------------------
+
+        yield return StartCoroutine(
+            FadeOutBGM());
+
+        //----------------------------------
+        // Kembali ke Menu
+        //----------------------------------
+
+        SceneManager.LoadScene(mainMenuScene);
     }
 
 
