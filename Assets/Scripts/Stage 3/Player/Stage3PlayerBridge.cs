@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Stage3PlayerBridge : MonoBehaviour
 {
-    private Stage3PlayerStats stats;
+    private PlayerStats stats;
 
     private void Awake()
     {
-        stats = GetComponent<Stage3PlayerStats>();
+        stats = GetComponent<PlayerStats>();
 
         if (stats == null)
         {
