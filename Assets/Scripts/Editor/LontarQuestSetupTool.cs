@@ -46,6 +46,20 @@ public class LontarQuestSetupTool : EditorWindow
         }
 
         EditorGUILayout.Space();
+        GUILayout.Label("Boon Data Auto-Generator", EditorStyles.boldLabel);
+        EditorGUILayout.HelpBox("Otomatis membuat 6 file Boon (Level 1 & Level 2 untuk tiap Elemen) berjenis Pasif kombinasi.", MessageType.Info);
+        
+        if (GUILayout.Button("Generate 6 Boons (Full Passive)"))
+        {
+            GenerateFullBoonSet();
+        }
+
+        if (GUILayout.Button("Auto-Assign Boons ke UIManager"))
+        {
+            AutoAssignBoons();
+        }
+
+        EditorGUILayout.Space();
         GUILayout.Label("Stage 2 Helpers", EditorStyles.boldLabel);
         EditorGUILayout.HelpBox("Alat untuk mengotomatiskan setup Intro & Dialog Stage 2 (Bagian B).", MessageType.Info);
         
@@ -478,6 +492,195 @@ public class LontarQuestSetupTool : EditorWindow
         // Tandai scene kotor agar Unity menyimpannya
         UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene());
         EditorUtility.DisplayDialog("Success", "Setup Stage 2 Bagian B selesai dikonfigurasi! Silakan save scene (Ctrl+S).", "OK");
+    }
+
+    private void SetupBoonStats(BoonData boon, BoonType type, int level)
+    {
+        // Set base stats
+        float mult = (level == 1) ? 1f : 2f;
+        
+        // Reset all to 0 first
+        boon.attackSpeedBonus = 0f;
+        boon.movementSpeedBonus = 0f;
+        boon.damageReduction = 0f;
+        boon.healthRegen = 0f;
+        boon.globalDamageBonus = 0f;
+        boon.extraHealth = 0;
+        boon.extraStamina = 0f;
+        boon.hasElementalEffect = false;
+
+        switch (type)
+        {
+            case BoonType.Lontara:
+                boon.attackSpeedBonus = 0.15f * mult;
+                boon.movementSpeedBonus = 0.10f * mult;
+                boon.extraStamina = 15f * mult;
+                break;
+                
+            case BoonType.Batak:
+                boon.globalDamageBonus = 0.20f * mult;
+                boon.damageReduction = 0.10f * mult;
+                boon.healthRegen = 2f * mult;
+                break;
+                
+            case BoonType.Kawi:
+                boon.hasElementalEffect = true;
+                boon.globalDamageBonus = 0.15f * mult;
+                boon.extraHealth = 25 * (int)mult;
+                break;
+        }
+    }
+
+    private Sprite GetBoonSprite(BoonType type)
+    {
+        string spriteName = "";
+        switch (type)
+        {
+            case BoonType.Lontara: spriteName = "boons-icon_lontara"; break;
+            case BoonType.Batak: spriteName = "boons-icon_batak"; break;
+            case BoonType.Kawi: spriteName = "boons-icon_kawi"; break;
+        }
+
+        string[] guids = AssetDatabase.FindAssets(spriteName + " t:Sprite");
+        if (guids.Length == 0)
+        {
+            guids = AssetDatabase.FindAssets(spriteName + " t:Texture2D");
+        }
+
+        if (guids.Length > 0)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guids[0]);
+            return AssetDatabase.LoadAssetAtPath<Sprite>(path); // Pastikan tekstur diset sebagai Sprite (2D and UI)
+        }
+        return null;
+    }
+
+    private void GenerateFullBoonSet()
+    {
+        string boonsPath = "Assets/Data/Boons";
+        if (!AssetDatabase.IsValidFolder("Assets/Data")) AssetDatabase.CreateFolder("Assets", "Data");
+        if (!AssetDatabase.IsValidFolder(boonsPath)) AssetDatabase.CreateFolder("Assets/Data", "Boons");
+
+        // CLEANUP LAMA: Hapus semua file BoonData yang ada sebelumnya agar bersih
+        string[] oldGuids = AssetDatabase.FindAssets("t:BoonData", new[] { boonsPath });
+        foreach(string guid in oldGuids)
+        {
+            string oldPath = AssetDatabase.GUIDToAssetPath(guid);
+            AssetDatabase.DeleteAsset(oldPath);
+        }
+
+        BoonType[] types = { BoonType.Lontara, BoonType.Batak, BoonType.Kawi };
+
+        // Load sprites once
+        System.Collections.Generic.Dictionary<BoonType, Sprite> boonSprites = new System.Collections.Generic.Dictionary<BoonType, Sprite>();
+        boonSprites[BoonType.Lontara] = GetBoonSprite(BoonType.Lontara);
+        boonSprites[BoonType.Batak] = GetBoonSprite(BoonType.Batak);
+        boonSprites[BoonType.Kawi] = GetBoonSprite(BoonType.Kawi);
+
+        foreach (BoonType type in types)
+        {
+            // Create Level 2 Boon
+            BoonData lv2 = ScriptableObject.CreateInstance<BoonData>();
+            lv2.boonName = $"{type} Pasif Lv.2";
+            lv2.type = type;
+            lv2.level = 2;
+            lv2.icon = boonSprites[type]; // Assign icon
+            SetupBoonStats(lv2, type, 2);
+            
+            string path2 = $"{boonsPath}/Boon_{type}_Lv2.asset";
+            AssetDatabase.CreateAsset(lv2, path2);
+
+            // Create Level 1 Boon
+            BoonData lv1 = ScriptableObject.CreateInstance<BoonData>();
+            lv1.boonName = $"{type} Pasif Lv.1";
+            lv1.type = type;
+            lv1.level = 1;
+            lv1.nextLevelBoon = lv2;
+            lv1.icon = boonSprites[type]; // Assign icon
+            SetupBoonStats(lv1, type, 1);
+            
+            string path1 = $"{boonsPath}/Boon_{type}_Lv1.asset";
+            AssetDatabase.CreateAsset(lv1, path1);
+        }
+        
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        Debug.Log("✅ 6 Boons (Full Passive) Generated successfully!");
+        EditorUtility.DisplayDialog("Success", "Berhasil membersihkan data lama dan membuat 6 file Boon Pasif di Assets/Data/Boons!", "OK");
+    }
+
+    private void AutoAssignBoons()
+    {
+        // 1. Kumpulkan semua BoonData dari Assets
+        string[] boonGuids = AssetDatabase.FindAssets("t:BoonData");
+        System.Collections.Generic.List<BoonData> allBoons = new System.Collections.Generic.List<BoonData>();
+        foreach (string guid in boonGuids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            BoonData boon = AssetDatabase.LoadAssetAtPath<BoonData>(path);
+            if (boon != null) allBoons.Add(boon);
+        }
+
+        if (allBoons.Count == 0)
+        {
+            EditorUtility.DisplayDialog("Error", "Tidak ada file BoonData yang ditemukan di project!", "OK");
+            return;
+        }
+
+        int successCount = 0;
+
+        // 2. Coba cari di Scene yang sedang aktif
+        BoonUIManager managerInScene = FindObjectOfType<BoonUIManager>(true); // true = include inactive
+        if (managerInScene != null)
+        {
+            managerInScene.allAvailableBoons = allBoons;
+            UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene());
+            Debug.Log($"[Auto-Assign] Berhasil memasukkan {allBoons.Count} Boon ke BoonUIManager di Scene!");
+            successCount++;
+        }
+
+        // 3. Coba cari dan update di Prefab BoonSelectionCanvas (jika ada)
+        string canvasPrefabPath = "Assets/Prefabs/Systems/BoonSelectionCanvas.prefab";
+        if (File.Exists(canvasPrefabPath))
+        {
+            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(canvasPrefabPath);
+            BoonUIManager prefabManager = prefab.GetComponent<BoonUIManager>();
+            if (prefabManager != null)
+            {
+                prefabManager.allAvailableBoons = allBoons;
+                EditorUtility.SetDirty(prefab);
+                PrefabUtility.SavePrefabAsset(prefab);
+                Debug.Log($"[Auto-Assign] Berhasil memasukkan {allBoons.Count} Boon ke Prefab BoonSelectionCanvas!");
+                successCount++;
+            }
+        }
+
+        // 4. Coba cari dan update di Prefab Global_Managers (jika ada)
+        string globalPrefabPath = "Assets/Prefabs/Systems/Global_Managers.prefab";
+        if (File.Exists(globalPrefabPath))
+        {
+            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(globalPrefabPath);
+            BoonUIManager prefabManager = prefab.GetComponent<BoonUIManager>();
+            if (prefabManager != null)
+            {
+                prefabManager.allAvailableBoons = allBoons;
+                EditorUtility.SetDirty(prefab);
+                PrefabUtility.SavePrefabAsset(prefab);
+                Debug.Log($"[Auto-Assign] Berhasil memasukkan {allBoons.Count} Boon ke Prefab Global_Managers!");
+                successCount++;
+            }
+        }
+
+        AssetDatabase.SaveAssets();
+
+        if (successCount > 0)
+        {
+            EditorUtility.DisplayDialog("Success", $"Berhasil memasukkan {allBoons.Count} Boon secara otomatis ke BoonUIManager!", "OK");
+        }
+        else
+        {
+            EditorUtility.DisplayDialog("Warning", $"Ditemukan {allBoons.Count} Boon, tapi tidak bisa menemukan BoonUIManager di Scene atau Prefab.", "OK");
+        }
     }
 }
 #endif

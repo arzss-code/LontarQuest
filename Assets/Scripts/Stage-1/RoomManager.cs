@@ -25,6 +25,7 @@ public class RoomManager : MonoBehaviour
     [Header("Status Ruangan (Read Only)")]
     [SerializeField] private bool isRoomActive = false;
     [SerializeField] private bool isRoomCleared = false;
+    private int totalEnemiesToDefeat;
 
     [Header("Quest Updates")]
     [Tooltip("Misi yang muncul saat Saka masuk ke ruangan ini")]
@@ -107,9 +108,11 @@ public class RoomManager : MonoBehaviour
         if (enemiesInRoom == null || enemiesInRoom.Count == 0)
         {
             Debug.LogWarning("⚠️ ROOM MANAGER: Kolom 'Enemies In Room' KOSONG! Karena tidak ada musuh, ruangan akan LANGSUNG terbuka.");
+            totalEnemiesToDefeat = 0;
         }
         else
         {
+            totalEnemiesToDefeat = enemiesInRoom.Count;
             foreach (GameObject enemy in enemiesInRoom)
             {
                 if (enemy != null) enemy.SetActive(true);
@@ -119,7 +122,12 @@ public class RoomManager : MonoBehaviour
         // 3. Perbarui Quest di layar
         if (QuestManager.Instance != null && !string.IsNullOrEmpty(questOnEnter))
         {
-            QuestManager.Instance.SetObjective(questOnEnter);
+            string objectiveText = questOnEnter;
+            if (totalEnemiesToDefeat > 0)
+            {
+                objectiveText += $" (0/{totalEnemiesToDefeat})";
+            }
+            QuestManager.Instance.SetObjective(objectiveText);
         }
     }
 
@@ -128,8 +136,19 @@ public class RoomManager : MonoBehaviour
         // Hanya pantau kematian musuh jika ruangan sedang aktif pertarungan
         if (isRoomActive && !isRoomCleared)
         {
+            int previousCount = enemiesInRoom.Count;
             // Bersihkan list dari musuh yang sudah mati (Game Object-nya hancur / null)
             enemiesInRoom.RemoveAll(enemy => enemy == null);
+
+            // Update Quest UI jika ada musuh yang baru saja mati
+            if (enemiesInRoom.Count < previousCount && totalEnemiesToDefeat > 0)
+            {
+                int defeatedEnemies = totalEnemiesToDefeat - enemiesInRoom.Count;
+                if (QuestManager.Instance != null && !string.IsNullOrEmpty(questOnEnter))
+                {
+                    QuestManager.Instance.SetObjective($"{questOnEnter} ({defeatedEnemies}/{totalEnemiesToDefeat})");
+                }
+            }
 
             // Jika musuh habis
             if (enemiesInRoom.Count == 0)

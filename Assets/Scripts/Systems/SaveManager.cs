@@ -16,6 +16,26 @@ public class SaveManager : MonoBehaviour
 
     public GameSaveData SaveData = new GameSaveData();
 
+    // --- Temporary Memory Data (Transisi Antar Scene, Hilang jika Game Ditutup) --- //
+    public class RunData
+    {
+        public bool isRunActive = false;
+        public int currentHP = -1; // -1 artinya HP belum tersimpan (harus pakai Max HP)
+        public System.Collections.Generic.List<BoonData> activeBoons = new System.Collections.Generic.List<BoonData>();
+    }
+
+    public RunData CurrentRun = new RunData();
+
+    // --- Checkpoint System (Untuk Retry Stage) --- //
+    public class CheckpointData
+    {
+        public bool hasCheckpoint = false;
+        public int currentHP = -1;
+        public System.Collections.Generic.List<BoonData> activeBoons = new System.Collections.Generic.List<BoonData>();
+    }
+
+    public CheckpointData CurrentCheckpoint = new CheckpointData();
+
     private void Awake()
     {
         if (Instance == null)
@@ -84,5 +104,48 @@ public class SaveManager : MonoBehaviour
     public int GetLastStageReached()
     {
         return SaveData.lastStageReached;
+    }
+
+    // --- Roguelite Run Management --- //
+    public void SaveRunState(int hp, System.Collections.Generic.List<BoonData> boons)
+    {
+        CurrentRun.isRunActive = true;
+        CurrentRun.currentHP = hp;
+        CurrentRun.activeBoons = new System.Collections.Generic.List<BoonData>(boons);
+    }
+
+    public void ClearRun()
+    {
+        CurrentRun.isRunActive = false;
+        CurrentRun.currentHP = -1;
+        CurrentRun.activeBoons.Clear();
+        Debug.Log("Run Data Cleared (Player Mati/Mulai Baru)");
+    }
+
+    // --- Checkpoint Management --- //
+    public void SaveCheckpoint()
+    {
+        if (CurrentRun.isRunActive)
+        {
+            CurrentCheckpoint.hasCheckpoint = true;
+            CurrentCheckpoint.currentHP = CurrentRun.currentHP;
+            CurrentCheckpoint.activeBoons = new System.Collections.Generic.List<BoonData>(CurrentRun.activeBoons);
+            Debug.Log($"Checkpoint Tersimpan! Menyimpan {CurrentCheckpoint.activeBoons.Count} Boon.");
+        }
+    }
+
+    public void RestoreCheckpoint()
+    {
+        if (CurrentCheckpoint.hasCheckpoint)
+        {
+            CurrentRun.isRunActive = true;
+            CurrentRun.currentHP = CurrentCheckpoint.currentHP;
+            CurrentRun.activeBoons = new System.Collections.Generic.List<BoonData>(CurrentCheckpoint.activeBoons);
+            Debug.Log("Checkpoint Dipulihkan! Mengembalikan Boon dari awal Stage.");
+        }
+        else
+        {
+            ClearRun();
+        }
     }
 }

@@ -55,7 +55,16 @@ public class Stage3PlayerStats : MonoBehaviour, IDamageable
     public int MaxMana => maxMana;
     public int CurrentMana => Mathf.RoundToInt(currentMana);
 
-    public int MaxStamina => maxStamina;
+    public int MaxStamina 
+    {
+        get 
+        {
+            int extra = 0;
+            PlayerModifier modifier = GetComponent<PlayerModifier>();
+            if (modifier != null) extra = Mathf.RoundToInt(modifier.TotalExtraStamina);
+            return maxStamina + extra;
+        }
+    }
     public int CurrentStamina => Mathf.RoundToInt(currentStamina);
 
     [Header("Damage Visuals")]
@@ -176,16 +185,18 @@ public class Stage3PlayerStats : MonoBehaviour, IDamageable
         if (isDead) return; // Kalau sudah mati, jangan terima damage lagi
         if (isInvincible) return; // Abaikan damage jika masih kebal (I-Frames)
 
-        // Terapkan efek Damage Reduction dari Boon
-        Stage3PlayerModifier modifier =
-            GetComponent<Stage3PlayerModifier>();
+        // Terapkan efek Damage Reduction dari Boon (Stage 3 Buff & Stage 1/2 Boons)
+        float totalReduction = 0f;
+        Stage3PlayerModifier s3Modifier = GetComponent<Stage3PlayerModifier>();
+        if (s3Modifier != null) totalReduction += s3Modifier.damageReduction;
 
-        if (modifier != null && modifier.damageReduction > 0)
+        PlayerModifier pModifier = GetComponent<PlayerModifier>();
+        if (pModifier != null) totalReduction += pModifier.TotalDamageReduction;
+
+        if (totalReduction > 0)
         {
-            float reduction = amount * modifier.damageReduction;
-
+            float reduction = amount * totalReduction;
             amount -= Mathf.RoundToInt(reduction);
-
             if (amount < 0)
                 amount = 0;
         }
@@ -260,6 +271,13 @@ public class Stage3PlayerStats : MonoBehaviour, IDamageable
         isDead = true;
 
         Debug.Log("Player Died");
+
+        // Roguelike Reset: Bersihkan semua boons
+        PlayerModifier modifier = GetComponent<PlayerModifier>();
+        if (modifier != null)
+        {
+            modifier.ResetAllBoons();
+        }
 
         if (deathSound != null)
         {

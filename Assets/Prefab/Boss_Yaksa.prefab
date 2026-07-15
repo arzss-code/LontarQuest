@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4381667086150849639}
   m_Layer: 6
-  m_Name: AimPower
+  m_Name: AimPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73cd690b28cd304e9dc89e34b40653a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stage2EnemyStats
-  maxHP: 350
+  maxHP: 450
   isBoss: 1
   spriteRenderer: {fileID: 8055786267351782092}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Stage2EnemyMovement
   mode: 1
   moveSpeed: 2.5
-  detectionRadius: 8
+  detectionRadius: 12
   leashType: 1
   leashRadius: 12
   leashBoxSize: {x: 27, y: 20}
@@ -224,7 +224,7 @@ MonoBehaviour:
   stopDistance: {x: 1.2, y: 1.2}
   preferredDistance: 6
   retreatDistance: 3
-  retreatSpeed: 3
+  retreatSpeed: 3.5
   visualParent: {fileID: 6582614406850427909}
   sinusoidalFloatSpeed: 2
   sinusoidalFloatAmount: 0.15
@@ -241,9 +241,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stage2EnemyAttack
   attackType: 1
-  damage: 15
+  damage: 26
   attackRange: {x: 10, y: 10}
-  attackCooldown: 1.8
+  attackCooldown: 2
   targetLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -258,6 +258,7 @@ MonoBehaviour:
   aimDuration: 0.5
   projectilePrefab: {fileID: 2144228157030267135, guid: c33db696ff35327488a9598ea5e384ad, type: 3}
   firePoint: {fileID: 146695680227045179}
+  projectileSpeed: 7
 --- !u!114 &7474385355594331056
 MonoBehaviour:
   m_ObjectHideFlags: 0

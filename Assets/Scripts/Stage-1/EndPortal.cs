@@ -39,6 +39,12 @@ public class EndPortal : MonoBehaviour
                 Instantiate(travelEffect, transform.position, Quaternion.identity);
             }
 
+            // Save Checkpoint Boon dan HP sebelum pindah stage
+            if (SaveManager.Instance != null)
+            {
+                SaveManager.Instance.SaveCheckpoint();
+            }
+
             // Load the next scene
             SceneManager.LoadScene(targetSceneName);
         }
