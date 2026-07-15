@@ -43,6 +43,18 @@ public class Stage2EnemyMovement : MonoBehaviour
     [SerializeField] private float retreatDistance = 3f;
     [SerializeField] private float retreatSpeed = 3.5f;
 
+    [Header("Dynamic Reposition & Wall Avoidance")]
+    [Tooltip("Interval waktu (min, max) untuk mengganti arah reposisi acak saat menjaga jarak")]
+    [SerializeField] private Vector2 repositionInterval = new Vector2(1.5f, 3.5f);
+    [Tooltip("Jarak deteksi dinding untuk gaya tolak (agar tidak mepet tembok)")]
+    [SerializeField] private float wallDetectionDistance = 1.5f;
+    [Tooltip("Kekuatan gaya tolak dari dinding")]
+    [SerializeField] private float wallRepulsionForce = 2.5f;
+    [Tooltip("Apakah mengaktifkan pergerakan memutar/strafing random saat berada di jarak ideal")]
+    [SerializeField] private bool enableStrafing = true;
+    [Tooltip("Kekuatan gaya tarik menuju pusat area spawn (tengah ruangan) agar musuh selalu bergerak di tengah")]
+    [SerializeField] private float centerAttractionForce = 1.5f;
+
     [Header("Visual Hover Effect")]
     [Tooltip("Parent dari visual sprite musuh (anak object) untuk animasi hover/melayang")]
     [SerializeField] private Transform visualParent;
@@ -60,6 +72,8 @@ public class Stage2EnemyMovement : MonoBehaviour
     private Vector2 startPosition;
     private Transform playerTransform;
     private bool isReturning = false;
+    private float nextRepositionTime = 0f;
+    private Vector2 currentStrafeDirection = Vector2.zero;
 
     public Transform PlayerTransform => playerTransform;
 
@@ -227,22 +241,81 @@ public class Stage2EnemyMovement : MonoBehaviour
                     movementVelocity = Vector2.zero;
                     attackScript.TryAttack();
                 }
-                else if (distanceToPlayer < retreatDistance)
-                {
-                    // Terlalu dekat -> Mundur lebih cepat
-                    Vector2 retreatDir = (rb.position - (Vector2)playerTransform.position).normalized;
-                    movementVelocity = AvoidObstacles(retreatDir) * retreatSpeed;
-                }
-                else if (distanceToPlayer > preferredDistance)
-                {
-                    // Terlalu jauh -> Dekati
-                    Vector2 approachDir = ((Vector2)playerTransform.position - rb.position).normalized;
-                    movementVelocity = AvoidObstacles(approachDir) * moveSpeed;
-                }
                 else
                 {
-                    // Jarak ideal tetapi cooldown belum siap -> Berhenti memandang player
-                    movementVelocity = Vector2.zero;
+                    Vector2 desiredDir = Vector2.zero;
+                    float currentSpeed = moveSpeed;
+                    Vector2 dirToPlayer = ((Vector2)playerTransform.position - rb.position).normalized;
+
+                    if (distanceToPlayer < retreatDistance)
+                    {
+                        // Terlalu dekat -> Mundur lebih cepat
+                        Vector2 retreatDir = (rb.position - (Vector2)playerTransform.position).normalized;
+                        desiredDir = retreatDir;
+                        currentSpeed = retreatSpeed;
+                    }
+                    else if (distanceToPlayer > preferredDistance)
+                    {
+                        // Terlalu jauh -> Dekati
+                        Vector2 approachDir = ((Vector2)playerTransform.position - rb.position).normalized;
+                        desiredDir = approachDir;
+                        currentSpeed = moveSpeed;
+                    }
+                    else
+                    {
+                        // Jarak ideal -> Reposisi acak / Strafe memutar
+                        if (enableStrafing)
+                        {
+                            // Perbarui arah memutar secara acak setelah interval waktu tertentu
+                            if (Time.time >= nextRepositionTime)
+                            {
+                                int directionSign = Random.Range(0, 2) == 0 ? 1 : -1;
+                                currentStrafeDirection = new Vector2(-dirToPlayer.y, dirToPlayer.x) * directionSign;
+                                nextRepositionTime = Time.time + Random.Range(repositionInterval.x, repositionInterval.y);
+                            }
+
+                            // Koreksi jarak agar tetap berada di titik tengah antara retreatDistance dan preferredDistance
+                            Vector2 correctionDir = Vector2.zero;
+                            float targetOffset = (preferredDistance + retreatDistance) / 2f;
+                            if (distanceToPlayer < targetOffset)
+                            {
+                                correctionDir = -dirToPlayer * 0.3f; // Dorong ke luar
+                            }
+                            else
+                            {
+                                correctionDir = dirToPlayer * 0.3f; // Dorong ke dalam
+                            }
+
+                            desiredDir = (currentStrafeDirection + correctionDir).normalized;
+                            currentSpeed = moveSpeed * 0.8f; // Kecepatan memutar sedikit lebih lambat
+                        }
+                        else
+                        {
+                            desiredDir = Vector2.zero;
+                            currentSpeed = 0f;
+                        }
+                    }
+
+                    // Terapkan gaya tolak dinding untuk menghindari tembok secara dinamis
+                    Vector2 wallRepulsion = CalculateWallRepulsion();
+                    // Terapkan gaya tarik ke tengah ruangan agar musuh selalu bertarung di area tengah
+                    Vector2 centerAttraction = CalculateCenterAttraction(leashCenter);
+                    
+                    if (wallRepulsion.sqrMagnitude > 0.001f || centerAttraction.sqrMagnitude > 0.001f)
+                    {
+                        desiredDir = (desiredDir + wallRepulsion + centerAttraction).normalized;
+                        currentSpeed = Mathf.Max(currentSpeed, moveSpeed);
+                    }
+
+                    // Lakukan deteksi tabrakan fisik terakhir
+                    if (desiredDir.sqrMagnitude > 0.001f)
+                    {
+                        movementVelocity = AvoidObstacles(desiredDir) * currentSpeed;
+                    }
+                    else
+                    {
+                        movementVelocity = Vector2.zero;
+                    }
                 }
             }
         }
@@ -282,6 +355,78 @@ public class Stage2EnemyMovement : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Menghitung gaya tolak dari dinding terdekat untuk mencegah musuh mepet atau tersangkut.
+    /// Menggunakan raycast ke 8 arah mata angin.
+    /// </summary>
+    private Vector2 CalculateWallRepulsion()
+    {
+        Vector2 repulsion = Vector2.zero;
+        Vector2[] directions = {
+            Vector2.up,
+            Vector2.down,
+            Vector2.left,
+            Vector2.right,
+            new Vector2(1f, 1f).normalized,
+            new Vector2(-1f, 1f).normalized,
+            new Vector2(1f, -1f).normalized,
+            new Vector2(-1f, -1f).normalized
+        };
+
+        Vector2 castOrigin = myCollider != null ? (Vector2)transform.position + myCollider.offset : rb.position;
+        float radius = 0.3f; // Jarak aman default
+        if (myCollider is CircleCollider2D circleCol)
+        {
+            radius = circleCol.radius * Mathf.Abs(transform.localScale.x);
+        }
+        else if (myCollider is BoxCollider2D boxCol)
+        {
+            radius = Mathf.Max(boxCol.size.x * Mathf.Abs(transform.localScale.x), boxCol.size.y * Mathf.Abs(transform.localScale.y)) * 0.5f;
+        }
+
+        foreach (Vector2 dir in directions)
+        {
+            float maxDist = wallDetectionDistance + radius;
+            RaycastHit2D hit = Physics2D.Raycast(castOrigin, dir, maxDist, obstacleLayer);
+            if (hit.collider != null)
+            {
+                float distance = hit.distance - radius;
+                if (distance < 0f) distance = 0f;
+
+                if (distance < wallDetectionDistance)
+                {
+                    // Semakin dekat ke dinding, semakin kuat gaya tolaknya
+                    float strength = (1f - (distance / wallDetectionDistance)) * wallRepulsionForce;
+                    // Arah tolak berlawanan dengan arah dinding
+                    repulsion += -dir * strength;
+                }
+            }
+        }
+
+        return repulsion;
+    }
+
+    /// <summary>
+    /// Menghitung gaya tarik menuju pusat leash (tengah ruangan) agar musuh selalu bergerak di tengah.
+    /// Gaya tarik semakin kuat jika musuh menjauh dari pusat.
+    /// </summary>
+    private Vector2 CalculateCenterAttraction(Vector2 leashCenter)
+    {
+        Vector2 toCenter = leashCenter - (Vector2)transform.position;
+        float distance = toCenter.magnitude;
+        
+        // Jeda mati: Jika sudah dekat dengan pusat, tidak perlu gaya tarik tambahan
+        if (distance < 2.0f) return Vector2.zero;
+
+        // Tentukan jarak maksimum (batas luar area pergerakan)
+        float maxDistance = leashType == LeashConstraintType.Radius ? leashRadius : Mathf.Max(leashBoxSize.x, leashBoxSize.y) * 0.5f;
+        if (maxDistance <= 0f) maxDistance = 1f;
+
+        // Tarikan semakin kuat seiring bertambahnya jarak dari pusat
+        float strength = (distance / maxDistance) * centerAttractionForce;
+        return toCenter.normalized * strength;
     }
 
     /// <summary>

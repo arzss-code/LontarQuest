@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     PlayerStats playerStats;
-    Stage3PlayerStats stage3PlayerStats;
     [Header("Movement")]
     [SerializeField] float moveSpeed = 5f;
 
@@ -76,7 +75,6 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         playerStats = GetComponent<PlayerStats>();
-        stage3PlayerStats = GetComponent<Stage3PlayerStats>();
 
         rb = GetComponent<Rigidbody2D>();
         
@@ -109,9 +107,6 @@ public class PlayerController : MonoBehaviour
         if (playerStats != null)
             return playerStats.UseMana(amount);
 
-        if (stage3PlayerStats != null)
-            return stage3PlayerStats.UseMana(amount);
-
         return false;
     }
 
@@ -120,9 +115,6 @@ public class PlayerController : MonoBehaviour
         if (playerStats != null)
             return playerStats.UseStamina(amount);
 
-        if (stage3PlayerStats != null)
-            return stage3PlayerStats.UseStamina(amount);
-
         return false;
     }
 
@@ -130,9 +122,6 @@ public class PlayerController : MonoBehaviour
     {
         if (playerStats != null)
             return playerStats.rangedDamage;
-
-        if (stage3PlayerStats != null)
-            return stage3PlayerStats.rangedDamage;
 
         return 15;
     }
@@ -487,10 +476,6 @@ public class PlayerController : MonoBehaviour
         {
             useManaSuccess = playerStats.UseMana(25);
         }
-        else if (stage3PlayerStats != null)
-        {
-            useManaSuccess = stage3PlayerStats.UseMana(25);
-        }
 
         if (!useManaSuccess)
         {
@@ -575,10 +560,6 @@ public class PlayerController : MonoBehaviour
         if (playerStats != null)
         {
             arrowDamage = playerStats.rangedDamage;
-        }
-        else if (stage3PlayerStats != null)
-        {
-            arrowDamage = stage3PlayerStats.rangedDamage;
         }
         
         PlayerModifier pm = GetComponent<PlayerModifier>();

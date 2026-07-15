@@ -5,7 +5,7 @@ public class Stage3PlayerHudController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField]
-    Stage3PlayerStats playerStats;
+    PlayerStats playerStats;
 
     [Header("Bars")]
     [SerializeField]

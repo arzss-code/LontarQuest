@@ -389,4 +389,48 @@ public class PlayerStats : MonoBehaviour, IDamageable
             UnityEngine.SceneManagement.SceneManager.LoadScene(respawnSceneName);
         }
     }
+
+    public void FullHeal()
+    {
+        currentHP = MaxHP;
+        UpdateSaveState();
+    }
+
+    public void FullMana()
+    {
+        currentMana = maxMana;
+    }
+
+    public void FullStamina()
+    {
+        currentStamina = maxStamina;
+    }
+
+    public void AddMaxMana(int value)
+    {
+        maxMana += value;
+        currentMana = maxMana;
+    }
+
+    public void AddMaxStamina(int value)
+    {
+        maxStamina += value;
+        currentStamina = maxStamina;
+    }
+
+    public void AddMaxHP(int value)
+    {
+        maxHP += value;
+        currentHP = MaxHP;
+        UpdateSaveState();
+    }
+
+    private void UpdateSaveState()
+    {
+        if (SaveManager.Instance != null)
+        {
+            SaveManager.Instance.CurrentRun.isRunActive = true;
+            SaveManager.Instance.CurrentRun.currentHP = currentHP;
+        }
+    }
 }
