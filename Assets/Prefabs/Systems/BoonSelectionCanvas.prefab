@@ -280,6 +280,138 @@ MonoBehaviour:
   descriptionText: {fileID: 1380689812644971634}
   iconImage: {fileID: 6008368750884035223}
   selectButton: {fileID: 139329032183703810}
+--- !u!1 &1597400307948594584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 72100698547610642}
+  - component: {fileID: 4810378090848146502}
+  - component: {fileID: 2083734511293387396}
+  - component: {fileID: 4249792629133134236}
+  m_Layer: 0
+  m_Name: ButtonCancel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &72100698547610642
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597400307948594584}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8919722250113909428}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -343}
+  m_SizeDelta: {x: 390.1719, y: 136.9855}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4810378090848146502
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597400307948594584}
+  m_CullTransparentMesh: 1
+--- !u!114 &2083734511293387396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597400307948594584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 990301682855178639, guid: b4f8c1f5a69e56d43b6d75d506c656c0, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4249792629133134236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597400307948594584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2083734511293387396}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2243884491450116735}
+        m_TargetAssemblyTypeName: BoonUIManager, Assembly-CSharp
+        m_MethodName: SkipBoonSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1903171161358608308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,6 +1344,7 @@ RectTransform:
   m_Children:
   - {fileID: 4891556586277537319}
   - {fileID: 5568025629127916683}
+  - {fileID: 72100698547610642}
   m_Father: {fileID: 2705073207973629192}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1373,12 +1506,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoonUIManager
   allAvailableBoons:
-  - {fileID: 11400000, guid: 81cb6b30fd169a14e8b033d6b81d134c, type: 2}
-  - {fileID: 11400000, guid: 2a7c4abd3e3f8404785bd39376ce5d0f, type: 2}
-  - {fileID: 11400000, guid: 42ee98e25e1f01c43839f38dde42d814, type: 2}
-  - {fileID: 11400000, guid: b15d1664f9e259b4d921aac7830c02ff, type: 2}
-  - {fileID: 11400000, guid: 38f9cb0bcd371cd4cbd87d0f9de6c400, type: 2}
-  - {fileID: 11400000, guid: 765713b2db6fdfd479a56ba21727162c, type: 2}
+  - {fileID: 11400000, guid: 1e0d5aee744777d4bb17aa96c5cd5038, type: 2}
+  - {fileID: 11400000, guid: 783ca540058a68240bbea5efafca1a96, type: 2}
+  - {fileID: 11400000, guid: 687211dc224b9b24b87f4ced2aeff6bb, type: 2}
+  - {fileID: 11400000, guid: c79a5e7b1a7773a47b01f6504ed40249, type: 2}
+  - {fileID: 11400000, guid: e49df8d2466b0804aaa496fa6a711aba, type: 2}
+  - {fileID: 11400000, guid: 5308067817fca054099b9d1e00faeadf, type: 2}
   boonSelectionPanel: {fileID: 7253575981143854547}
   boonUIElements:
   - {fileID: 6033082657950451163}

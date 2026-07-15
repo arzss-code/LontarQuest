@@ -168,4 +168,16 @@ public class BoonUIManager : MonoBehaviour
             
         Time.timeScale = 1f;
     }
+
+    // Fungsi ini dipanggil dari Tombol UI "Batal" atau "Skip"
+    public void SkipBoonSelection()
+    {
+        Debug.Log("[BoonUIManager] Pemain memilih untuk Batal/Skip Boon.");
+        
+        // Tutup UI dan Lanjut Main
+        if (boonSelectionPanel != null)
+            boonSelectionPanel.SetActive(false);
+            
+        Time.timeScale = 1f;
+    }
 }
