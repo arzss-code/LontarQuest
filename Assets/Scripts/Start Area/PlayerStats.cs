@@ -49,8 +49,39 @@ public class PlayerStats : MonoBehaviour, IDamageable
     float manaRechargeTimer;
     float staminaRechargeTimer;
 
-    public int MaxHP => maxHP;
+    public int MaxHP 
+    {
+        get 
+        {
+            int extra = 0;
+            PlayerModifier modifier = GetComponent<PlayerModifier>();
+            if (modifier != null) extra = modifier.TotalExtraHealth;
+            return maxHP + extra;
+        }
+    }
     public int CurrentHP => currentHP;
+
+    public int CurrentMeleeDamage
+    {
+        get
+        {
+            float extraPercent = 0f;
+            PlayerModifier modifier = GetComponent<PlayerModifier>();
+            if (modifier != null) extraPercent = modifier.TotalGlobalDamageBonus;
+            return Mathf.RoundToInt(meleeDamage * (1f + extraPercent));
+        }
+    }
+
+    public int CurrentRangedDamage
+    {
+        get
+        {
+            float extraPercent = 0f;
+            PlayerModifier modifier = GetComponent<PlayerModifier>();
+            if (modifier != null) extraPercent = modifier.TotalGlobalDamageBonus;
+            return Mathf.RoundToInt(rangedDamage * (1f + extraPercent));
+        }
+    }
 
     public int MaxMana => maxMana;
     public int CurrentMana => Mathf.RoundToInt(currentMana);
@@ -82,7 +113,21 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     void Start()
     {
-        currentHP = maxHP;
+        // --- ROGUELITE PERSISTENCE ---
+        if (SaveManager.Instance != null && SaveManager.Instance.CurrentRun.isRunActive && SaveManager.Instance.CurrentRun.currentHP > 0)
+        {
+            currentHP = SaveManager.Instance.CurrentRun.currentHP;
+        }
+        else
+        {
+            currentHP = MaxHP;
+            if (SaveManager.Instance != null)
+            {
+                SaveManager.Instance.CurrentRun.isRunActive = true;
+                SaveManager.Instance.CurrentRun.currentHP = currentHP;
+            }
+        }
+
         currentMana = maxMana;
         currentStamina = maxStamina;
 
@@ -208,8 +253,14 @@ public class PlayerStats : MonoBehaviour, IDamageable
             Mathf.Clamp(
                 currentHP,
                 0,
-                maxHP
+                MaxHP
             );
+
+        if (SaveManager.Instance != null)
+        {
+            SaveManager.Instance.CurrentRun.isRunActive = true;
+            SaveManager.Instance.CurrentRun.currentHP = currentHP;
+        }
 
         if (spriteRenderer != null && gameObject.activeInHierarchy)
         {
@@ -254,8 +305,14 @@ public class PlayerStats : MonoBehaviour, IDamageable
             Mathf.Clamp(
                 currentHP,
                 0,
-                maxHP
+                MaxHP
             );
+
+        if (SaveManager.Instance != null)
+        {
+            SaveManager.Instance.CurrentRun.isRunActive = true;
+            SaveManager.Instance.CurrentRun.currentHP = currentHP;
+        }
     }
 
     void Die()
@@ -265,11 +322,10 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
         Debug.Log("Player Died");
 
-        // Roguelike Reset: Bersihkan semua boons
-        PlayerModifier modifier = GetComponent<PlayerModifier>();
-        if (modifier != null)
+        // Pulihkan checkpoint saat mati (mengembalikan Boon ke awal stage, bukan menghapus semua)
+        if (SaveManager.Instance != null)
         {
-            modifier.ResetAllBoons();
+            SaveManager.Instance.RestoreCheckpoint();
         }
 
         if (deathSound != null)

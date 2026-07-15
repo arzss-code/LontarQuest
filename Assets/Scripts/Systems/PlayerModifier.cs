@@ -1,26 +1,21 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(PlayerStats))]
 public class PlayerModifier : MonoBehaviour
 {
     private PlayerStats playerStats;
-    private Stage3PlayerStats stage3PlayerStats;
-    private Dictionary<BoonSlot, BoonData> activeBoons = new Dictionary<BoonSlot, BoonData>();
+    private List<BoonData> activeBoons = new List<BoonData>();
 
-    // Penyimpanan data boon secara global di RAM sepanjang game berjalan
-    private static Dictionary<BoonSlot, BoonData> globalActiveBoons = new Dictionary<BoonSlot, BoonData>();
-
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-    private static void InitStatic()
-    {
-        globalActiveBoons.Clear();
-    }
+    public System.Action OnBoonsChanged;
 
     // Variabel penampung buff sementara
     public float TotalAttackSpeedBonus { get; private set; } = 0f;
     public float TotalMovementSpeedBonus { get; private set; } = 0f;
     public float TotalDamageReduction { get; private set; } = 0f;
     public float TotalExtraStamina { get; private set; } = 0f;
+    public float TotalGlobalDamageBonus { get; private set; } = 0f;
+    public int TotalExtraHealth { get; private set; } = 0;
     public bool HasElementalEffect { get; private set; } = false;
 
     private float healthRegenTimer = 0f;
@@ -29,11 +24,20 @@ public class PlayerModifier : MonoBehaviour
     private void Start()
     {
         playerStats = GetComponent<PlayerStats>();
-        stage3PlayerStats = GetComponent<Stage3PlayerStats>();
 
-        // Load boons dari global storage
-        activeBoons = new Dictionary<BoonSlot, BoonData>(globalActiveBoons);
-        RecalculateModifiers();
+        // Load Boon dari Run Sebelumnya (Jika pindah stage)
+        if (SaveManager.Instance != null && SaveManager.Instance.CurrentRun.isRunActive)
+        {
+            foreach (BoonData boon in SaveManager.Instance.CurrentRun.activeBoons)
+            {
+                if (boon != null)
+                {
+                    activeBoons.Add(boon);
+                }
+            }
+            RecalculateModifiers();
+            OnBoonsChanged?.Invoke();
+        }
     }
 
     private void Update()
@@ -44,14 +48,7 @@ public class PlayerModifier : MonoBehaviour
             healthRegenTimer += Time.deltaTime;
             if (healthRegenTimer >= 1f)
             {
-                if (playerStats != null)
-                {
-                    playerStats.Heal(Mathf.RoundToInt(totalHealthRegenPerSec));
-                }
-                else if (stage3PlayerStats != null)
-                {
-                    stage3PlayerStats.Heal(Mathf.RoundToInt(totalHealthRegenPerSec));
-                }
+                playerStats.Heal(Mathf.RoundToInt(totalHealthRegenPerSec));
                 healthRegenTimer -= 1f;
             }
         }
@@ -65,15 +62,27 @@ public class PlayerModifier : MonoBehaviour
     {
         if (newBoon == null) return;
 
-        if (activeBoons.ContainsKey(newBoon.slot))
+        // Cek apakah pemain sudah memiliki Boon dari elemen (type) yang sama
+        int existingIndex = activeBoons.FindIndex(b => b.type == newBoon.type);
+
+        if (existingIndex != -1)
         {
-            activeBoons[newBoon.slot] = newBoon;
-            globalActiveBoons[newBoon.slot] = newBoon;
+            // Jika sudah punya elemen ini, tumpuk/timpa Boon lama dengan yang baru (Upgrade ke Lv2)
+            activeBoons[existingIndex] = newBoon;
         }
         else
         {
-            activeBoons.Add(newBoon.slot, newBoon);
-            globalActiveBoons.Add(newBoon.slot, newBoon);
+            // Jika belum punya elemen ini, dan slot belum penuh (maks 2)
+            if (activeBoons.Count < 2)
+            {
+                activeBoons.Add(newBoon);
+            }
+            else
+            {
+                // Slot penuh, ini adalah kondisi 'Replace' (mengganti boon acak, atau di masa depan bisa dibuat pilih)
+                // Untuk sementara, ganti slot pertama (index 0)
+                activeBoons[0] = newBoon;
+            }
         }
 
         RecalculateModifiers();
@@ -91,6 +100,15 @@ public class PlayerModifier : MonoBehaviour
         }
 
         Debug.Log($"Boon Diperoleh: {newBoon.boonName} ({newBoon.type})");
+
+        // Simpan ke SaveManager agar terbawa ke scene selanjutnya
+        if (SaveManager.Instance != null)
+        {
+            int currentHp = playerStats != null ? playerStats.CurrentHP : -1;
+            SaveManager.Instance.SaveRunState(currentHp, new List<BoonData>(activeBoons));
+        }
+
+        OnBoonsChanged?.Invoke();
     }
 
     private void RecalculateModifiers()
@@ -100,28 +118,33 @@ public class PlayerModifier : MonoBehaviour
         TotalMovementSpeedBonus = 0f;
         TotalDamageReduction = 0f;
         TotalExtraStamina = 0f;
+        TotalGlobalDamageBonus = 0f;
+        TotalExtraHealth = 0;
         totalHealthRegenPerSec = 0f;
         HasElementalEffect = false;
 
         // Hitung ulang dari semua boon yang dimiliki
-        foreach (var boon in activeBoons.Values)
+        foreach (var boon in activeBoons)
         {
             TotalAttackSpeedBonus += boon.attackSpeedBonus;
             TotalMovementSpeedBonus += boon.movementSpeedBonus;
             TotalDamageReduction += boon.damageReduction;
             TotalExtraStamina += boon.extraStamina;
+            TotalGlobalDamageBonus += boon.globalDamageBonus;
+            TotalExtraHealth += boon.extraHealth;
             totalHealthRegenPerSec += boon.healthRegen;
             
             if (boon.hasElementalEffect) HasElementalEffect = true;
         }
     }
 
-    public bool HasBoonInSlot(BoonSlot slot, out BoonData currentBoon)
+    public bool HasBoonOfType(BoonType type, out BoonData currentBoon)
     {
-        return activeBoons.TryGetValue(slot, out currentBoon);
+        currentBoon = activeBoons.Find(b => b.type == type);
+        return currentBoon != null;
     }
 
-    public Dictionary<BoonSlot, BoonData> GetActiveBoons()
+    public List<BoonData> GetActiveBoons()
     {
         return activeBoons;
     }
@@ -130,7 +153,7 @@ public class PlayerModifier : MonoBehaviour
     public void ResetAllBoons()
     {
         activeBoons.Clear();
-        globalActiveBoons.Clear();
         RecalculateModifiers();
+        OnBoonsChanged?.Invoke();
     }
 }

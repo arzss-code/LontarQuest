@@ -28,41 +28,18 @@ public class BoonUIManager : MonoBehaviour
         }
     }
 
-    private bool AreUIElementsDestroyed()
-    {
-        if (boonSelectionPanel == null) return true;
-        if (boonUIElements == null || boonUIElements.Count == 0) return true;
-        
-        foreach (var element in boonUIElements)
-        {
-            if (element == null) return true;
-        }
-        return false;
-    }
-
-    private void RebindUI()
-    {
-        BoonUIElement[] foundElements = FindObjectsOfType<BoonUIElement>(true); // true = cari yang non-aktif juga
-        if (foundElements.Length > 0)
-        {
-            boonUIElements = new List<BoonUIElement>(foundElements);
-            boonSelectionPanel = foundElements[0].transform.parent.gameObject;
-            Debug.Log("[BoonUIManager] UI Canvas berhasil ditemukan dan diikat secara otomatis.");
-        }
-        else
-        {
-            boonUIElements = new List<BoonUIElement>();
-            boonSelectionPanel = null;
-            Debug.LogWarning("[BoonUIManager] Tidak menemukan BoonUIElement di scene aktif ini.");
-        }
-    }
-
     private void Start()
     {
         // Auto-Binding: Cari UI Canvas secara otomatis agar user tidak perlu drag-and-drop manual
-        if (boonSelectionPanel == null || boonUIElements == null || boonUIElements.Count == 0 || AreUIElementsDestroyed())
+        if (boonSelectionPanel == null || boonUIElements == null || boonUIElements.Count == 0)
         {
-            RebindUI();
+            BoonUIElement[] foundElements = FindObjectsOfType<BoonUIElement>(true); // true = cari yang non-aktif juga
+            if (foundElements.Length > 0)
+            {
+                boonUIElements = new List<BoonUIElement>(foundElements);
+                boonSelectionPanel = foundElements[0].transform.parent.gameObject;
+                Debug.Log("[BoonUIManager] UI Canvas berhasil ditemukan dan diikat secara otomatis.");
+            }
         }
 
         if (boonSelectionPanel != null)
@@ -70,22 +47,16 @@ public class BoonUIManager : MonoBehaviour
             boonSelectionPanel.SetActive(false);
         }
 
-        // Cari PlayerModifier di arena
-        playerModifier = FindFirstObjectByType<PlayerModifier>();
+        // Cari PlayerModifier di arena menggunakan tipe komponennya (bukan Tag, untuk menghindari salah objek)
+        playerModifier = FindObjectOfType<PlayerModifier>();
     }
 
     public void ShowBoonSelection()
     {
-        // Selalu re-bind UI jika referensi saat ini hilang, rusak, atau dari scene sebelumnya
-        if (boonSelectionPanel == null || boonUIElements == null || boonUIElements.Count == 0 || AreUIElementsDestroyed())
-        {
-            RebindUI();
-        }
-
         // Pastikan kita punya referensi ke PlayerModifier sebelum menyaring
         if (playerModifier == null)
         {
-            playerModifier = FindFirstObjectByType<PlayerModifier>();
+            playerModifier = FindObjectOfType<PlayerModifier>();
         }
 
         // 1. Saring BOON berdasarkan Slot dan Level
@@ -93,34 +64,34 @@ public class BoonUIManager : MonoBehaviour
 
         foreach (BoonData boon in allAvailableBoons)
         {
-            if (boon == null) continue; // Antisipasi jika ada element null di Inspector list
-
-            if (playerModifier != null && playerModifier.HasBoonOfType(boon.type, out BoonData currentBoon))
+            if (playerModifier != null)
             {
-                // Jika sudah punya boon tipe yang SAMA
-                if (currentBoon.boonName == boon.boonName)
+                bool hasElement = playerModifier.HasBoonOfType(boon.type, out BoonData currentBoon);
+                
+                if (boon.level == 1)
                 {
-                    // Tawarkan upgrade jika ada next level
-                    if (currentBoon.nextLevelBoon != null)
+                    // Hanya tawarkan Lv 1 jika belum punya elemen ini
+                    if (!hasElement && !validBoons.Contains(boon))
                     {
-                        if (!validBoons.Contains(currentBoon.nextLevelBoon))
-                            validBoons.Add(currentBoon.nextLevelBoon);
-                    }
-                    // Jika tidak ada nextLevelBoon (sudah max level), buang dari opsi
-                }
-                else
-                {
-                    // Tipe ini sudah terisi, tapi boonnya beda? (Secara logika tidak mungkin karena HasBoonOfType cek tipe)
-                    // Tapi sebagai fallback:
-                    if (!validBoons.Contains(boon))
                         validBoons.Add(boon);
+                    }
+                }
+                else if (boon.level == 2)
+                {
+                    // Hanya tawarkan Lv 2 jika sudah punya Lv 1 dari elemen ini
+                    if (hasElement && currentBoon.level == 1 && !validBoons.Contains(boon))
+                    {
+                        validBoons.Add(boon);
+                    }
                 }
             }
             else
             {
-                // Belum punya elemen ini, jadi tawarkan (Level 1 biasanya)
+                // Fallback jika PlayerModifier tidak ditemukan
                 if (boon.level == 1 && !validBoons.Contains(boon))
+                {
                     validBoons.Add(boon);
+                }
             }
         }
 
@@ -171,7 +142,7 @@ public class BoonUIManager : MonoBehaviour
         // Pastikan kita punya referensi ke PlayerModifier
         if (playerModifier == null)
         {
-            playerModifier = FindFirstObjectByType<PlayerModifier>();
+            playerModifier = FindObjectOfType<PlayerModifier>();
         }
 
         if (playerModifier != null)
@@ -190,18 +161,6 @@ public class BoonUIManager : MonoBehaviour
         {
             Debug.LogError("[BoonUIManager] PlayerModifier tidak ditemukan! Pastikan objek Saka memiliki tag 'Player' dan komponen PlayerModifier.");
         }
-        
-        // Tutup UI dan Lanjut Main
-        if (boonSelectionPanel != null)
-            boonSelectionPanel.SetActive(false);
-            
-        Time.timeScale = 1f;
-    }
-
-    // Fungsi ini dipanggil dari Tombol UI "Batal" atau "Skip"
-    public void SkipBoonSelection()
-    {
-        Debug.Log("[BoonUIManager] Pemain memilih untuk Batal/Skip Boon.");
         
         // Tutup UI dan Lanjut Main
         if (boonSelectionPanel != null)

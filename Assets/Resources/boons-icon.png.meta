@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boons-icon_0
+      name: boons-icon_lontara
       rect:
         serializedVersion: 2
         x: 35
@@ -127,7 +127,7 @@ TextureImporter:
         width: 378
         height: 471
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -141,7 +141,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boons-icon_1
+      name: boons-icon_batak
       rect:
         serializedVersion: 2
         x: 439
@@ -149,7 +149,7 @@ TextureImporter:
         width: 374
         height: 471
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -163,7 +163,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boons-icon_2
+      name: boons-icon_kawi
       rect:
         serializedVersion: 2
         x: 840
@@ -171,7 +171,7 @@ TextureImporter:
         width: 378
         height: 471
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -188,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0e3c57492010ff44d9709f4a71e741dd
     internalID: 0
     vertices: []
     indices: 
@@ -198,9 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      boons-icon_0: -3298287231336791485
-      boons-icon_1: 6990620842990733560
-      boons-icon_2: 5551469425518434246
+      boons-icon_batak: 6990620842990733560
+      boons-icon_kawi: 5551469425518434246
+      boons-icon_lontara: -3298287231336791485
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

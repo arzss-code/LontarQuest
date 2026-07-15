@@ -34,12 +34,13 @@ public class BoonUIElement : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 
         if (descriptionText != null)
         {
-            // Auto-Generate Deskripsi berdasarkan Stat
-            string autoDesc = "";
+            string autoDesc = $"<color=yellow>[Tipe Pasif Lv.{boonData.level}]</color>\n";
             if (boonData.attackSpeedBonus > 0) autoDesc += $"<color=green>+{boonData.attackSpeedBonus * 100}%</color> Attack Speed\n";
             if (boonData.movementSpeedBonus > 0) autoDesc += $"<color=green>+{boonData.movementSpeedBonus * 100}%</color> Move Speed\n";
             if (boonData.damageReduction > 0) autoDesc += $"<color=blue>-{boonData.damageReduction * 100}%</color> Damage Taken\n";
             if (boonData.healthRegen > 0) autoDesc += $"<color=red>+{boonData.healthRegen}</color> HP Regen/s\n";
+            if (boonData.globalDamageBonus > 0) autoDesc += $"<color=orange>+{boonData.globalDamageBonus * 100}%</color> All Damage\n";
+            if (boonData.extraHealth > 0) autoDesc += $"<color=red>+{boonData.extraHealth}</color> Max HP\n";
             if (boonData.extraStamina > 0) autoDesc += $"<color=orange>+{boonData.extraStamina}</color> Max Stamina\n";
             if (boonData.hasElementalEffect) autoDesc += $"<color=purple>Efek Elemental Aktif</color>\n";
 
@@ -99,10 +100,6 @@ public class BoonUIElement : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log($"<color=yellow>[DEBUG UI] RAW CLICK TERDETEKSI DI KARTU: {gameObject.name}!</color>");
-        // Hanya panggil OnBoonSelected jika selectButton tidak ada atau tidak aktif/interactable
-        if (selectButton == null || !selectButton.gameObject.activeInHierarchy || !selectButton.interactable)
-        {
-            OnBoonSelected();
-        }
+        OnBoonSelected(); // Paksa jalankan fungsi meskipun komponen Button error
     }
 }

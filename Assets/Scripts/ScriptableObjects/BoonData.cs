@@ -7,13 +7,7 @@ public enum BoonType
     Kawi     // Bonus kekuatan spesial (Elemental/Stamina)
 }
 
-public enum BoonSlot
-{
-    Melee,
-    Bow,
-    Dash,
-    Passive
-}
+// BoonSlot dihapus karena sekarang semua adalah slot pasif bebas.
 
 [CreateAssetMenu(fileName = "New Boon", menuName = "LontarQuest/Boon Data")]
 public class BoonData : ScriptableObject
@@ -21,13 +15,12 @@ public class BoonData : ScriptableObject
     [Header("Identitas Boon")]
     public string boonName;
     public BoonType type;
-    public BoonSlot slot;
     
     [Tooltip("Level dari Boon ini (1 atau 2)")]
     public int level = 1;
-    [Tooltip("Boon referensi untuk level selanjutnya jika pemain sudah punya ini. Kosongkan jika ini Max Level.")]
+    [Tooltip("Boon level berikutnya jika di-upgrade")]
     public BoonData nextLevelBoon;
-
+    
     [TextArea(2, 4)]
     public string description;
     public Sprite icon;
@@ -42,6 +35,12 @@ public class BoonData : ScriptableObject
     
     [Tooltip("Jumlah HP regenerasi per detik")]
     public float healthRegen = 0f;
+
+    [Tooltip("Persentase tambahan semua jenis damage. Misal 0.2 = +20%")]
+    public float globalDamageBonus = 0f;
+
+    [Tooltip("Tambahan Max HP")]
+    public int extraHealth = 0;
 
     [Tooltip("Efek spesial (misalnya elemen api atau racun, bisa diakses oleh sistem combat)")]
     public bool hasElementalEffect = false;
