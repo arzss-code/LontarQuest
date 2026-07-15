@@ -37,7 +37,7 @@ public class JournalTempleManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.J))
         {
-            if(PuzzleManager.Instance.IsPuzzleOpen)
+            if(PuzzleManager.Instance != null && PuzzleManager.Instance.IsPuzzleOpen)
                 return;
 
             ToggleJournal();

@@ -26,6 +26,25 @@ public class JournalManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
+    {
+        if (journalUIPanel != null)
+        {
+            journalUIPanel.SetActive(false);
+        }
+        Time.timeScale = 1f;
+    }
+
     private void Update()
     {
         // Toggle UI Jurnal saat menekan Tab

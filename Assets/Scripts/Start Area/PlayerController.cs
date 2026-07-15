@@ -130,9 +130,17 @@ public class PlayerController : MonoBehaviour
     {
 
         if (!canMove)
-        return;
+        {
+            movement = Vector2.zero;
 
-        
+            if (animator != null)
+            {
+                animator.SetFloat("Speed", 0);
+            }
+
+            return;
+        }
+
         if (dashCooldownTimer > 0)
         {
             dashCooldownTimer -= Time.deltaTime;
@@ -142,18 +150,6 @@ public class PlayerController : MonoBehaviour
         {
             inputLockTimer -= Time.deltaTime;
             movement = Vector2.zero;
-            return;
-        }
-
-        if (!canMove)
-        {
-            movement = Vector2.zero;
-
-            if (animator != null)
-            {
-                animator.SetFloat("Speed", 0);
-            }
-
             return;
         }
 

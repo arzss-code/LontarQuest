@@ -281,7 +281,7 @@ public class EnemyMovement : MonoBehaviour
 
                 if (MoveToDestination())
                 {
-                    StartCoroutine(WaitRoutine());
+                    waitRoutine = StartCoroutine(WaitRoutine());
                 }
 
                 break;
@@ -379,5 +379,6 @@ public class EnemyMovement : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
 
         currentState = MovementState.Patrol;
+        waitRoutine = null;
     }
 }

@@ -94,6 +94,11 @@ public class ArrowProjectile : MonoBehaviour
 
         if(other.gameObject.layer != LayerMask.NameToLayer("Enemy"))
         {
+            // Hit Tembok / Obstacle
+            if (other.gameObject.layer == LayerMask.NameToLayer("Wall") || other.CompareTag("Wall") || other.gameObject.name.Contains("Wall"))
+            {
+                Destroy(gameObject);
+            }
             return;
         }
 

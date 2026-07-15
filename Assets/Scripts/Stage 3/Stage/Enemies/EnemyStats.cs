@@ -47,7 +47,10 @@ public class EnemyStats : MonoBehaviour, IDamageable
     private void Awake()
     {
 
-        healthBar.Initialize(maxHP);
+        if (healthBar != null)
+        {
+            healthBar.Initialize(maxHP);
+        }
         currentHP = maxHP;
 
         if (spriteRenderer == null)
@@ -88,7 +91,10 @@ public class EnemyStats : MonoBehaviour, IDamageable
             Die();
         }
 
-        healthBar.SetHealth(currentHP);
+        if (healthBar != null)
+        {
+            healthBar.SetHealth(currentHP);
+        }
     }
 
     //--------------------------------------------------

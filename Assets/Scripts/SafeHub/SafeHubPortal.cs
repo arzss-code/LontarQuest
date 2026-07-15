@@ -48,7 +48,7 @@ public class SafeHubPortal : MonoBehaviour
 
         int lastStage = SaveManager.Instance.GetLastStageReached();
 
-        isUnlocked = (stageNumber == lastStage);
+        isUnlocked = (stageNumber <= lastStage);
 
         // Ganti sprite sesuai status kunci
         spriteRenderer.sprite = isUnlocked ? unlockedSprite : lockedSprite;
