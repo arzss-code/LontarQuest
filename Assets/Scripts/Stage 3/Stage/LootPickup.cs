@@ -96,9 +96,9 @@ public class LootPickup : MonoBehaviour
         // Show Reward UI
         //----------------------------------
 
-        if (BuffRewardUI.Instance != null)
+        if (BoonUIManager.Instance != null)
         {
-            BuffRewardUI.Instance.ShowReward();
+            BoonUIManager.Instance.ShowBoonSelection();
         }
 
         //----------------------------------
