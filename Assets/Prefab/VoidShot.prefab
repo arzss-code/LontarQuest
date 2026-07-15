@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VoidShot
   moveSpeed: 15
   maxLifeTime: 2.5
-  damage: 15
+  damage: 22
   wallLayer:
     serializedVersion: 2
     m_Bits: 512

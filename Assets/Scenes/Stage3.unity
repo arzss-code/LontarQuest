@@ -83249,7 +83249,7 @@ MonoBehaviour:
   slamDust: {fileID: 880425371}
   shieldBreakParticle: {fileID: 1873038735}
   slamRadius: 3.5
-  slamDamage: 38
+  slamDamage: 78
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
