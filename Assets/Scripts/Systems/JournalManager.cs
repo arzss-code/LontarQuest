@@ -118,4 +118,15 @@ public class JournalManager : MonoBehaviour
             }
         }
     }
+
+    public void ResetJournal()
+    {
+        unlockedLoreIDs.Clear();
+        string path = GetSavePath();
+        if (System.IO.File.Exists(path))
+        {
+            System.IO.File.Delete(path);
+            Debug.Log("Berkas simpanan jurnal berhasil dihapus.");
+        }
+    }
 }

@@ -148,4 +148,33 @@ public class SaveManager : MonoBehaviour
             ClearRun();
         }
     }
+
+    public bool HasSaveFile()
+    {
+        return File.Exists(GetSavePath());
+    }
+
+    public void NewGame()
+    {
+        string path = GetSavePath();
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+        
+        SaveData = new GameSaveData();
+        ClearRun();
+        CurrentCheckpoint.hasCheckpoint = false;
+        CurrentCheckpoint.currentHP = -1;
+        CurrentCheckpoint.activeBoons.Clear();
+        
+        // Bersihkan jurnal jika instance ada
+        if (JournalManager.Instance != null)
+        {
+            JournalManager.Instance.ResetJournal();
+        }
+        
+        SaveGame();
+        Debug.Log("Game Baru Dimulai: File save lama dihapus dan data di-reset.");
+    }
 }

@@ -53,6 +53,11 @@ public class PauseManager : MonoBehaviour
 
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name == "StartMenu")
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             // Jangan buka pause menu jika Jurnal sedang terbuka
@@ -163,7 +168,11 @@ public class PauseManager : MonoBehaviour
         menuBtn.GetComponent<Button>().onClick.AddListener(() => {
             Time.timeScale = 1f;
             isPaused = false;
-            SceneManager.LoadScene("SafeHub"); // Pindah ke SafeHub
+            if (pausePanel != null)
+            {
+                pausePanel.SetActive(false);
+            }
+            SceneManager.LoadScene("StartMenu"); // Pindah ke Main Menu
         });
 
         GameObject quitBtn = CreateButton("QuitBtn", "Quit", centerPanel.transform, new Vector2(0, -180), kuraleFont);
