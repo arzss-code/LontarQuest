@@ -52,6 +52,8 @@ public class Stage2EnemyMovement : MonoBehaviour
     [SerializeField] private float wallRepulsionForce = 2.5f;
     [Tooltip("Apakah mengaktifkan pergerakan memutar/strafing random saat berada di jarak ideal")]
     [SerializeField] private bool enableStrafing = true;
+    [Tooltip("Kekuatan gaya tarik menuju pusat area spawn (tengah ruangan) agar musuh selalu bergerak di tengah")]
+    [SerializeField] private float centerAttractionForce = 1.5f;
 
     [Header("Visual Hover Effect")]
     [Tooltip("Parent dari visual sprite musuh (anak object) untuk animasi hover/melayang")]
@@ -296,9 +298,12 @@ public class Stage2EnemyMovement : MonoBehaviour
 
                     // Terapkan gaya tolak dinding untuk menghindari tembok secara dinamis
                     Vector2 wallRepulsion = CalculateWallRepulsion();
-                    if (wallRepulsion.sqrMagnitude > 0.001f)
+                    // Terapkan gaya tarik ke tengah ruangan agar musuh selalu bertarung di area tengah
+                    Vector2 centerAttraction = CalculateCenterAttraction(leashCenter);
+                    
+                    if (wallRepulsion.sqrMagnitude > 0.001f || centerAttraction.sqrMagnitude > 0.001f)
                     {
-                        desiredDir = (desiredDir + wallRepulsion).normalized;
+                        desiredDir = (desiredDir + wallRepulsion + centerAttraction).normalized;
                         currentSpeed = Mathf.Max(currentSpeed, moveSpeed);
                     }
 
@@ -401,6 +406,27 @@ public class Stage2EnemyMovement : MonoBehaviour
         }
 
         return repulsion;
+    }
+
+    /// <summary>
+    /// Menghitung gaya tarik menuju pusat leash (tengah ruangan) agar musuh selalu bergerak di tengah.
+    /// Gaya tarik semakin kuat jika musuh menjauh dari pusat.
+    /// </summary>
+    private Vector2 CalculateCenterAttraction(Vector2 leashCenter)
+    {
+        Vector2 toCenter = leashCenter - (Vector2)transform.position;
+        float distance = toCenter.magnitude;
+        
+        // Jeda mati: Jika sudah dekat dengan pusat, tidak perlu gaya tarik tambahan
+        if (distance < 2.0f) return Vector2.zero;
+
+        // Tentukan jarak maksimum (batas luar area pergerakan)
+        float maxDistance = leashType == LeashConstraintType.Radius ? leashRadius : Mathf.Max(leashBoxSize.x, leashBoxSize.y) * 0.5f;
+        if (maxDistance <= 0f) maxDistance = 1f;
+
+        // Tarikan semakin kuat seiring bertambahnya jarak dari pusat
+        float strength = (distance / maxDistance) * centerAttractionForce;
+        return toCenter.normalized * strength;
     }
 
     /// <summary>
