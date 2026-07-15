@@ -293,9 +293,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stage2EnemyAttack
   attackType: 0
-  damage: 25
+  damage: 35
   attackRange: {x: 1.5, y: 2}
-  attackCooldown: 1
+  attackCooldown: 0.5
   targetLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -310,6 +310,7 @@ MonoBehaviour:
   aimDuration: 0.5
   projectilePrefab: {fileID: 0}
   firePoint: {fileID: 0}
+  projectileSpeed: 7
 --- !u!114 &6428906342898671819
 MonoBehaviour:
   m_ObjectHideFlags: 0
