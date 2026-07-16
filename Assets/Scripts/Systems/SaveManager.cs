@@ -168,10 +168,18 @@ public class SaveManager : MonoBehaviour
         CurrentCheckpoint.currentHP = -1;
         CurrentCheckpoint.activeBoons.Clear();
         
-        // Bersihkan jurnal jika instance ada
+        // Bersihkan jurnal
         if (JournalManager.Instance != null)
         {
             JournalManager.Instance.ResetJournal();
+        }
+        else
+        {
+            string journalPath = Path.Combine(Application.persistentDataPath, "journal_save.json");
+            if (File.Exists(journalPath))
+            {
+                File.Delete(journalPath);
+            }
         }
         
         SaveGame();

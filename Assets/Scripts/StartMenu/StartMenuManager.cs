@@ -72,8 +72,27 @@ public class StartMenuManager : MonoBehaviour
 
     private void GenerateMainMenuUI()
     {
-        // 1. Temukan Canvas di scene
-        Canvas canvas = FindFirstObjectByType<Canvas>();
+        // 1. Temukan Canvas di scene (utamakan Canvas lokal tempat anyKeyText berada)
+        Canvas canvas = null;
+        if (anyKeyText != null)
+        {
+            canvas = anyKeyText.GetComponentInParent<Canvas>();
+        }
+
+        if (canvas == null)
+        {
+            // Cari Canvas di scene, hindari Canvas persisten milik PauseManager
+            Canvas[] canvases = FindObjectsByType<Canvas>(FindObjectsSortMode.None);
+            foreach (Canvas c in canvases)
+            {
+                if (c.gameObject.name != "PauseCanvas" && c.gameObject.name != "JournalCanvas")
+                {
+                    canvas = c;
+                    break;
+                }
+            }
+        }
+
         if (canvas == null)
         {
             GameObject canvasObj = new GameObject("MainMenuCanvas");
