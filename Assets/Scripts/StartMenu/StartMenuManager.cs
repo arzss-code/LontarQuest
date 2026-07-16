@@ -121,7 +121,8 @@ public class StartMenuManager : MonoBehaviour
         {
             GameObject canvasObj = new GameObject("MainMenuCanvas");
             canvas = canvasObj.AddComponent<Canvas>();
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            canvas.worldCamera = Camera.main;
             canvasObj.AddComponent<CanvasScaler>();
             canvasObj.AddComponent<GraphicRaycaster>();
         }
