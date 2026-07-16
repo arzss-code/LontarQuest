@@ -53,7 +53,31 @@ public class StartMenuManager : MonoBehaviour
 
         if (Input.anyKeyDown)
         {
-            Debug.Log("Any Key Ditekan, Membuka Main Menu");
+            Debug.Log("Any Key Ditekan, Memproses Start Input");
+            HandleStartInput();
+        }
+    }
+
+    private void HandleStartInput()
+    {
+        bool hasSave = false;
+        if (SaveManager.Instance != null)
+        {
+            hasSave = SaveManager.Instance.HasSaveFile();
+        }
+
+        if (!hasSave)
+        {
+            loading = true;
+            Debug.Log("Game pertama kali dibuka (tidak ada save). Memulai game baru secara otomatis.");
+            if (SaveManager.Instance != null)
+            {
+                SaveManager.Instance.NewGame();
+            }
+            StartCoroutine(LoadSceneWithFade(nextSceneName));
+        }
+        else
+        {
             ShowMainMenu();
         }
     }
